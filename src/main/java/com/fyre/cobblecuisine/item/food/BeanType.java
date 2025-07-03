@@ -16,7 +16,11 @@ public enum BeanType {
 	BLUE("blue_bean", effect(StatusEffects.REGENERATION)),
 	ORANGE("orange_bean", effect(StatusEffects.REGENERATION)),
 	GREEN("green_bean", effect(StatusEffects.REGENERATION)),
-	YELLOW("yellow_bean", effect(StatusEffects.REGENERATION));
+	YELLOW("yellow_bean", effect(StatusEffects.REGENERATION)),
+	VIOLET("violet_bean", effect(StatusEffects.REGENERATION)),
+	INDIGO("indigo_bean", effect(StatusEffects.REGENERATION));
+
+
 
 	public final String id;
 	public final Item item;

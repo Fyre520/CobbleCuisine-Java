@@ -4,13 +4,16 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "cobblecuisine:red_bean"
+      "item": "cobblemon:calcium"
     },
     {
-      "tag": "cobblemon:spicy_10"
+      "tag": "minecraft:fruits"
     },
     {
-      "item": "minecraft:water_bucket"
+      "tag": "cobblecuisine:green_group3"
+    },
+    {
+      "tag": "cobblecuisine:beans"
     }
   ],
   "result": {

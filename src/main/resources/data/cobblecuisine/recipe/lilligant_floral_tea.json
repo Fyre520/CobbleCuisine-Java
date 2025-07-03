@@ -4,13 +4,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:water_bucket"
+      "item": "cobblemon:zinc"
     },
     {
-      "tag": "cobblemon:dry_10"
+      "tag": "cobblecuisine:red_group3"
     },
     {
-      "item": "cobblecuisine:green_bean"
+      "tag": "cobblemon:spicy_10"
     },
     {
       "tag": "minecraft:flowers"

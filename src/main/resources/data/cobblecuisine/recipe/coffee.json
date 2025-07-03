@@ -4,7 +4,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "cobblecuisine:yellow_bean"
+      "item": "cobblemon:iron"
     },
     {
       "item": "minecraft:milk_bucket"
@@ -13,7 +13,7 @@
       "item": "minecraft:cocoa_beans"
     },
     {
-      "tag": "cobblemon:bitter_10"
+      "tag": "cobblecuisine:purple_group3"
     }
   ],
   "result": {

@@ -4,16 +4,16 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "cobblemon:sweet_10"
+      "tag": "cobblemon:sweets"
     },
     {
       "item": "minecraft:milk_bucket"
     },
     {
-      "item": "cobblecuisine:orange_bean"
+      "item": "cobblemon:hp_up"
     },
     {
-      "item": "minecraft:sugar"
+      "tag": "cobblecuisine:pink_group3"
     }
   ],
   "result": {

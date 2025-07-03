@@ -4,10 +4,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "cobblemon:sour_10"
+      "item": "cobblemon:carbos"
     },
     {
-      "item": "cobblecuisine:blue_bean"
+      "tag": "cobblecuisine:blue_group3"
+    },
+    {
+      "tag": "cobblemon:sour_10"
     },
     {
       "item": "minecraft:sugar"

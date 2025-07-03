@@ -1,29 +1,29 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "pattern": [
-    " b ",
-    "xyz",
-    " b "
-  ],
-  "key": {
-    "b": {
-      "item": "minecraft:bread"
+    "type": "minecraft:crafting_shaped",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "pattern": [
+      " b ",
+      "xyz",
+      " b "
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:bread"
+      },
+      "x": {
+        "item": "cobblecuisine:spice_mix"
+      },
+      "y": {
+        "item": "cobblecuisine:roasted_occa_berry"
+      },
+      "z": {
+        "tag": "cobblemon:cooked_meat"
+      }
     },
-    "x": {
-      "item": "cobblemon:occa_berry"
+    "result": {
+      "id": "cobblecuisine:spicy_five_alarm_sandwich",
+      "count": 1
     },
-    "y": {
-      "tag": "cobblemon:spicy_30"
-    },
-    "z": {
-      "item": "cobblemon:galarica_nuts"
-    }
-  },
-  "result": {
-    "id": "cobblecuisine:spicy_five_alarm_sandwich",
-    "count": 1
-  },
-  "show_notification": true
-}
+    "show_notification": true
+  }
