@@ -9,6 +9,8 @@
   "item.cobblecuisine.green_bean": "綠豆",
   "item.cobblecuisine.yellow_bean": "黃豆",
   "item.cobblecuisine.orange_bean": "橙豆",
+  "item.cobblecuisine.violet_bean": "紫豆",
+  "item.cobblecuisine.indigo_bean": "靛豆",
 
   "tooltip.cobblecuisine.item.red_bean": "§6可餵給寶可夢！§r",
   "tooltip.cobblecuisine.item.red_bean.1": "§6友情度增加 %s§r",
@@ -20,6 +22,10 @@
   "tooltip.cobblecuisine.item.green_bean.1": "§6友情度增加 %s§r",
   "tooltip.cobblecuisine.item.yellow_bean": "§6可餵給寶可夢！§r",
   "tooltip.cobblecuisine.item.yellow_bean.1": "§6友情度增加 %s§r",
+  "tooltip.cobblecuisine.item.violet_bean": "§6可餵給寶可夢！§r",
+  "tooltip.cobblecuisine.item.violet_bean.1": "§6友情度增加 %s§r",
+  "tooltip.cobblecuisine.item.indigo_bean": "§6可餵給寶可夢！§r",
+  "tooltip.cobblecuisine.item.indigo_bean.1": "§6友情度增加 %s§r",
 
   "item.cobblecuisine.bean.use": "%s 享用了這顆豆子！",
 
@@ -192,7 +198,7 @@
   "item.cobblecuisine.cross_chop_salad": "十字斬沙拉",
   "item.cobblecuisine.defiant_coffee_dressed_salad": "逞強咖啡調味沙拉",
   "item.cobblecuisine.petal_blizzard_layered_salad": "花瓣暴風雪分層沙拉",
-  "item.cobblecuisine.apple_acid_yogurt_salad": "酸蘋果優格沙拉",
+  "item.cobblecuisine.apple_acid_yoghurt_salad": "酸蘋果優格沙拉",
 
   "tooltip.cobblecuisine.item.mixed_vegetable_salad": "吸引特定性格的寶可夢。",
   "tooltip.cobblecuisine.item.pumpkin_pie_salad": "吸引特定性格的寶可夢。",
@@ -218,7 +224,7 @@
   "tooltip.cobblecuisine.item.cross_chop_salad": "吸引特定性格的寶可夢。",
   "tooltip.cobblecuisine.item.defiant_coffee_dressed_salad": "吸引特定性格的寶可夢。",
   "tooltip.cobblecuisine.item.petal_blizzard_layered_salad": "吸引特定性格的寶可夢。",
-  "tooltip.cobblecuisine.item.apple_acid_yogurt_salad": "吸引特定性格的寶可夢。",
+  "tooltip.cobblecuisine.item.apple_acid_yoghurt_salad": "吸引特定性格的寶可夢。",
 
   "item.cobblecuisine.sweet_pokepuff": "甜寶貝球泡芙",
   "item.cobblecuisine.mint_pokepuff": "薄荷寶貝球泡芙",

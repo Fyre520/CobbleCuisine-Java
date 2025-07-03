@@ -9,8 +9,8 @@
   "item.cobblecuisine.green_bean": "Green Bean",
   "item.cobblecuisine.yellow_bean": "Yellow Bean",
   "item.cobblecuisine.orange_bean": "Orange Bean",
-  "item.cobblecuisine.violet_bean": "Orange Bean",
-  "item.cobblecuisine.indigo_bean": "Orange Bean",
+  "item.cobblecuisine.violet_bean": "Violet Bean",
+  "item.cobblecuisine.indigo_bean": "Indigo Bean",
 
   "tooltip.cobblecuisine.item.red_bean": "§6Can be fed to Pokémon!§r",
   "tooltip.cobblecuisine.item.red_bean.1": "§6Increases friendship by %s§r",
@@ -224,7 +224,7 @@
   "tooltip.cobblecuisine.item.cross_chop_salad": "Attracts Pokémon of a certain Nature.",
   "tooltip.cobblecuisine.item.defiant_coffee_dressed_salad": "Attracts Pokémon of a certain Nature.",
   "tooltip.cobblecuisine.item.petal_blizzard_layered_salad": "Attracts Pokémon of a certain Nature.",
-  "tooltip.cobblecuisine.item.apple_acid_yogurt_salad": "Attracts Pokémon of a certain Nature.",
+  "tooltip.cobblecuisine.item.apple_acid_yoghurt_salad": "Attracts Pokémon of a certain Nature.",
 
   "item.cobblecuisine.sweet_pokepuff": "Sweet Poképuff",
   "item.cobblecuisine.mint_pokepuff": "Mint Poképuff",
