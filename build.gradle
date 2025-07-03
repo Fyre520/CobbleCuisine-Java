@@ -54,7 +54,7 @@ tasks.register('compressPngsForJar') {
                 String relativePath = details.relativePath.pathString
                 File outputFile = new File(outputDir, relativePath)
                 outputFile.parentFile.mkdirs()
-                exec { commandLine 'zopflipng', '-m', '--iterations=15', '--filters=01234', inputFile.absolutePath, outputFile.absolutePath }
+                exec { commandLine 'zopflipng', '-y', '--iterations=15', '--filters=0me', '--lossy_8bit', '--lossy_transparent', inputFile.absolutePath, outputFile.absolutePath }
                 println "Compressed ${relativePath}"
             }
         }

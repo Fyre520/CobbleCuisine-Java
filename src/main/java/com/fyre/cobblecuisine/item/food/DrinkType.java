@@ -13,12 +13,12 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 
 public enum DrinkType {
-	COFFEE("coffee", effect(CobbleCuisineEffects.HP_YIELD.entry)),
-	LEMON_SODA("lemon_soda", effect(CobbleCuisineEffects.ATK_YIELD.entry)),
-	FRUIT_PUNCH("fruit_punch", effect(CobbleCuisineEffects.DEF_YIELD.entry)),
-	LILLIGANT_FLORAL_TEA("lilligant_floral_tea", effect(CobbleCuisineEffects.SPA_YIELD.entry)),
-	MILTANK_MIX_AU_LAIT("miltank_mix_au_lait", effect(CobbleCuisineEffects.SPD_YIELD.entry)),
-	PROTEIN_SMOOTHIE("protein_smoothie", effect(CobbleCuisineEffects.SPE_YIELD.entry));
+	COFFEE("coffee", effect(CobbleCuisineEffects.DEF_YIELD.entry)),
+	LEMON_SODA("lemon_soda", effect(CobbleCuisineEffects.SPE_YIELD.entry)),
+	FRUIT_PUNCH("fruit_punch", effect(CobbleCuisineEffects.SPA_YIELD.entry)),
+	LILLIGANT_FLORAL_TEA("lilligant_floral_tea", effect(CobbleCuisineEffects.SPD_YIELD.entry)),
+	MILTANK_MIX_AU_LAIT("miltank_mix_au_lait", effect(CobbleCuisineEffects.HP_YIELD.entry)),
+	PROTEIN_SMOOTHIE("protein_smoothie", effect(CobbleCuisineEffects.ATK_YIELD.entry));
 
 	public final String id;
 	public final Item item;
