@@ -20,25 +20,28 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper.WrapperLookup;
 import net.minecraft.util.Identifier;
 
-import java.util.Map;
-
 import static com.fyre.cobblecuisine.CobbleCuisine.LOGGER;
 
 public class CobbleCuisineLootInjector {
 	private static final Identifier GRASS_BLOCK_ID = Identifier.of("minecraft", "blocks/short_grass");
 
-	private static final Map<RegistryKey<LootTable>, Item[]> BEAN_MAP = Map.of(
-			LootTables.VILLAGE_DESERT_HOUSE_CHEST, new Item[] { BeanType.ORANGE.item },
-			LootTables.VILLAGE_PLAINS_CHEST, new Item[] { BeanType.GREEN.item, BeanType.INDIGO.item },
-			LootTables.VILLAGE_SAVANNA_HOUSE_CHEST, new Item[] { BeanType.YELLOW.item },
-			LootTables.VILLAGE_TAIGA_HOUSE_CHEST, new Item[] { BeanType.RED.item },
-			LootTables.VILLAGE_SNOWY_HOUSE_CHEST, new Item[] { BeanType.BLUE.item, BeanType.VIOLET.item }
-	);
+	private static final Item[] BEAN_MAP = new Item[] {
+			BeanType.ORANGE.item,
+			BeanType.GREEN.item,
+			BeanType.INDIGO.item,
+			BeanType.YELLOW.item,
+			BeanType.RED.item,
+			BeanType.BLUE.item,
+			BeanType.VIOLET.item
+	};
 
-	private static final Item[] COMMON_VILLAGE_ITEMS = new Item[] {
-			CobblemonItems.GALARICA_NUTS,
-			Items.TORCHFLOWER,
-			Items.TORCHFLOWER_SEEDS
+	@SuppressWarnings("unchecked")
+	private static final RegistryKey<LootTable>[] LOOT_TABLES = new RegistryKey[] {
+			LootTables.VILLAGE_DESERT_HOUSE_CHEST,
+			LootTables.VILLAGE_PLAINS_CHEST,
+			LootTables.VILLAGE_SAVANNA_HOUSE_CHEST,
+			LootTables.VILLAGE_TAIGA_HOUSE_CHEST,
+			LootTables.VILLAGE_SNOWY_HOUSE_CHEST
 	};
 
 	private CobbleCuisineLootInjector() {}
@@ -55,17 +58,13 @@ public class CobbleCuisineLootInjector {
 		}
 
 		//noinspection ForLoopReplaceableByForEach
-		for (int i = 0; i < COMMON_VILLAGE_ITEMS.length; i++) {
-			Item item = COMMON_VILLAGE_ITEMS[i];
-			addDrop(table, item, getDropRate(item), 1, 3);
-		}
-
-		Item[] beans = BEAN_MAP.get(key);
-		if (beans == null) return;
-
-		//noinspection ForLoopReplaceableByForEach
-		for (int i = 0; i < beans.length; i++) {
-			addDrop(table, beans[i], CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
+		for (int i = 0; i < LOOT_TABLES.length; i++) {
+			if (LOOT_TABLES[i] != key) continue;
+			addDrop(table, CobblemonItems.GALARICA_NUTS, CobbleCuisineConfig.data.dropRates.galaricaNutDropRate, 1, 3);
+			addDrop(table, Items.TORCHFLOWER, CobbleCuisineConfig.data.dropRates.torchflowerDropRate, 1, 3);
+			addDrop(table, Items.TORCHFLOWER_SEEDS, CobbleCuisineConfig.data.dropRates.torchflowerSeedsDropRate, 1, 3);
+			//noinspection ForLoopReplaceableByForEach
+			for (int j = 0; j < BEAN_MAP.length; j++) addDrop(table, BEAN_MAP[j], CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
 		}
 	}
 
@@ -76,12 +75,5 @@ public class CobbleCuisineLootInjector {
 				.with(ItemEntry.builder(item))
 				.apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(min, max)))
 		);
-	}
-
-	private static float getDropRate(Item item) {
-		if (item == CobblemonItems.GALARICA_NUTS) return CobbleCuisineConfig.data.dropRates.galaricaNutDropRate;
-		if (item == Items.TORCHFLOWER) return CobbleCuisineConfig.data.dropRates.torchflowerDropRate;
-		if (item == Items.TORCHFLOWER_SEEDS) return CobbleCuisineConfig.data.dropRates.torchflowerSeedsDropRate;
-		return 0.1f;
 	}
 }
