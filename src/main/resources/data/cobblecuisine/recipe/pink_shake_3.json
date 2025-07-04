@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "tag": "cobblecuisine:pink_group1"
+    "ingredients": [
+        {
+            "tag": "cobblecuisine:pink_group1"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "tag": "cobblecuisine:pink_group3"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:medium_pink_shake"
     },
-    {
-      "item": "minecraft:milk_bucket"
-    },
-    {
-      "item": "minecraft:glass_bottle"
-    },
-    {
-      "tag": "cobblecuisine:pink_group3"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:medium_pink_shake",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

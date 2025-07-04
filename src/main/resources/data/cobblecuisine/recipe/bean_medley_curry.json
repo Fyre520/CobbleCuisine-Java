@@ -1,20 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "tag": "cobblecuisine:beans" },
-
-    { "tag": "cobblemon:mint_leaf" },
-
-    { "item": "cobblemon:coba_berry" },
-
-    { "tag": "cobblemon:sour_20"},
-
-    { "item": "cobblecuisine:salad_mix" }
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "tag": "cobblemon:mint_leaf"
+        },
+        {
+            "item": "cobblemon:coba_berry"
+        },
+        {
+            "tag": "cobblemon:sour_20"
+        },
+        {
+            "item": "cobblecuisine:salad_mix"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:bean_medley_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:bean_medley_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

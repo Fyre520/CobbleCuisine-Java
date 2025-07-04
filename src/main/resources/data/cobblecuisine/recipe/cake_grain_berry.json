@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:wheat"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "tag": "cobblecuisine:group1"
+        },
+        {
+            "tag": "cobblecuisine:group1"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:berry_grain_cake"
     },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "tag": "cobblecuisine:group1"
-    },
-    {
-      "tag": "cobblecuisine:group1"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:berry_grain_cake",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

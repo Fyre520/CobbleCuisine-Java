@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "tag": "minecraft:vegetables"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_rindo_berry"
-      },
-      "z": {
-        "tag": "minecraft:vegetables"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "tag": "minecraft:vegetables"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_rindo_berry"
+        },
+        "z": {
+            "tag": "minecraft:vegetables"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:salty_vegetable_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:salty_vegetable_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

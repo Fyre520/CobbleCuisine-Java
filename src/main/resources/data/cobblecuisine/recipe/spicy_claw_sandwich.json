@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "item": "cobblecuisine:spice_mix"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_charti_berry"
-      },
-      "z": {
-        "item": "cobblemon:quick_claw"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "item": "cobblecuisine:spice_mix"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_charti_berry"
+        },
+        "z": {
+            "item": "cobblemon:quick_claw"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:spicy_claw_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:spicy_claw_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

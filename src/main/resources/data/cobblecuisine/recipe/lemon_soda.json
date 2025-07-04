@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "cobblemon:carbos"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "cobblemon:carbos"
+        },
+        {
+            "tag": "cobblecuisine:blue_group3"
+        },
+        {
+            "tag": "cobblemon:sour_10"
+        },
+        {
+            "item": "minecraft:sugar"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:lemon_soda"
     },
-    {
-      "tag": "cobblecuisine:blue_group3"
-    },
-    {
-      "tag": "cobblemon:sour_10"
-    },
-    {
-      "item": "minecraft:sugar"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:lemon_soda",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

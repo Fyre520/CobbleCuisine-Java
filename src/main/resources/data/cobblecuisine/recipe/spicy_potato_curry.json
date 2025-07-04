@@ -1,20 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:red_bean" },
-
-    { "item": "cobblemon:babiri_berry" },
-
-    { "tag": "cobblemon:spicy_20"},
-
-    { "item": "minecraft:potato" },
-
-    { "item": "cobblecuisine:spice_mix" }
+        {
+            "item": "cobblecuisine:red_bean"
+        },
+        {
+            "item": "cobblemon:babiri_berry"
+        },
+        {
+            "tag": "cobblemon:spicy_20"
+        },
+        {
+            "item": "minecraft:potato"
+        },
+        {
+            "item": "cobblecuisine:spice_mix"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:spicy_potato_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:spicy_potato_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

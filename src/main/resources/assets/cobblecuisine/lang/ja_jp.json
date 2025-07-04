@@ -29,10 +29,11 @@
 
   "item.cobblecuisine.bean.use": "%s はまめをたべた！",
 
+  "item.cobblecuisine.spice_mix": "スパイスミックス",
+  "item.cobblecuisine.salad_mix": "サラダミックス",
+
   "item.cobblecuisine.bitter_variety_sandwich": "[旧版] ビターバラエティサンドイッチ",
   "item.cobblecuisine.sweet_potato_salad_sandwich": "[旧版] さつまいもサラダサンド",
-  "item.cobblecuisine.spice_mix": "[旧版] スパイスミックス",
-  "item.cobblecuisine.salad_mix": "[旧版] サラダミックス",
   "item.cobblecuisine.pepper_steak": "[旧版] ペッパーステーキ",
   "item.cobblecuisine.ceviche": "[旧版] セビーチェ",
 

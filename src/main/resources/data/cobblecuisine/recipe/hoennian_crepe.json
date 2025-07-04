@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:magma_cream"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:magma_cream"
+        },
+        {
+            "tag": "cobblecuisine:red_group3"
+        },
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "item": "minecraft:sweet_berries"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:hoennian_crepe"
     },
-    {
-      "tag": "cobblecuisine:red_group3"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:sweet_berries"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:hoennian_crepe",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

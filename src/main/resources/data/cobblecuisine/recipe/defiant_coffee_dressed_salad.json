@@ -1,19 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:salad_mix" },
-
-    { "item": "cobblemon:naughty_mint" },
-
-    { "item": "minecraft:cocoa_beans" },
-
-    { "tag": "minecraft:vegetables" }
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblemon:naughty_mint"
+        },
+        {
+            "item": "minecraft:cocoa_beans"
+        },
+        {
+            "tag": "minecraft:vegetables"
+        }
     ],
-
     "result": {
-      "id": "cobblecuisine:defiant_coffee_dressed_salad",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:defiant_coffee_dressed_salad"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

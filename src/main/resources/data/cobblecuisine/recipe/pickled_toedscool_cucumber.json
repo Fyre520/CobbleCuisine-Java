@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:red_mushroom"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:red_mushroom"
+        },
+        {
+            "tag": "cobblemon:sour_40"
+        },
+        {
+            "item": "minecraft:dried_kelp"
+        },
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblecuisine:green_bean"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:pickled_toedscool_and_cucumber"
     },
-    {
-      "tag": "cobblemon:sour_40"
-    },
-    {
-      "item": "minecraft:dried_kelp"
-    },
-    {
-      "item": "cobblecuisine:salad_mix"
-    },
-    {
-      "item": "cobblecuisine:green_bean"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:pickled_toedscool_and_cucumber",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

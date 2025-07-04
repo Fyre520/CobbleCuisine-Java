@@ -1,20 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:yellow_bean" },
-
-    { "item": "cobblemon:rindo_berry" },
-    
-    { "tag": "cobblemon:spicy_20"},
-
-    { "tag": "minecraft:mushrooms" },
-
-    { "item": "cobblecuisine:spice_mix" }
+        {
+            "item": "cobblecuisine:yellow_bean"
+        },
+        {
+            "item": "cobblemon:rindo_berry"
+        },
+        {
+            "tag": "cobblemon:spicy_20"
+        },
+        {
+            "tag": "minecraft:mushrooms"
+        },
+        {
+            "item": "cobblecuisine:spice_mix"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:spicy_mushroom_medley_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:spicy_mushroom_medley_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

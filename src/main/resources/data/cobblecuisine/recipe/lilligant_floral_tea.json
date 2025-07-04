@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "cobblemon:zinc"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "cobblemon:zinc"
+        },
+        {
+            "tag": "cobblecuisine:red_group3"
+        },
+        {
+            "tag": "cobblemon:spicy_10"
+        },
+        {
+            "tag": "minecraft:flowers"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:lilligant_floral_tea"
     },
-    {
-      "tag": "cobblecuisine:red_group3"
-    },
-    {
-      "tag": "cobblemon:spicy_10"
-    },
-    {
-      "tag": "minecraft:flowers"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:lilligant_floral_tea",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

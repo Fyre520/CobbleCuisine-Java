@@ -1,19 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:salad_mix" },
-
-    { "item": "cobblemon:modest_mint" },
-
-    { "item": "cobblecuisine:red_bean" },
-
-    { "tag": "minecraft:flowers" }
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblemon:modest_mint"
+        },
+        {
+            "item": "cobblecuisine:red_bean"
+        },
+        {
+            "tag": "minecraft:flowers"
+        }
     ],
-
     "result": {
-      "id": "cobblecuisine:petal_blizzard_layered_salad",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:petal_blizzard_layered_salad"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "cobblemon:iron"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "cobblemon:iron"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "minecraft:cocoa_beans"
+        },
+        {
+            "tag": "cobblecuisine:purple_group3"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:coffee"
     },
-    {
-      "item": "minecraft:milk_bucket"
-    },
-    {
-      "item": "minecraft:cocoa_beans"
-    },
-    {
-      "tag": "cobblecuisine:purple_group3"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:coffee",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

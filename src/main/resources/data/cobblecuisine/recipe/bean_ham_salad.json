@@ -1,19 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:salad_mix" },
-
-    { "item": "cobblemon:serious_mint" },
-
-    { "tag": "cobblecuisine:beans" },
-
-    { "item": "minecraft:cooked_porkchop" }
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblemon:serious_mint"
+        },
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "item": "minecraft:cooked_porkchop"
+        }
     ],
-
     "result": {
-      "id": "cobblecuisine:bean_ham_salad",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:bean_ham_salad"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

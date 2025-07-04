@@ -1,20 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:blue_bean" },
-
-    { "item": "cobblemon:yache_berry" },
-
-    { "tag": "cobblemon:dry_20"},
-
-    { "item": "minecraft:snowball" },
-
-    { "item": "minecraft:wheat" }
+        {
+            "item": "cobblecuisine:blue_bean"
+        },
+        {
+            "item": "cobblemon:yache_berry"
+        },
+        {
+            "tag": "cobblemon:dry_20"
+        },
+        {
+            "item": "minecraft:snowball"
+        },
+        {
+            "item": "minecraft:wheat"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:dry_frozen_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:dry_frozen_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

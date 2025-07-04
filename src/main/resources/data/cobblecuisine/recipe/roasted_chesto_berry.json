@@ -1,13 +1,13 @@
 {
-  "type": "minecraft:campfire_cooking",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredient": {
-    "item": "cobblemon:chesto_berry"
-  },
-  "result": {
-    "id": "cobblecuisine:roasted_chesto_berry"
-  },
-  "experience": 20,
-  "cookingtime": 100
+    "category": "misc",
+    "cookingtime": 100,
+    "experience": 20,
+    "group": "cobblecuisine",
+    "ingredient": {
+        "item": "cobblemon:chesto_berry"
+    },
+    "result": {
+        "id": "cobblecuisine:roasted_chesto_berry"
+    },
+    "type": "minecraft:campfire_cooking"
 }

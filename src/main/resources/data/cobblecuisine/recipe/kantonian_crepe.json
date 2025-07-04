@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "cobblemon:nanab_berry"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "cobblemon:nanab_berry"
+        },
+        {
+            "item": "cobblemon:cocoa_beans"
+        },
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "item": "minecraft:sweet_berries"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:kantonian_crepe"
     },
-    {
-      "item": "cobblemon:cocoa_beans"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:sweet_berries"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:kantonian_crepe",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

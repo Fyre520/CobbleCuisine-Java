@@ -29,10 +29,11 @@
 
   "item.cobblecuisine.bean.use": "%s enjoyed the bean!",
 
+  "item.cobblecuisine.spice_mix": "Spice Mix",
+  "item.cobblecuisine.salad_mix": "Salad Mix",
+
   "item.cobblecuisine.bitter_variety_sandwich": "[LEGACY] Bitter Variety Sandwich",
   "item.cobblecuisine.sweet_potato_salad_sandwich": "[LEGACY] Sweet Potato Salad Sandwich",
-  "item.cobblecuisine.spice_mix": "[LEGACY] Spice Mix",
-  "item.cobblecuisine.salad_mix": "[LEGACY] Salad Mix",
   "item.cobblecuisine.pepper_steak": "[LEGACY] Pepper Steak",
   "item.cobblecuisine.ceviche": "[LEGACY] Ceviche",
 

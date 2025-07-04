@@ -7,11 +7,10 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+// THIS ENUM CONTAINS UNUSED ITEMS MARKED FOR DELETION
 public enum LegacyItemType {
 	PEPPER_STEAK("pepper_steak"),
 	CEVICHE("ceviche"),
-	SPICE_MIX("spice_mix"),
-	SALAD_MIX("salad_mix"),
 	SWEET_POTATO_SANDWICH("sweet_potato_salad_sandwich"),
 	BITTER_VARIETY_SANDWICH("bitter_variety_sandwich");
 

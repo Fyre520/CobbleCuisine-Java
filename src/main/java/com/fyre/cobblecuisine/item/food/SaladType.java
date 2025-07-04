@@ -14,10 +14,10 @@ import net.minecraft.util.Identifier;
 
 public enum SaladType {
 	MIXED_VEGETABLE("mixed_vegetable_salad", effect(CobbleCuisineEffects.BOLD.entry)),
-	PUMPKIN_PIE("pumpkin_pie_salad", effect(CobbleCuisineEffects.GENTLE.entry)),
+	PUMPKIN_PIE("pumpkin_pie_salad", effect(CobbleCuisineEffects.BASHFUL.entry)),
 	SLOWPOKE_TAIL_PEPPER("slowpoke_tail_pepper_salad", effect(CobbleCuisineEffects.RELAXED.entry)),
 	SPORE_MUSHROOM("spore_mushroom_salad", effect(CobbleCuisineEffects.SASSY.entry)),
-	SNOW_CLOAK_CAESAR("snow_cloak_caesar_salad", effect(CobbleCuisineEffects.CALM.entry)),
+	SNOW_CLOAK_CAESAR("snow_cloak_caesar_salad", effect(CobbleCuisineEffects.TIMID.entry)),
 	GLUTTONY_POTATO("gluttony_potato_salad", effect(CobbleCuisineEffects.LAX.entry)),
 	WATER_VEIL_TOFU("water_veil_tofu_salad", effect(CobbleCuisineEffects.SERIOUS.entry)),
 	SUPERPOWER_EXTREME("superpower_extreme_salad", effect(CobbleCuisineEffects.BRAVE.entry)),

@@ -43,7 +43,10 @@ public class CobbleCuisineItems {
 		return b.build();
 	}
 
+	// THOSE ARE ONE-OFFS THAT I DON'T WANT TO PUT IN A SPECIFIC ENUM
 	public static Item BEAN_SEEDS = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "bean_seeds"), new AliasedBlockItem(CobbleCuisineBlocks.BEAN_CROP_BLOCK, new Item.Settings()));
+	public static Item SPICE_MIX = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "spice_mix"), new Item(new Item.Settings()));
+	public static Item SALAD_MIX = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "salad_mix"), new Item(new Item.Settings()));
 
 	public static void register() {
 		LOGGER.info("CobbleCuisine >> Registering Items...");
@@ -63,9 +66,14 @@ public class CobbleCuisineItems {
 		FoodType.registerAll();
 		LegacyItemType.registerAll();
 
+		// CREATIVE TAB ORDERING
 		items.add(BEAN_SEEDS);
 
 		for (var type : BeanType.values()) items.add(type.item);
+
+		items.add(SPICE_MIX);
+		items.add(SALAD_MIX);
+
 		for (var type : FoodType.values()) items.add(type.item);
 		for (var type : DrinkType.values()) items.add(type.item);
 		for (var type : CurryType.values()) items.add(type.item);

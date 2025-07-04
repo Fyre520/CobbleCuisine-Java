@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:wheat"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "item": "cobblecuisine:yellow_bean"
+        },
+        {
+            "tag": "minecraft:chicken_food"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:yellow_bean_cake"
     },
-    {
-      "tag": "cobblecuisine:beans"
-    },
-    {
-      "item": "cobblecuisine:yellow_bean"
-    },
-    {
-      "tag": "minecraft:chicken_food"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:yellow_bean_cake",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

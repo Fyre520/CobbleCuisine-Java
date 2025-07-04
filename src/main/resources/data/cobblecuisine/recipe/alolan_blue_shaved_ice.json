@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:packed_ice"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:packed_ice"
+        },
+        {
+            "item": "minecraft:blue_dye"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "cobblecuisine:blue_bean"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:alolan_blue_shaved_ice"
     },
-    {
-      "item": "minecraft:blue_dye"
-    },
-    {
-      "item": "minecraft:milk_bucket"
-    },
-    {
-      "item": "cobblecuisine:blue_bean"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:alolan_blue_shaved_ice",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "tag": "cobblecuisine:beans"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_passho_berry"
-      },
-      "z": {
-        "item": "minecraft:milk_bucket"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "tag": "cobblecuisine:beans"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_passho_berry"
+        },
+        "z": {
+            "item": "minecraft:milk_bucket"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:salty_tofu_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:salty_tofu_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

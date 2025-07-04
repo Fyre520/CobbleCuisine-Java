@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "tag": "cobblecuisine:red_group1"
+    "ingredients": [
+        {
+            "tag": "cobblecuisine:red_group1"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "tag": "cobblecuisine:yellow_group2"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:regular_coral_shake"
     },
-    {
-      "item": "minecraft:milk_bucket"
-    },
-    {
-      "item": "minecraft:glass_bottle"
-    },
-    {
-      "tag": "cobblecuisine:yellow_group2"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:regular_coral_shake",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

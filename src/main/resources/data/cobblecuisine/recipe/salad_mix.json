@@ -1,29 +1,29 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:beetroot"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:beetroot"
+        },
+        {
+            "item": "minecraft:potato"
+        },
+        {
+            "item": "minecraft:carrot"
+        },
+        {
+            "item": "minecraft:brown_mushroom"
+        },
+        {
+            "tag": "cobblemon:dry_20"
+        },
+        {
+            "tag": "cobblemon:dry_20"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:salad_mix"
     },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "item": "minecraft:brown_mushroom"
-    },
-    {
-      "tag": "cobblemon:dry_20"
-    },
-    {
-      "tag": "cobblemon:dry_20"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:salad_mix",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

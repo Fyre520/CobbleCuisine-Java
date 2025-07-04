@@ -29,10 +29,11 @@
 
   "item.cobblecuisine.bean.use": "%s 享用了這顆豆子！",
 
+  "item.cobblecuisine.spice_mix": "香料混合",
+  "item.cobblecuisine.salad_mix": "沙拉混合",
+
   "item.cobblecuisine.bitter_variety_sandwich": "[舊版] 苦味雜錦三明治",
   "item.cobblecuisine.sweet_potato_salad_sandwich": "[舊版] 甜薯沙拉三明治",
-  "item.cobblecuisine.spice_mix": "[舊版] 香料混合",
-  "item.cobblecuisine.salad_mix": "[舊版] 沙拉混合",
   "item.cobblecuisine.pepper_steak": "[舊版] 胡椒牛排",
   "item.cobblecuisine.ceviche": "[舊版] 醃魚",
 

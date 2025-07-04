@@ -1,19 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:salad_mix" },
-
-    { "item": "cobblemon:calm_mint" },
-
-    { "item": "cobblecuisine:blue_bean" },
-
-    { "item": "minecraft:snowball" }
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblemon:calm_mint"
+        },
+        {
+            "item": "cobblecuisine:blue_bean"
+        },
+        {
+            "item": "minecraft:snowball"
+        }
     ],
-
     "result": {
-      "id": "cobblecuisine:snow_cloak_caesar_salad",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:snow_cloak_caesar_salad"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

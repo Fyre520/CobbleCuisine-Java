@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "tag": "cobblemon:sour_10"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_chilan_berry"
-      },
-      "z": {
-        "item": "minecraft:milk_bucket"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "tag": "cobblemon:sour_10"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_chilan_berry"
+        },
+        "z": {
+            "item": "minecraft:milk_bucket"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:sour_cheese_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:sour_cheese_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

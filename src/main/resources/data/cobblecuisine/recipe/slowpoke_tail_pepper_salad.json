@@ -1,19 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:salad_mix" },
-
-    { "item": "cobblemon:relaxed_mint" },
-
-    { "item": "cobblecuisine:red_bean" },
-
-    { "item": "cobblemon:galarica_nuts" }
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblemon:relaxed_mint"
+        },
+        {
+            "item": "cobblecuisine:red_bean"
+        },
+        {
+            "item": "cobblemon:galarica_nuts"
+        }
     ],
-
     "result": {
-      "id": "cobblecuisine:slowpoke_tail_pepper_salad",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:slowpoke_tail_pepper_salad"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

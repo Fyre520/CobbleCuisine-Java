@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:beef"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:beef"
+        },
+        {
+            "item": "cobblecuisine:red_bean"
+        },
+        {
+            "item": "cobblecuisine:spice_mix"
+        },
+        {
+            "tag": "cobblemon:spicy_40"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:pepper_steak"
     },
-    {
-      "item": "cobblecuisine:red_bean"
-    },
-    {
-      "item": "cobblecuisine:spice_mix"
-    },
-    {
-      "tag": "cobblemon:spicy_40"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:pepper_steak",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

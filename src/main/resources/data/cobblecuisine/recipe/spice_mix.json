@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "cobblemon:bright_powder"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "cobblemon:bright_powder"
+        },
+        {
+            "item": "cobblemon:heal_powder"
+        },
+        {
+            "item": "cobblemon:silver_powder"
+        },
+        {
+            "tag": "cobblemon:spicy_20"
+        },
+        {
+            "item": "cobblemon:galarica_nuts"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:spice_mix"
     },
-    {
-      "item": "cobblemon:heal_powder"
-    },
-    {
-      "item": "cobblemon:silver_powder"
-    },
-    {
-      "tag": "cobblemon:spicy_20"
-    },
-    {
-      "item": "cobblemon:galarica_nuts"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:spice_mix",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

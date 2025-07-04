@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:bread"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:bread"
+        },
+        {
+            "tag": "cobblemon:spicy_30"
+        },
+        {
+            "item": "cobblemon:galarica_nuts"
+        },
+        {
+            "item": "cobblemon:bright_powder"
+        },
+        {
+            "item": "cobblecuisine:orange_bean"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:spicy_malasada"
     },
-    {
-      "tag": "cobblemon:spicy_30"
-    },
-    {
-      "item": "cobblemon:galarica_nuts"
-    },
-    {
-      "item": "cobblemon:bright_powder"
-    },
-    {
-      "item": "cobblecuisine:orange_bean"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:spicy_malasada",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

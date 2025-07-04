@@ -1,28 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "item": "minecraft:sea_pickle"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_payapa_berry"
-      },
-      "z":  { 
-        "tag": "cobblecuisine:green_group2"}
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "item": "minecraft:sea_pickle"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_payapa_berry"
+        },
+        "z": {
+            "tag": "cobblecuisine:green_group2"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:sour_pickle_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:sour_pickle_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

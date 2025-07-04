@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:wheat"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "item": "cobblecuisine:blue_bean"
+        },
+        {
+            "item": "cobblemon:medicinal_leek"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:blue_bean_cake"
     },
-    {
-      "tag": "cobblecuisine:beans"
-    },
-    {
-      "item": "cobblecuisine:blue_bean"
-    },
-    {
-      "item": "cobblemon:medicinal_leek"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:blue_bean_cake",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

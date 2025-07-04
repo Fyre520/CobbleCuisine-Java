@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "tag": "cobblemon:dry_20"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "tag": "cobblemon:dry_20"
+        },
+        {
+            "item": "cobblemon:spicy_20"
+        },
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "item": "cobblemon:galarica_nuts"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:galarian_crepe"
     },
-    {
-      "item": "cobblecuisine:spice_mix"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "cobblemon:galarica_nuts"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:galarian_crepe",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

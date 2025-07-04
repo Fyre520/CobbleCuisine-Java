@@ -1,20 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:violet_bean" },
-
-    { "item": "cobblemon:haban_berry" },
-
-    { "tag": "cobblemon:sweet_20"},
-
-    { "item": "minecraft:apple" },
-
-    { "item": "minecraft:honey_bottle" }
+        {
+            "item": "cobblecuisine:violet_bean"
+        },
+        {
+            "item": "cobblemon:haban_berry"
+        },
+        {
+            "tag": "cobblemon:sweet_20"
+        },
+        {
+            "item": "minecraft:apple"
+        },
+        {
+            "item": "minecraft:honey_bottle"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:sweet_apple_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:sweet_apple_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

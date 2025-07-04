@@ -1,13 +1,13 @@
 {
-  "type": "minecraft:campfire_cooking",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredient": {
-    "item": "cobblemon:oran_berry"
-  },
-  "result": {
-    "id": "cobblecuisine:roasted_oran_berry"
-  },
-  "experience": 10,
-  "cookingtime": 100
+    "category": "misc",
+    "cookingtime": 100,
+    "experience": 10,
+    "group": "cobblecuisine",
+    "ingredient": {
+        "item": "cobblemon:oran_berry"
+    },
+    "result": {
+        "id": "cobblecuisine:roasted_oran_berry"
+    },
+    "type": "minecraft:campfire_cooking"
 }

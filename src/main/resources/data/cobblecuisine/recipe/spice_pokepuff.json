@@ -1,29 +1,29 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:milk_bucket"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "minecraft:egg"
+        },
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "item": "cobblemon:galarica_nuts"
+        },
+        {
+            "item": "cobblemon:whipped_dream"
+        },
+        {
+            "tag": "cobblemon:spicy_20"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:spice_pokepuff"
     },
-    {
-      "item": "minecraft:egg"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "cobblemon:galarica_nuts"
-    },
-    {
-      "item": "cobblemon:whipped_dream"
-    },
-    {
-      "tag": "cobblemon:spicy_20"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:spice_pokepuff",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

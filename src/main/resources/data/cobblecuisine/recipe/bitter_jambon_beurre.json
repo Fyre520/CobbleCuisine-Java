@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "tag": "cobblecuisine:beans"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_enigma_berry"
-      },
-      "z": {
-        "item": "minecraft:chorus_fruit"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "tag": "cobblecuisine:beans"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_enigma_berry"
+        },
+        "z": {
+            "item": "minecraft:chorus_fruit"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:bitter_jambon_beurre",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:bitter_jambon_beurre"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

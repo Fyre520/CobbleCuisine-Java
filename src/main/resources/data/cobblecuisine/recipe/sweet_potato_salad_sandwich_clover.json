@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "item": "cobblemon:coba_berry"
-      },
-      "y": {
-        "item": "minecraft:baked_potato"
-      },
-      "z": {
-        "item": "cobblemon:clover_sweet"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "item": "cobblemon:coba_berry"
+        },
+        "y": {
+            "item": "minecraft:baked_potato"
+        },
+        "z": {
+            "item": "cobblemon:clover_sweet"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:sweet_potato_salad_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:sweet_potato_salad_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

@@ -1,21 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "tag": "cobblecuisine:beans" },
-    
-    { "tag": "cobblecuisine:beans" },
-
-    { "tag": "cobblemon:bitter_20"},
-
-    { "item": "cobblemon:chople_berry" },
-
-    { "item": "cobblemon:pep_up_flower" }
-
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "tag": "cobblemon:bitter_20"
+        },
+        {
+            "item": "cobblemon:chople_berry"
+        },
+        {
+            "item": "cobblemon:pep_up_flower"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:dry_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:dry_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

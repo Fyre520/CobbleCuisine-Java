@@ -1,20 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:red_bean" },
-
-    { "item": "cobblemon:occa_berry" },
-
-    { "tag": "cobblemon:bitter_20"},
-
-    { "item": "cobblecuisine:spice_mix" },
-
-    { "item": "minecraft:potato" }
+        {
+            "item": "cobblecuisine:red_bean"
+        },
+        {
+            "item": "cobblemon:occa_berry"
+        },
+        {
+            "tag": "cobblemon:bitter_20"
+        },
+        {
+            "item": "cobblecuisine:spice_mix"
+        },
+        {
+            "item": "minecraft:potato"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:drought_katsu_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:drought_katsu_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}
