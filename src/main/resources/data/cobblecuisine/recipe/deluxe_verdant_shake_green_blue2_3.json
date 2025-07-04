@@ -1,0 +1,30 @@
+{
+    "ingredients": [
+        {
+            "tag": "cobblecuisine:green_group2"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "tag": "cobblecuisine:blue_group3"
+        },
+        {
+            "tag": "cobblemon:plants"
+        },
+        {
+            "tag": "minecraft:flowers"
+        },
+        {
+            "item": "minecraft:melon_slice"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:deluxe_verdant_shake"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

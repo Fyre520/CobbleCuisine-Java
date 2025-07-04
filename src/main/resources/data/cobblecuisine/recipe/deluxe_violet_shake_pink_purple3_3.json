@@ -1,0 +1,30 @@
+{
+    "ingredients": [
+        {
+            "tag": "cobblecuisine:pink_group3"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "tag": "cobblecuisine:purple_group3"
+        },
+        {
+            "item": "cobblemon:mental_herb"
+        },
+        {
+            "tag": "cobblemon:vitamins"
+        },
+        {
+            "tag": "cobblemon:sweets"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:deluxe_violet_shake"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

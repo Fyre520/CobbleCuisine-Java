@@ -3,19 +3,10 @@
     "group": "cobblecuisine",
     "ingredients": [
         {
-            "item": "cobblecuisine:red_bean"
+            "item": "cobblecuisine:indigo_bean"
         },
         {
-            "item": "cobblecuisine:yellow_bean"
-        },
-        {
-            "item": "cobblecuisine:blue_bean"
-        },
-        {
-            "item": "cobblecuisine:green_bean"
-        },
-        {
-            "item": "cobblecuisine:orange_bean"
+            "item": "cobblecuisine:violet_bean"
         },
         {
             "tag": "cobblecuisine:group2"
@@ -24,10 +15,13 @@
             "tag": "cobblecuisine:group3"
         },
         {
-            "item": "minecraft:milk_bucket"
+            "item": "minecraft:glass_bottle"
         },
         {
-            "item": "minecraft:glass_bottle"
+            "item": "cobblemon:vivichoke"
+        },
+        {
+            "item": "cobblemon:hopo_berry"
         }
     ],
     "result": {

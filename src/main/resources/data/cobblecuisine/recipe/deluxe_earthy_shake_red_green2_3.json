@@ -1,0 +1,30 @@
+{
+    "ingredients": [
+        {
+            "tag": "cobblecuisine:red_group2"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "tag": "cobblecuisine:green_group3"
+        },
+        {
+            "tag": "cobblemon:apricorns"
+        },
+        {
+            "item": "cobblemon:big_root"
+        },
+        {
+            "item": "minecraft:cocoa_beans"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:deluxe_earthy_shake"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

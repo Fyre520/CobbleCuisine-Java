@@ -1,0 +1,30 @@
+{
+    "ingredients": [
+        {
+            "tag": "cobblecuisine:red_group2"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "tag": "cobblecuisine:yellow_group3"
+        },
+        {
+            "item": "cobblemon:rare_candy"
+        },
+        {
+            "item": "cobblemon:vivichoke"
+        },
+        {
+            "item": "minecraft:sugar"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:deluxe_coral_shake"
+    },
+    "type": "minecraft:crafting_shapeless"
+}
