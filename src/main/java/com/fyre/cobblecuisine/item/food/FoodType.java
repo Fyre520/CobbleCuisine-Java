@@ -15,11 +15,12 @@ import net.minecraft.util.Identifier;
 public enum FoodType {
 	ECLAIR("eclair", 6, 0.5f, effect(CobbleCuisineEffects.GIANT.entry, CobbleCuisineConfig.data.effectDuration.scaleBoostEffectDuration)),
 	FRUITY_FLAN("fruity_flan", 6, 0.5f, effect(CobbleCuisineEffects.TINY.entry, CobbleCuisineConfig.data.effectDuration.scaleBoostEffectDuration)),
-	KANTONIAN_CREPE("kantonian_crepe", 6, 0.5f, effect(CobbleCuisineEffects.CATCH_BOOST.entry, CobbleCuisineConfig.data.effectDuration.catchRateEffectDuration)),
-	ALOLAN_BLUE_SHAVED_ICE("alolan_blue_shaved_ice", 6, 0.5f, effect(CobbleCuisineEffects.SHINY.entry, CobbleCuisineConfig.data.effectDuration.shinyBoostEffectDuration)),
-	PICKLED_TOEDSCOOL_AND_CUCUMBER("pickled_toedscool_and_cucumber", 6, 0.5f, effect(CobbleCuisineEffects.EXP_BOOST.entry, CobbleCuisineConfig.data.effectDuration.expBoostEffectDuration)),
-	HOENNIAN_MELON_STIR_FRY("hoennian_melon_stir_fry", 6, 0.5f, effect(CobbleCuisineEffects.IV_MODIFY.entry, CobbleCuisineConfig.data.effectDuration.statBoostEffectDuration)),
-	DUBIOUS_FOOD("dubious_food", 2, 0.15f, effect(CobbleCuisineEffects.DUBIOUS.entry, CobbleCuisineConfig.data.effectDuration.dubiousFoodEffectDuration));
+	DUBIOUS_FOOD("dubious_food", 2, 0.15f, effect(CobbleCuisineEffects.DUBIOUS.entry, CobbleCuisineConfig.data.effectDuration.dubiousFoodEffectDuration)),
+	CANDIED_RAZZ_BERRY("candied_razz_berry", 6, 0.5f, effect(CobbleCuisineEffects.CATCH_BOOST.entry, CobbleCuisineConfig.data.effectDuration.catchRateEffectDuration)),
+	CANDIED_NANAB_BERRY("candied_nanab_berry", 6, 0.5f, effect(CobbleCuisineEffects.SHINY.entry, CobbleCuisineConfig.data.effectDuration.shinyBoostEffectDuration)),
+	CANDIED_PINAP_BERRY("candied_pinap_berry", 6, 0.5f, effect(CobbleCuisineEffects.EXP_BOOST.entry, CobbleCuisineConfig.data.effectDuration.expBoostEffectDuration)),
+	CANDIED_BLUK_BERRY("candied_bluk_berry", 6, 0.5f, effect(CobbleCuisineEffects.IV_MODIFY.entry, CobbleCuisineConfig.data.effectDuration.statBoostEffectDuration));
+
 
 	public final String id;
 	public final Item item;

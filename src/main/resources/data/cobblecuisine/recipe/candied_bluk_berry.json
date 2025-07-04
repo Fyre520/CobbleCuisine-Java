@@ -1,0 +1,27 @@
+{
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "cobblemon:bluk_berry"
+        },
+        {
+            "item": "minecraft:honey_bottle"
+        },
+        {
+            "item": "cobblemon:exp_candy_s"
+        },
+        {
+            "item": "cobblemon:pink_mint_leaf"
+        },
+        {
+            "item": "cobblemon:berry_sweet"
+        }
+        
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:candied_bluk_berry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

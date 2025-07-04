@@ -2,6 +2,8 @@ package com.fyre.cobblecuisine.item;
 
 import com.fyre.cobblecuisine.CobbleCuisine;
 
+import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
+import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -20,7 +22,12 @@ public enum LegacyItemType {
 	REGULAR_VIOLET("regular_violet_shake"),
 	REGULAR_VERDANT("regular_verdant_shake"),
 	REGULAR_CORAL("regular_coral_shake"),
-	REGULAR_BB("regular_bb_shake");
+	REGULAR_BB("regular_bb_shake"),
+
+	KANTONIAN_CREPE("kantonian_crepe"),
+	ALOLAN_BLUE_SHAVED_ICE("alolan_blue_shaved_ice"),
+	PICKLED_TOEDSCOOL_AND_CUCUMBER("pickled_toedscool_and_cucumber"),
+	HOENNIAN_MELON_STIR_FRY("hoennian_melon_stir_fry");
 
 	public final String id;
 	public final Item item;
