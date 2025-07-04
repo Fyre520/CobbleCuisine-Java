@@ -4,20 +4,20 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "cobblemon:nanab_berry"
+      "tags": "cobblecuisine:beans"
     },
     {
-      "item": "cobblemon:cocoa_beans"
+      "item": "cobblemon:whipped_dream"
     },
     {
       "item": "minecraft:wheat"
     },
     {
-      "item": "minecraft:sweet_berries"
+      "item": "minecraft:cake"
     }
   ],
   "result": {
-    "id": "cobblecuisine:kantonian_crepe",
+    "id": "cobblecuisine:sinnohan_crepe",
     "count": 1
   }
 }
