@@ -11,13 +11,6 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 
 public enum FancyShakeType {
-	REGULAR_JEWEL("regular_jewel_shake"),
-	REGULAR_EARTHY("regular_earthy_shake"),
-	REGULAR_VIOLET("regular_violet_shake"),
-	REGULAR_VERDANT("regular_verdant_shake"),
-	REGULAR_CORAL("regular_coral_shake"),
-	REGULAR_BB("regular_bb_shake"),
-
 	DELUXE_JEWEL("deluxe_jewel_shake"),
 	DELUXE_EARTHY("deluxe_earthy_shake"),
 	DELUXE_VIOLET("deluxe_violet_shake"),

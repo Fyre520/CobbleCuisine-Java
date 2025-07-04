@@ -11,8 +11,16 @@ import net.minecraft.util.Identifier;
 public enum LegacyItemType {
 	PEPPER_STEAK("pepper_steak"),
 	CEVICHE("ceviche"),
+
 	SWEET_POTATO_SANDWICH("sweet_potato_salad_sandwich"),
-	BITTER_VARIETY_SANDWICH("bitter_variety_sandwich");
+	BITTER_VARIETY_SANDWICH("bitter_variety_sandwich"),
+
+	REGULAR_JEWEL("regular_jewel_shake"),
+	REGULAR_EARTHY("regular_earthy_shake"),
+	REGULAR_VIOLET("regular_violet_shake"),
+	REGULAR_VERDANT("regular_verdant_shake"),
+	REGULAR_CORAL("regular_coral_shake"),
+	REGULAR_BB("regular_bb_shake");
 
 	public final String id;
 	public final Item item;
