@@ -4,10 +4,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "cobblemon:nanab_berry"
+      "item": "minecraft:cocoa_beans"
     },
     {
-      "item": "cobblemon:cocoa_beans"
+      "tag": "cobblecuisine:blue_group3"
     },
     {
       "item": "minecraft:wheat"
@@ -17,7 +17,7 @@
     }
   ],
   "result": {
-    "id": "cobblecuisine:kantonian_crepe",
+    "id": "cobblecuisine:kalosian_crepe",
     "count": 1
   }
 }
