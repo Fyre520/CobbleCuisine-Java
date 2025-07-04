@@ -34,8 +34,6 @@ public class CobbleCuisineLootInjector {
 			LootTables.VILLAGE_SNOWY_HOUSE_CHEST
 	};
 
-	private CobbleCuisineLootInjector() {}
-
 	public static void register() {
 		LOGGER.info("CobbleCuisine >> Injecting Loot Tables...");
 		LootTableEvents.MODIFY.register(CobbleCuisineLootInjector::onLootTableModify);
