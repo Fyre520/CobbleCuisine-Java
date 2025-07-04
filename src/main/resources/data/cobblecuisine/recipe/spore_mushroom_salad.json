@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:sassy_mint" },
+
+    { "item": "cobblecuisine:green_bean" },
+
+    { "tag": "minecraft:mushrooms" }
+      
+    ],
+
+    "result": {
+      "id": "cobblecuisine:spore_mushroom_salad",
+      "count": 1
+    }
+  }

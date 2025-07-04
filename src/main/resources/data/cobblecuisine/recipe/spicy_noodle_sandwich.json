@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "pattern": [
+      " b ",
+      "xyz",
+      " b "
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:bread"
+      },
+      "x": {
+        "item": "minecraft:wheat"
+      },
+      "y": {
+        "item": "cobblecuisine:roasted_coba_berry"
+      },
+      "z": {
+        "item": "cobblecuisine:spice_mix"
+      }
+    },
+    "result": {
+      "id": "cobblecuisine:spicy_noodle_sandwich",
+      "count": 1
+    },
+    "show_notification": true
+  }

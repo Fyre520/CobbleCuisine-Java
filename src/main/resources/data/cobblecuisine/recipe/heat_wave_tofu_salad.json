@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:serious_mint" },
+
+    { "item": "cobblecuisine:red_bean" },
+
+    { "item": "cobblemon:galarica_nuts" }
+    ],
+
+    "result": {
+      "id": "cobblecuisine:heat_wave_tofu_salad",
+      "count": 1
+    }
+  }

@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:quiet_mint" },
+
+    { "item": "cobblecuisine:green_bean" },
+
+    { "tag": "cobblecuisine:green_group3" }
+
+    ],
+
+    "result": {
+      "id": "cobblecuisine:greengrass_salad",
+      "count": 1
+    }
+  }

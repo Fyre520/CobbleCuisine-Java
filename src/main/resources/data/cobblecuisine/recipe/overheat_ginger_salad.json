@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:rash_mint" },
+
+    { "item": "cobblecuisine:orange_bean" },
+
+    { "item": "cobblemon:big_root" }
+    ],
+
+    "result": {
+      "id": "cobblecuisine:overheat_ginger_salad",
+      "count": 1
+    }
+  }

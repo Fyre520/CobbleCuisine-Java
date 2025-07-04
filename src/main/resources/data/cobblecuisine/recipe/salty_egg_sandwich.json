@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "pattern": [
+      " b ",
+      "xyz",
+      " b "
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:bread"
+      },
+      "x": {
+        "tag": "cobblecuisine:beans"
+      },
+      "y": {
+        "item": "cobblecuisine:roasted_chople_berry"
+      },
+      "z": {
+        "item": "minecraft:egg"
+      }
+    },
+    "result": {
+      "id": "cobblecuisine:salty_egg_sandwich",
+      "count": 1
+    },
+    "show_notification": true
+  }

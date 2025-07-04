@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:calm_mint" },
+
+    { "item": "cobblecuisine:green_bean" },
+
+    { "tag": "minecraft:fruits" }
+
+    ],
+
+    "result": {
+      "id": "cobblecuisine:calm_mind_fruit_salad",
+      "count": 1
+    }
+  }

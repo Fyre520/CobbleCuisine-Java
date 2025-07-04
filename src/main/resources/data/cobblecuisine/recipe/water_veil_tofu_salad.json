@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:serious_mint" },
+
+    { "item": "cobblecuisine:blue_bean" },
+
+    { "item": "minecraft:water_bucket" }
+    ],
+
+    "result": {
+      "id": "cobblecuisine:water_veil_tofu_salad",
+      "count": 1
+    }
+  }

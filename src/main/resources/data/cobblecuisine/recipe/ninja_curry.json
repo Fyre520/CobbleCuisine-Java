@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:indigo_bean" },
+
+    { "item": "cobblemon:colbur_berry" },
+
+    { "tag": "cobblemon:bitter_20"},
+
+    { "item": "minecraft:spider_eye" },
+
+    { "item": "minecraft:bone" }
+    ],
+    "result": {
+      "id": "cobblecuisine:ninja_curry",
+      "count": 1
+    }
+  }

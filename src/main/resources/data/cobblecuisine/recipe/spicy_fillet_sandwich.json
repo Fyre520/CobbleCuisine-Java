@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "pattern": [
+      " b ",
+      "xyz",
+      " b "
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:bread"
+      },
+      "x": {
+        "item": "cobblecuisine:spice_mix"
+      },
+      "y": {
+        "item": "cobblecuisine:roasted_kebia_berry"
+      },
+      "z": {
+        "tag": "minecraft:fishes"
+      }
+    },
+    "result": {
+      "id": "cobblecuisine:spicy_fillet_sandwich",
+      "count": 1
+    },
+    "show_notification": true
+  }

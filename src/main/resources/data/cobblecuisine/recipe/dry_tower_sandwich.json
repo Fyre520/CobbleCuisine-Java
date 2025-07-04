@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "pattern": [
+      " b ",
+      "xyz",
+      " b "
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:bread"
+      },
+      "x": {
+        "tag": "cobblecuisine:beans"
+      },
+      "y": {
+        "item": "cobblecuisine:roasted_babiri_berry"
+      },
+      "z": {
+        "tag": "minecraft:vegetables"
+      }
+    },
+    "result": {
+      "id": "cobblecuisine:dry_tower_sandwich",
+      "count": 1
+    },
+    "show_notification": true
+  }

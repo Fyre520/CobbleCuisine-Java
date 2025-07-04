@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:brave_mint" },
+
+    { "item": "cobblecuisine:red_bean" },
+
+    { "item": "cobblecuisine:spice_mix" }
+    ],
+
+    "result": {
+      "id": "cobblecuisine:superpower_extreme_salad",
+      "count": 1
+    }
+  }

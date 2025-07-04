@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "pattern": [
+      " b ",
+      "xyz",
+      " b "
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:bread"
+      },
+      "x": {
+        "tag": "cobblecuisine:beans"
+      },
+      "y": {
+        "item": "cobblecuisine:roasted_enigma_berry"
+      },
+      "z": {
+        "item": "minecraft:chorus_fruit"
+      }
+    },
+    "result": {
+      "id": "cobblecuisine:bitter_jambon_beurre",
+      "count": 1
+    },
+    "show_notification": true
+  }

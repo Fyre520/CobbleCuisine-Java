@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:yellow_bean" },
+
+    { "item": "cobblemon:tanga_berry" },
+    
+    { "tag": "cobblemon:sweet_20"},
+
+    { "item": "minecraft:wheat"},
+
+    { "item": "minecraft:honey_bottle" }
+    ],
+    "result": {
+      "id": "cobblecuisine:mild_honey_curry",
+      "count": 1
+    }
+  }

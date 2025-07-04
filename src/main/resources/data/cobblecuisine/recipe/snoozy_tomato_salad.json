@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:mild_mint" },
+
+    { "item": "cobblecuisine:orange_bean" },
+
+    { "item": "cobblemon:tamato_berry" }
+    ],
+
+    "result": {
+      "id": "cobblecuisine:snoozy_tomato_salad",
+      "count": 1
+    }
+  }

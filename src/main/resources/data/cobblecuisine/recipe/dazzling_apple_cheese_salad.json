@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:naive_mint" },
+
+    { "item": "minecraft:apple" },
+
+    { "item": "minecraft:milk_bucket" }
+
+    ],
+
+    "result": {
+      "id": "cobblecuisine:dazzling_apple_cheese_salad",
+      "count": 1
+    }
+  }

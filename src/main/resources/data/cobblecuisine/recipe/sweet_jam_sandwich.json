@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "pattern": [
+      " b ",
+      "xyz",
+      " b "
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:bread"
+      },
+      "x": {
+        "tag": "cobblemon:sweets"
+      },
+      "y": {
+        "item": "cobblecuisine:roasted_tanga_berry"
+      },
+      "z": {
+        "item": "minecraft:sugar"
+      }
+    },
+    "result": {
+      "id": "cobblecuisine:sweet_jam_sandwich",
+      "count": 1
+    },
+    "show_notification": true
+  }

@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:lonely_mint" },
+
+    { "item": "cobblecuisine:red_bean" },
+
+    { "item": "cobblecuisine:roasted_chople_berry" }
+    ],
+
+    "result": {
+      "id": "cobblecuisine:cross_chop_salad",
+      "count": 1
+    }
+  }

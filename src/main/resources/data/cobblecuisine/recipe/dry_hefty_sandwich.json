@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "pattern": [
+      " b ",
+      "xyz",
+      " b "
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:bread"
+      },
+      "x": {
+        "tag": "cobblecuisine:beans"
+      },
+      "y": {
+        "item": "cobblecuisine:roasted_haban_berry"
+      },
+      "z": {
+        "tag": "cobblemon:cooked_meat"
+      }
+    },
+    "result": {
+      "id": "cobblecuisine:dry_hefty_sandwich",
+      "count": 1
+    },
+    "show_notification": true
+  }

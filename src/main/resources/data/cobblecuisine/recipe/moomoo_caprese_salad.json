@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:gentle_mint" },
+
+    { "item": "cobblecuisine:yellow_bean" },
+
+    { "item": "minecraft:milk_bucket" }
+    ],
+
+    "result": {
+      "id": "cobblecuisine:moomoo_caprese_salad",
+      "count": 1
+    }
+  }

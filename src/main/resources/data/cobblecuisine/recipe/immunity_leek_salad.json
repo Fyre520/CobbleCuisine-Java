@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:careful_mint" },
+
+    { "item": "cobblecuisine:green_bean" },
+
+    { "item": "cobblemon:medicinal_leek" }
+    ],
+
+    "result": {
+      "id": "cobblecuisine:immunity_leek_salad",
+      "count": 1
+    }
+  }

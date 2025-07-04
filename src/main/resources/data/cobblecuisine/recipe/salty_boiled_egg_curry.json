@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:yellow_bean" },
+
+    { "item": "cobblemon:chilan_berry" },
+    
+    { "tag": "cobblemon:dry_20"},
+
+    { "item": "minecraft:egg" },
+
+    { "item": "minecraft:calcite" }
+    ],
+    "result": {
+      "id": "cobblecuisine:salty_boiled_egg_curry",
+      "count": 1
+    }
+  }

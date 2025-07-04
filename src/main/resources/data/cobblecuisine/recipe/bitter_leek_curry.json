@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:blue_bean" },
+
+    { "item": "cobblemon:passho_berry" },
+
+    { "tag": "cobblemon:bitter_20"},
+
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:medicinal_leek" }
+    ],
+    "result": {
+      "id": "cobblecuisine:bitter_leek_curry",
+      "count": 1
+    }
+  }

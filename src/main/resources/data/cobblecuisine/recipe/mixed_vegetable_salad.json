@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:bold_mint" },
+
+    { "item": "cobblecuisine:green_bean" },
+
+    { "tag": "minecraft:vegetables" }
+    ],
+
+    "result": {
+      "id": "cobblecuisine:mixed_vegetable_salad",
+      "count": 1
+    }
+  }

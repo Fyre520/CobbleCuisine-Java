@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:green_bean" },
+
+    { "item": "cobblemon:kebia_berry" },
+
+    { "tag": "cobblemon:bitter_20"},
+
+    { "tag": "cobblemon:mint_leaf" },
+
+    { "item": "cobblemon:revival_herb" }
+    ],
+    "result": {
+      "id": "cobblecuisine:bitter_herb_medley_curry",
+      "count": 1
+    }
+  }

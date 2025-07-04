@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "cobblecuisine",
+    "category": "misc",
+    "ingredients": [
+    { "item": "cobblecuisine:salad_mix" },
+
+    { "item": "cobblemon:impish_mint" },
+
+    { "item": "minecraft:cocoa_beans" },
+
+    { "tag": "minecraft:meat" }
+
+  ],
+
+    "result": {
+      "id": "cobblecuisine:contrary_chocolate_meat_salad",
+      "count": 1
+    }
+  }
