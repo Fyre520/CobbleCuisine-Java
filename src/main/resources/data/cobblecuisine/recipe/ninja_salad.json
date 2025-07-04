@@ -1,19 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:salad_mix" },
-
-    { "item": "cobblemon:hasty_mint" },
-
-    { "item": "cobblecuisine:indigo_bean" },
-
-    { "item": "minecraft:spider_eye" }
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblemon:hasty_mint"
+        },
+        {
+            "item": "cobblecuisine:indigo_bean"
+        },
+        {
+            "item": "minecraft:spider_eye"
+        }
     ],
-
     "result": {
-      "id": "cobblecuisine:ninja_salad",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:ninja_salad"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

@@ -1,20 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:salad_mix" },
-
-    { "item": "cobblemon:jolly_mint" },
-
-    { "item": "minecraft:apple" },
-
-    { "item": "minecraft:honey_bottle" }
-    
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblemon:jolly_mint"
+        },
+        {
+            "item": "minecraft:apple"
+        },
+        {
+            "item": "minecraft:honey_bottle"
+        }
     ],
-
     "result": {
-      "id": "cobblecuisine:fancy_apple_salad",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:fancy_apple_salad"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

@@ -1,13 +1,13 @@
 {
-  "type": "minecraft:campfire_cooking",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredient": {
-    "item": "cobblemon:wacan_berry"
-  },
-  "result": {
-    "id": "cobblecuisine:roasted_wacan_berry"
-  },
-  "experience": 40,
-  "cookingtime": 100
+    "category": "misc",
+    "cookingtime": 100,
+    "experience": 40,
+    "group": "cobblecuisine",
+    "ingredient": {
+        "item": "cobblemon:wacan_berry"
+    },
+    "result": {
+        "id": "cobblecuisine:roasted_wacan_berry"
+    },
+    "type": "minecraft:campfire_cooking"
 }

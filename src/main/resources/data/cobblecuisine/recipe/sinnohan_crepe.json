@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "tags": "cobblecuisine:beans"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "tags": "cobblecuisine:beans"
+        },
+        {
+            "item": "cobblemon:whipped_dream"
+        },
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "item": "minecraft:cake"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:sinnohan_crepe"
     },
-    {
-      "item": "cobblemon:whipped_dream"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:cake"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:sinnohan_crepe",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

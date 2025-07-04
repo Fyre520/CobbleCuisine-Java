@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:bread"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:bread"
+        },
+        {
+            "tag": "cobblemon:sour_30"
+        },
+        {
+            "item": "minecraft:dried_kelp"
+        },
+        {
+            "item": "minecraft:glow_berries"
+        },
+        {
+            "item": "cobblecuisine:green_bean"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:sour_malasada"
     },
-    {
-      "tag": "cobblemon:sour_30"
-    },
-    {
-      "item": "minecraft:dried_kelp"
-    },
-    {
-      "item": "minecraft:glow_berries"
-    },
-    {
-      "item": "cobblecuisine:green_bean"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:sour_malasada",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

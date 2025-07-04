@@ -1,20 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:salad_mix" },
-
-    { "item": "cobblemon:adamant_mint" },
-
-    { "item": "cobblecuisine:yellow_bean" },
-
-    { "item": "cobblemon:cornn_berry" }
-
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblemon:adamant_mint"
+        },
+        {
+            "item": "cobblecuisine:yellow_bean"
+        },
+        {
+            "item": "cobblemon:cornn_berry"
+        }
     ],
-
     "result": {
-      "id": "cobblecuisine:fury_attack_corn_salad",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:fury_attack_corn_salad"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

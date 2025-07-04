@@ -1,29 +1,29 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:honey_bottle"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:honey_bottle"
+        },
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "tag": "cobblemon:sweet_30"
+        },
+        {
+            "item": "minecraft:cocoa_beans"
+        },
+        {
+            "item": "minecraft:brown_dye"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:eclair"
     },
-    {
-      "tag": "cobblecuisine:beans"
-    },
-    {
-      "tag": "cobblemon:sweet_30"
-    },
-    {
-      "item": "minecraft:cocoa_beans"
-    },
-    {
-      "item": "minecraft:brown_dye"
-    },
-    {
-      "item": "minecraft:milk_bucket"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:eclair",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

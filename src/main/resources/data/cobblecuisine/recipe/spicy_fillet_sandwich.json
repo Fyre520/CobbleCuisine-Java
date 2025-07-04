@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "item": "cobblecuisine:spice_mix"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_kebia_berry"
-      },
-      "z": {
-        "tag": "minecraft:fishes"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "item": "cobblecuisine:spice_mix"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_kebia_berry"
+        },
+        "z": {
+            "tag": "minecraft:fishes"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:spicy_fillet_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:spicy_fillet_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

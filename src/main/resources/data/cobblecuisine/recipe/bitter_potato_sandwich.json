@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "tag": "cobblemon:bitter_20"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_shuca_berry"
-      },
-      "z": {
-        "item": "minecraft:potato"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "tag": "cobblemon:bitter_20"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_shuca_berry"
+        },
+        "z": {
+            "item": "minecraft:potato"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:bitter_potato_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:bitter_potato_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

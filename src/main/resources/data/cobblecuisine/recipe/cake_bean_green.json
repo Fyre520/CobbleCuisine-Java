@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:wheat"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "item": "cobblecuisine:green_bean"
+        },
+        {
+            "tag": "minecraft:flowers"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:green_bean_cake"
     },
-    {
-      "tag": "cobblecuisine:beans"
-    },
-    {
-      "item": "cobblecuisine:green_bean"
-    },
-    {
-      "tag": "minecraft:flowers"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:green_bean_cake",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

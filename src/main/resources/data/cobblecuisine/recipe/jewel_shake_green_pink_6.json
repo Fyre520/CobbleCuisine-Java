@@ -1,21 +1,21 @@
 {
-    "type": "minecraft:crafting_shapeless",
     "ingredients": [
-      {
-        "tag": "cobblecuisine:green_group3"
-      },
-      {
-        "item": "minecraft:milk_bucket"
-      },
-      {
-        "item": "minecraft:glass_bottle"
-      },
-      {
-        "tag": "cobblecuisine:pink_group3"
-      }
+        {
+            "tag": "cobblecuisine:green_group3"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        {
+            "tag": "cobblecuisine:pink_group3"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:deluxe_jewel_shake",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:deluxe_jewel_shake"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

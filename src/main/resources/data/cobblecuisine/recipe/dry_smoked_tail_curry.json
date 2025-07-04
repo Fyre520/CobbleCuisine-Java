@@ -1,20 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:red_bean" },
-
-    { "item": "cobblemon:payapa_berry" },
-
-    { "tag": "cobblemon:dry_20"},
-
-    { "item": "cobblemon:galarica_nuts" },
-
-    { "item": "cobblecuisine:salad_mix" }
+        {
+            "item": "cobblecuisine:red_bean"
+        },
+        {
+            "item": "cobblemon:payapa_berry"
+        },
+        {
+            "tag": "cobblemon:dry_20"
+        },
+        {
+            "item": "cobblemon:galarica_nuts"
+        },
+        {
+            "item": "cobblecuisine:salad_mix"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:dry_smoked_tail_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:dry_smoked_tail_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

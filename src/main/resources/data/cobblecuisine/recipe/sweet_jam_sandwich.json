@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "tag": "cobblemon:sweets"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_tanga_berry"
-      },
-      "z": {
-        "item": "minecraft:sugar"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "tag": "cobblemon:sweets"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_tanga_berry"
+        },
+        "z": {
+            "item": "minecraft:sugar"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:sweet_jam_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:sweet_jam_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

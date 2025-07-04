@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:wheat"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "item": "minecraft:brown_mushroom"
+        },
+        {
+            "item": "minecraft:brown_mushroom"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:brown_mushroom_cake"
     },
-    {
-      "tag": "cobblecuisine:beans"
-    },
-    {
-      "item": "minecraft:brown_mushroom"
-    },
-    {
-      "item": "minecraft:brown_mushroom"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:brown_mushroom_cake",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

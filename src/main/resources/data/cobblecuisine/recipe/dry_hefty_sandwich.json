@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "tag": "cobblecuisine:beans"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_haban_berry"
-      },
-      "z": {
-        "tag": "cobblemon:cooked_meat"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "tag": "cobblecuisine:beans"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_haban_berry"
+        },
+        "z": {
+            "tag": "cobblemon:cooked_meat"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:dry_hefty_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:dry_hefty_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

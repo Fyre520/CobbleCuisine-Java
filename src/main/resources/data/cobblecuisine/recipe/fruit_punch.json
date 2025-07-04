@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "cobblemon:calcium"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "cobblemon:calcium"
+        },
+        {
+            "tag": "minecraft:fruits"
+        },
+        {
+            "tag": "cobblecuisine:green_group3"
+        },
+        {
+            "tag": "cobblecuisine:beans"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:fruit_punch"
     },
-    {
-      "tag": "minecraft:fruits"
-    },
-    {
-      "tag": "cobblecuisine:green_group3"
-    },
-    {
-      "tag": "cobblecuisine:beans"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:fruit_punch",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

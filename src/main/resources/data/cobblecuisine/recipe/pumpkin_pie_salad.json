@@ -1,19 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:salad_mix" },
-
-    { "item": "cobblemon:gentle_mint" },
-
-    { "item": "cobblecuisine:yellow_bean" },
-
-    { "item": "minecraft:pumpkin_pie" }
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblemon:gentle_mint"
+        },
+        {
+            "item": "cobblecuisine:yellow_bean"
+        },
+        {
+            "item": "minecraft:pumpkin_pie"
+        }
     ],
-
     "result": {
-      "id": "cobblecuisine:pumpkin_pie_salad",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:pumpkin_pie_salad"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

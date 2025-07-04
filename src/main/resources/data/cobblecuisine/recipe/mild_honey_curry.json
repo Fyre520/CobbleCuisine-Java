@@ -1,20 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:yellow_bean" },
-
-    { "item": "cobblemon:tanga_berry" },
-    
-    { "tag": "cobblemon:sweet_20"},
-
-    { "item": "minecraft:wheat"},
-
-    { "item": "minecraft:honey_bottle" }
+        {
+            "item": "cobblecuisine:yellow_bean"
+        },
+        {
+            "item": "cobblemon:tanga_berry"
+        },
+        {
+            "tag": "cobblemon:sweet_20"
+        },
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "item": "minecraft:honey_bottle"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:mild_honey_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:mild_honey_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "cobblemon:strawberry_sweet"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "cobblemon:strawberry_sweet"
+        },
+        {
+            "item": "cobblemon:whipped_dream"
+        },
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "item": "minecraft:sweet_berries"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:all_crepe"
     },
-    {
-      "item": "cobblemon:whipped_dream"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:sweet_berries"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:all_crepe",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

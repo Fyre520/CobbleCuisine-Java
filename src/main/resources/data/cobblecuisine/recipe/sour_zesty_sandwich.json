@@ -1,29 +1,29 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "group": "cobblecuisine",
     "category": "misc",
-    "pattern": [
-      " b ",
-      "xyz",
-      " b "
-    ],
+    "group": "cobblecuisine",
     "key": {
-      "b": {
-        "item": "minecraft:bread"
-      },
-      "x": {
-        "item": "cobblemon:roasted_sitrus_berry"
-      },
-      "y": {
-        "item": "cobblecuisine:roasted_wacan_berry"
-      },
-      "z": {
-        "tag": "cobblemon:sour_20"
-      }
+        "b": {
+            "item": "minecraft:bread"
+        },
+        "x": {
+            "item": "cobblemon:roasted_sitrus_berry"
+        },
+        "y": {
+            "item": "cobblecuisine:roasted_wacan_berry"
+        },
+        "z": {
+            "tag": "cobblemon:sour_20"
+        }
     },
+    "pattern": [
+        " b ",
+        "xyz",
+        " b "
+    ],
     "result": {
-      "id": "cobblecuisine:sour_zesty_sandwich",
-      "count": 1
+        "count": 1,
+        "id": "cobblecuisine:sour_zesty_sandwich"
     },
-    "show_notification": true
-  }
+    "show_notification": true,
+    "type": "minecraft:crafting_shaped"
+}

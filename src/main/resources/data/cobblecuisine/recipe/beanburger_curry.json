@@ -1,21 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "tag": "cobblecuisine:beans" },
-    
-    { "item": "minecraft:bread" },
-
-    { "item": "minecraft:potato" },
-
-    { "item": "cobblemon:charti_berry" },
-
-    { "item": "minecraft:cooked_chicken" }
-
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "item": "minecraft:bread"
+        },
+        {
+            "item": "minecraft:potato"
+        },
+        {
+            "item": "cobblemon:charti_berry"
+        },
+        {
+            "item": "minecraft:cooked_chicken"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:beanburger_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:beanburger_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

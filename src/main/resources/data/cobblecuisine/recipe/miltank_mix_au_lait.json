@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "tag": "cobblemon:sweets"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "tag": "cobblemon:sweets"
+        },
+        {
+            "item": "minecraft:milk_bucket"
+        },
+        {
+            "item": "cobblemon:hp_up"
+        },
+        {
+            "tag": "cobblecuisine:pink_group3"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:miltank_mix_au_lait"
     },
-    {
-      "item": "minecraft:milk_bucket"
-    },
-    {
-      "item": "cobblemon:hp_up"
-    },
-    {
-      "tag": "cobblecuisine:pink_group3"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:miltank_mix_au_lait",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

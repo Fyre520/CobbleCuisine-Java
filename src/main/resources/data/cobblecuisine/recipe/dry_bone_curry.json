@@ -1,20 +1,26 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:yellow_bean" },
-
-    { "item": "cobblemon:shuca_berry" },
-
-    { "tag": "cobblemon:dry_20"},
-
-    { "item": "minecraft:bone" },
-
-    { "item": "minecraft:calcite" }
+        {
+            "item": "cobblecuisine:yellow_bean"
+        },
+        {
+            "item": "cobblemon:shuca_berry"
+        },
+        {
+            "tag": "cobblemon:dry_20"
+        },
+        {
+            "item": "minecraft:bone"
+        },
+        {
+            "item": "minecraft:calcite"
+        }
     ],
     "result": {
-      "id": "cobblecuisine:dry_bone_curry",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:dry_bone_curry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

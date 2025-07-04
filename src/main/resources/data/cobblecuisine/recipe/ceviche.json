@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:salmon"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:salmon"
+        },
+        {
+            "item": "minecraft:cod"
+        },
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "tag": "cobblemon:sweet_40"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:ceviche"
     },
-    {
-      "item": "minecraft:cod"
-    },
-    {
-      "item": "cobblecuisine:salad_mix"
-    },
-    {
-      "tag": "cobblemon:sweet_40"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:ceviche",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }

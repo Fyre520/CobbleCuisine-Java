@@ -1,19 +1,23 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "group": "cobblecuisine",
     "category": "misc",
+    "group": "cobblecuisine",
     "ingredients": [
-    { "item": "cobblecuisine:salad_mix" },
-
-    { "item": "cobblemon:lax_mint" },
-
-    { "item": "cobblecuisine:indigo_bean" },
-
-    { "item": "minecraft:baked_potato" }
+        {
+            "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblemon:lax_mint"
+        },
+        {
+            "item": "cobblecuisine:indigo_bean"
+        },
+        {
+            "item": "minecraft:baked_potato"
+        }
     ],
-
     "result": {
-      "id": "cobblecuisine:gluttony_potato_salad",
-      "count": 1
-    }
-  }
+        "count": 1,
+        "id": "cobblecuisine:gluttony_potato_salad"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

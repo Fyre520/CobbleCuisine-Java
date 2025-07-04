@@ -1,23 +1,23 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "cobblecuisine",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:wheat"
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "tag": "cobblecuisine:beans"
+        },
+        {
+            "tag": "minecraft:chicken_food"
+        },
+        {
+            "tag": "minecraft:chicken_food"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:seed_grain_cake"
     },
-    {
-      "tag": "cobblecuisine:beans"
-    },
-    {
-      "tag": "minecraft:chicken_food"
-    },
-    {
-      "tag": "minecraft:chicken_food"
-    }
-  ],
-  "result": {
-    "id": "cobblecuisine:seed_grain_cake",
-    "count": 1
-  }
+    "type": "minecraft:crafting_shapeless"
 }
