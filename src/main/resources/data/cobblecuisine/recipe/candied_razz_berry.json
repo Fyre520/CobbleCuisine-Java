@@ -1,0 +1,26 @@
+{
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "cobblemon:razz_berry"
+        },
+        {
+            "item": "minecraft:honey_bottle"
+        },
+        {
+            "item": "cobblemon:exp_candy_s"
+        },
+        {
+            "item": "cobblemon:red_mint_leaf"
+        },
+        {
+            "item": "cobblemon:clover_sweet"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:candied_razz_berry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}

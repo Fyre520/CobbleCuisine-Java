@@ -1,0 +1,26 @@
+{
+    "category": "misc",
+    "group": "cobblecuisine",
+    "ingredients": [
+        {
+            "item": "cobblemon:pinap_berry"
+        },
+        {
+            "item": "minecraft:honey_bottle"
+        },
+        {
+            "item": "cobblemon:exp_candy_m"
+        },
+        {
+            "item": "cobblemon:blue_mint_leaf"
+        },
+        {
+            "item": "cobblemon:ribbon_sweet"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "cobblecuisine:candied_pinap_berry"
+    },
+    "type": "minecraft:crafting_shapeless"
+}
