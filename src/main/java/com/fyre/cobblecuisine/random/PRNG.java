@@ -13,7 +13,7 @@ public class PRNG {
 		x ^= (x << 13);
 		x ^= (x >>> 7);
 		x ^= (x << 17);
-		state = x;
+		state += x;
 	}
 
 	public static int nextInt(int min, int max) {
