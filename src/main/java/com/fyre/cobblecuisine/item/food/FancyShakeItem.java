@@ -75,7 +75,7 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 				pokemon.setDmaxLevel(pokemon.getDmaxLevel() + PRNG.nextInt(2, 4));
 				break;
 			case 2:
-				for (int i = 0; i < Stats.values().length; i++) pokemon.setEV(Stats.values()[i], 0);
+				for (int i = 0; i < Stats.values().length; i++) pokemon.getEvs().set(Stats.values()[i], 0);
 				break;
 			case 3:
 				pokemon.setLevel(Math.min(100, pokemon.getLevel() + PRNG.nextInt(2, 4)));
