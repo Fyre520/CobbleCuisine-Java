@@ -4,8 +4,10 @@ import com.cobblemon.mod.common.CobblemonSounds;
 import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
 import com.cobblemon.mod.common.api.item.HealingSource;
 import com.cobblemon.mod.common.api.item.PokemonSelectingItem;
+import com.cobblemon.mod.common.api.moves.BenchedMove;
 import com.cobblemon.mod.common.api.moves.Move;
 import com.cobblemon.mod.common.api.moves.MoveTemplate;
+import com.cobblemon.mod.common.api.pokemon.stats.Stat;
 import com.cobblemon.mod.common.api.pokemon.stats.Stats;
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import com.cobblemon.mod.common.item.CobblemonItem;
@@ -75,7 +77,9 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 				pokemon.setDmaxLevel(pokemon.getDmaxLevel() + PRNG.nextInt(2, 4));
 				break;
 			case 2:
-				for (int i = 0; i < Stats.values().length; i++) pokemon.getEvs().set(Stats.values()[i], 0);
+				Stat[] stats = new Stat[]{Stats.HP, Stats.ATTACK, Stats.DEFENCE, Stats.SPECIAL_ATTACK, Stats.SPECIAL_DEFENCE, Stats.SPEED};
+				//noinspection ForLoopReplaceableByForEach
+				for (int i = 0; i < stats.length; i++) pokemon.getEvs().set(stats[i], 0);
 				break;
 			case 3:
 				pokemon.setLevel(Math.min(100, pokemon.getLevel() + PRNG.nextInt(2, 4)));
@@ -98,6 +102,7 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 
 					boolean alreadyHas = false;
 					List<Move> currentMoves = pokemon.getMoveSet().getMoves();
+
 					//noinspection ForLoopReplaceableByForEach
 					for (int j = 0; j < currentMoves.size(); j++) {
 						if (currentMoves.get(j).getTemplate().equals(candidate)) {
@@ -107,7 +112,7 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 					}
 
 					if (!alreadyHas) {
-						pokemon.getMoveSet().add(new Move(candidate, 0, 0));
+						pokemon.getBenchedMoves().add(new BenchedMove(candidate, 0));
 						added++;
 					}
 				}
