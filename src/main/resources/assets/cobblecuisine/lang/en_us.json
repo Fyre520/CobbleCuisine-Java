@@ -285,12 +285,12 @@
   "item.cobblecuisine.protein_smoothie": "Protein Smoothie",
   "item.cobblecuisine.spiced_cola": "Spiced Cola",
 
-  "tooltip.cobblecuisine.item.coffee": "Attracts Pokémon with higher HP.",
-  "tooltip.cobblecuisine.item.lemon_soda": "Attracts Pokémon with higher ATK.",
-  "tooltip.cobblecuisine.item.fruit_punch": "Attracts Pokémon with higher DEF.",
-  "tooltip.cobblecuisine.item.lilligant_floral_tea": "Attracts Pokémon with higher SP. ATK.",
-  "tooltip.cobblecuisine.item.miltank_mix_au_lait": "Attracts Pokémon with higher SP.DEF.",
-  "tooltip.cobblecuisine.item.protein_smoothie": "Attracts Pokémon with higher SPE.",
+  "tooltip.cobblecuisine.item.miltank_mix_au_lait": "Attracts Pokémon with higher HP.",
+  "tooltip.cobblecuisine.item.protein_smoothie": "Attracts Pokémon with higher ATK.",
+  "tooltip.cobblecuisine.item.coffee": "Attracts Pokémon with higher DEF.",
+  "tooltip.cobblecuisine.item.fruit_punch": "Attracts Pokémon with higher SP. ATK.",
+  "tooltip.cobblecuisine.item.lilligant_floral_tea": "Attracts Pokémon with higher SP. DEF.",
+  "tooltip.cobblecuisine.item.lemon_soda": "Attracts Pokémon with higher SPEED.",
   "tooltip.cobblecuisine.item.spiced_cola": "PLACEHOLDER",
 
   "item.cobblecuisine.eclair": "Clodsire Eclair",
@@ -409,12 +409,12 @@
 
   "item.cobblecuisine.fancyshake.use": "%s loved the shake!",
 
-  "tooltip.cobblecuisine.item.deluxe_jewel_shake": "PLACEHOLDER",
-  "tooltip.cobblecuisine.item.deluxe_earthy_shake": "PLACEHOLDER",
-  "tooltip.cobblecuisine.item.deluxe_violet_shake": "PLACEHOLDER",
-  "tooltip.cobblecuisine.item.deluxe_verdant_shake": "PLACEHOLDER",
-  "tooltip.cobblecuisine.item.deluxe_coral_shake": "PLACEHOLDER",
-  "tooltip.cobblecuisine.item.deluxe_bb_shake": "PLACEHOLDER",
+  "tooltip.cobblecuisine.item.deluxe_jewel_shake": "Raises Dynamax Level.",
+  "tooltip.cobblecuisine.item.deluxe_earthy_shake": "Clears all EVs",
+  "tooltip.cobblecuisine.item.deluxe_violet_shake": "Teaches new moves.",
+  "tooltip.cobblecuisine.item.deluxe_verdant_shake": "Fully heals the Pokemon.",
+  "tooltip.cobblecuisine.item.deluxe_coral_shake": "Raises Level.",
+  "tooltip.cobblecuisine.item.deluxe_bb_shake": "Raises PP of all moves.",
 
   "effect.cobblecuisine.grass_spawn": "§a§oGrass Power§r",
   "effect.cobblecuisine.normal_spawn": "§f§oNormal Power§r",
