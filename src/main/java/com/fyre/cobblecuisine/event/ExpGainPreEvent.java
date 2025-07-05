@@ -24,8 +24,9 @@ public class ExpGainPreEvent {
 		ServerPlayerEntity player = event.getPokemon().getOwnerPlayer();
 		if (player == null || !player.hasStatusEffect(CobbleCuisineEffects.EXP_BOOST.entry)) return;
 
-		int exp = event.getExperience() * (int) CobbleCuisineConfig.data.boostSettings.expBoostMultiplier;
+		int originalExp = event.getExperience();
+		int exp = originalExp * (int) CobbleCuisineConfig.data.boostSettings.expBoostMultiplier;
 		event.setExperience(exp);
-		player.sendMessage(Text.translatable("message.cobblecuisine.expboost", event.getPokemon().getDisplayName(), exp - event.getExperience()));
+		player.sendMessage(Text.translatable("message.cobblecuisine.expboost", event.getPokemon().getDisplayName(), exp - originalExp));
 	}
 }
