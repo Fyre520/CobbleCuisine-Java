@@ -49,6 +49,16 @@
         {
           "type": "minecraft:item",
           "weight": 1,
+          "name": "cobblecuisine:indigo_bean"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "cobblecuisine:violet_bean"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
           "name": "cobblecuisine:red_bean"
         },
         {
