@@ -12,7 +12,7 @@ import com.cobblemon.mod.common.item.CobblemonItem;
 import com.cobblemon.mod.common.item.battle.BagItem;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 
-import com.fyre.cobblecuisine.CobbleCuisine;
+import com.fyre.cobblecuisine.random.PRNG;
 import com.fyre.cobblecuisine.util.CobbleCuisineUtils;
 
 import net.minecraft.component.type.FoodComponent;
@@ -72,13 +72,13 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 	public TypedActionResult<ItemStack> applyToPokemon(@NotNull ServerPlayerEntity player, @NotNull ItemStack stack, @NotNull Pokemon pokemon) {
 		switch (this.type) {
 			case 1:
-				pokemon.setDmaxLevel(pokemon.getDmaxLevel() + CobbleCuisine.PRNG.nextInt(2, 4));
+				pokemon.setDmaxLevel(pokemon.getDmaxLevel() + PRNG.nextInt(2, 4));
 				break;
 			case 2:
 				for (int i = 0; i < Stats.values().length; i++) pokemon.setEV(Stats.values()[i], 0);
 				break;
 			case 3:
-				pokemon.setLevel(Math.min(100, pokemon.getLevel() + CobbleCuisine.PRNG.nextInt(2, 4)));
+				pokemon.setLevel(Math.min(100, pokemon.getLevel() + PRNG.nextInt(2, 4)));
 				break;
 			case 4:
 				pokemon.heal();
@@ -92,9 +92,9 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 				List<MoveTemplate> eggMoves = pokemon.getSpecies().getMoves().getEggMoves();
 				Collections.shuffle(eggMoves);
 				int added = 0;
-				int maxAdd = CobbleCuisine.PRNG.nextInt(2, 4);
+				int maxAdd = PRNG.nextInt(2, 4);
 				for (int i = 0; i < eggMoves.size() && added < maxAdd; i++) {
-					MoveTemplate candidate = eggMoves.get(CobbleCuisine.PRNG.nextInt(0, eggMoves.size()));
+					MoveTemplate candidate = eggMoves.get(PRNG.nextInt(0, eggMoves.size()));
 
 					boolean alreadyHas = false;
 					List<Move> currentMoves = pokemon.getMoveSet().getMoves();

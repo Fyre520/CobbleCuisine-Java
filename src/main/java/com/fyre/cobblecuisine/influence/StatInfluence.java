@@ -10,10 +10,10 @@ import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 
-import com.fyre.cobblecuisine.CobbleCuisine;
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 
+import com.fyre.cobblecuisine.random.PRNG;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.entity.effect.StatusEffect;
@@ -55,7 +55,7 @@ public class StatInfluence implements SpawningInfluence {
 
 		if (player.getBlockPos().getSquaredDistance(entity.getBlockPos()) > EFFECT_DISTANCE) return;
 
-		double random = CobbleCuisine.PRNG.nextDouble();
+		double random = PRNG.nextDouble();
 		if (random < IV_MAX) {
 			setIVs(pokemonEntity, 25, 32, false);
 		} else if (random < IV_AVG) {
@@ -72,10 +72,10 @@ public class StatInfluence implements SpawningInfluence {
 	private void setIVs(PokemonEntity pokemon, int min, int max, boolean individual) {
 		if (individual) {
 			for (Stat stat : ALL_STATS) {
-				pokemon.getPokemon().setIV(stat, CobbleCuisine.PRNG.nextInt(min, max));
+				pokemon.getPokemon().setIV(stat, PRNG.nextInt(min, max));
 			}
 		}
-		int val = CobbleCuisine.PRNG.nextInt(min, max);
+		int val = PRNG.nextInt(min, max);
 		for (Stat stat : ALL_STATS) {
 			pokemon.getPokemon().setIV(stat, val);
 		}

@@ -11,10 +11,10 @@ import com.fyre.cobblecuisine.influence.*;
 import com.fyre.cobblecuisine.item.food.BeanType;
 import com.fyre.cobblecuisine.item.CobbleCuisineItems;
 import com.fyre.cobblecuisine.loot.CobbleCuisineLootInjector;
-import com.fyre.cobblecuisine.random.RandomNumberGenerator;
+import com.fyre.cobblecuisine.random.PRNG;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 
 import org.slf4j.Logger;
@@ -23,8 +23,6 @@ import org.slf4j.LoggerFactory;
 public class CobbleCuisine implements ModInitializer {
 	public static final String MOD_ID = "cobblecuisine";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
-	public static final RandomNumberGenerator PRNG = RandomNumberGenerator.create();
 
 	// DO NOT LEAVE THIS ON TRUE IN PRODUCTION!!
 	public static final boolean DEBUG = false;
@@ -67,8 +65,8 @@ public class CobbleCuisine implements ModInitializer {
 		CompostingChanceRegistry.INSTANCE.add(BeanType.GREEN.item, 0.5f);
 		CompostingChanceRegistry.INSTANCE.add(CobbleCuisineItems.BEAN_SEEDS, 0.25f);
 
-		// START PRNG
-		ServerTickEvents.END_SERVER_TICK.register(server -> PRNG.onTick());
+		// INIT PRNG
+		ServerLifecycleEvents.SERVER_STARTED.register(server -> PRNG.server = server);
 
 		LOGGER.info("CobbleCuisine >> Up and running! Time spent: {}ms", String.format("%.2f", (System.nanoTime() - timer) / 1_000_000.0));
 	}

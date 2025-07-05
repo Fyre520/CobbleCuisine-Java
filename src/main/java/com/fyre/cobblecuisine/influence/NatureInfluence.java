@@ -10,10 +10,10 @@ import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
 
-import com.fyre.cobblecuisine.CobbleCuisine;
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 
+import com.fyre.cobblecuisine.random.PRNG;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -99,7 +99,7 @@ public class NatureInfluence implements SpawningInfluence {
 
 		if (player.getBlockPos().getSquaredDistance(entity.getBlockPos()) > EFFECT_DISTANCE) return;
 
-		if (CobbleCuisine.PRNG.nextDouble() >= NATURE_CHANCE) return;
+		if (PRNG.nextDouble() >= NATURE_CHANCE) return;
 		for (int i = 0; i < STATUS_EFFECTS.length; i++) {
 			if (player.hasStatusEffect(STATUS_EFFECTS[i])) {
 				pokemonEntity.getPokemon().setNature(NATURES[i]);

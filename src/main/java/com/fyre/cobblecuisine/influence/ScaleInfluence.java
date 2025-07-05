@@ -8,10 +8,10 @@ import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 
-import com.fyre.cobblecuisine.CobbleCuisine;
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 
+import com.fyre.cobblecuisine.random.PRNG;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -41,7 +41,7 @@ public class ScaleInfluence implements SpawningInfluence {
 
 		if (player.getBlockPos().getSquaredDistance(entity.getBlockPos()) > EFFECT_DISTANCE) return;
 
-		double random = CobbleCuisine.PRNG.nextDouble();
+		double random = PRNG.nextDouble();
 		if (player.hasStatusEffect(CobbleCuisineEffects.TINY.entry)) {
 			if (random < MIN_CHANCE) {
 				pokemonEntity.getPokemon().setScaleModifier(0.8f);
