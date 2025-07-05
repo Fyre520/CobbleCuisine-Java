@@ -11,19 +11,19 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 
 public enum FancyShakeType {
-	DELUXE_JEWEL("deluxe_jewel_shake"),
-	DELUXE_EARTHY("deluxe_earthy_shake"),
-	DELUXE_VIOLET("deluxe_violet_shake"),
-	DELUXE_VERDANT("deluxe_verdant_shake"),
-	DELUXE_CORAL("deluxe_coral_shake"),
-	DELUXE_BB("deluxe_bb_shake");
+	DELUXE_JEWEL("deluxe_jewel_shake", 1),
+	DELUXE_EARTHY("deluxe_earthy_shake", 2),
+	DELUXE_VIOLET("deluxe_violet_shake", 6),
+	DELUXE_VERDANT("deluxe_verdant_shake", 4),
+	DELUXE_CORAL("deluxe_coral_shake", 3),
+	DELUXE_BB("deluxe_bb_shake", 5);
 
 	public final String id;
 	public final Item item;
 
-	FancyShakeType(String id, CobbleCuisineItems.FoodEffect... foodEffects) {
+	FancyShakeType(String id, int type, CobbleCuisineItems.FoodEffect... foodEffects) {
 		this.id = id;
-		this.item = new FancyShakeItem(id, CobbleCuisineItems.buildFoodComponent(5, 1f, false, foodEffects));
+		this.item = new FancyShakeItem(id, type, CobbleCuisineItems.buildFoodComponent(5, 1f, false, foodEffects));
 	}
 
 	private static CobbleCuisineItems.FoodEffect effect(RegistryEntry<StatusEffect> effect) {

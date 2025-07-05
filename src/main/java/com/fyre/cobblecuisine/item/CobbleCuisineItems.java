@@ -4,6 +4,7 @@ import com.fyre.cobblecuisine.CobbleCuisine;
 import com.fyre.cobblecuisine.block.CobbleCuisineBlocks;
 
 import com.fyre.cobblecuisine.item.food.*;
+import com.fyre.cobblecuisine.item.food.FancyShakeType;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 
 import net.minecraft.component.type.FoodComponent;

@@ -21,12 +21,10 @@ import java.util.List;
 
 public class DrinkItem extends Item {
 	private final List<Text> tooltips;
-	private final RegistryEntry<StatusEffect> foodEffect;
 
 	public DrinkItem(String name, FoodComponent foodComponent) {
 		super(new Settings().food(foodComponent));
 		this.tooltips = CobbleCuisineUtils.getItemTooltip(name, foodComponent, null, 0, null, null, null);
-		this.foodEffect = foodComponent.effects().getFirst().effect().getEffectType();
 	}
 
 	@Override

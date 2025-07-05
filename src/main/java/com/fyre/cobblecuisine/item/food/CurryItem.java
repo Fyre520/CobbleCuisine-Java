@@ -21,11 +21,9 @@ import java.util.List;
 
 public class CurryItem extends Item {
 	private final List<Text> tooltips;
-	private final RegistryEntry<StatusEffect> foodEffect;
 
 	public CurryItem(String name, FoodComponent foodComponent) {
 		super(new Item.Settings().food(foodComponent));
-		this.foodEffect = foodComponent.effects().getFirst().effect().getEffectType();
 		this.tooltips = CobbleCuisineUtils.getItemTooltip(name, foodComponent, null, 0, null, null, null);
 	}
 

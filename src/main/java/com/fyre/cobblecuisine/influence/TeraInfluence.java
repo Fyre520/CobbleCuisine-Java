@@ -10,6 +10,7 @@ import com.cobblemon.mod.common.api.types.tera.TeraType;
 import com.cobblemon.mod.common.api.types.tera.TeraTypes;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 
+import com.fyre.cobblecuisine.CobbleCuisine;
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 
@@ -21,8 +22,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.concurrent.ThreadLocalRandom;
 
 import static com.fyre.cobblecuisine.CobbleCuisine.LOGGER;
 import static com.fyre.cobblecuisine.CobbleCuisine.DEBUG;
@@ -88,7 +87,7 @@ public class TeraInfluence implements SpawningInfluence {
 
 		if (player.getBlockPos().getSquaredDistance(entity.getBlockPos()) > EFFECT_DISTANCE) return;
 
-		if (ThreadLocalRandom.current().nextDouble() >= TERA_CHANCE) return;
+		if (CobbleCuisine.PRNG.nextDouble() >= TERA_CHANCE) return;
 		for (int i = 0; i < STATUS_EFFECTS.length; i++) {
 			if (player.hasStatusEffect(STATUS_EFFECTS[i])) {
 				pokemonEntity.getPokemon().setTeraType(TERA_TYPES[i]);

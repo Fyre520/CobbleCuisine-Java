@@ -399,6 +399,7 @@
   "item.cobblecuisine.regular_verdant_shake": "[舊版] 普通翠綠奶昔",
   "item.cobblecuisine.regular_coral_shake": "[舊版] 普通珊瑚奶昔",
   "item.cobblecuisine.regular_bb_shake": "[舊版] 普通BB奶昔",
+
   "item.cobblecuisine.deluxe_jewel_shake": "豪華寶石奶昔",
   "item.cobblecuisine.deluxe_earthy_shake": "豪華泥土奶昔",
   "item.cobblecuisine.deluxe_violet_shake": "豪華紫羅蘭奶昔",
@@ -412,6 +413,8 @@
   "tooltip.cobblecuisine.item.deluxe_verdant_shake": "佔位符",
   "tooltip.cobblecuisine.item.deluxe_coral_shake": "佔位符",
   "tooltip.cobblecuisine.item.deluxe_bb_shake": "佔位符",
+
+  "item.cobblecuisine.fancyshake.use": "%s超喜歡這杯奶昔！",
 
   "effect.cobblecuisine.grass_spawn": "§a§o草屬性能量§r",
   "effect.cobblecuisine.normal_spawn": "§f§o一般屬性能量§r",
