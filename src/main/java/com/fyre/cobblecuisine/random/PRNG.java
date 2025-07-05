@@ -5,7 +5,7 @@ import net.minecraft.server.MinecraftServer;
 public class PRNG {
 	public static MinecraftServer server;
 
-	private static final long SEED = (System.nanoTime() + 0x9E3779B97F4A7C15L) & Long.MAX_VALUE;
+	private static final long SEED = System.nanoTime() + 0x9E3779B97F4A7C15L;
 	private static long state;
 
 	private static void advance() {
@@ -23,7 +23,7 @@ public class PRNG {
 
 	public static long nextLong() {
 		advance();
-		return state & Long.MAX_VALUE;
+		return state;
 	}
 
 	public static double nextDouble() {
