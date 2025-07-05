@@ -70,8 +70,6 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 
 	@Override
 	public TypedActionResult<ItemStack> applyToPokemon(@NotNull ServerPlayerEntity player, @NotNull ItemStack stack, @NotNull Pokemon pokemon) {
-		if (pokemon.getEntity() == null) return TypedActionResult.fail(stack);
-
 		switch (this.type) {
 			case 1:
 				pokemon.setDmaxLevel(pokemon.getDmaxLevel() + CobbleCuisine.PRNG.nextInt(2, 4));
@@ -94,9 +92,9 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 				List<MoveTemplate> eggMoves = pokemon.getSpecies().getMoves().getEggMoves();
 				Collections.shuffle(eggMoves);
 				int added = 0;
-				for (int i = 0; i < eggMoves.size() && added < CobbleCuisine.PRNG.nextInt(2, 4); i++) {
-					int index = CobbleCuisine.PRNG.nextInt(0, eggMoves.size());
-					MoveTemplate candidate = eggMoves.get(index);
+				int maxAdd = CobbleCuisine.PRNG.nextInt(2, 4);
+				for (int i = 0; i < eggMoves.size() && added < maxAdd; i++) {
+					MoveTemplate candidate = eggMoves.get(CobbleCuisine.PRNG.nextInt(0, eggMoves.size()));
 
 					boolean alreadyHas = false;
 					List<Move> currentMoves = pokemon.getMoveSet().getMoves();
@@ -118,16 +116,14 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 				return TypedActionResult.fail(stack);
 		}
 
-		pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
-		player.sendMessage(Text.translatable("item.cobblecuisine.fancyshake.use", pokemon.getDisplayName()), false);
-
-		if (pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
-			serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight() / 2, pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
+		if (pokemon.getEntity() != null && pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
+			pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
+			player.sendMessage(Text.translatable("item.cobblecuisine.fancyshake.use", pokemon.getDisplayName()), false);
+			serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight(), pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
 		}
 
-		if (!player.isCreative()) {
-			stack.decrement(1);
-		}
+		if (!player.isCreative()) stack.decrement(1);
+
 		return TypedActionResult.success(stack);
 	}
 

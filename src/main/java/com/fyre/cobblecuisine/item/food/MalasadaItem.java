@@ -112,9 +112,7 @@ public class MalasadaItem extends CobblemonItem implements PokemonSelectingItem,
 
 				pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
 			}
-			if (!player.isCreative()) {
-				stack.decrement(1);
-			}
+			if (!player.isCreative()) stack.decrement(1);
 			return TypedActionResult.success(stack);
 		}
 		return TypedActionResult.pass(stack);

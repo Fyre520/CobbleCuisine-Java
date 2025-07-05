@@ -93,13 +93,11 @@ public class PokePuffItem extends CobblemonItem implements PokemonSelectingItem,
 				player.sendMessage(Text.translatable("item.cobblecuisine.pokepuff.use", pokemon.getDisplayName()), false);
 
 				if (pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
-					serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight() / 2, pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
+					serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight(), pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
 				}
 			}
 
-			if (!player.isCreative()) {
-				stack.decrement(1);
-			}
+			if (!player.isCreative()) stack.decrement(1);
 			return TypedActionResult.success(stack);
 		}
 
