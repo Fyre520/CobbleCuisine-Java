@@ -10,6 +10,7 @@ import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import kotlin.Unit;
 
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 
 public class ExpGainPreEvent {
 	public static void register() {
@@ -23,6 +24,8 @@ public class ExpGainPreEvent {
 		ServerPlayerEntity player = event.getPokemon().getOwnerPlayer();
 		if (player == null || !player.hasStatusEffect(CobbleCuisineEffects.EXP_BOOST.entry)) return;
 
-		event.setExperience(event.getExperience() * (int) CobbleCuisineConfig.data.boostSettings.expBoostMultiplier);
+		int exp = event.getExperience() * (int) CobbleCuisineConfig.data.boostSettings.expBoostMultiplier;
+		event.setExperience(exp);
+		player.sendMessage(Text.translatable("message.cobblecuisine.expboost", event.getPokemon().getDisplayName(), exp - event.getExperience()));
 	}
 }

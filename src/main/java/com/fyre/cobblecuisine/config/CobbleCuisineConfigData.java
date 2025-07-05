@@ -20,7 +20,7 @@ public class CobbleCuisineConfigData {
 		public final float ivMinChance = 0.5f;
 		public final float ivAvgChance = 0.2f;
 		public final float ivMaxChance = 0.05f;
-		public final float hiddenAbilityBoostChance = 2.0f;
+		public final float haBoostChance = 2.0f;
 	}
 
 	public static class ItemSettings {
@@ -29,7 +29,7 @@ public class CobbleCuisineConfigData {
 		public final int malasadaFriendship = 12;
 		public final int lowShakeEv = 2;
 		public final int mediumShakeEv = 4;
-		public final int highShakeEv = 6;
+		public final int highShakeEv = 8;
 	}
 
 	public static class EffectDuration {

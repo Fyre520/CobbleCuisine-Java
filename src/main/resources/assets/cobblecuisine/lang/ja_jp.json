@@ -1,6 +1,8 @@
 {
   "itemgroup.cobblecuisine": "CobbleCuisine",
 
+  "message.cobblecuisine.expboost": "%1$s は %2$s の追加 EXP を獲得しました！",
+
   "block.cobblecuisine.bean_crop": "豆の苗",
   "item.cobblecuisine.bean_seeds": "豆の種",
 
@@ -35,7 +37,6 @@
   "item.cobblecuisine.bitter_variety_sandwich": "[旧版] ビターバラエティサンドイッチ",
   "item.cobblecuisine.sweet_potato_salad_sandwich": "[旧版] さつまいもサラダサンド",
   "item.cobblecuisine.pepper_steak": "[旧版] ペッパーステーキ",
-  "item.cobblecuisine.ceviche": "[旧版] セビーチェ",
 
   "item.cobblecuisine.roasted_cheri_berry": "ほしあげチェリンボのみ",
   "item.cobblecuisine.roasted_chesto_berry": "ほしあげナナシのみ",
@@ -293,20 +294,26 @@
   "tooltip.cobblecuisine.item.protein_smoothie": "すばやさが高いポケモンをひきつける。",
   "tooltip.cobblecuisine.item.spiced_cola": "プレースホルダー",
 
+  "item.cobblecuisine.kantonian_crepe": "[旧版] クレープ",
+  "item.cobblecuisine.alolan_blue_shaved_ice": "[旧版] しろくまブルーかき氷",
+  "item.cobblecuisine.pickled_toedscool_and_cucumber": "[旧版] タンドリーピクルス",
+  "item.cobblecuisine.hoennian_melon_stir_fry": "[旧版] メロエッタメロンサラダ",
+  "item.cobblecuisine.candied_nanab_berry": "金のキャンディー・ナナブベリー",
+  "item.cobblecuisine.candied_bluk_berry": "金のキャンディー・ブルクベリー",
+  "item.cobblecuisine.candied_razz_berry": "金のキャンディー・ラズベリーベリー",
+  "item.cobblecuisine.candied_pinap_berry": "金のキャンディー・ピナップベリー",
   "item.cobblecuisine.eclair": "ヌケニンエクレア",
   "item.cobblecuisine.fruity_flan": "プリン",
-  "item.cobblecuisine.kantonian_crepe": "クレープ",
-  "item.cobblecuisine.alolan_blue_shaved_ice": "しろくまブルーかき氷",
-  "item.cobblecuisine.pickled_toedscool_and_cucumber": "タンドリーピクルス",
-  "item.cobblecuisine.hoennian_melon_stir_fry": "メロエッタメロンサラダ",
   "item.cobblecuisine.dubious_food": "あやしいフード",
+  "item.cobblecuisine.ceviche": "セビーチェ",
 
+  "tooltip.cobblecuisine.item.candied_nanab_berry": "Attacts shiny Pokémon.",
+  "tooltip.cobblecuisine.item.candied_bluk_berry": "Attracts more powerful Pokémon.",
+  "tooltip.cobblecuisine.item.candied_razz_berry": "Boosts catch rate.",
+  "tooltip.cobblecuisine.item.candied_pinap_berry": "Boosts experience gained during battle.",
+  "tooltip.cobblecuisine.item.ceviche": "Spawns Pokémon with their Hidden Ability.",
   "tooltip.cobblecuisine.item.eclair": "大きいポケモンをひきつける。",
   "tooltip.cobblecuisine.item.fruity_flan": "小さいポケモンをひきつける。",
-  "tooltip.cobblecuisine.item.kantonian_crepe": "ボールの捕まえやすさアップ。",
-  "tooltip.cobblecuisine.item.alolan_blue_shaved_ice": "色違いポケモンをひきつける。",
-  "tooltip.cobblecuisine.item.pickled_toedscool_and_cucumber": "バトル経験値アップ。",
-  "tooltip.cobblecuisine.item.hoennian_melon_stir_fry": "つよいポケモンをひきつける。",
   "tooltip.cobblecuisine.item.dubious_food": "周りのポケモンを遠ざける。",
 
   "item.cobblecuisine.twin_mushroom_cake": "キノコケーキツイン",
@@ -409,12 +416,19 @@
 
   "item.cobblecuisine.fancyshake.use": "%sはシェイクをとても気に入った！",
 
-  "tooltip.cobblecuisine.item.deluxe_jewel_shake": "プレースホルダー",
-  "tooltip.cobblecuisine.item.deluxe_earthy_shake": "プレースホルダー",
-  "tooltip.cobblecuisine.item.deluxe_violet_shake": "プレースホルダー",
-  "tooltip.cobblecuisine.item.deluxe_verdant_shake": "プレースホルダー",
-  "tooltip.cobblecuisine.item.deluxe_coral_shake": "プレースホルダー",
-  "tooltip.cobblecuisine.item.deluxe_bb_shake": "プレースホルダー",
+  "tooltip.cobblecuisine.item.deluxe_jewel_shake": "§6ポケモンにあげられる！§r",
+  "tooltip.cobblecuisine.item.deluxe_earthy_shake": "§6ポケモンにあげられる！§r",
+  "tooltip.cobblecuisine.item.deluxe_violet_shake": "§6ポケモンにあげられる！§r",
+  "tooltip.cobblecuisine.item.deluxe_verdant_shake": "§6ポケモンにあげられる！§r",
+  "tooltip.cobblecuisine.item.deluxe_coral_shake": "§6ポケモンにあげられる！§r",
+  "tooltip.cobblecuisine.item.deluxe_bb_shake": "§6ポケモンにあげられる！§r",
+  "tooltip.cobblecuisine.item.deluxe_jewel_shake.1": "ダイマックスレベルを2または3増加させる。",
+  "tooltip.cobblecuisine.item.deluxe_earthy_shake.1": "すべての努力値(ＥＶ)をリセットする。",
+  "tooltip.cobblecuisine.item.deluxe_violet_shake.1": "ランダムで2〜3個のタマゴ技を覚えさせる。",
+  "tooltip.cobblecuisine.item.deluxe_verdant_shake.1": "ポケモンのHPを全回復し、PPも回復する。",
+  "tooltip.cobblecuisine.item.deluxe_coral_shake.1": "ポケモンのレベルを2または3上げる。",
+  "tooltip.cobblecuisine.item.deluxe_bb_shake.1": "すべての技の最大PPを増加させる。",
+
 
   "effect.cobblecuisine.grass_spawn": "§a§oくさパワー§r",
   "effect.cobblecuisine.normal_spawn": "§f§oノーマルパワー§r",
@@ -462,6 +476,7 @@
   "effect.cobblecuisine.flying_eg_spawn": "§3§oひこうたまごぐるーぷパワー§r",
   "effect.cobblecuisine.bug_eg_spawn": "§2§oむしたまごぐるーぷパワー§r",
   "effect.cobblecuisine.amorphous_eg_spawn": "§5§oアモルファスたまごぐるーぷパワー§r",
+  "effect.cobblecuisine.undiscovered_eg_spawn": "§5§o未発見タマゴグループパワー§r",
 
   "effect.cobblecuisine.tera_normal_spawn": "§f§oテラノーマルパワー§r",
   "effect.cobblecuisine.tera_fire_spawn": "§c§oテラほのおパワー§r",
@@ -508,6 +523,8 @@
   "effect.cobblecuisine.nature_docile_spawn": "§f§oすなお性格パワー§r",
   "effect.cobblecuisine.nature_brave_spawn": "§f§oゆうかん性格パワー§r",
   "effect.cobblecuisine.nature_naughty_spawn": "§f§oやんちゃ性格パワー§r",
+
+  "effect.cobblecuisine.hidden_ability": "§f§o隠れ特性パワー§r",
 
   "effect.cobblecuisine.type_buff_marker": "おなかいっぱい",
   "effect.cobblecuisine.egg_buff_marker": "おなかいっぱい",
@@ -583,6 +600,7 @@
   "config.cobblecuisine.boostsettings.ivminchance": "最小個体値確率",
   "config.cobblecuisine.boostsettings.ivavgchance": "平均個体値確率",
   "config.cobblecuisine.boostsettings.ivmaxchance": "最大個体値確率",
+  "config.cobblecuisine.boostsettings.haboostchance": "隠れ特性ブースト確率",
 
   "config.cobblecuisine.itemsettings.beanfriendship": "まめ友情度量",
   "config.cobblecuisine.itemsettings.pokepufffriendship": "パフ友情度量",

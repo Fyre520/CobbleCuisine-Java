@@ -1,6 +1,8 @@
 {
   "itemgroup.cobblecuisine": "CobbleCuisine",
 
+  "message.cobblecuisine.expboost": "%1$s 獲得了 %2$s 額外的經驗值！",
+
   "block.cobblecuisine.bean_crop": "豆苗",
   "item.cobblecuisine.bean_seeds": "豆子種子",
 
@@ -293,20 +295,25 @@
   "tooltip.cobblecuisine.item.protein_smoothie": "吸引高速度的寶可夢。",
   "tooltip.cobblecuisine.item.spiced_cola": "佔位符",
 
+  "item.cobblecuisine.kantonian_crepe": "[舊版] 關都可麗餅",
+  "item.cobblecuisine.alolan_blue_shaved_ice": "[舊版] 阿羅拉藍刨冰",
+  "item.cobblecuisine.pickled_toedscool_and_cucumber": "[舊版] 醃製涼簾蜥小黃瓜",
+  "item.cobblecuisine.hoennian_melon_stir_fry": "[舊版] 豐緣甜瓜炒",
+  "item.cobblecuisine.candied_nanab_berry": "金色糖果奈奈布莓",
+  "item.cobblecuisine.candied_bluk_berry": "金色糖果布魯克莓",
+  "item.cobblecuisine.candied_razz_berry": "金色糖果拉茲莓",
+  "item.cobblecuisine.candied_pinap_berry": "金色糖果比納普莓",
   "item.cobblecuisine.eclair": "巨沼怪閃電泡芙",
   "item.cobblecuisine.fruity_flan": "胖丁水果布丁",
-  "item.cobblecuisine.kantonian_crepe": "關都可麗餅",
-  "item.cobblecuisine.alolan_blue_shaved_ice": "阿羅拉藍刨冰",
-  "item.cobblecuisine.pickled_toedscool_and_cucumber": "醃製涼簾蜥小黃瓜",
-  "item.cobblecuisine.hoennian_melon_stir_fry": "豐緣甜瓜炒",
   "item.cobblecuisine.dubious_food": "可疑食物",
 
+  "tooltip.cobblecuisine.item.candied_nanab_berry": "Attacts shiny Pokémon.",
+  "tooltip.cobblecuisine.item.candied_bluk_berry": "Attracts more powerful Pokémon.",
+  "tooltip.cobblecuisine.item.candied_razz_berry": "Boosts catch rate.",
+  "tooltip.cobblecuisine.item.candied_pinap_berry": "Boosts experience gained during battle.",
+  "tooltip.cobblecuisine.item.ceviche": "Spawns Pokémon with their Hidden Ability.",
   "tooltip.cobblecuisine.item.eclair": "吸引體型較大的寶可夢。",
   "tooltip.cobblecuisine.item.fruity_flan": "吸引體型較小的寶可夢。",
-  "tooltip.cobblecuisine.item.kantonian_crepe": "提高球的捕捉率。",
-  "tooltip.cobblecuisine.item.alolan_blue_shaved_ice": "吸引閃光寶可夢。",
-  "tooltip.cobblecuisine.item.pickled_toedscool_and_cucumber": "提高戰鬥中獲得經驗值。",
-  "tooltip.cobblecuisine.item.hoennian_melon_stir_fry": "吸引更強大的寶可夢。",
   "tooltip.cobblecuisine.item.dubious_food": "排斥周圍的寶可夢。",
 
   "item.cobblecuisine.twin_mushroom_cake": "雙菇蛋糕",
@@ -407,12 +414,18 @@
   "item.cobblecuisine.deluxe_coral_shake": "豪華珊瑚奶昔",
   "item.cobblecuisine.deluxe_bb_shake": "豪華BB奶昔",
 
-  "tooltip.cobblecuisine.item.deluxe_jewel_shake": "佔位符",
-  "tooltip.cobblecuisine.item.deluxe_earthy_shake": "佔位符",
-  "tooltip.cobblecuisine.item.deluxe_violet_shake": "佔位符",
-  "tooltip.cobblecuisine.item.deluxe_verdant_shake": "佔位符",
-  "tooltip.cobblecuisine.item.deluxe_coral_shake": "佔位符",
-  "tooltip.cobblecuisine.item.deluxe_bb_shake": "佔位符",
+  "tooltip.cobblecuisine.item.deluxe_jewel_shake": "§6可餵給寶可夢！§r",
+  "tooltip.cobblecuisine.item.deluxe_earthy_shake": "§6可餵給寶可夢！§r",
+  "tooltip.cobblecuisine.item.deluxe_violet_shake": "§6可餵給寶可夢！§r",
+  "tooltip.cobblecuisine.item.deluxe_verdant_shake": "§6可餵給寶可夢！§r",
+  "tooltip.cobblecuisine.item.deluxe_coral_shake": "§6可餵給寶可夢！§r",
+  "tooltip.cobblecuisine.item.deluxe_bb_shake": "§6可餵給寶可夢！§r",
+  "tooltip.cobblecuisine.item.deluxe_jewel_shake.1": "提升ダイマックス等級2或3。",
+  "tooltip.cobblecuisine.item.deluxe_earthy_shake.1": "清除所有努力值（EV）。",
+  "tooltip.cobblecuisine.item.deluxe_violet_shake.1": "隨機學會2到3個蛋技。",
+  "tooltip.cobblecuisine.item.deluxe_verdant_shake.1": "完全恢復寶可夢HP並恢復PP。",
+  "tooltip.cobblecuisine.item.deluxe_coral_shake.1": "提升寶可夢等級2或3。",
+  "tooltip.cobblecuisine.item.deluxe_bb_shake.1": "提升所有技能的最大PP。",
 
   "item.cobblecuisine.fancyshake.use": "%s超喜歡這杯奶昔！",
 
@@ -462,6 +475,7 @@
   "effect.cobblecuisine.flying_eg_spawn": "§3§o飛行卵群力量§r",
   "effect.cobblecuisine.bug_eg_spawn": "§2§o蟲卵群力量§r",
   "effect.cobblecuisine.amorphous_eg_spawn": "§5§o無定形卵群力量§r",
+  "effect.cobblecuisine.undiscovered_eg_spawn": "§5§o未發現卵群力量§r",
 
   "effect.cobblecuisine.tera_normal_spawn": "§f§o太晶屬性 一般 力量§r",
   "effect.cobblecuisine.tera_fire_spawn": "§c§o太晶屬性 火 力量§r",
@@ -508,6 +522,8 @@
   "effect.cobblecuisine.nature_sassy_spawn": "§f§o自大性格力量§r",
   "effect.cobblecuisine.nature_careful_spawn": "§f§o慎重性格力量§r",
   "effect.cobblecuisine.nature_quirky_spawn": "§f§o浮躁性格力量§r",
+
+  "effect.cobblecuisine.hidden_ability": "§f§o隱藏特性的力量§r",
 
   "effect.cobblecuisine.type_buff_marker": "飽足",
   "effect.cobblecuisine.egg_buff_marker": "飽足",
@@ -583,6 +599,7 @@
   "config.cobblecuisine.boostsettings.ivminchance": "最低個體值機率",
   "config.cobblecuisine.boostsettings.ivavgchance": "平均個體值機率",
   "config.cobblecuisine.boostsettings.ivmaxchance": "最高個體值機率",
+  "config.cobblecuisine.boostsettings.haboostchance": "隱藏特性增強機率",
 
   "config.cobblecuisine.itemsettings.beanfriendship": "豆類友情提升量",
   "config.cobblecuisine.itemsettings.pokepufffriendship": "泡芙友情提升量",

@@ -32,7 +32,9 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class FancyShakeItem extends CobblemonItem implements PokemonSelectingItem, HealingSource {
 
@@ -93,27 +95,20 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 				for (int i = 0; i < moves.size(); i++) moves.get(i).raiseMaxPP(3);
 				break;
 			case 6:
+				// I hate this so much
 				List<MoveTemplate> eggMoves = pokemon.getSpecies().getMoves().getEggMoves();
 				Collections.shuffle(eggMoves);
+				Set<MoveTemplate> currentMoveSet = new HashSet<>();
+				for (Move move : pokemon.getMoveSet().getMoves()) currentMoveSet.add(move.getTemplate());
+
+				int max = PRNG.nextInt(2, 4);
 				int added = 0;
-				int maxAdd = PRNG.nextInt(2, 4);
-				for (int i = 0; i < eggMoves.size() && added < maxAdd; i++) {
-					MoveTemplate candidate = eggMoves.get(PRNG.nextInt(0, eggMoves.size()));
-
-					boolean alreadyHas = false;
-					List<Move> currentMoves = pokemon.getMoveSet().getMoves();
-
-					//noinspection ForLoopReplaceableByForEach
-					for (int j = 0; j < currentMoves.size(); j++) {
-						if (currentMoves.get(j).getTemplate().equals(candidate)) {
-							alreadyHas = true;
-							break;
+				for (MoveTemplate candidate : eggMoves) {
+					if (added >= max) break;
+					if (!currentMoveSet.contains(candidate)) {
+						if (pokemon.getBenchedMoves().add(new BenchedMove(candidate, 0))) {
+							added++;
 						}
-					}
-
-					if (!alreadyHas) {
-						if (!pokemon.getBenchedMoves().add(new BenchedMove(candidate, 0))) continue;
-						added++;
 					}
 				}
 				break;

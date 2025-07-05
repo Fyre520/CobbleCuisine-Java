@@ -27,7 +27,7 @@ import static com.fyre.cobblecuisine.CobbleCuisine.DEBUG;
 
 public class HiddenAbilityInfluence implements SpawningInfluence {
 
-    private static final float HIDDEN_ABILITY_CHANCE = CobbleCuisineConfig.data.boostSettings.hiddenAbilityBoostChance;
+    private static final float HIDDEN_ABILITY_CHANCE = CobbleCuisineConfig.data.boostSettings.haBoostChance;
     private static final double EFFECT_DISTANCE = Math.pow(CobbleCuisineConfig.data.boostSettings.effectDistanceBlocks, 2);
 
     private final ServerPlayerEntity player;
