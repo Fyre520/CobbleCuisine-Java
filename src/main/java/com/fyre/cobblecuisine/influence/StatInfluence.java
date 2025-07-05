@@ -57,28 +57,21 @@ public class StatInfluence implements SpawningInfluence {
 
 		double random = PRNG.nextDouble();
 		if (random < IV_MAX) {
-			setIVs(pokemonEntity, 25, 32, false);
+			setIVs(pokemonEntity, 25, 32);
 		} else if (random < IV_AVG) {
-			setIVs(pokemonEntity, 20, 31, false);
+			setIVs(pokemonEntity, 20, 31);
 		} else if (random < IV_MIN) {
-			setIVs(pokemonEntity, 15, 26, true);
+			setIVs(pokemonEntity, 15, 26);
 		} else {
-			setIVs(pokemonEntity, 10, 21, true);
+			setIVs(pokemonEntity, 10, 21);
 		}
 
 		if (DEBUG) LOGGER.info("CobbleCuisine >> STAT INFLUENCE >> PLAYER: {} PKM: {} IVS: {}", player.getName(), pokemonEntity.getName(), pokemonEntity.getPokemon().getIvs());
 	}
 
-	private void setIVs(PokemonEntity pokemon, int min, int max, boolean individual) {
-		if (individual) {
-			for (Stat stat : ALL_STATS) {
-				pokemon.getPokemon().setIV(stat, PRNG.nextInt(min, max));
-			}
-		}
-		int val = PRNG.nextInt(min, max);
-		for (Stat stat : ALL_STATS) {
-			pokemon.getPokemon().setIV(stat, val);
-		}
+	private void setIVs(PokemonEntity pokemon, int min, int max) {
+		//noinspection ForLoopReplaceableByForEach
+		for (int i = 0; i < ALL_STATS.length; i++) pokemon.getPokemon().setIV(ALL_STATS[i], PRNG.nextInt(min, max));
 	}
 
 	@Override public boolean isExpired() { return false; }

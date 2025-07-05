@@ -16,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -67,9 +68,11 @@ public class ShakeItem extends Item implements PokemonSelectingItem {
 		int actualAdd = Math.min(evIncreaseAmount, maxAdd);
 
 		if (actualAdd > 0) {
-			pokemon.getEvs().add(stat, currentEvs + actualAdd);
+			pokemon.getEvs().add(stat, actualAdd);
 
-			if (pokemon.getEntity() != null) pokemon.getEntity().playSound(sound, 0.8F, 1.1F);
+			if (pokemon.getEntity() != null && pokemon.getEntity().getWorld() instanceof ServerWorld) {
+				pokemon.getEntity().playSound(sound, 0.8F, 1.1F);
+			}
 
 			if (!player.isCreative()) stack.decrement(1);
 

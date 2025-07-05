@@ -112,7 +112,7 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 					}
 
 					if (!alreadyHas) {
-						pokemon.getBenchedMoves().add(new BenchedMove(candidate, 0));
+						if (!pokemon.getBenchedMoves().add(new BenchedMove(candidate, 0))) continue;
 						added++;
 					}
 				}

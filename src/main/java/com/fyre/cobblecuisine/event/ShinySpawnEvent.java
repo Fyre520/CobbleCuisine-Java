@@ -26,7 +26,7 @@ public class ShinySpawnEvent {
 			if (player == null || !player.hasStatusEffect(CobbleCuisineEffects.SHINY.entry)) return currentRate;
 
 			Entity pokemonEntity = pokemon.getEntity();
-			if (pokemonEntity == null || player.squaredDistanceTo(pokemonEntity) <= EFFECT_DISTANCE) {
+			if (pokemonEntity != null && player.squaredDistanceTo(pokemonEntity) <= EFFECT_DISTANCE) {
 				return currentRate / CobbleCuisineConfig.data.boostSettings.shinyBoostMultiplier;
 			}
 			return currentRate;
