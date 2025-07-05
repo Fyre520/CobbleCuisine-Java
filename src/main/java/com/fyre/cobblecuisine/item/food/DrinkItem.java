@@ -41,7 +41,7 @@ public class DrinkItem extends Item {
 	@Override
 	public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
 		if (!world.isClient && user instanceof PlayerEntity player) {
-			RegistryEntry<StatusEffect> effect = CobbleCuisineEffects.TYPE_BUFF_MARKER.entry;
+			RegistryEntry<StatusEffect> effect = CobbleCuisineEffects.YIELD_BUFF_MARKER.entry;
 			if (player.hasStatusEffect(effect)) player.removeStatusEffect(effect);
 			player.addStatusEffect(new StatusEffectInstance(effect, CobbleCuisineConfig.data.effectDuration.yieldBoostEffectDuration, 0, false,false, false));
 		}

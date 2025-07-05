@@ -295,11 +295,21 @@
 
   "item.cobblecuisine.eclair": "Clodsire Eclair",
   "item.cobblecuisine.fruity_flan": "Jigglypuff Fruity Flan",
+  "item.cobblecuisine.candied_nanab_berry": "Golden Candied Nanab Berry",
+  "item.cobblecuisine.candied_bluk_berry": "Golden Candied Bluk Berry",
+  "item.cobblecuisine.candied_razz_berry": "Golden Candied Razz Berry",
+  "item.cobblecuisine.candied_pinap_berry": "Golden Candied Pinap Berry",
+  "item.cobblecuisine.dubious_food": "Dubious Food",
+
+  "tooltip.cobblecuisine.item.candied_nanab_berry": "Attacts shiny Pokémon.",
+  "tooltip.cobblecuisine.item.candied_bluk_berry": "Attracts more powerful Pokémon.",
+  "tooltip.cobblecuisine.item.candied_razz_berry": "Boosts catch rate.",
+  "tooltip.cobblecuisine.item.candied_pinap_berry": "Boosts experience gained during battle.",
+
   "item.cobblecuisine.kantonian_crepe": "Kantonian Crêpe",
   "item.cobblecuisine.alolan_blue_shaved_ice": "Alolan Blue Shaved Ice",
   "item.cobblecuisine.pickled_toedscool_and_cucumber": "Pickled Toedscool and Cucumber",
   "item.cobblecuisine.hoennian_melon_stir_fry": "Hoennian Melon Stir-Fry",
-  "item.cobblecuisine.dubious_food": "Dubious Food",
 
   "tooltip.cobblecuisine.item.eclair": "Attracts bigger Pokémon.",
   "tooltip.cobblecuisine.item.fruity_flan": "Attracts smaller Pokémon.",
@@ -409,12 +419,19 @@
 
   "item.cobblecuisine.fancyshake.use": "%s loved the shake!",
 
-  "tooltip.cobblecuisine.item.deluxe_jewel_shake": "Raises Dynamax Level.",
-  "tooltip.cobblecuisine.item.deluxe_earthy_shake": "Clears all EVs",
-  "tooltip.cobblecuisine.item.deluxe_violet_shake": "Teaches new moves.",
-  "tooltip.cobblecuisine.item.deluxe_verdant_shake": "Fully heals the Pokemon.",
-  "tooltip.cobblecuisine.item.deluxe_coral_shake": "Raises Level.",
-  "tooltip.cobblecuisine.item.deluxe_bb_shake": "Raises PP of all moves.",
+  "tooltip.cobblecuisine.item.deluxe_jewel_shake": "§6Can be fed to Pokémon!§r",
+  "tooltip.cobblecuisine.item.deluxe_earthy_shake": "§6Can be fed to Pokémon!§r",
+  "tooltip.cobblecuisine.item.deluxe_violet_shake": "§6Can be fed to Pokémon!§r",
+  "tooltip.cobblecuisine.item.deluxe_verdant_shake": "§6Can be fed to Pokémon!§r",
+  "tooltip.cobblecuisine.item.deluxe_coral_shake": "§6Can be fed to Pokémon!§r",
+  "tooltip.cobblecuisine.item.deluxe_bb_shake": "§6Can be fed to Pokémon!§r",
+
+  "tooltip.cobblecuisine.item.deluxe_jewel_shake.1": "Raises Dynamax Level.",
+  "tooltip.cobblecuisine.item.deluxe_earthy_shake.1": "Clears all EVs",
+  "tooltip.cobblecuisine.item.deluxe_violet_shake.1": "Teaches new moves.",
+  "tooltip.cobblecuisine.item.deluxe_verdant_shake.1": "Fully heals the Pokemon.",
+  "tooltip.cobblecuisine.item.deluxe_coral_shake.1": "Raises Level.",
+  "tooltip.cobblecuisine.item.deluxe_bb_shake.1": "Raises PP of all moves.",
 
   "effect.cobblecuisine.grass_spawn": "§a§oGrass Power§r",
   "effect.cobblecuisine.normal_spawn": "§f§oNormal Power§r",
@@ -462,6 +479,7 @@
   "effect.cobblecuisine.flying_eg_spawn": "§3§oFlying Egg Group Power§r",
   "effect.cobblecuisine.bug_eg_spawn": "§2§oBug Egg Group Power§r",
   "effect.cobblecuisine.amorphous_eg_spawn": "§5§oAmorphous Egg Group Power§r",
+  "effect.cobblecuisine.undiscovered_eg_spawn": "§5§oUndiscovered Egg Group Power§r",
 
   "effect.cobblecuisine.tera_normal_spawn": "§f§oTera Normal Power§r",
   "effect.cobblecuisine.tera_fire_spawn": "§c§oTera Fire Power§r",
