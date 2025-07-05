@@ -12,7 +12,6 @@ import net.minecraft.util.Identifier;
 // THIS ENUM CONTAINS UNUSED ITEMS MARKED FOR DELETION
 public enum LegacyItemType {
 	PEPPER_STEAK("pepper_steak"),
-	CEVICHE("ceviche"),
 
 	SWEET_POTATO_SANDWICH("sweet_potato_salad_sandwich"),
 	BITTER_VARIETY_SANDWICH("bitter_variety_sandwich"),

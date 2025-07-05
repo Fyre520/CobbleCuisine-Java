@@ -3,13 +3,16 @@
     "group": "cobblecuisine",
     "ingredients": [
         {
-            "item": "minecraft:salmon"
-        },
-        {
-            "item": "minecraft:cod"
+            "tag": "minecraft:fishes"
         },
         {
             "item": "cobblecuisine:salad_mix"
+        },
+        {
+            "item": "cobblecuisine:spice_mix"
+        },
+        {
+            "tag": "minecraft:vegetables"
         },
         {
             "tag": "cobblemon:sweet_40"

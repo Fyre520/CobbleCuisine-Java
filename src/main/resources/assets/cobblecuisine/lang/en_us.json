@@ -35,7 +35,6 @@
   "item.cobblecuisine.bitter_variety_sandwich": "[LEGACY] Bitter Variety Sandwich",
   "item.cobblecuisine.sweet_potato_salad_sandwich": "[LEGACY] Sweet Potato Salad Sandwich",
   "item.cobblecuisine.pepper_steak": "[LEGACY] Pepper Steak",
-  "item.cobblecuisine.ceviche": "[LEGACY] Ceviche",
 
   "item.cobblecuisine.roasted_cheri_berry": "Roasted Cheri Berry",
   "item.cobblecuisine.roasted_chesto_berry": "Roasted Chesto Berry",
@@ -299,25 +298,26 @@
   "item.cobblecuisine.candied_bluk_berry": "Golden Candied Bluk Berry",
   "item.cobblecuisine.candied_razz_berry": "Golden Candied Razz Berry",
   "item.cobblecuisine.candied_pinap_berry": "Golden Candied Pinap Berry",
+  "item.cobblecuisine.ceviche": "Ceviche",
   "item.cobblecuisine.dubious_food": "Dubious Food",
 
   "tooltip.cobblecuisine.item.candied_nanab_berry": "Attacts shiny Pokémon.",
   "tooltip.cobblecuisine.item.candied_bluk_berry": "Attracts more powerful Pokémon.",
   "tooltip.cobblecuisine.item.candied_razz_berry": "Boosts catch rate.",
   "tooltip.cobblecuisine.item.candied_pinap_berry": "Boosts experience gained during battle.",
-
-  "item.cobblecuisine.kantonian_crepe": "Kantonian Crêpe",
-  "item.cobblecuisine.alolan_blue_shaved_ice": "Alolan Blue Shaved Ice",
-  "item.cobblecuisine.pickled_toedscool_and_cucumber": "Pickled Toedscool and Cucumber",
-  "item.cobblecuisine.hoennian_melon_stir_fry": "Hoennian Melon Stir-Fry",
-
   "tooltip.cobblecuisine.item.eclair": "Attracts bigger Pokémon.",
   "tooltip.cobblecuisine.item.fruity_flan": "Attracts smaller Pokémon.",
-  "tooltip.cobblecuisine.item.kantonian_crepe": "Boosts balls catch rate.",
-  "tooltip.cobblecuisine.item.alolan_blue_shaved_ice": "Attacts shiny Pokémon.",
-  "tooltip.cobblecuisine.item.pickled_toedscool_and_cucumber": "Boosts experience gained during battle.",
-  "tooltip.cobblecuisine.item.hoennian_melon_stir_fry": "Attracts more powerful Pokémon.",
   "tooltip.cobblecuisine.item.dubious_food": "Repels Pokémon around you.",
+  "tooltip.cobblecuisine.item.ceviche": "Spawns Pokémon with their Hidden Ability.",
+
+  "item.cobblecuisine.kantonian_crepe": "[LEGACY] Kantonian Crêpe",
+  "item.cobblecuisine.alolan_blue_shaved_ice": "[LEGACY] Alolan Blue Shaved Ice",
+  "item.cobblecuisine.pickled_toedscool_and_cucumber": "[LEGACY] Pickled Toedscool and Cucumber",
+  "item.cobblecuisine.hoennian_melon_stir_fry": "[LEGACY] Hoennian Melon Stir-Fry",
+  "tooltip.cobblecuisine.item.kantonian_crepe": "Item from an older version. It has no effect.",
+  "tooltip.cobblecuisine.item.alolan_blue_shaved_ice": "Item from an older version. It has no effect.",
+  "tooltip.cobblecuisine.item.pickled_toedscool_and_cucumber": "Item from an older version. It has no effect.",
+  "tooltip.cobblecuisine.item.hoennian_melon_stir_fry": "Item from an older version. It has no effect.",
 
   "item.cobblecuisine.twin_mushroom_cake": "Twin Mushroom Cake",
   "item.cobblecuisine.red_mushroom_cake": "Red Mushroom Cake",
@@ -426,11 +426,11 @@
   "tooltip.cobblecuisine.item.deluxe_coral_shake": "§6Can be fed to Pokémon!§r",
   "tooltip.cobblecuisine.item.deluxe_bb_shake": "§6Can be fed to Pokémon!§r",
 
-  "tooltip.cobblecuisine.item.deluxe_jewel_shake.1": "Raises Dynamax Level.",
+  "tooltip.cobblecuisine.item.deluxe_jewel_shake.1": "Raises Dynamax Level greatly.",
   "tooltip.cobblecuisine.item.deluxe_earthy_shake.1": "Clears all EVs",
   "tooltip.cobblecuisine.item.deluxe_violet_shake.1": "Teaches new moves.",
   "tooltip.cobblecuisine.item.deluxe_verdant_shake.1": "Fully heals the Pokemon.",
-  "tooltip.cobblecuisine.item.deluxe_coral_shake.1": "Raises Level.",
+  "tooltip.cobblecuisine.item.deluxe_coral_shake.1": "Raises Level greatly.",
   "tooltip.cobblecuisine.item.deluxe_bb_shake.1": "Raises PP of all moves.",
 
   "effect.cobblecuisine.grass_spawn": "§a§oGrass Power§r",
@@ -527,6 +527,8 @@
   "effect.cobblecuisine.nature_brave_spawn": "§f§oBrave Spawn Power§r",
   "effect.cobblecuisine.nature_naughty_spawn": "§f§oNaughty Spawn Power§r",
 
+  "effect.cobblecuisine.hidden_ability": "Hidden Ability Spawn Power",
+
   "effect.cobblecuisine.type_buff_marker": "Satiated",
   "effect.cobblecuisine.egg_buff_marker": "Satiated",
   "effect.cobblecuisine.yield_buff_marker": "Satiated",
@@ -601,6 +603,8 @@
   "config.cobblecuisine.boostsettings.ivminchance": "Min. IV Chance",
   "config.cobblecuisine.boostsettings.ivavgchance": "Avg. IV Chance",
   "config.cobblecuisine.boostsettings.ivmaxchance": "Max. IV Chance",
+  "config.cobblecuisine.boostsettings.hiddenAbilityBoostChance": "Hidden Ability Boost Chance",
+
 
   "config.cobblecuisine.itemsettings.beanfriendship": "Bean Friendship Amt.",
   "config.cobblecuisine.itemsettings.pokepufffriendship": "PokePuff Friendship Amt.",

@@ -20,6 +20,7 @@ public class CobbleCuisineConfigData {
 		public final float ivMinChance = 0.5f;
 		public final float ivAvgChance = 0.2f;
 		public final float ivMaxChance = 0.05f;
+		public final float hiddenAbilityBoostChance = 2.0f;
 	}
 
 	public static class ItemSettings {

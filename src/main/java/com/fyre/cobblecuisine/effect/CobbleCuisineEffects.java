@@ -62,6 +62,7 @@ public enum CobbleCuisineEffects {
 	TINY("tiny_spawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 	GIANT("giant_spawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 	SHINY("shinyspawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
+	HIDDEN_ABILITY("hidden_ability", () -> new BasicStatusEffect(StatusEffectCategory.NEUTRAL, 0x000000)),
 	ATK_YIELD("atkyieldspawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 	DEF_YIELD("defyieldspawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 	SPA_YIELD("spayieldspawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),

@@ -56,6 +56,9 @@ public class CobbleCuisine implements ModInitializer {
 		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(YieldInfluence::new);
 		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(StatInfluence::new);
 		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(DubiousInfluence::new);
+		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(HiddenAbilityInfluence::new);
+
+
 
 		// COMPOSTING (?)
 		CompostingChanceRegistry.INSTANCE.add(BeanType.YELLOW.item, 0.5f);

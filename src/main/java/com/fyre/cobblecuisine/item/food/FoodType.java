@@ -19,7 +19,10 @@ public enum FoodType {
 	CANDIED_RAZZ_BERRY("candied_razz_berry", 6, 0.5f, effect(CobbleCuisineEffects.CATCH_BOOST.entry, CobbleCuisineConfig.data.effectDuration.catchRateEffectDuration)),
 	CANDIED_NANAB_BERRY("candied_nanab_berry", 6, 0.5f, effect(CobbleCuisineEffects.SHINY.entry, CobbleCuisineConfig.data.effectDuration.shinyBoostEffectDuration)),
 	CANDIED_PINAP_BERRY("candied_pinap_berry", 6, 0.5f, effect(CobbleCuisineEffects.EXP_BOOST.entry, CobbleCuisineConfig.data.effectDuration.expBoostEffectDuration)),
-	CANDIED_BLUK_BERRY("candied_bluk_berry", 6, 0.5f, effect(CobbleCuisineEffects.IV_MODIFY.entry, CobbleCuisineConfig.data.effectDuration.statBoostEffectDuration));
+	CANDIED_BLUK_BERRY("candied_bluk_berry", 6, 0.5f, effect(CobbleCuisineEffects.IV_MODIFY.entry, CobbleCuisineConfig.data.effectDuration.statBoostEffectDuration)),
+	CEVICHE("ceviche", 6, 0.5f, effect(CobbleCuisineEffects.HIDDEN_ABILITY.entry, CobbleCuisineConfig.data.effectDuration.statBoostEffectDuration));
+
+
 
 
 	public final String id;
