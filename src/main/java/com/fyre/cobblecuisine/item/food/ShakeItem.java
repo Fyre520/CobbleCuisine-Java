@@ -14,6 +14,7 @@ import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -74,7 +75,10 @@ public class ShakeItem extends Item implements PokemonSelectingItem {
 				pokemon.getEntity().playSound(sound, 0.8F, 1.1F);
 			}
 
-			if (!player.isCreative()) stack.decrement(1);
+			if (!player.isCreative()) {
+				stack.decrement(1);
+				player.getInventory().offerOrDrop(new ItemStack(Items.GLASS_BOTTLE));
+			}
 
 			return TypedActionResult.success(stack);
 		}

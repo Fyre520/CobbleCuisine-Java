@@ -25,6 +25,7 @@ import kotlin.Unit;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -157,7 +158,10 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 		}
 
 		if (success) {
-			if (!player.isCreative()) stack.decrement(1);
+			if (!player.isCreative()) {
+				stack.decrement(1);
+				player.getInventory().offerOrDrop(new ItemStack(Items.GLASS_BOTTLE));
+			}
 
 			if (pokemon.getEntity() != null && pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
 				pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
