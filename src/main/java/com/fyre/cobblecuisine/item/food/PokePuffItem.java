@@ -69,21 +69,17 @@ public class PokePuffItem extends CobblemonItem implements PokemonSelectingItem,
 		boolean effectApplied = pokemon.incrementFriendship(friendshipAmount, true);
 
 		if (!pokemon.isFullHealth()) {
-			int initialHealAmount = Math.min(pokemon.getCurrentHealth() + 20, pokemon.getMaxHealth());
-			final int[] healAmountHolder = { initialHealAmount };
-
+			int amountToHeal = Math.min(20, pokemon.getMaxHealth() - pokemon.getCurrentHealth());
+			final int[] healAmountHolder = { amountToHeal };
 			CobblemonEvents.POKEMON_HEALED.postThen(
-					new PokemonHealedEvent(pokemon, initialHealAmount, this),
+					new PokemonHealedEvent(pokemon, amountToHeal, this),
 					(event) -> Unit.INSTANCE,
 					(event) -> {
 						healAmountHolder[0] = event.getAmount();
 						return Unit.INSTANCE;
 					}
 			);
-
-			int finalHealAmount = healAmountHolder[0];
-
-			pokemon.setCurrentHealth(finalHealAmount);
+			pokemon.setCurrentHealth(healAmountHolder[0]);
 			effectApplied = true;
 		}
 

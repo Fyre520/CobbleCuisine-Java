@@ -2,6 +2,9 @@ package com.fyre.cobblecuisine.item.food;
 
 import com.cobblemon.mod.common.CobblemonSounds;
 import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
+import com.cobblemon.mod.common.api.events.CobblemonEvents;
+import com.cobblemon.mod.common.api.events.pokemon.LevelUpEvent;
+import com.cobblemon.mod.common.api.events.pokemon.healing.PokemonHealedEvent;
 import com.cobblemon.mod.common.api.item.HealingSource;
 import com.cobblemon.mod.common.api.item.PokemonSelectingItem;
 import com.cobblemon.mod.common.api.moves.BenchedMove;
@@ -17,6 +20,8 @@ import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.fyre.cobblecuisine.random.PRNG;
 import com.fyre.cobblecuisine.util.CobbleCuisineUtils;
 
+import kotlin.Unit;
+
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -31,12 +36,10 @@ import net.minecraft.world.World;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class FancyShakeItem extends CobblemonItem implements PokemonSelectingItem, HealingSource {
+	private final static Stat[] STATS = new Stat[]{Stats.HP, Stats.ATTACK, Stats.DEFENCE, Stats.SPECIAL_ATTACK, Stats.SPECIAL_DEFENCE, Stats.SPEED};
 
 	private final int type;
 	private final List<Text> tooltips;
@@ -52,7 +55,7 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 	@Override
 	public boolean canUseOnPokemon(@NotNull Pokemon pokemon) {
 		return switch (this.type) {
-			case 1 -> pokemon.getCurrentHealth() > 0 && pokemon.getDmaxLevel() <= 7;
+			case 1 -> pokemon.getCurrentHealth() > 0 && pokemon.getDmaxLevel() < 10;
 			case 2, 5, 6 -> pokemon.getCurrentHealth() > 0;
 			case 3 -> pokemon.getCurrentHealth() > 0 && pokemon.getLevel() < 100;
 			case 4 -> true;
@@ -74,25 +77,63 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 
 	@Override
 	public TypedActionResult<ItemStack> applyToPokemon(@NotNull ServerPlayerEntity player, @NotNull ItemStack stack, @NotNull Pokemon pokemon) {
+		boolean success = false;
+
 		switch (this.type) {
 			case 1:
-				pokemon.setDmaxLevel(pokemon.getDmaxLevel() + PRNG.nextInt(2, 4));
+				// Kinda bleh
+				if (pokemon.getDmaxLevel() == 10) break;
+				pokemon.setDmaxLevel(Math.min(10, pokemon.getDmaxLevel() + PRNG.nextInt(2, 4)));
+				success = true;
 				break;
 			case 2:
-				Stat[] stats = new Stat[]{Stats.HP, Stats.ATTACK, Stats.DEFENCE, Stats.SPECIAL_ATTACK, Stats.SPECIAL_DEFENCE, Stats.SPEED};
 				//noinspection ForLoopReplaceableByForEach
-				for (int i = 0; i < stats.length; i++) pokemon.getEvs().set(stats[i], 0);
+				for (int i = 0; i < STATS.length; i++) {
+					if (pokemon.getEvs().getOrDefault(STATS[i]) == 0) continue;
+					pokemon.getEvs().set(STATS[i], 0);
+					success = true;
+				}
 				break;
 			case 3:
-				pokemon.setLevel(Math.min(100, pokemon.getLevel() + PRNG.nextInt(2, 4)));
+				if (pokemon.getLevel() == 100) break;
+				LevelUpEvent levelUpEvent = new LevelUpEvent(pokemon, pokemon.getLevel(), Math.min(100, pokemon.getLevel() + PRNG.nextInt(2, 4)));
+				CobblemonEvents.LEVEL_UP_EVENT.post(new LevelUpEvent[] { levelUpEvent }, (e) -> Unit.INSTANCE);
+				pokemon.setLevel(Math.min(100, levelUpEvent.getNewLevel()));
+				success = true;
 				break;
 			case 4:
-				pokemon.heal();
+				List<Move> ppMoves = pokemon.getMoveSet().getMoves();
+				//noinspection ForLoopReplaceableByForEach
+				for (int i = 0; i < ppMoves.size(); i++) {
+					Move currentMove = ppMoves.get(i);
+					if (currentMove.getCurrentPp() < currentMove.getMaxPp()) {
+						currentMove.setCurrentPp(currentMove.getMaxPp());
+						pokemon.getMoveSet().update();
+						success = true;
+					}
+				}
+
+				if (!pokemon.isFullHealth()) {
+					int amountToHeal = Math.min(20, pokemon.getMaxHealth() - pokemon.getCurrentHealth());
+					final int[] healAmountHolder = { amountToHeal };
+					CobblemonEvents.POKEMON_HEALED.postThen(
+							new PokemonHealedEvent(pokemon, amountToHeal, this),
+							(event) -> Unit.INSTANCE,
+							(event) -> {
+								healAmountHolder[0] = event.getAmount();
+								return Unit.INSTANCE;
+							}
+					);
+					pokemon.setCurrentHealth(healAmountHolder[0]);
+					success = true;
+				}
 				break;
 			case 5:
-				List<Move> moves = pokemon.getMoveSet().getMoves();
+				List<Move> ppMaxMoves = pokemon.getMoveSet().getMoves();
 				//noinspection ForLoopReplaceableByForEach
-				for (int i = 0; i < moves.size(); i++) moves.get(i).raiseMaxPP(3);
+				for (int i = 0; i < ppMaxMoves.size(); i++) {
+					if (ppMaxMoves.get(i).raiseMaxPP(3)) success = true;
+				}
 				break;
 			case 6:
 				// I hate this so much
@@ -105,10 +146,9 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 				int added = 0;
 				for (MoveTemplate candidate : eggMoves) {
 					if (added >= max) break;
-					if (!currentMoveSet.contains(candidate)) {
-						if (pokemon.getBenchedMoves().add(new BenchedMove(candidate, 0))) {
-							added++;
-						}
+					if (!currentMoveSet.contains(candidate) && pokemon.getBenchedMoves().add(new BenchedMove(candidate, 0))) {
+						added++;
+						success = true;
 					}
 				}
 				break;
@@ -116,15 +156,19 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 				return TypedActionResult.fail(stack);
 		}
 
-		if (pokemon.getEntity() != null && pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
-			pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
-			player.sendMessage(Text.translatable("item.cobblecuisine.fancyshake.use", pokemon.getDisplayName()), false);
-			serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight(), pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
+		if (success) {
+			if (!player.isCreative()) stack.decrement(1);
+
+			if (pokemon.getEntity() != null && pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
+				pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
+				player.sendMessage(Text.translatable("item.cobblecuisine.fancyshake.use", pokemon.getDisplayName()), false);
+				serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight(), pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
+			}
+
+			return TypedActionResult.success(stack);
 		}
 
-		if (!player.isCreative()) stack.decrement(1);
-
-		return TypedActionResult.success(stack);
+		return TypedActionResult.fail(stack);
 	}
 
 	@Override
