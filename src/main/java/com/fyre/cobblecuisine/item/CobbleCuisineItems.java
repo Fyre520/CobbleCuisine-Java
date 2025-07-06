@@ -83,9 +83,9 @@ public class CobbleCuisineItems {
 		for (var type : PokePuffType.values()) items.add(type.item);
 		for (var type : SandwichType.values()) items.add(type.item);
 		for (var type : SaladType.values()) items.add(type.item);
-		for (var type : RoastedBerryType.values()) items.add(type.item);
 		for (var type : ShakeType.values()) items.add(type.item);
 		for (var type : FancyShakeType.values()) items.add(type.item);
+		for (var type : RoastedBerryType.values()) items.add(type.item);
 
 		Registry.register(Registries.ITEM_GROUP, COBBLECUISINE_FOODS.getValue(), FabricItemGroup.builder()
 						.displayName(Text.translatable("itemgroup.cobblecuisine"))
