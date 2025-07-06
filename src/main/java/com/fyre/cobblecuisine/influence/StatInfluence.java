@@ -39,7 +39,6 @@ public class StatInfluence implements SpawningInfluence {
 			Stats.SPEED
 	};
 
-	private static final float IV_MIN = CobbleCuisineConfig.data.boostSettings.ivMinChance;
 	private static final float IV_MAX = CobbleCuisineConfig.data.boostSettings.ivMaxChance;
 	private static final float IV_AVG = CobbleCuisineConfig.data.boostSettings.ivAvgChance;
 
@@ -60,10 +59,8 @@ public class StatInfluence implements SpawningInfluence {
 			setIVs(pokemonEntity, 25, 32);
 		} else if (random < IV_AVG) {
 			setIVs(pokemonEntity, 20, 31);
-		} else if (random < IV_MIN) {
-			setIVs(pokemonEntity, 15, 26);
 		} else {
-			setIVs(pokemonEntity, 10, 21);
+			setIVs(pokemonEntity, 15, 26);
 		}
 
 		if (DEBUG) LOGGER.info("CobbleCuisine >> STAT INFLUENCE >> PLAYER: {} PKM: {} IVS: {}", player.getName(), pokemonEntity.getName(), pokemonEntity.getPokemon().getIvs());

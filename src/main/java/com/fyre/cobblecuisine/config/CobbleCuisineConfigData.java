@@ -9,54 +9,53 @@ public class CobbleCuisineConfigData {
 	public final EggGroupMultipliers eggGroupMultipliers = new EggGroupMultipliers();
 
 	public static class BoostSettings {
-		public final float effectDistanceBlocks = 80.0f;
-		public final float expBoostMultiplier = 2.0f;
-		public final float catchRateMultiplier = 2.0f;
-		public final float shinyBoostMultiplier = 2.0f;
-		public final float teraBoostChance = 0.75f;
-		public final float natureBoostChance = 0.75f;
-		public final float scaleMinChance = 0.5f;
-		public final float scaleMaxChance = 0.9f;
-		public final float ivMinChance = 0.5f;
-		public final float ivAvgChance = 0.2f;
-		public final float ivMaxChance = 0.05f;
-		public final float haBoostChance = 2.0f;
+		public float effectDistanceBlocks = 80.0f;
+		public float expBoostMultiplier = 2.0f;
+		public float catchRateMultiplier = 2.0f;
+		public float shinyBoostMultiplier = 2.0f;
+		public float teraBoostChance = 0.75f;
+		public float natureBoostChance = 0.75f;
+		public float scaleMinChance = 0.5f;
+		public float scaleMaxChance = 0.9f;
+		public float ivAvgChance = 0.2f;
+		public float ivMaxChance = 0.05f;
+		public float haBoostChance = 2.0f;
 	}
 
 	public static class ItemSettings {
-		public final int beanFriendship = 1;
-		public final int pokepuffFriendship = 6;
-		public final int malasadaFriendship = 12;
-		public final int lowShakeEv = 2;
-		public final int mediumShakeEv = 4;
-		public final int highShakeEv = 8;
+		public int beanFriendship = 1;
+		public int pokepuffFriendship = 6;
+		public int malasadaFriendship = 12;
+		public int lowShakeEv = 2;
+		public int mediumShakeEv = 4;
+		public int highShakeEv = 8;
 	}
 
 	public static class EffectDuration {
-		public final int shinyBoostEffectDuration = 6000;
-		public final int expBoostEffectDuration = 6000;
-		public final int catchRateEffectDuration = 6000;
-		public final int typeBoostEffectDuration = 6000;
-		public final int teraBoostEffectDuration = 6000;
-		public final int eggBoostEffectDuration = 6000;
-		public final int natureBoostEffectDuration = 6000;
-		public final int statBoostEffectDuration = 6000;
-		public final int yieldBoostEffectDuration = 6000;
-		public final int scaleBoostEffectDuration = 6000;
-		public final int dubiousFoodEffectDuration = 6000;
+		public int shinyBoostEffectDuration = 6000;
+		public int expBoostEffectDuration = 6000;
+		public int catchRateEffectDuration = 6000;
+		public int typeBoostEffectDuration = 6000;
+		public int teraBoostEffectDuration = 6000;
+		public int eggBoostEffectDuration = 6000;
+		public int natureBoostEffectDuration = 6000;
+		public int statBoostEffectDuration = 6000;
+		public int yieldBoostEffectDuration = 6000;
+		public int scaleBoostEffectDuration = 6000;
+		public int dubiousFoodEffectDuration = 6000;
 	}
 
 	public static class DropRates {
-		public final float beanSeedsDropRate = 0.1f;
-		public final float galaricaNutDropRate = 0.25f;
-		public final float beanDropRate = 0.25f;
-		public final float torchflowerDropRate = 0.25f;
-		public final float torchflowerSeedsDropRate = 0.25f;
+		public float beanSeedsDropRate = 0.1f;
+		public float galaricaNutDropRate = 0.25f;
+		public float beanDropRate = 0.25f;
+		public float torchflowerDropRate = 0.25f;
+		public float torchflowerSeedsDropRate = 0.25f;
 	}
 
 	public static class WeightPair {
-		public final float weightMultiplier = 5.0f;
-		public final float nonWeightMultiplier = 0.5f;
+		public float weightMultiplier = 5.0f;
+		public float nonWeightMultiplier = 0.5f;
 	}
 
 	public static class TypeMultipliers {

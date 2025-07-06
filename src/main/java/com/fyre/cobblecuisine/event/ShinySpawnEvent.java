@@ -9,10 +9,7 @@ import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 
 import kotlin.Unit;
 
-import net.minecraft.entity.Entity;
-
 public class ShinySpawnEvent {
-	private static final double EFFECT_DISTANCE = Math.pow(CobbleCuisineConfig.data.boostSettings.effectDistanceBlocks, 2);
 
 	public static void register() {
 		CobblemonEvents.SHINY_CHANCE_CALCULATION.subscribe(Priority.NORMAL, event -> {
@@ -24,12 +21,7 @@ public class ShinySpawnEvent {
 	private static void handle(ShinyChanceCalculationEvent event) {
 		event.addModificationFunction((currentRate, player, pokemon) -> {
 			if (player == null || !player.hasStatusEffect(CobbleCuisineEffects.SHINY.entry)) return currentRate;
-
-			Entity pokemonEntity = pokemon.getEntity();
-			if (pokemonEntity != null && player.squaredDistanceTo(pokemonEntity) <= EFFECT_DISTANCE) {
-				return currentRate / CobbleCuisineConfig.data.boostSettings.shinyBoostMultiplier;
-			}
-			return currentRate;
+			return currentRate / CobbleCuisineConfig.data.boostSettings.shinyBoostMultiplier;
 		});
 	}
 }
