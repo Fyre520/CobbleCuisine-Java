@@ -1,0 +1,13 @@
+{
+    "category": "misc",
+    "cookingtime": 100,
+    "experience": 20,
+    "group": "cobblecuisine",
+    "ingredient": {
+        "item": "cobblemon:cheri_berry"
+    },
+    "result": {
+        "id": "cobblecuisine:roasted_cheri_berry"
+    },
+    "type": "minecraft:smelting"
+}

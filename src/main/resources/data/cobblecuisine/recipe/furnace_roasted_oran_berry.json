@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "cobblemon:oran_berry"
+  },
+  "result": {
+    "id": "cobblecuisine:roasted_oran_berry"
+  },
+  "experience": 10,
+  "cookingtime": 100
+}

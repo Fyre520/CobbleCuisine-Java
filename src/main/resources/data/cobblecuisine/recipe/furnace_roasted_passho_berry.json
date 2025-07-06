@@ -1,0 +1,13 @@
+{
+    "category": "misc",
+    "cookingtime": 100,
+    "experience": 40,
+    "group": "cobblecuisine",
+    "ingredient": {
+        "item": "cobblemon:passho_berry"
+    },
+    "result": {
+        "id": "cobblecuisine:roasted_passho_berry"
+    },
+    "type": "minecraft:smelting"
+}

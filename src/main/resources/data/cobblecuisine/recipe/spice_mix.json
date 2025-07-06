@@ -3,16 +3,10 @@
     "group": "cobblecuisine",
     "ingredients": [
         {
-            "item": "cobblemon:bright_powder"
+            "item": "cobblemon:white_herb"
         },
         {
-            "item": "cobblemon:heal_powder"
-        },
-        {
-            "item": "cobblemon:silver_powder"
-        },
-        {
-            "tag": "cobblemon:spicy_20"
+            "tag": "cobblemon:spicy_30"
         },
         {
             "item": "cobblemon:galarica_nuts"

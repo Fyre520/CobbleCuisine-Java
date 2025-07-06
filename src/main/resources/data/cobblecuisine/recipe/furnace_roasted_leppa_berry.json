@@ -1,0 +1,13 @@
+{
+    "category": "misc",
+    "cookingtime": 100,
+    "experience": 20,
+    "group": "cobblecuisine",
+    "ingredient": {
+        "item": "cobblemon:leppa_berry"
+    },
+    "result": {
+        "id": "cobblecuisine:roasted_leppa_berry"
+    },
+    "type": "minecraft:smelting"
+}

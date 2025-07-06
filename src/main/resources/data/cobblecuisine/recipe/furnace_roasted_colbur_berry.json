@@ -1,0 +1,13 @@
+{
+    "category": "misc",
+    "cookingtime": 100,
+    "experience": 40,
+    "group": "cobblecuisine",
+    "ingredient": {
+        "item": "cobblemon:colbur_berry"
+    },
+    "result": {
+        "id": "cobblecuisine:roasted_colbur_berry"
+    },
+    "type": "minecraft:smelting"
+}
