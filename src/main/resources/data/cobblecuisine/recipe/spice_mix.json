@@ -3,7 +3,7 @@
     "group": "cobblecuisine",
     "ingredients": [
         {
-            "item": "cobblemon:power_herb"
+            "item": "cobblemon:white_herb"
         },
         {
             "tag": "cobblemon:spicy_30"
