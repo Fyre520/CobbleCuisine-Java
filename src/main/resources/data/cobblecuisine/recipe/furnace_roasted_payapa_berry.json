@@ -1,0 +1,13 @@
+{
+    "category": "misc",
+    "cookingtime": 100,
+    "experience": 40,
+    "group": "cobblecuisine",
+    "ingredient": {
+        "item": "cobblemon:payapa_berry"
+    },
+    "result": {
+        "id": "cobblecuisine:roasted_payapa_berry"
+    },
+    "type": "minecraft:smelting"
+}

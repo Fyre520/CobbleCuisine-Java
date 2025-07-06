@@ -1,0 +1,13 @@
+{
+    "category": "misc",
+    "cookingtime": 100,
+    "experience": 20,
+    "group": "cobblecuisine",
+    "ingredient": {
+        "item": "cobblemon:persim_berry"
+    },
+    "result": {
+        "id": "cobblecuisine:roasted_persim_berry"
+    },
+    "type": "minecraft:smelting"
+}

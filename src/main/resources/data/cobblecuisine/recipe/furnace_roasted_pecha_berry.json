@@ -1,0 +1,13 @@
+{
+    "category": "misc",
+    "cookingtime": 100,
+    "experience": 20,
+    "group": "cobblecuisine",
+    "ingredient": {
+        "item": "cobblemon:pecha_berry"
+    },
+    "result": {
+        "id": "cobblecuisine:roasted_pecha_berry"
+    },
+    "type": "minecraft:smelting"
+}
