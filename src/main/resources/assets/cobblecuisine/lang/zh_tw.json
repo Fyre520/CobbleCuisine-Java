@@ -596,7 +596,6 @@
   "config.cobblecuisine.boostsettings.natureboostchance": "性格加成機率",
   "config.cobblecuisine.boostsettings.scaleminchance": "最小體型機率",
   "config.cobblecuisine.boostsettings.scalemaxchance": "最大體型機率",
-  "config.cobblecuisine.boostsettings.ivminchance": "最低個體值機率",
   "config.cobblecuisine.boostsettings.ivavgchance": "平均個體值機率",
   "config.cobblecuisine.boostsettings.ivmaxchance": "最高個體值機率",
   "config.cobblecuisine.boostsettings.haboostchance": "隱藏特性增強機率",

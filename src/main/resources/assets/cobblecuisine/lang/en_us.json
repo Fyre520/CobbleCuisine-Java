@@ -596,7 +596,6 @@
   "config.cobblecuisine.boostsettings.natureboostchance": "Nature Boost Chance",
   "config.cobblecuisine.boostsettings.scaleminchance": "Min. Scale Chance",
   "config.cobblecuisine.boostsettings.scalemaxchance": "Max. Scale Chance",
-  "config.cobblecuisine.boostsettings.ivminchance": "Min. IV Chance",
   "config.cobblecuisine.boostsettings.ivavgchance": "Avg. IV Chance",
   "config.cobblecuisine.boostsettings.ivmaxchance": "Max. IV Chance",
   "config.cobblecuisine.boostsettings.haboostchance": "Hidden Ability Boost Chance",
