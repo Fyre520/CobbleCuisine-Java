@@ -10,7 +10,7 @@
 	"EasyMochi"
   ],
   "contact": {},
-  "license": "All-Rights-Reserved",
+  "license": "MIT",
   "icon": "assets/cobblecuisine/icon.png",
   "environment": "*",
   "custom": {
