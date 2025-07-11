@@ -29,8 +29,8 @@ public class ScaleInfluence implements SpawningInfluence {
 		this.player = player;
 	}
 
-	private static final float MIN_CHANCE = CobbleCuisineConfig.data.boostSettings.scaleMinChance;
-	private static final float MAX_CHANCE = CobbleCuisineConfig.data.boostSettings.scaleMaxChance;
+	private static final float MIN_CHANCE = CobbleCuisineConfig.data.boostSettings.scaleMinValue;
+	private static final float MAX_CHANCE = CobbleCuisineConfig.data.boostSettings.scaleMaxValue;
 
 	private static final double EFFECT_DISTANCE = Math.pow(CobbleCuisineConfig.data.boostSettings.effectDistanceBlocks, 2);
 
@@ -41,24 +41,13 @@ public class ScaleInfluence implements SpawningInfluence {
 
 		if (player.getBlockPos().getSquaredDistance(entity.getBlockPos()) > EFFECT_DISTANCE) return;
 
-		double random = PRNG.nextDouble();
+		float random = PRNG.nextFloat();
 		if (player.hasStatusEffect(CobbleCuisineEffects.TINY.entry)) {
-			if (random < MIN_CHANCE) {
-				pokemonEntity.getPokemon().setScaleModifier(0.8f);
-			} else if (random < MAX_CHANCE) {
-				pokemonEntity.getPokemon().setScaleModifier(0.6f);
-			} else {
-				pokemonEntity.getPokemon().setScaleModifier(0.5f);
-			}
+			random = random * (1.0f - MIN_CHANCE) + MIN_CHANCE;
 		} else {
-			if (random < MIN_CHANCE) {
-				pokemonEntity.getPokemon().setScaleModifier(1.2f);
-			} else if (random < MAX_CHANCE) {
-				pokemonEntity.getPokemon().setScaleModifier(1.3f);
-			} else {
-				pokemonEntity.getPokemon().setScaleModifier(1.5f);
-			}
+			random = random * (MAX_CHANCE - 1.0f) + 1.0f;
 		}
+		pokemonEntity.getPokemon().setScaleModifier(random);
 
 		if (DEBUG) LOGGER.info("CobbleCuisine >> SCALE INFLUENCE >> PLAYER: {} PKM: {} SCALE MODIFIER: {}", player.getName(), pokemonEntity.getName(), pokemonEntity.getPokemon().getScaleModifier());
 

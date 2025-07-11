@@ -64,37 +64,37 @@ public class EggGroupInfluence implements SpawningInfluence {
 	};
 
 	private static final float[] MATCH_MULTIPLIERS = {
-			CobbleCuisineConfig.data.eggGroupMultipliers.amorphous.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.fairy.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.bug.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.dragon.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.field.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.flying.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.grass.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.humanLike.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.mineral.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.monster.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.undiscovered.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.water1.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.water23.weightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.water23.weightMultiplier
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.amorphous.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.fairy.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.bug.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.dragon.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.field.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.flying.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.grass.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.humanLike.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.mineral.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.monster.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.undiscovered.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.water1.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.water23.weightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.water23.weightMultiplier)
 	};
 
 	private static final float[] NON_MATCH_MULTIPLIERS = {
-			CobbleCuisineConfig.data.eggGroupMultipliers.amorphous.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.fairy.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.bug.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.dragon.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.field.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.flying.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.grass.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.humanLike.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.mineral.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.monster.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.undiscovered.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.water1.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.water23.nonWeightMultiplier,
-			CobbleCuisineConfig.data.eggGroupMultipliers.water23.nonWeightMultiplier
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.amorphous.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.fairy.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.bug.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.dragon.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.field.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.flying.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.grass.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.humanLike.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.mineral.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.monster.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.undiscovered.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.water1.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.water23.nonWeightMultiplier),
+			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.eggGroupMultipliers.water23.nonWeightMultiplier)
 	};
 
 	private static final double EFFECT_DISTANCE = Math.pow(CobbleCuisineConfig.data.boostSettings.effectDistanceBlocks, 2);

@@ -39,8 +39,8 @@ public class StatInfluence implements SpawningInfluence {
 			Stats.SPEED
 	};
 
-	private static final float IV_MAX = CobbleCuisineConfig.data.boostSettings.ivMaxChance;
-	private static final float IV_AVG = CobbleCuisineConfig.data.boostSettings.ivAvgChance;
+	private static final int IV_MIN = Math.max(0, CobbleCuisineConfig.data.boostSettings.ivMinValue);
+	private static final int IV_MAX = Math.min(31, Math.max(IV_MIN + 1, CobbleCuisineConfig.data.boostSettings.ivMaxValue)) + 1;
 
 	private static final double EFFECT_DISTANCE = Math.pow(CobbleCuisineConfig.data.boostSettings.effectDistanceBlocks, 2);
 
@@ -54,21 +54,10 @@ public class StatInfluence implements SpawningInfluence {
 
 		if (player.getBlockPos().getSquaredDistance(entity.getBlockPos()) > EFFECT_DISTANCE) return;
 
-		double random = PRNG.nextDouble();
-		if (random < IV_MAX) {
-			setIVs(pokemonEntity, 25, 32);
-		} else if (random < IV_AVG) {
-			setIVs(pokemonEntity, 20, 31);
-		} else {
-			setIVs(pokemonEntity, 15, 26);
-		}
+		//noinspection ForLoopReplaceableByForEach
+		for (int i = 0; i < ALL_STATS.length; i++) pokemonEntity.getPokemon().setIV(ALL_STATS[i], PRNG.nextInt(IV_MIN, IV_MAX));
 
 		if (DEBUG) LOGGER.info("CobbleCuisine >> STAT INFLUENCE >> PLAYER: {} PKM: {} IVS: {}", player.getName(), pokemonEntity.getName(), pokemonEntity.getPokemon().getIvs());
-	}
-
-	private void setIVs(PokemonEntity pokemon, int min, int max) {
-		//noinspection ForLoopReplaceableByForEach
-		for (int i = 0; i < ALL_STATS.length; i++) pokemon.getPokemon().setIV(ALL_STATS[i], PRNG.nextInt(min, max));
 	}
 
 	@Override public boolean isExpired() { return false; }

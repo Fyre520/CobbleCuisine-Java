@@ -17,7 +17,7 @@ import java.util.Map;
 import static com.fyre.cobblecuisine.CobbleCuisine.LOGGER;
 
 public class CobbleCuisineConfig {
-	public final static int CONFIG_VERSION_INTERNAL = 2;
+	public final static int CONFIG_VERSION_INTERNAL = 3;
 
 	private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("cobblecuisine.json");
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
