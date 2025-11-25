@@ -1,12 +1,12 @@
 package com.fyre.cobblecuisine.influence;
 
 import com.cobblemon.mod.common.api.spawning.SpawnBucket;
-import com.cobblemon.mod.common.api.spawning.context.SpawningContext;
-import com.cobblemon.mod.common.api.spawning.context.calculators.SpawningContextCalculator;
 import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
+import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
+import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.api.types.ElementalType;
 import com.cobblemon.mod.common.api.types.ElementalTypes;
 import com.cobblemon.mod.common.pokemon.Species;
@@ -23,6 +23,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Map;
 
 import static com.fyre.cobblecuisine.CobbleCuisine.LOGGER;
 import static com.fyre.cobblecuisine.CobbleCuisine.DEBUG;
@@ -120,14 +122,14 @@ public class TypeInfluence implements SpawningInfluence {
 	public TypeInfluence(ServerPlayerEntity player) { this.player = player; }
 
 	@Override
-	public float affectWeight(@NotNull SpawnDetail detail, @NotNull SpawningContext ctx, float weight) {
+	public float affectWeight(@NotNull SpawnDetail detail, @NotNull SpawnablePosition spawnablePosition, float weight) {
 		if (!player.hasStatusEffect(CobbleCuisineEffects.TYPE_BUFF_MARKER.entry)) return weight;
 		if (!(detail instanceof PokemonSpawnDetail pkm)) return weight;
 
 		Species species = CobbleCuisineUtils.resolveSpecies(pkm);
 		if (species == null) return weight;
 
-		if (player.getBlockPos().getSquaredDistance(ctx.getPosition()) > EFFECT_DISTANCE) return weight;
+		if (player.getBlockPos().getSquaredDistance(spawnablePosition.getPosition()) > EFFECT_DISTANCE) return weight;
 
 		ElementalType primary = species.getPrimaryType();
 		ElementalType secondary = species.getSecondaryType() != null ? species.getSecondaryType() : null;
@@ -144,10 +146,10 @@ public class TypeInfluence implements SpawningInfluence {
 		return result;
 	}
 
-	@Override public boolean isExpired() { return false; }
-	@Override public void affectAction(@NotNull SpawnAction<?> action) { }
-	@Override public void affectSpawn(@NotNull Entity entity) { }
-	@Override public float affectBucketWeight(@NotNull SpawnBucket bucket, float weight) { return weight; }
-	@Override public boolean isAllowedPosition(@NotNull ServerWorld world, @NotNull BlockPos pos, @NotNull SpawningContextCalculator<?, ?> contextCalculator) { return true; }
-	@Override public boolean affectSpawnable(@NotNull SpawnDetail detail, @NotNull SpawningContext ctx) { return true; }
+    @Override public boolean isExpired() { return false; }
+    @Override public void affectAction(@NotNull SpawnAction<?> action) { }
+    @Override public void affectSpawn(@NotNull SpawnAction<?> action, @NotNull Entity entity) { }
+    @Override public void affectBucketWeights(@NotNull Map<SpawnBucket, Float> bucketWeights) { }
+    @Override public boolean isAllowedPosition(@NotNull ServerWorld world, @NotNull BlockPos pos, @NotNull SpawnablePositionCalculator<?, ?> spawnablePositionCalculator) { return true; }
+    @Override public boolean affectSpawnable(@NotNull SpawnDetail detail, @NotNull SpawnablePosition spawnablePosition) { return true; }
 }

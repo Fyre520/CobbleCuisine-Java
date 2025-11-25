@@ -1,11 +1,11 @@
 package com.fyre.cobblecuisine.influence;
 
 import com.cobblemon.mod.common.api.spawning.SpawnBucket;
-import com.cobblemon.mod.common.api.spawning.context.SpawningContext;
-import com.cobblemon.mod.common.api.spawning.context.calculators.SpawningContextCalculator;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
+import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
+import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
@@ -18,6 +18,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Map;
 
 import static com.fyre.cobblecuisine.CobbleCuisine.LOGGER;
 import static com.fyre.cobblecuisine.CobbleCuisine.DEBUG;
@@ -35,7 +37,7 @@ public class ScaleInfluence implements SpawningInfluence {
 	private static final double EFFECT_DISTANCE = Math.pow(CobbleCuisineConfig.data.boostSettings.effectDistanceBlocks, 2);
 
 	@Override
-	public void affectSpawn(@NotNull Entity entity) {
+	public void affectSpawn(@NotNull SpawnAction<?> action, @NotNull Entity entity) {
 		if (!(player.hasStatusEffect(CobbleCuisineEffects.TINY.entry)) && !(player.hasStatusEffect(CobbleCuisineEffects.GIANT.entry))) return;
 		if (!(entity instanceof PokemonEntity pokemonEntity) || pokemonEntity.getPokemon().isPlayerOwned()) return;
 
@@ -54,10 +56,10 @@ public class ScaleInfluence implements SpawningInfluence {
 		pokemonEntity.calculateDimensions();
 	}
 
-	@Override public boolean isExpired() { return false; }
-	@Override public void affectAction(@NotNull SpawnAction<?> action) { }
-	@Override public float affectBucketWeight(@NotNull SpawnBucket bucket, float weight) { return weight; }
-	@Override public boolean isAllowedPosition(@NotNull ServerWorld world, @NotNull BlockPos pos, @NotNull SpawningContextCalculator<?, ?> contextCalculator) { return true; }
-	@Override public boolean affectSpawnable(@NotNull SpawnDetail detail, @NotNull SpawningContext ctx) { return true; }
-	@Override public float affectWeight(@NotNull SpawnDetail detail, @NotNull SpawningContext ctx, float weight) { return weight; }
+    @Override public boolean isExpired() { return false; }
+    @Override public void affectAction(@NotNull SpawnAction<?> action) { }
+    @Override public void affectBucketWeights(@NotNull Map<SpawnBucket, Float> bucketWeights) { }
+    @Override public boolean isAllowedPosition(@NotNull ServerWorld world, @NotNull BlockPos pos, @NotNull SpawnablePositionCalculator<?, ?> spawnablePositionCalculator) { return true; }
+    @Override public boolean affectSpawnable(@NotNull SpawnDetail detail, @NotNull SpawnablePosition spawnablePosition) { return true; }
+    @Override public float affectWeight(@NotNull SpawnDetail detail, @NotNull SpawnablePosition spawnablePosition, float weight) { return weight; }
 }

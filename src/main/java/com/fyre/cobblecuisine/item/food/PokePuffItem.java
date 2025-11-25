@@ -46,7 +46,7 @@ public class PokePuffItem extends CobblemonItem implements PokemonSelectingItem,
 	@Override public BagItem getBagItem() { return null; }
 
 	@Override
-	public boolean canUseOnPokemon(Pokemon pokemon) {
+	public boolean canUseOnPokemon(@NotNull ItemStack stack, @NotNull Pokemon pokemon) {
 		boolean canHeal = !pokemon.isFullHealth();
 		boolean canIncreaseFriendship = pokemon.getFriendship() < 255;
 		return pokemon.getCurrentHealth() > 0 && (canHeal || canIncreaseFriendship);
@@ -86,7 +86,7 @@ public class PokePuffItem extends CobblemonItem implements PokemonSelectingItem,
 		if (effectApplied) {
 			if (pokemon.getEntity() != null) {
 				pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
-				player.sendMessage(Text.translatable("item.cobblecuisine.pokepuff.use", pokemon.getDisplayName()), false);
+				player.sendMessage(Text.translatable("item.cobblecuisine.pokepuff.use", pokemon.getDisplayName(false)), false);
 
 				if (pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
 					serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight(), pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
@@ -107,7 +107,7 @@ public class PokePuffItem extends CobblemonItem implements PokemonSelectingItem,
 	}
 
 	@Override public void applyToBattlePokemon(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattlePokemon battlePokemon) { DefaultImpls.applyToBattlePokemon(this, serverPlayerEntity, itemStack, battlePokemon); }
-	@Override public boolean canUseOnBattlePokemon(@NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.canUseOnBattlePokemon(this, battlePokemon); }
+	@Override public boolean canUseOnBattlePokemon(@NotNull ItemStack stack, @NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.canUseOnBattlePokemon(this, stack, battlePokemon); }
 	@NotNull @Override public TypedActionResult<ItemStack> interactWithSpecificBattle(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.interactWithSpecificBattle(this, serverPlayerEntity, itemStack, battlePokemon); }
 	@NotNull @Override public TypedActionResult<ItemStack> interactGeneral(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack) { return PokemonSelectingItem.DefaultImpls.interactGeneral(this, serverPlayerEntity, itemStack); }
 	@NotNull @Override public TypedActionResult<ItemStack> interactGeneralBattle(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattleActor battleActor) { return PokemonSelectingItem.DefaultImpls.interactGeneralBattle(this, serverPlayerEntity, itemStack, battleActor); }
