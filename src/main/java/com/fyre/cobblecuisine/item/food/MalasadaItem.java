@@ -2,7 +2,7 @@ package com.fyre.cobblecuisine.item.food;
 
 import com.cobblemon.mod.common.CobblemonSounds;
 import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
-import com.cobblemon.mod.common.api.berry.Flavor;
+import com.cobblemon.mod.common.api.cooking.Flavour;
 import com.cobblemon.mod.common.api.events.CobblemonEvents;
 import com.cobblemon.mod.common.api.events.pokemon.healing.PokemonHealedEvent;
 import com.cobblemon.mod.common.api.item.HealingSource;
@@ -36,10 +36,10 @@ import java.util.List;
 public class MalasadaItem extends CobblemonItem implements PokemonSelectingItem, HealingSource {
 
 	private final int friendshipAmount;
-	private final Flavor flavor;
+	private final Flavour flavor;
 	private final List<Text> tooltips;
 
-	public MalasadaItem(String name, Flavor flavor, FoodComponent foodComponent) {
+	public MalasadaItem(String name, Flavour flavor, FoodComponent foodComponent) {
 		super(new Settings().food(foodComponent));
 		this.friendshipAmount = CobbleCuisineConfig.data.itemSettings.malasadaFriendship;
 		this.flavor = flavor;
@@ -50,7 +50,7 @@ public class MalasadaItem extends CobblemonItem implements PokemonSelectingItem,
 	public BagItem getBagItem() { return null; }
 
 	@Override
-	public boolean canUseOnPokemon(Pokemon pokemon) {
+	public boolean canUseOnPokemon(@NotNull ItemStack stack, @NotNull Pokemon pokemon) {
 		boolean canHeal = !pokemon.isFullHealth();
 		boolean canIncreaseFriendship = pokemon.getFriendship() < 255;
 		return pokemon.getCurrentHealth() > 0 && (canHeal || canIncreaseFriendship);
@@ -96,13 +96,13 @@ public class MalasadaItem extends CobblemonItem implements PokemonSelectingItem,
 				double z = pokemon.getEntity().getZ();
 
 				if (hasNatureFlavorMatch(pokemon)) {
-					player.sendMessage(Text.translatable("item.cobblecuisine.malasada.love", pokemon.getDisplayName()), false);
+					player.sendMessage(Text.translatable("item.cobblecuisine.malasada.love", pokemon.getDisplayName(false)), false);
 					serverWorld.spawnParticles(ParticleTypes.HEART, x, y, z, 10, 0.5, 0.5, 0.5, 0.1);
-				} else if (flavor != null && pokemon.getNature().getDislikedFlavor() == flavor) {
-					player.sendMessage(Text.translatable("item.cobblecuisine.malasada.dislike", pokemon.getDisplayName()), false);
+				} else if (flavor != null && pokemon.getNature().getDislikedFlavour() == flavor) {
+					player.sendMessage(Text.translatable("item.cobblecuisine.malasada.dislike", pokemon.getDisplayName(false)), false);
 					serverWorld.spawnParticles(ParticleTypes.ANGRY_VILLAGER, x, y, z, 5, 0.3, 0.3, 0.3, 0.05);
 				} else if (flavor != null) {
-					player.sendMessage(Text.translatable("item.cobblecuisine.malasada.use", pokemon.getDisplayName()), false);
+					player.sendMessage(Text.translatable("item.cobblecuisine.malasada.use", pokemon.getDisplayName(false)), false);
 					serverWorld.spawnParticles(ParticleTypes.NOTE, x, y, z, 3, 0.4, 0.4, 0.4, 0.1);
 				}
 
@@ -123,18 +123,18 @@ public class MalasadaItem extends CobblemonItem implements PokemonSelectingItem,
 	private int calculateFriendshipIncrease(Pokemon pokemon) {
 		if (flavor == null) return friendshipAmount;
 
-		if (pokemon.getNature().getFavoriteFlavor() == flavor) return (int) (friendshipAmount * 1.5);
-		else if (pokemon.getNature().getDislikedFlavor() == flavor) return (int) (friendshipAmount * 0.75);
+		if (pokemon.getNature().getFavouriteFlavour() == flavor) return (int) (friendshipAmount * 1.5);
+		else if (pokemon.getNature().getDislikedFlavour() == flavor) return (int) (friendshipAmount * 0.75);
 
 		return friendshipAmount;
 	}
 
 	private boolean hasNatureFlavorMatch(Pokemon pokemon) {
-		return flavor != null && pokemon.getNature().getFavoriteFlavor() == flavor;
+		return flavor != null && pokemon.getNature().getFavouriteFlavour() == flavor;
 	}
 
 	@Override public void applyToBattlePokemon(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattlePokemon battlePokemon) { DefaultImpls.applyToBattlePokemon(this, serverPlayerEntity, itemStack, battlePokemon); }
-	@Override public boolean canUseOnBattlePokemon(@NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.canUseOnBattlePokemon(this, battlePokemon); }
+	@Override public boolean canUseOnBattlePokemon(@NotNull ItemStack stack, @NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.canUseOnBattlePokemon(this, stack, battlePokemon); }
 	@NotNull @Override public TypedActionResult<ItemStack> interactWithSpecificBattle(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.interactWithSpecificBattle(this, serverPlayerEntity, itemStack, battlePokemon); }
 	@NotNull @Override public TypedActionResult<ItemStack> interactGeneral(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack) { return PokemonSelectingItem.DefaultImpls.interactGeneral(this, serverPlayerEntity, itemStack); }
 	@NotNull @Override public TypedActionResult<ItemStack> interactGeneralBattle(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattleActor battleActor) { return PokemonSelectingItem.DefaultImpls.interactGeneralBattle(this, serverPlayerEntity, itemStack, battleActor); }

@@ -2,7 +2,7 @@ package com.fyre.cobblecuisine.event;
 
 import com.cobblemon.mod.common.api.Priority;
 import com.cobblemon.mod.common.api.events.CobblemonEvents;
-import com.cobblemon.mod.common.api.events.pokemon.ExperienceGainedPreEvent;
+import com.cobblemon.mod.common.api.events.pokemon.ExperienceGainedEvent;
 
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
@@ -20,13 +20,13 @@ public class ExpGainPreEvent {
 		});
 	}
 
-	private static void handle(ExperienceGainedPreEvent event) {
+	private static void handle(ExperienceGainedEvent.Pre event) {
 		ServerPlayerEntity player = event.getPokemon().getOwnerPlayer();
 		if (player == null || !player.hasStatusEffect(CobbleCuisineEffects.EXP_BOOST.entry)) return;
 
 		int originalExp = event.getExperience();
 		int exp = originalExp * (int) CobbleCuisineConfig.data.boostSettings.expBoostMultiplier;
 		event.setExperience(exp);
-		player.sendMessage(Text.translatable("message.cobblecuisine.expboost", event.getPokemon().getDisplayName(), exp - originalExp));
+		player.sendMessage(Text.translatable("message.cobblecuisine.expboost", event.getPokemon().getDisplayName(false), exp - originalExp));
 	}
 }
