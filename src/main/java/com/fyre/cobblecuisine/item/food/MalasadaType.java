@@ -1,6 +1,6 @@
 package com.fyre.cobblecuisine.item.food;
 
-import com.cobblemon.mod.common.api.berry.Flavor;
+import com.cobblemon.mod.common.api.cooking.Flavour;
 import com.fyre.cobblecuisine.CobbleCuisine;
 import com.fyre.cobblecuisine.item.CobbleCuisineItems;
 
@@ -13,16 +13,16 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 
 public enum MalasadaType {
-	SWEET("sweet_malasada", Flavor.SWEET, effect(StatusEffects.REGENERATION)),
-	SPICY("spicy_malasada", Flavor.SPICY, effect(StatusEffects.REGENERATION)),
-	SOUR("sour_malasada", Flavor.SOUR, effect(StatusEffects.REGENERATION)),
-	BITTER("bitter_malasada", Flavor.BITTER, effect(StatusEffects.REGENERATION)),
-	DRY("dry_malasada", Flavor.DRY, effect(StatusEffects.REGENERATION));
+	SWEET("sweet_malasada", Flavour.SWEET, effect(StatusEffects.REGENERATION)),
+	SPICY("spicy_malasada", Flavour.SPICY, effect(StatusEffects.REGENERATION)),
+	SOUR("sour_malasada", Flavour.SOUR, effect(StatusEffects.REGENERATION)),
+	BITTER("bitter_malasada", Flavour.BITTER, effect(StatusEffects.REGENERATION)),
+	DRY("dry_malasada", Flavour.DRY, effect(StatusEffects.REGENERATION));
 
 	public final String id;
 	public final Item item;
 
-	MalasadaType(String id, Flavor flavor, CobbleCuisineItems.FoodEffect... foodEffects) {
+	MalasadaType(String id, Flavour flavor, CobbleCuisineItems.FoodEffect... foodEffects) {
 		this.id = id;
 		this.item = new MalasadaItem(id, flavor, CobbleCuisineItems.buildFoodComponent(8, 1f, true, foodEffects));
 	}
