@@ -23,6 +23,16 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 
 public class CobbleCuisineUtils {
+	public static int calculateHealedHealth(int currentHealth, int maxHealth, int healAmount) {
+		return Math.min(maxHealth, currentHealth + Math.max(0, healAmount));
+	}
+
+	public static <T> List<T> shuffledCopy(List<T> source) {
+		List<T> copy = new ArrayList<>(source);
+		Collections.shuffle(copy);
+		return copy;
+	}
+
 	/**
 	 * Resolves the form represented by a {@link PokemonSpawnDetail}.
 	 *

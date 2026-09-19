@@ -131,7 +131,9 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 								return Unit.INSTANCE;
 							}
 					);
-					pokemon.setCurrentHealth(healAmountHolder[0]);
+					pokemon.setCurrentHealth(CobbleCuisineUtils.calculateHealedHealth(
+							pokemon.getCurrentHealth(), pokemon.getMaxHealth(), healAmountHolder[0]
+					));
 					success = true;
 				}
 				break;
@@ -144,8 +146,7 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 				break;
 			case 6:
 				// I hate this so much
-				List<MoveTemplate> eggMoves = pokemon.getSpecies().getMoves().getEggMoves();
-				Collections.shuffle(eggMoves);
+				List<MoveTemplate> eggMoves = CobbleCuisineUtils.shuffledCopy(pokemon.getSpecies().getMoves().getEggMoves());
 				Set<MoveTemplate> currentMoveSet = new HashSet<>();
 				for (Move move : pokemon.getMoveSet().getMoves()) currentMoveSet.add(move.getTemplate());
 

@@ -88,8 +88,9 @@ public class MalasadaItem extends CobblemonItem implements PokemonSelectingItem,
                         return Unit.INSTANCE;
                     }
             );
-            // Sets current health (persistent change)
-            pokemon.setCurrentHealth(healAmountHolder[0]);
+            pokemon.setCurrentHealth(CobbleCuisineUtils.calculateHealedHealth(
+                    pokemon.getCurrentHealth(), pokemon.getMaxHealth(), healAmountHolder[0]
+            ));
             effectApplied = true;
         }
 

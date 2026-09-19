@@ -80,8 +80,9 @@ public class PokePuffItem extends CobblemonItem implements PokemonSelectingItem,
                         return Unit.INSTANCE;
                     }
             );
-            // Modifies Current Health
-            pokemon.setCurrentHealth(healAmountHolder[0]);
+            pokemon.setCurrentHealth(CobbleCuisineUtils.calculateHealedHealth(
+                    pokemon.getCurrentHealth(), pokemon.getMaxHealth(), healAmountHolder[0]
+            ));
             effectApplied = true;
         }
 
