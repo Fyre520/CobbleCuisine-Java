@@ -22,9 +22,9 @@ public enum MalasadaType {
 	public final String id;
 	public final Item item;
 
-	MalasadaType(String id, Flavour flavor, CobbleCuisineItems.FoodEffect... foodEffects) {
+	MalasadaType(String id, Flavour Flavour, CobbleCuisineItems.FoodEffect... foodEffects) {
 		this.id = id;
-		this.item = new MalasadaItem(id, flavor, CobbleCuisineItems.buildFoodComponent(8, 1f, true, foodEffects));
+		this.item = new MalasadaItem(id, Flavour, CobbleCuisineItems.buildFoodComponent(8, 1f, true, foodEffects));
 	}
 
 	private static CobbleCuisineItems.FoodEffect effect(RegistryEntry<StatusEffect> effect) {

@@ -5,33 +5,32 @@
   "name": "CobbleCuisine",
   "description": "Snacks and treats for your Cobblemon adventures!",
   "authors": [
-	"Fyre520",
-	"tredevelops",
-	"EasyMochi"
+    "Fyre520"
   ],
   "contact": {},
   "license": "MIT",
   "icon": "assets/cobblecuisine/icon.png",
   "environment": "*",
   "custom": {
-	"modmenu:api": true
+    "modmenu:api": true
   },
   "entrypoints": {
-	"client": [
-	  "com.fyre.cobblecuisine.client.CobbleCuisineClient"
-	],
-	"main": [
-	  "com.fyre.cobblecuisine.CobbleCuisine"
-	],
-	"modmenu": [
-	  "com.fyre.cobblecuisine.config.CobbleCuisineModMenuCompat"
-	]
+    "client": [
+      "com.fyre.cobblecuisine.client.CobbleCuisineClient"
+    ],
+    "main": [
+      "com.fyre.cobblecuisine.CobbleCuisine"
+    ],
+    "modmenu": [
+      "com.fyre.cobblecuisine.config.CobbleCuisineModMenuCompat"
+    ]
   },
   "depends": {
-	"fabricloader": ">=${loader_version}",
-	"minecraft": "${minecraft_version}"
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}",
+    "cobblemon": ">=1.7.0"
   },
   "suggests": {
-	"modmenu": ">=${modmenu_version}"
+    "modmenu": ">=${modmenu_version}"
   }
 }

@@ -2,13 +2,13 @@ package com.fyre.cobblecuisine.item.food;
 
 import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
 import com.cobblemon.mod.common.api.item.PokemonSelectingItem;
-import com.cobblemon.mod.common.api.pokemon.stats.EvSource;
 import com.cobblemon.mod.common.api.pokemon.stats.SidemodEvSource;
 import com.cobblemon.mod.common.api.pokemon.stats.Stat;
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import com.cobblemon.mod.common.item.battle.BagItem;
 import com.cobblemon.mod.common.pokemon.EVs;
 import com.cobblemon.mod.common.pokemon.Pokemon;
+
 
 import com.fyre.cobblecuisine.util.CobbleCuisineUtils;
 
@@ -31,8 +31,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-
-import static com.fyre.cobblecuisine.CobbleCuisine.MOD_ID;
 
 public class ShakeItem extends Item implements PokemonSelectingItem {
 
@@ -62,7 +60,7 @@ public class ShakeItem extends Item implements PokemonSelectingItem {
 	}
 
 	@Override
-	public boolean canUseOnPokemon(@NotNull ItemStack stack, @NotNull Pokemon pokemon) {
+	public boolean canUseOnPokemon(@NotNull ItemStack stack, Pokemon pokemon) {
 		return pokemon.getEvs().getOrDefault(stat) < EVs.MAX_STAT_VALUE;
 	}
 
@@ -73,8 +71,8 @@ public class ShakeItem extends Item implements PokemonSelectingItem {
 		int actualAdd = Math.min(evIncreaseAmount, maxAdd);
 
 		if (actualAdd > 0) {
-            pokemon.getEvs().add(stat, actualAdd, new SidemodEvSource(MOD_ID, pokemon));
-
+            pokemon.getEvs().add(stat, actualAdd, new SidemodEvSource("cobblecuisine", pokemon));
+            pokemon.onChange(null);
 			if (pokemon.getEntity() != null && pokemon.getEntity().getWorld() instanceof ServerWorld) {
 				pokemon.getEntity().playSound(sound, 0.8F, 1.1F);
 			}

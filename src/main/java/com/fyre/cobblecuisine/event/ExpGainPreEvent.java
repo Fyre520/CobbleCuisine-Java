@@ -27,6 +27,6 @@ public class ExpGainPreEvent {
 		int originalExp = event.getExperience();
 		int exp = originalExp * (int) CobbleCuisineConfig.data.boostSettings.expBoostMultiplier;
 		event.setExperience(exp);
-		player.sendMessage(Text.translatable("message.cobblecuisine.expboost", event.getPokemon().getDisplayName(false), exp - originalExp));
+		player.sendMessage(Text.translatable("message.cobblecuisine.expboost", event.getPokemon().getDisplayName(true), exp - originalExp));
 	}
 }
