@@ -17,7 +17,7 @@ import java.util.Map;
 import static com.fyre.cobblecuisine.CobbleCuisine.LOGGER;
 
 public class CobbleCuisineConfig {
-	public final static int CONFIG_VERSION_INTERNAL = 4;
+	public final static int CONFIG_VERSION_INTERNAL = 5;
 
 	private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("cobblecuisine.json");
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -42,7 +42,7 @@ public class CobbleCuisineConfig {
 			int loadedVersion = json.has("CONFIG_VERSION_INTERNAL") ? json.get("CONFIG_VERSION_INTERNAL").getAsInt() : 0;
 			if (loadedVersion < CONFIG_VERSION_INTERNAL) {
 				LOGGER.info("CobbleCuisine >> Config will migrate from version {} to {}!", loadedVersion, CONFIG_VERSION_INTERNAL);
-				json.addProperty("CONFIG_VERSION_INTERNAL", CONFIG_VERSION_INTERNAL);
+				CobbleCuisineConfigMigration.migrate(json, loadedVersion, CONFIG_VERSION_INTERNAL);
 				needsSave = true;
 			}
 

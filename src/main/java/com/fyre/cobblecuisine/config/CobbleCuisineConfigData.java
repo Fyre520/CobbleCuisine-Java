@@ -54,29 +54,38 @@ public class CobbleCuisineConfigData {
 	}
 
 	public static class WeightPair {
-		public float weightMultiplier = 5.0f;
-		public float nonWeightMultiplier = 0.5f;
+		public float weightMultiplier;
+		public float nonWeightMultiplier;
+
+		public WeightPair() {
+			this(0.5f);
+		}
+
+		public WeightPair(float nonWeightMultiplier) {
+			this.weightMultiplier = 5.0f;
+			this.nonWeightMultiplier = nonWeightMultiplier;
+		}
 	}
 
 	public static class TypeMultipliers {
-		public final WeightPair bug = new WeightPair();
-		public final WeightPair normal = new WeightPair();
-		public final WeightPair fire = new WeightPair();
-		public final WeightPair water = new WeightPair();
-		public final WeightPair electric = new WeightPair();
-		public final WeightPair grass = new WeightPair();
-		public final WeightPair ice = new WeightPair();
-		public final WeightPair fighting = new WeightPair();
-		public final WeightPair poison = new WeightPair();
-		public final WeightPair ground = new WeightPair();
-		public final WeightPair flying = new WeightPair();
-		public final WeightPair psychic = new WeightPair();
-		public final WeightPair rock = new WeightPair();
-		public final WeightPair ghost = new WeightPair();
-		public final WeightPair dragon = new WeightPair();
-		public final WeightPair steel = new WeightPair();
-		public final WeightPair dark = new WeightPair();
-		public final WeightPair fairy = new WeightPair();
+		public final WeightPair bug = new WeightPair(0.1f);
+		public final WeightPair normal = new WeightPair(0.1f);
+		public final WeightPair fire = new WeightPair(0.1f);
+		public final WeightPair water = new WeightPair(0.1f);
+		public final WeightPair electric = new WeightPair(0.1f);
+		public final WeightPair grass = new WeightPair(0.1f);
+		public final WeightPair ice = new WeightPair(0.1f);
+		public final WeightPair fighting = new WeightPair(0.1f);
+		public final WeightPair poison = new WeightPair(0.1f);
+		public final WeightPair ground = new WeightPair(0.1f);
+		public final WeightPair flying = new WeightPair(0.1f);
+		public final WeightPair psychic = new WeightPair(0.1f);
+		public final WeightPair rock = new WeightPair(0.1f);
+		public final WeightPair ghost = new WeightPair(0.1f);
+		public final WeightPair dragon = new WeightPair(0.1f);
+		public final WeightPair steel = new WeightPair(0.1f);
+		public final WeightPair dark = new WeightPair(0.1f);
+		public final WeightPair fairy = new WeightPair(0.1f);
 	}
 
 	public static class EggGroupMultipliers {

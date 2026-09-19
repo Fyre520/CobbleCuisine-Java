@@ -11,6 +11,7 @@ import com.cobblemon.mod.common.api.types.ElementalTypes;
 import com.cobblemon.mod.common.pokemon.FormData;
 
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
+import com.fyre.cobblecuisine.config.CobbleCuisineConfigData;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 import com.fyre.cobblecuisine.util.CobbleCuisineUtils;
 
@@ -71,50 +72,6 @@ public class TypeInfluence implements SpawningInfluence {
 			CobbleCuisineEffects.FAIRY.entry
 	};
 
-	private static final float[] MATCH_MULTIPLIERS = {
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.normal.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.fire.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.water.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.electric.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.grass.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.ice.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.fighting.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.poison.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.ground.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.flying.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.psychic.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.bug.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.rock.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.ghost.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.dragon.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.dark.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.steel.weightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.fairy.weightMultiplier)
-	};
-
-	private static final float[] NON_MATCH_MULTIPLIERS = {
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.normal.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.fire.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.water.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.electric.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.grass.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.ice.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.fighting.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.poison.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.ground.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.flying.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.psychic.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.bug.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.rock.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.ghost.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.dragon.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.dark.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.steel.nonWeightMultiplier),
-			Math.max(Float.MIN_VALUE, CobbleCuisineConfig.data.typeMultipliers.fairy.nonWeightMultiplier)
-	};
-
-	private static final double EFFECT_DISTANCE = Math.pow(CobbleCuisineConfig.data.boostSettings.effectDistanceBlocks, 2);
-
 	private final ServerPlayerEntity player;
 	public TypeInfluence(ServerPlayerEntity player) { this.player = player; }
 
@@ -126,7 +83,8 @@ public class TypeInfluence implements SpawningInfluence {
 		FormData form = CobbleCuisineUtils.resolveForm(pkm);
 		if (form == null) return weight;
 
-		if (player.getBlockPos().getSquaredDistance(ctx.getPosition()) > EFFECT_DISTANCE) return weight;
+		double effectDistance = Math.pow(CobbleCuisineConfig.data.boostSettings.effectDistanceBlocks, 2);
+		if (player.getBlockPos().getSquaredDistance(ctx.getPosition()) > effectDistance) return weight;
 
 		ElementalType primary = form.getPrimaryType();
 		ElementalType secondary = form.getSecondaryType();
@@ -135,12 +93,37 @@ public class TypeInfluence implements SpawningInfluence {
 		for (int i = 0; i < STATUS_EFFECTS.length; i++) {
 			if (player.hasStatusEffect(STATUS_EFFECTS[i])) {
 				boolean matches = (TYPE_ORDER[i] == primary) || (secondary != null && TYPE_ORDER[i] == secondary);
-				result *= matches ? MATCH_MULTIPLIERS[i] : NON_MATCH_MULTIPLIERS[i];
+				result = TypeWeightCalculator.apply(result, matches, settingsFor(i));
 
 				if (DEBUG) LOGGER.info("CobbleCuisine >> TYPE INFLUENCE >> PLAYER: {} PKM: {} OLD WEIGHT: {} NEW WEIGHT: {}", player.getName(), form, weight, result);
 			}
 		}
 		return result;
+	}
+
+	private static CobbleCuisineConfigData.WeightPair settingsFor(int index) {
+		CobbleCuisineConfigData.TypeMultipliers settings = CobbleCuisineConfig.data.typeMultipliers;
+		return switch (index) {
+			case 0 -> settings.normal;
+			case 1 -> settings.fire;
+			case 2 -> settings.water;
+			case 3 -> settings.electric;
+			case 4 -> settings.grass;
+			case 5 -> settings.ice;
+			case 6 -> settings.fighting;
+			case 7 -> settings.poison;
+			case 8 -> settings.ground;
+			case 9 -> settings.flying;
+			case 10 -> settings.psychic;
+			case 11 -> settings.bug;
+			case 12 -> settings.rock;
+			case 13 -> settings.ghost;
+			case 14 -> settings.dragon;
+			case 15 -> settings.dark;
+			case 16 -> settings.steel;
+			case 17 -> settings.fairy;
+			default -> throw new IllegalArgumentException("Unknown type index: " + index);
+		};
 	}
 
 	@Override public boolean isExpired() { return false; }
