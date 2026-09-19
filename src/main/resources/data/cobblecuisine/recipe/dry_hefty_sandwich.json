@@ -12,7 +12,7 @@
             "item": "cobblecuisine:roasted_haban_berry"
         },
         "z": {
-            "tag": "cobblemon:cooked_meat"
+            "tag": "c:foods/cooked_meat"
         }
     },
     "pattern": [
