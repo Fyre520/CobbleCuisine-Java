@@ -1,6 +1,6 @@
 package com.fyre.cobblecuisine.influence;
 
-import com.cobblemon.mod.common.api.spawning.SpawnBucket;
+import com.cobblemon.mod.common.Cobblemon;
 import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
 import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
@@ -29,25 +29,25 @@ public class ScaleInfluence implements SpawningInfluence {
 		this.player = player;
 	}
 
-	private static final float MIN_CHANCE = CobbleCuisineConfig.data.boostSettings.scaleMinValue;
-	private static final float MAX_CHANCE = CobbleCuisineConfig.data.boostSettings.scaleMaxValue;
-
 	private static final double EFFECT_DISTANCE = Math.pow(CobbleCuisineConfig.data.boostSettings.effectDistanceBlocks, 2);
 
 	@Override
 	public void affectSpawn(@NotNull SpawnAction<?> action, @NotNull Entity entity) {
 		if (!(player.hasStatusEffect(CobbleCuisineEffects.TINY.entry)) && !(player.hasStatusEffect(CobbleCuisineEffects.GIANT.entry))) return;
-		if (!(entity instanceof PokemonEntity pokemonEntity) || pokemonEntity.getPokemon().isPlayerOwned()) return;
+		if (!(entity instanceof PokemonEntity pokemonEntity) || pokemonEntity.getPokemon().isPlayerOwned() || pokemonEntity.getPokemon().isAlpha()) return;
 
 		if (player.getBlockPos().getSquaredDistance(entity.getBlockPos()) > EFFECT_DISTANCE) return;
 
-		float random = PRNG.nextFloat();
-		if (player.hasStatusEffect(CobbleCuisineEffects.TINY.entry)) {
-			random = random * (1.0f - MIN_CHANCE) + MIN_CHANCE;
-		} else {
-			random = random * (MAX_CHANCE - 1.0f) + 1.0f;
-		}
-		pokemonEntity.getPokemon().setScaleModifier(random);
+		boolean tiny = player.hasStatusEffect(CobbleCuisineEffects.TINY.entry);
+		float scale = ScaleBiasSelector.selectScale(
+				tiny,
+				CobbleCuisineConfig.data.boostSettings,
+				PRNG.nextFloat(),
+				PRNG.nextFloat(),
+				Cobblemon.INSTANCE.getConfig().getPokemonIntrinsicSizeMin(),
+				Cobblemon.INSTANCE.getConfig().getPokemonIntrinsicSizeMax()
+		);
+		pokemonEntity.getPokemon().setScaleModifier(scale);
 
 		if (DEBUG) LOGGER.info("CobbleCuisine >> SCALE INFLUENCE >> PLAYER: {} PKM: {} SCALE MODIFIER: {}", player.getName(), pokemonEntity.getName(), pokemonEntity.getPokemon().getScaleModifier());
 

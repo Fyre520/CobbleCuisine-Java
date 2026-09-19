@@ -2,14 +2,13 @@ package com.fyre.cobblecuisine.influence;
 
 import com.cobblemon.mod.common.api.pokemon.stats.Stat;
 import com.cobblemon.mod.common.api.pokemon.stats.Stats;
-import com.cobblemon.mod.common.api.spawning.SpawnBucket;
 import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
 import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
-import com.cobblemon.mod.common.pokemon.Species;
+import com.cobblemon.mod.common.pokemon.FormData;
 
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
@@ -57,16 +56,16 @@ public class YieldInfluence implements SpawningInfluence {
 		if (!player.hasStatusEffect(CobbleCuisineEffects.YIELD_BUFF_MARKER.entry)) return true;
 		if (!(detail instanceof PokemonSpawnDetail pkmDetail)) return true;
 
-		Species species = CobbleCuisineUtils.resolveSpecies(pkmDetail);
-		if (species == null) return true;
+		FormData form = CobbleCuisineUtils.resolveForm(pkmDetail);
+		if (form == null) return true;
 
 		if (player.getBlockPos().getSquaredDistance(ctx.getPosition()) > EFFECT_DISTANCE) return true;
 
 		for (int i = 0; i < STATUS_EFFECTS.length; i++) {
 			if (player.hasStatusEffect(STATUS_EFFECTS[i])) {
-				Integer yield = species.getEvYield().get(STATS[i]);
+				Integer yield = form.getEvYield().get(STATS[i]);
 
-				if (DEBUG) LOGGER.info("CobbleCuisine >> YIELD INFLUENCE >> PLAYER: {} PKM: {} YIELD: {}", player.getName(), species, yield);
+				if (DEBUG) LOGGER.info("CobbleCuisine >> YIELD INFLUENCE >> PLAYER: {} PKM: {} YIELD: {}", player.getName(), form, yield);
 
 				return yield != null && yield > 0;
 			}

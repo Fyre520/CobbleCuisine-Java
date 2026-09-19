@@ -15,8 +15,8 @@ public class CobbleCuisineConfigData {
 		public float shinyBoostMultiplier = 2.0f;
 		public float teraBoostChance = 0.75f;
 		public float natureBoostChance = 0.75f;
-		public float scaleMinValue = 0.9f;
-		public float scaleMaxValue = 1.1f;
+		public float tinySizeBias = 0.5f;
+		public float giantSizeBias = 0.5f;
 		public int ivMinValue = 20;
 		public int ivMaxValue = 31;
 		public float haBoostChance = 2.0f;

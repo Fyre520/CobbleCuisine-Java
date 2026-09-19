@@ -94,7 +94,7 @@ public class ShakeItem extends Item implements PokemonSelectingItem {
 
 		if (!user.isSneaking()) {
 			if (user instanceof ServerPlayerEntity serverPlayer) {
-				return use(serverPlayer, stack);
+				return use(serverPlayer, stack, false);
 			}
 			return TypedActionResult.success(stack);
 		} else {
@@ -107,5 +107,5 @@ public class ShakeItem extends Item implements PokemonSelectingItem {
 	@NotNull @Override public TypedActionResult<ItemStack> interactWithSpecificBattle(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.interactWithSpecificBattle(this, serverPlayerEntity, itemStack, battlePokemon); }
 	@NotNull @Override public TypedActionResult<ItemStack> interactGeneral(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack) { return PokemonSelectingItem.DefaultImpls.interactGeneral(this, serverPlayerEntity, itemStack); }
 	@NotNull @Override public TypedActionResult<ItemStack> interactGeneralBattle(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattleActor battleActor) { return PokemonSelectingItem.DefaultImpls.interactGeneralBattle(this, serverPlayerEntity, itemStack, battleActor); }
-	@NotNull @Override public TypedActionResult<ItemStack> use(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack) { return PokemonSelectingItem.DefaultImpls.use(this, serverPlayerEntity, itemStack); }
+	@NotNull @Override public TypedActionResult<ItemStack> use(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, boolean ignoreShift) { return PokemonSelectingItem.DefaultImpls.use(this, serverPlayerEntity, itemStack, ignoreShift); }
 }

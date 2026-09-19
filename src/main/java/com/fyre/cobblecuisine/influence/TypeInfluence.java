@@ -1,6 +1,5 @@
 package com.fyre.cobblecuisine.influence;
 
-import com.cobblemon.mod.common.api.spawning.SpawnBucket;
 import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
 import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail;
@@ -9,7 +8,7 @@ import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
 import com.cobblemon.mod.common.api.types.ElementalType;
 import com.cobblemon.mod.common.api.types.ElementalTypes;
-import com.cobblemon.mod.common.pokemon.Species;
+import com.cobblemon.mod.common.pokemon.FormData;
 
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
@@ -124,13 +123,13 @@ public class TypeInfluence implements SpawningInfluence {
 		if (!player.hasStatusEffect(CobbleCuisineEffects.TYPE_BUFF_MARKER.entry)) return weight;
 		if (!(detail instanceof PokemonSpawnDetail pkm)) return weight;
 
-		Species species = CobbleCuisineUtils.resolveSpecies(pkm);
-		if (species == null) return weight;
+		FormData form = CobbleCuisineUtils.resolveForm(pkm);
+		if (form == null) return weight;
 
 		if (player.getBlockPos().getSquaredDistance(ctx.getPosition()) > EFFECT_DISTANCE) return weight;
 
-		ElementalType primary = species.getPrimaryType();
-		ElementalType secondary = species.getSecondaryType() != null ? species.getSecondaryType() : null;
+		ElementalType primary = form.getPrimaryType();
+		ElementalType secondary = form.getSecondaryType();
 
 		float result = weight;
 		for (int i = 0; i < STATUS_EFFECTS.length; i++) {
@@ -138,7 +137,7 @@ public class TypeInfluence implements SpawningInfluence {
 				boolean matches = (TYPE_ORDER[i] == primary) || (secondary != null && TYPE_ORDER[i] == secondary);
 				result *= matches ? MATCH_MULTIPLIERS[i] : NON_MATCH_MULTIPLIERS[i];
 
-				if (DEBUG) LOGGER.info("CobbleCuisine >> TYPE INFLUENCE >> PLAYER: {} PKM: {} OLD WEIGHT: {} NEW WEIGHT: {}", player.getName(), species, weight, result);
+				if (DEBUG) LOGGER.info("CobbleCuisine >> TYPE INFLUENCE >> PLAYER: {} PKM: {} OLD WEIGHT: {} NEW WEIGHT: {}", player.getName(), form, weight, result);
 			}
 		}
 		return result;

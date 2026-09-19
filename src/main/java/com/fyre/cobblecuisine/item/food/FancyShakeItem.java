@@ -33,6 +33,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
 import org.jetbrains.annotations.NotNull;
@@ -54,6 +55,11 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 	@Override public BagItem getBagItem() { return null; }
 
 	@Override
+	public UseAction getUseAction(ItemStack stack) {
+		return UseAction.DRINK;
+	}
+
+	@Override
 	public boolean canUseOnPokemon(@NotNull ItemStack stack, @NotNull Pokemon pokemon) {
 		return switch (this.type) {
 			case 1 -> pokemon.getCurrentHealth() > 0 && pokemon.getDmaxLevel() < 10;
@@ -71,7 +77,7 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
 		if (user.isSneaking()) {
 			return super.use(world, user, hand);
 		} else if (user instanceof ServerPlayerEntity serverPlayer) {
-			return use(serverPlayer, stack);
+			return use(serverPlayer, stack, false);
 		}
 		return TypedActionResult.success(stack);
 	}
@@ -193,4 +199,3 @@ public class FancyShakeItem extends CobblemonItem implements PokemonSelectingIte
     */
 
 }
-

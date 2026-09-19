@@ -1,6 +1,5 @@
 package com.fyre.cobblecuisine.influence;
 
-import com.cobblemon.mod.common.api.spawning.SpawnBucket;
 import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
 import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;

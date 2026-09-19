@@ -51,7 +51,7 @@ public class BeanItem extends CobblemonItem implements PokemonSelectingItem {
         if (user.isSneaking()) {
             return super.use(world, user, hand);
         } else if (user instanceof ServerPlayerEntity serverPlayer) {
-            return use(serverPlayer, stack);
+            return use(serverPlayer, stack, false);
         }
         return TypedActionResult.success(stack);
     }
