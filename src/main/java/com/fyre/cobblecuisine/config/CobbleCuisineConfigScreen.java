@@ -17,6 +17,7 @@ public class CobbleCuisineConfigScreen extends Screen {
 	private final Screen parent;
 	private ConfigListWidget configList;
 	private ButtonWidget saveButton;
+	private Text saveError;
 
 	public CobbleCuisineConfigScreen(Screen parent) {
 		super(Text.literal("CobbleCuisine Config"));
@@ -26,6 +27,7 @@ public class CobbleCuisineConfigScreen extends Screen {
 	@Override
 	protected void init() {
 		this.clearChildren();
+		saveError = null;
 
 		int listWidth = 420;
 		int listHeight = this.height - 110;
@@ -37,9 +39,9 @@ public class CobbleCuisineConfigScreen extends Screen {
 		configList.setX(listLeft);
 		this.addSelectableChild(configList);
 
+		CobbleCuisineConfigData candidate = CobbleCuisineConfig.copyData();
 		try {
-			Object root = CobbleCuisineConfig.data;
-			populateFieldsRecursive(root, "");
+			populateFieldsRecursive(candidate, "");
 		} catch (Exception e) {
 			throw new RuntimeException("cobbleCuisine >> Failed to build config screen!", e);
 		}
@@ -52,12 +54,28 @@ public class CobbleCuisineConfigScreen extends Screen {
 							Object ctr = entry.container;
 							Class<?> type = f.getType();
 							if (type == int.class) f.setInt(ctr, Integer.parseInt(txt));
-							else if (type == float.class) f.setFloat(ctr, Float.parseFloat(txt));
-							else if (type == double.class) f.setDouble(ctr, Double.parseDouble(txt));
+							else if (type == float.class) {
+								float value = Float.parseFloat(txt);
+								if (!Float.isFinite(value)) throw new NumberFormatException("Non-finite value");
+								f.setFloat(ctr, value);
+							}
+							else if (type == double.class) {
+								double value = Double.parseDouble(txt);
+								if (!Double.isFinite(value)) throw new NumberFormatException("Non-finite value");
+								f.setDouble(ctr, value);
+							}
 							else if (Number.class.isAssignableFrom(type)) f.set(ctr, type.getConstructor(String.class).newInstance(txt));
-						} catch (Exception ignored) {}
+						} catch (Exception e) {
+							entry.input.setEditableColor(0xFF5555);
+							saveError = Text.literal("Invalid number: " + entry.field.getName() + ". Settings were not applied.");
+							return;
+						}
+						entry.input.setEditableColor(0xFFFFFF);
 					}
-					CobbleCuisineConfig.save();
+					if (!CobbleCuisineConfig.save(candidate)) {
+						saveError = Text.literal("Save failed. Settings were not applied; see log.");
+						return;
+					}
 					if (client != null) client.setScreen(parent);
 				})
 				.dimensions(this.width/2 - 50, this.height - 40, 100, 20)
@@ -95,6 +113,7 @@ public class CobbleCuisineConfigScreen extends Screen {
 		ctx.drawCenteredTextWithShadow(textRenderer, this.title, this.width/2, 10, 0xFFFFFF);
 		configList.render(ctx, mouseX, mouseY, delta);
 		saveButton.render(ctx, mouseX, mouseY, delta);
+		if (saveError != null) ctx.drawCenteredTextWithShadow(textRenderer, saveError, this.width / 2, this.height - 60, 0xFF5555);
 	}
 
 	@Override

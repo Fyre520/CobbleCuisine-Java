@@ -3,6 +3,7 @@ package com.fyre.cobblecuisine.influence;
 import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
 import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
+import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
 import com.cobblemon.mod.common.api.types.tera.TeraType;
@@ -81,6 +82,7 @@ public class TeraInfluence implements SpawningInfluence {
 
     @Override
     public void affectSpawn(@NotNull SpawnAction<?> action, @NotNull Entity entity) {
+		if (!(action instanceof PokemonSpawnAction pokemonAction) || pokemonAction.getProps().getTeraType() != null) return;
         if (!player.hasStatusEffect(CobbleCuisineEffects.TERA_BUFF_MARKER.entry)) return;
         if (!(entity instanceof PokemonEntity pokemonEntity) || pokemonEntity.getPokemon().isPlayerOwned()) return;
 

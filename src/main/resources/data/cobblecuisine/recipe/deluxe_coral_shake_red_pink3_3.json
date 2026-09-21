@@ -15,7 +15,7 @@
         {
             "item": "cobblemon:rare_candy"
         },
-       {
+        {
             "item": "cobblemon:vivichoke"
         },
         {
@@ -26,5 +26,8 @@
         "count": 1,
         "id": "cobblecuisine:deluxe_coral_shake"
     },
-    "type": "minecraft:crafting_shapeless"
+    "type": "cobblemon:cooking_pot_shapeless",
+    "seasoningTag": "cobblemon:empty",
+    "seasoningProcessors": [],
+    "category": "foods"
 }

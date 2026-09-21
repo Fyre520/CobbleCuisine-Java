@@ -5,6 +5,7 @@ import com.cobblemon.mod.common.pokemon.abilities.HiddenAbilityType;
 import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
 import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
+import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
 
@@ -37,6 +38,7 @@ public class HiddenAbilityInfluence implements SpawningInfluence {
 
     @Override
     public void affectSpawn(@NotNull SpawnAction<?> action, @NotNull Entity entity) {
+        if (!(action instanceof PokemonSpawnAction pokemonAction) || pokemonAction.getProps().getAbility() != null) return;
         // Check if player has the hidden ability effect
         if (!player.hasStatusEffect(CobbleCuisineEffects.HIDDEN_ABILITY.entry)) return;
 

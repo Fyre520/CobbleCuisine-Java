@@ -6,6 +6,7 @@ import com.cobblemon.mod.common.api.pokemon.Natures;
 import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
 import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
+import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
 
@@ -93,6 +94,7 @@ public class NatureInfluence implements SpawningInfluence {
 
 	@Override
 	public void affectSpawn(@NotNull SpawnAction<?> action, @NotNull Entity entity) {
+		if (!(action instanceof PokemonSpawnAction pokemonAction) || pokemonAction.getProps().getNature() != null) return;
 		if (!player.hasStatusEffect(CobbleCuisineEffects.NATURE_BUFF_MARKER.entry)) return;
 		if (!(entity instanceof PokemonEntity pokemonEntity) || pokemonEntity.getPokemon().isPlayerOwned()) return;
 

@@ -3,7 +3,10 @@
   "package": "com.fyre.cobblecuisine.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "VillagerEntityMixin"
+    "VillagerEntityMixin",
+    "PokemonSpawnActionMixin",
+    "UnchainedIvInfluenceMixin",
+    "CookingPotShapelessRecipeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

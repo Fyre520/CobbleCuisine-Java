@@ -1,9 +1,8 @@
 package com.fyre.cobblecuisine.item.food;
 
+import com.cobblemon.mod.common.Cobblemon;
 import com.cobblemon.mod.common.CobblemonSounds;
-import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
 import com.cobblemon.mod.common.api.item.PokemonSelectingItem;
-import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import com.cobblemon.mod.common.item.CobblemonItem;
 import com.cobblemon.mod.common.item.battle.BagItem;
 import com.cobblemon.mod.common.pokemon.Pokemon;
@@ -11,6 +10,7 @@ import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 
 import com.fyre.cobblecuisine.util.CobbleCuisineUtils;
+import com.fyre.cobblecuisine.util.PokemonFeeding;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -42,7 +42,7 @@ public class BeanItem extends CobblemonItem implements PokemonSelectingItem {
 
     @Override
     public boolean canUseOnPokemon(@NotNull ItemStack stack, Pokemon pokemon) {
-        return pokemon.getCurrentHealth() > 0 && pokemon.getFriendship() < 255;
+        return pokemon.getCurrentHealth() > 0 && pokemon.getFriendship() < Cobblemon.INSTANCE.getConfig().getMaxPokemonFriendship();
     }
 
     @Override
@@ -58,18 +58,18 @@ public class BeanItem extends CobblemonItem implements PokemonSelectingItem {
 
     @Override
     public TypedActionResult<ItemStack> applyToPokemon(@NotNull ServerPlayerEntity player, @NotNull ItemStack stack, Pokemon pokemon) {
+        if (stack.isEmpty() || !canUseOnPokemon(stack, pokemon)) return TypedActionResult.fail(stack);
         // Modifies Friendship
-        if (pokemon.incrementFriendship(friendshipAmount, true)) {
+        if (PokemonFeeding.increaseFriendship(pokemon, friendshipAmount)) {
             // FIX: Add save marker for Friendship change (1.7 requirement)
             pokemon.onChange(null);
 
-            if (pokemon.getEntity() == null) return TypedActionResult.pass(stack);
-
-            pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
             player.sendMessage(Text.translatable("item.cobblecuisine.bean.use", pokemon.getDisplayName(true)), false);
-
-            if (pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
-                serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight(), pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
+            if (pokemon.getEntity() != null) {
+                pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
+                if (pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
+                    serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight(), pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
+                }
             }
 
             if (!player.isCreative()) stack.decrement(1);

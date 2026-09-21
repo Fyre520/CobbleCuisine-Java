@@ -3,17 +3,13 @@ package com.fyre.cobblecuisine.influence;
 import com.cobblemon.mod.common.api.pokemon.egg.EggGroup;
 import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
 import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
-import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
-import com.cobblemon.mod.common.pokemon.FormData;
 
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
-import com.fyre.cobblecuisine.util.CobbleCuisineUtils;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -104,20 +100,19 @@ public class EggGroupInfluence implements SpawningInfluence {
 	@Override
 	public float affectWeight(@NotNull SpawnDetail detail, @NotNull SpawnablePosition ctx, float weight) {
 		if (!player.hasStatusEffect(CobbleCuisineEffects.EGG_BUFF_MARKER.entry)) return weight;
-		if (!(detail instanceof PokemonSpawnDetail pkm)) return weight;
-
-		FormData form = CobbleCuisineUtils.resolveForm(pkm);
-		if (form == null) return weight;
+		if (!SpawnDetailForms.isPokemon(detail)) return weight;
 
 		if (player.getBlockPos().getSquaredDistance(ctx.getPosition()) > EFFECT_DISTANCE) return weight;
 
 		float result = weight;
 		for (int i = 0; i < STATUS_EFFECTS.length; i++) {
 			if (player.hasStatusEffect(STATUS_EFFECTS[i])) {
-				boolean matches = form.getEggGroups().contains(GROUP_ORDER[i]);
-				result *= matches ? MATCH_MULTIPLIERS[i] : NON_MATCH_MULTIPLIERS[i];
+				EggGroup target = GROUP_ORDER[i];
+				float fraction = SpawnDetailForms.matchingFraction(detail, form -> form.getEggGroups().contains(target));
+				if (fraction < 0.0f) return weight;
+				result = SpawnWeightMath.multiply(result, SpawnWeightMath.blend(fraction, MATCH_MULTIPLIERS[i], NON_MATCH_MULTIPLIERS[i]));
 
-				if (DEBUG) LOGGER.info("CobbleCuisine >> EGG GROUP INFLUENCE >> PLAYER: {} PKM: {} OLD WEIGHT: {} NEW WEIGHT: {}", player.getName(), form, weight, result);
+				if (DEBUG) LOGGER.info("CobbleCuisine >> EGG GROUP INFLUENCE >> PLAYER: {} PKM: {} OLD WEIGHT: {} NEW WEIGHT: {}", player.getName(), detail.getName(), weight, result);
 			}
 		}
 		return result;

@@ -5,11 +5,12 @@ import com.google.gson.stream.JsonReader;
 
 import net.fabricmc.loader.api.FabricLoader;
 
-import java.io.*;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -22,91 +23,119 @@ public class CobbleCuisineConfig {
 	private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("cobblecuisine.json");
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
-	public static CobbleCuisineConfigData data = new CobbleCuisineConfigData();
+	public static volatile CobbleCuisineConfigData data = new CobbleCuisineConfigData();
 
 	public static void load() {
-		boolean needsSave = false;
-
 		if (!Files.exists(CONFIG_PATH)) {
-			save();
-			LOGGER.info("CobbleCuisine >> No config found on disk, writing defaults!");
+			if (save(copyData())) {
+				LOGGER.info("CobbleCuisine >> No config found on disk, wrote current defaults/settings!");
+			}
 			return;
 		}
 
+		CobbleCuisineConfigData candidate;
+		boolean needsSave;
 		try (Reader in = Files.newBufferedReader(CONFIG_PATH)) {
 			JsonReader reader = new JsonReader(in);
 			reader.setLenient(true);
 			JsonObject json = JsonParser.parseReader(reader).getAsJsonObject();
+			JsonObject original = json.deepCopy();
 			JsonObject defaultJson = GSON.toJsonTree(new CobbleCuisineConfigData()).getAsJsonObject();
+			defaultJson.addProperty("CONFIG_VERSION_INTERNAL", CONFIG_VERSION_INTERNAL);
 
-			int loadedVersion = json.has("CONFIG_VERSION_INTERNAL") ? json.get("CONFIG_VERSION_INTERNAL").getAsInt() : 0;
+			int loadedVersion = json.has("CONFIG_VERSION_INTERNAL") && !json.get("CONFIG_VERSION_INTERNAL").isJsonNull()
+					? json.get("CONFIG_VERSION_INTERNAL").getAsInt() : 0;
 			if (loadedVersion < CONFIG_VERSION_INTERNAL) {
 				LOGGER.info("CobbleCuisine >> Config will migrate from version {} to {}!", loadedVersion, CONFIG_VERSION_INTERNAL);
 				CobbleCuisineConfigMigration.migrate(json, loadedVersion, CONFIG_VERSION_INTERNAL);
-				needsSave = true;
 			}
 
 			JsonElement upgraded = upgrade(json, defaultJson);
-			if (!upgraded.equals(json)) {
-				LOGGER.info("CobbleCuisine >> Config will be upgraded!");
-				needsSave = true;
-			}
-
-			data = GSON.fromJson(upgraded, CobbleCuisineConfigData.class);
-
+			candidate = GSON.fromJson(upgraded, CobbleCuisineConfigData.class);
+			boolean sanitized = validate(candidate);
+			needsSave = sanitized || !upgraded.equals(original);
 		} catch (Exception e) {
-			LOGGER.error("CobbleCuisine >> Failed to load config from disk, using defaults!", e);
+			LOGGER.error("CobbleCuisine >> Failed to load config; keeping current settings and leaving the file unchanged!", e);
 			return;
 		}
 
-		if (needsSave) save();
-		LOGGER.info("CobbleCuisine >> Loaded config in memory!");
+		// A rewrite failure does not prevent using an otherwise valid loaded configuration.
+		if (needsSave) write(candidate);
+		data = candidate;
+		LOGGER.info("CobbleCuisine >> Loaded validated config in memory!");
 	}
 
-	static void save() {
-		try (Writer out = Files.newBufferedWriter(CONFIG_PATH)) {
-			JsonObject json = new JsonObject();
+	static CobbleCuisineConfigData copyData() {
+		return GSON.fromJson(GSON.toJsonTree(data), CobbleCuisineConfigData.class);
+	}
+
+	static boolean save(CobbleCuisineConfigData candidate) {
+		try {
+			validate(candidate);
+		} catch (Exception e) {
+			LOGGER.error("CobbleCuisine >> Invalid config; current settings and file were not changed!", e);
+			return false;
+		}
+		if (!write(candidate)) return false;
+		data = candidate;
+		return true;
+	}
+
+	private static boolean validate(CobbleCuisineConfigData candidate) {
+		boolean changed = CobbleCuisineConfigSanitizer.sanitize(candidate);
+		if (changed) LOGGER.info("CobbleCuisine >> Invalid config values were sanitized!");
+		return changed;
+	}
+
+	private static boolean write(CobbleCuisineConfigData candidate) {
+		Path temporary = null;
+		try {
+			JsonObject json = GSON.toJsonTree(candidate).getAsJsonObject();
 			json.addProperty("CONFIG_VERSION_INTERNAL", CONFIG_VERSION_INTERNAL);
-			for (Field field : CobbleCuisineConfigData.class.getDeclaredFields()) {
-				if (Modifier.isStatic(field.getModifiers())) continue;
-				field.setAccessible(true);
-				try {
-					Object value = field.get(data);
-					JsonElement jsonVal = GSON.toJsonTree(value);
-					json.add(field.getName(), jsonVal);
-				} catch (IllegalAccessException e) {
-					LOGGER.error("CobbleCuisine >> Failed to access config field: {}", field.getName(), e);
-				}
+			// Serialize before touching disk, then replace only with a complete file.
+			String serialized = GSON.toJson(json);
+			Files.createDirectories(CONFIG_PATH.getParent());
+			temporary = Files.createTempFile(CONFIG_PATH.getParent(), "cobblecuisine-", ".tmp");
+			Files.writeString(temporary, serialized);
+			try {
+				Files.move(temporary, CONFIG_PATH, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
+			} catch (AtomicMoveNotSupportedException e) {
+				LOGGER.warn("CobbleCuisine >> Atomic config replacement unavailable; using complete-file replacement.");
+				Files.move(temporary, CONFIG_PATH, StandardCopyOption.REPLACE_EXISTING);
 			}
-			GSON.toJson(json, out);
+			return true;
 		} catch (Exception e) {
 			LOGGER.error("CobbleCuisine >> Failed to save config to disk!", e);
+			return false;
+		} finally {
+			if (temporary != null) {
+				try {
+					Files.deleteIfExists(temporary);
+				} catch (IOException e) {
+					LOGGER.warn("CobbleCuisine >> Could not remove temporary config file {}", temporary, e);
+				}
+			}
 		}
 	}
 
 	private static JsonElement upgrade(JsonElement original, JsonElement defaults) {
-		if (original.isJsonObject() && defaults.isJsonObject()) {
+		if (original == null || original.isJsonNull()) return defaults.deepCopy();
+		if (defaults.isJsonObject()) {
+			if (!original.isJsonObject()) throw new JsonParseException("Expected a config section object");
 			JsonObject origObj = original.getAsJsonObject();
 			JsonObject defObj = defaults.getAsJsonObject();
 
 			List<String> keys = new ArrayList<>(origObj.keySet());
 			for (String key : keys) {
-				if (!defObj.has(key)) {
-					origObj.remove(key);
-				}
+				if (!defObj.has(key)) origObj.remove(key);
 			}
-
 			for (Map.Entry<String, JsonElement> entry : defObj.entrySet()) {
 				String key = entry.getKey();
-				JsonElement defVal = entry.getValue();
-				if (origObj.has(key)) {
-					origObj.add(key, upgrade(origObj.get(key), defVal));
-				} else {
-					origObj.add(key, defVal);
-				}
+				origObj.add(key, upgrade(origObj.get(key), entry.getValue()));
 			}
 			return origObj;
 		}
+		if (!original.isJsonPrimitive()) throw new JsonParseException("Expected a numeric config value");
 		return original;
 	}
 }

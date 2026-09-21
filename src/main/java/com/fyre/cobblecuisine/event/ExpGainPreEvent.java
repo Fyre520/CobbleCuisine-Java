@@ -25,7 +25,9 @@ public class ExpGainPreEvent {
 		if (player == null || !player.hasStatusEffect(CobbleCuisineEffects.EXP_BOOST.entry)) return;
 
 		int originalExp = event.getExperience();
-		int exp = originalExp * (int) CobbleCuisineConfig.data.boostSettings.expBoostMultiplier;
+		// Preserve fractional multipliers and round only the final, bounded EXP amount.
+		long scaledExp = Math.round(originalExp * (double) CobbleCuisineConfig.data.boostSettings.expBoostMultiplier);
+		int exp = (int) Math.max(0L, Math.min(Integer.MAX_VALUE, scaledExp));
 		event.setExperience(exp);
 		player.sendMessage(Text.translatable("message.cobblecuisine.expboost", event.getPokemon().getDisplayName(true), exp - originalExp));
 	}

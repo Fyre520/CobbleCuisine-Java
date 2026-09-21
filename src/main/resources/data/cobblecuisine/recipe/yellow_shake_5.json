@@ -17,5 +17,8 @@
         "count": 1,
         "id": "cobblecuisine:high_yellow_shake"
     },
-    "type": "minecraft:crafting_shapeless"
+    "type": "cobblemon:cooking_pot_shapeless",
+    "seasoningTag": "cobblemon:empty",
+    "seasoningProcessors": [],
+    "category": "foods"
 }

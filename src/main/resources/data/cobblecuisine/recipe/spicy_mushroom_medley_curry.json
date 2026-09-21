@@ -1,6 +1,5 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
+    "category": "foods",
     "ingredients": [
         {
             "item": "cobblecuisine:yellow_bean"
@@ -22,5 +21,7 @@
         "count": 1,
         "id": "cobblecuisine:spicy_mushroom_medley_curry"
     },
-    "type": "minecraft:crafting_shapeless"
+    "type": "cobblemon:cooking_pot_shapeless",
+    "seasoningTag": "cobblemon:empty",
+    "seasoningProcessors": []
 }

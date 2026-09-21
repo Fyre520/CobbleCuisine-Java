@@ -9,8 +9,26 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-// THIS ENUM CONTAINS UNUSED ITEMS MARKED FOR DELETION
+// Retain registry identities for old saves; these items are not in the creative group.
 public enum LegacyItemType {
+	MIXED_VEGETABLE("mixed_vegetable_salad"),
+	PUMPKIN_PIE("pumpkin_pie_salad"),
+	SLOWPOKE_TAIL_PEPPER("slowpoke_tail_pepper_salad"),
+	WATER_VEIL_TOFU("water_veil_tofu_salad"),
+	BEAN_HAM("bean_ham_salad"),
+	SNOOZY_TOMATO("snoozy_tomato_salad"),
+	FANCY_APPLE("fancy_apple_salad"),
+	IMMUNITY_LEEK("immunity_leek_salad"),
+	DAZZLING_APPLE_CHEESE("dazzling_apple_cheese_salad"),
+	NINJA("ninja_salad"),
+	HEAT_WAVE_TOFU("heat_wave_tofu_salad"),
+	GREENGRASS("greengrass_salad"),
+	FURY_ATTACK_CORN("fury_attack_corn_salad"),
+	CROSS_CHOP("cross_chop_salad"),
+	DEFIANT_COFFEE_DRESSED("defiant_coffee_dressed_salad"),
+	PETAL_BLIZZARD_LAYERED("petal_blizzard_layered_salad"),
+	APPLE_ACID_YOGHURT_DRESSED("apple_acid_yoghurt_salad"),
+
 	PEPPER_STEAK("pepper_steak"),
 
 	SWEET_POTATO_SANDWICH("sweet_potato_salad_sandwich"),

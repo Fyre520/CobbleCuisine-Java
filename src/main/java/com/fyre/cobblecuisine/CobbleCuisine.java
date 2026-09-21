@@ -67,7 +67,7 @@ public class CobbleCuisine implements ModInitializer {
 		CompostingChanceRegistry.INSTANCE.add(CobbleCuisineItems.BEAN_SEEDS, 0.25f);
 
 		// INIT PRNG
-		ServerLifecycleEvents.SERVER_STARTED.register(server -> PRNG.server = server);
+		ServerLifecycleEvents.SERVER_STARTED.register(server -> PRNG.reset());
 
 		LOGGER.info("CobbleCuisine >> Up and running! Time spent: {}ms", String.format("%.2f", (System.nanoTime() - timer) / 1_000_000.0));
 	}

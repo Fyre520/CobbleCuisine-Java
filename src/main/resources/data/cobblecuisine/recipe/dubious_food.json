@@ -1,6 +1,5 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
+    "category": "foods",
     "ingredients": [
         {
             "item": "minecraft:rotten_flesh"
@@ -19,5 +18,7 @@
         "count": 1,
         "id": "cobblecuisine:dubious_food"
     },
-    "type": "minecraft:crafting_shapeless"
+    "type": "cobblemon:cooking_pot_shapeless",
+    "seasoningTag": "cobblemon:empty",
+    "seasoningProcessors": []
 }

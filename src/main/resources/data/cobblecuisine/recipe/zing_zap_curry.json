@@ -1,6 +1,5 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
+    "category": "foods",
     "ingredients": [
         {
             "item": "cobblecuisine:yellow_bean"
@@ -9,10 +8,10 @@
             "item": "cobblemon:wacan_berry"
         },
         {
-            "tag": "cobblemon:sour_10"
+            "item": "cobblemon:sitrus_berry"
         },
         {
-            "item": "cobblemon:sitrus_berry"
+            "tag": "cobblemon:sour_10"
         },
         {
             "item": "minecraft:glow_berries"
@@ -22,5 +21,7 @@
         "count": 1,
         "id": "cobblecuisine:zing_zap_curry"
     },
-    "type": "minecraft:crafting_shapeless"
+    "type": "cobblemon:cooking_pot_shapeless",
+    "seasoningTag": "cobblemon:empty",
+    "seasoningProcessors": []
 }

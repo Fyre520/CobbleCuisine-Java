@@ -2,20 +2,16 @@ package com.fyre.cobblecuisine.influence;
 
 import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
 import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
-import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
 import com.cobblemon.mod.common.api.types.ElementalType;
 import com.cobblemon.mod.common.api.types.ElementalTypes;
-import com.cobblemon.mod.common.pokemon.FormData;
 
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.config.CobbleCuisineConfigData;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
-import com.fyre.cobblecuisine.util.CobbleCuisineUtils;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -78,24 +74,20 @@ public class TypeInfluence implements SpawningInfluence {
 	@Override
 	public float affectWeight(@NotNull SpawnDetail detail, @NotNull SpawnablePosition ctx, float weight) {
 		if (!player.hasStatusEffect(CobbleCuisineEffects.TYPE_BUFF_MARKER.entry)) return weight;
-		if (!(detail instanceof PokemonSpawnDetail pkm)) return weight;
-
-		FormData form = CobbleCuisineUtils.resolveForm(pkm);
-		if (form == null) return weight;
+		if (!SpawnDetailForms.isPokemon(detail)) return weight;
 
 		double effectDistance = Math.pow(CobbleCuisineConfig.data.boostSettings.effectDistanceBlocks, 2);
 		if (player.getBlockPos().getSquaredDistance(ctx.getPosition()) > effectDistance) return weight;
 
-		ElementalType primary = form.getPrimaryType();
-		ElementalType secondary = form.getSecondaryType();
-
 		float result = weight;
 		for (int i = 0; i < STATUS_EFFECTS.length; i++) {
 			if (player.hasStatusEffect(STATUS_EFFECTS[i])) {
-				boolean matches = (TYPE_ORDER[i] == primary) || (secondary != null && TYPE_ORDER[i] == secondary);
-				result = TypeWeightCalculator.apply(result, matches, settingsFor(i));
+				ElementalType target = TYPE_ORDER[i];
+				float fraction = SpawnDetailForms.matchingFraction(detail, form -> target == form.getPrimaryType() || target == form.getSecondaryType());
+				if (fraction < 0.0f) return weight;
+				result = TypeWeightCalculator.apply(result, fraction, settingsFor(i));
 
-				if (DEBUG) LOGGER.info("CobbleCuisine >> TYPE INFLUENCE >> PLAYER: {} PKM: {} OLD WEIGHT: {} NEW WEIGHT: {}", player.getName(), form, weight, result);
+				if (DEBUG) LOGGER.info("CobbleCuisine >> TYPE INFLUENCE >> PLAYER: {} PKM: {} OLD WEIGHT: {} NEW WEIGHT: {}", player.getName(), detail.getName(), weight, result);
 			}
 		}
 		return result;

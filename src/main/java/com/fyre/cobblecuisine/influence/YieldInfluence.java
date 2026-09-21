@@ -8,13 +8,10 @@ import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
-import com.cobblemon.mod.common.pokemon.FormData;
 
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
-import com.fyre.cobblecuisine.util.CobbleCuisineUtils;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -23,8 +20,6 @@ import net.minecraft.util.math.BlockPos;
 
 import org.jetbrains.annotations.NotNull;
 
-import static com.fyre.cobblecuisine.CobbleCuisine.LOGGER;
-import static com.fyre.cobblecuisine.CobbleCuisine.DEBUG;
 
 public class YieldInfluence implements SpawningInfluence {
 	@SuppressWarnings("unchecked")
@@ -54,20 +49,19 @@ public class YieldInfluence implements SpawningInfluence {
 	@Override
 	public boolean affectSpawnable(@NotNull SpawnDetail detail, @NotNull SpawnablePosition ctx) {
 		if (!player.hasStatusEffect(CobbleCuisineEffects.YIELD_BUFF_MARKER.entry)) return true;
-		if (!(detail instanceof PokemonSpawnDetail pkmDetail)) return true;
-
-		FormData form = CobbleCuisineUtils.resolveForm(pkmDetail);
-		if (form == null) return true;
+		if (!SpawnDetailForms.isPokemon(detail)) return true;
+		var forms = SpawnDetailForms.resolve(detail);
+		if (forms.isEmpty() && detail instanceof PokemonSpawnDetail) return true;
 
 		if (player.getBlockPos().getSquaredDistance(ctx.getPosition()) > EFFECT_DISTANCE) return true;
 
 		for (int i = 0; i < STATUS_EFFECTS.length; i++) {
 			if (player.hasStatusEffect(STATUS_EFFECTS[i])) {
-				Integer yield = form.getEvYield().get(STATS[i]);
-
-				if (DEBUG) LOGGER.info("CobbleCuisine >> YIELD INFLUENCE >> PLAYER: {} PKM: {} YIELD: {}", player.getName(), form, yield);
-
-				return yield != null && yield > 0;
+				Stat target = STATS[i];
+				return forms.stream().anyMatch(form -> {
+					Integer yield = form.getEvYield().get(target);
+					return yield != null && yield > 0;
+				});
 			}
 		}
 		return true;

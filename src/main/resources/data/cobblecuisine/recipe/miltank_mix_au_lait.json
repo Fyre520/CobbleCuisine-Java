@@ -1,6 +1,5 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
+    "category": "foods",
     "ingredients": [
         {
             "tag": "cobblemon:sweets"
@@ -19,5 +18,7 @@
         "count": 1,
         "id": "cobblecuisine:miltank_mix_au_lait"
     },
-    "type": "minecraft:crafting_shapeless"
+    "type": "cobblemon:cooking_pot_shapeless",
+    "seasoningTag": "cobblemon:empty",
+    "seasoningProcessors": []
 }

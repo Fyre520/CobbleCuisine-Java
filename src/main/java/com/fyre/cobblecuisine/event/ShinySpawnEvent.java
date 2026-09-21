@@ -21,7 +21,9 @@ public class ShinySpawnEvent {
 	private static void handle(ShinyChanceCalculationEvent event) {
 		event.addModificationFunction((currentRate, player, pokemon) -> {
 			if (player == null || !player.hasStatusEffect(CobbleCuisineEffects.SHINY.entry)) return currentRate;
-			return currentRate / CobbleCuisineConfig.data.boostSettings.shinyBoostMultiplier;
+			float multiplier = CobbleCuisineConfig.data.boostSettings.shinyBoostMultiplier;
+			if (!Float.isFinite(currentRate) || currentRate <= 0.0f || !Float.isFinite(multiplier) || multiplier <= 0.0f) return currentRate;
+			return Math.max(Float.MIN_VALUE, Math.min(Float.MAX_VALUE, currentRate / multiplier));
 		});
 	}
 }

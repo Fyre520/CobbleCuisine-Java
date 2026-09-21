@@ -1,15 +1,14 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
+    "category": "foods",
     "ingredients": [
         {
             "item": "minecraft:wheat"
         },
         {
-            "tag": "cobblecuisine:beans"
+            "item": "cobblecuisine:yellow_bean"
         },
         {
-            "item": "cobblecuisine:yellow_bean"
+            "tag": "cobblecuisine:beans"
         },
         {
             "tag": "minecraft:chicken_food"
@@ -19,5 +18,7 @@
         "count": 1,
         "id": "cobblecuisine:yellow_bean_cake"
     },
-    "type": "minecraft:crafting_shapeless"
+    "type": "cobblemon:cooking_pot_shapeless",
+    "seasoningTag": "cobblemon:empty",
+    "seasoningProcessors": []
 }

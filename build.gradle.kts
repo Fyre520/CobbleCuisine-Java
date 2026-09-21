@@ -29,6 +29,9 @@ repositories {
     maven("https://maven.impactdev.net/repository/development/")
     maven("https://oss.sonatype.org/content/repositories/snapshots")
     maven("https://maven.terraformersmc.com/")
+    maven("https://api.modrinth.com/maven") {
+        content { includeGroup("maven.modrinth") }
+    }
 }
 
 dependencies {
@@ -46,6 +49,13 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
 
     modCompileOnly("com.terraformersmc:modmenu:11.0.3")
+
+    // Optional local client verification; not required by the released mod.
+    modLocalRuntime(files("../repositories/mega_showdown-fabric-1.2.0+1.8.1+1.21.1-release.jar"))
+    modLocalRuntime("maven.modrinth:lhGA9TYQ:Wto0RchG") // Architectury API 13.0.8+fabric
+    modLocalRuntime("maven.modrinth:jtmvUHXj:uPPIhLTH") // Accessories 1.1.0-beta.52+1.21.1
+    modLocalRuntime("maven.modrinth:ccKDOlHs:WMGDnJhl") // owo-lib 0.12.15.1+1.21
+
 }
 
 tasks.getByName<Test>("test") {

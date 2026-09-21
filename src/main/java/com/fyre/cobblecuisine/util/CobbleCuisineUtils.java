@@ -1,6 +1,7 @@
 package com.fyre.cobblecuisine.util;
 
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies;
+import com.cobblemon.mod.common.api.pokemon.PokemonProperties;
 import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail;
 import com.cobblemon.mod.common.pokemon.FormData;
 import com.cobblemon.mod.common.pokemon.Species;
@@ -40,11 +41,15 @@ public class CobbleCuisineUtils {
 	 * @return The resolved {@link FormData}, or {@code null} if unspecified.
 	 */
 	public static FormData resolveForm(PokemonSpawnDetail p) {
-		String species = p.getPokemon().getSpecies();
+		return resolveForm(p.getPokemon());
+	}
+
+	public static FormData resolveForm(PokemonProperties properties) {
+		String species = properties.getSpecies();
 		if (species == null) return null;
 
 		Species resolved = PokemonSpecies.INSTANCE.getByIdentifier(species.indexOf(':') >= 0 ? Identifier.of(species) : Identifier.of("cobblemon", species));
-		return resolved == null ? null : resolved.getForm(p.getPokemon().getAspects());
+		return resolved == null ? null : resolved.getForm(properties.getAspects());
 	}
 
 	/**

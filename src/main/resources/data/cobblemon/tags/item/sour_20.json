@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "cobblemon:colbur_berry",
     "cobblemon:nomel_berry"
   ]
 }

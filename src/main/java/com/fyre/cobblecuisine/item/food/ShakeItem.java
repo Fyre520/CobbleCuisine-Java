@@ -1,10 +1,8 @@
 package com.fyre.cobblecuisine.item.food;
 
-import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
 import com.cobblemon.mod.common.api.item.PokemonSelectingItem;
 import com.cobblemon.mod.common.api.pokemon.stats.SidemodEvSource;
 import com.cobblemon.mod.common.api.pokemon.stats.Stat;
-import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import com.cobblemon.mod.common.item.battle.BagItem;
 import com.cobblemon.mod.common.pokemon.EVs;
 import com.cobblemon.mod.common.pokemon.Pokemon;
@@ -61,17 +59,18 @@ public class ShakeItem extends Item implements PokemonSelectingItem {
 
 	@Override
 	public boolean canUseOnPokemon(@NotNull ItemStack stack, Pokemon pokemon) {
-		return pokemon.getEvs().getOrDefault(stat) < EVs.MAX_STAT_VALUE;
+		return pokemon.getEvs().getOrDefault(stat) < EVs.MAX_STAT_VALUE
+                && pokemon.getEvs().total() < EVs.MAX_TOTAL_VALUE;
 	}
 
 	@Override
 	public TypedActionResult<ItemStack> applyToPokemon(@NotNull ServerPlayerEntity player, @NotNull ItemStack stack, Pokemon pokemon) {
+		if (stack.isEmpty() || !canUseOnPokemon(stack, pokemon)) return TypedActionResult.fail(stack);
 		int currentEvs = pokemon.getEvs().getOrDefault(stat);
 		int maxAdd = EVs.MAX_STAT_VALUE - currentEvs;
 		int actualAdd = Math.min(evIncreaseAmount, maxAdd);
 
-		if (actualAdd > 0) {
-            pokemon.getEvs().add(stat, actualAdd, new SidemodEvSource("cobblecuisine", pokemon));
+		if (actualAdd > 0 && pokemon.getEvs().add(stat, actualAdd, new SidemodEvSource("cobblecuisine", pokemon)) > 0) {
             pokemon.onChange(null);
 			if (pokemon.getEntity() != null && pokemon.getEntity().getWorld() instanceof ServerWorld) {
 				pokemon.getEntity().playSound(sound, 0.8F, 1.1F);
@@ -102,10 +101,4 @@ public class ShakeItem extends Item implements PokemonSelectingItem {
 		}
 	}
 
-	@Override public void applyToBattlePokemon(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattlePokemon battlePokemon) { DefaultImpls.applyToBattlePokemon(this, serverPlayerEntity, itemStack, battlePokemon); }
-	@Override public boolean canUseOnBattlePokemon(@NotNull ItemStack stack, @NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.canUseOnBattlePokemon(this, stack, battlePokemon); }
-	@NotNull @Override public TypedActionResult<ItemStack> interactWithSpecificBattle(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.interactWithSpecificBattle(this, serverPlayerEntity, itemStack, battlePokemon); }
-	@NotNull @Override public TypedActionResult<ItemStack> interactGeneral(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack) { return PokemonSelectingItem.DefaultImpls.interactGeneral(this, serverPlayerEntity, itemStack); }
-	@NotNull @Override public TypedActionResult<ItemStack> interactGeneralBattle(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattleActor battleActor) { return PokemonSelectingItem.DefaultImpls.interactGeneralBattle(this, serverPlayerEntity, itemStack, battleActor); }
-	@NotNull @Override public TypedActionResult<ItemStack> use(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, boolean ignoreShift) { return PokemonSelectingItem.DefaultImpls.use(this, serverPlayerEntity, itemStack, ignoreShift); }
 }

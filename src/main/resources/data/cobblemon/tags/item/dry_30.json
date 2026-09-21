@@ -1,10 +1,9 @@
 {
   "replace": false,
   "values": [
-    "cobblemon:pamtre_berry",
-    "cobblemon:ganlon_berry",
     "cobblemon:apicot_berry",
-    "cobblemon:lansat_berry",
-    "cobblemon:starf_berry"
+    "cobblemon:ganlon_berry",
+    "cobblemon:kee_berry",
+    "cobblemon:pamtre_berry"
   ]
 }

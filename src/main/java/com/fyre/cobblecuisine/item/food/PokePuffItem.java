@@ -1,20 +1,16 @@
 package com.fyre.cobblecuisine.item.food;
 
+import com.cobblemon.mod.common.Cobblemon;
 import com.cobblemon.mod.common.CobblemonSounds;
-import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
-import com.cobblemon.mod.common.api.events.CobblemonEvents;
-import com.cobblemon.mod.common.api.events.pokemon.healing.PokemonHealedEvent;
 import com.cobblemon.mod.common.api.item.HealingSource;
 import com.cobblemon.mod.common.api.item.PokemonSelectingItem;
-import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import com.cobblemon.mod.common.item.CobblemonItem;
 import com.cobblemon.mod.common.item.battle.BagItem;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.util.CobbleCuisineUtils;
-
-import kotlin.Unit;
+import com.fyre.cobblecuisine.util.PokemonFeeding;
 
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.player.PlayerEntity;
@@ -48,7 +44,7 @@ public class PokePuffItem extends CobblemonItem implements PokemonSelectingItem,
     @Override
     public boolean canUseOnPokemon(@NotNull ItemStack stack, Pokemon pokemon) {
         boolean canHeal = !pokemon.isFullHealth();
-        boolean canIncreaseFriendship = pokemon.getFriendship() < 255;
+        boolean canIncreaseFriendship = pokemon.getFriendship() < Cobblemon.INSTANCE.getConfig().getMaxPokemonFriendship();
         return pokemon.getCurrentHealth() > 0 && (canHeal || canIncreaseFriendship);
     }
 
@@ -66,25 +62,11 @@ public class PokePuffItem extends CobblemonItem implements PokemonSelectingItem,
 
     @Override
     public TypedActionResult<ItemStack> applyToPokemon(@NotNull ServerPlayerEntity player, @NotNull ItemStack stack, @NotNull Pokemon pokemon) {
+        if (stack.isEmpty() || !canUseOnPokemon(stack, pokemon)) return TypedActionResult.fail(stack);
         // Modifies Friendship
-        boolean effectApplied = pokemon.incrementFriendship(friendshipAmount, true);
+        boolean effectApplied = PokemonFeeding.increaseFriendship(pokemon, friendshipAmount);
 
-        if (!pokemon.isFullHealth()) {
-            int amountToHeal = Math.min(20, pokemon.getMaxHealth() - pokemon.getCurrentHealth());
-            final int[] healAmountHolder = { amountToHeal };
-            CobblemonEvents.POKEMON_HEALED.postThen(
-                    new PokemonHealedEvent(pokemon, amountToHeal, this),
-                    (event) -> Unit.INSTANCE,
-                    (event) -> {
-                        healAmountHolder[0] = event.getAmount();
-                        return Unit.INSTANCE;
-                    }
-            );
-            pokemon.setCurrentHealth(CobbleCuisineUtils.calculateHealedHealth(
-                    pokemon.getCurrentHealth(), pokemon.getMaxHealth(), healAmountHolder[0]
-            ));
-            effectApplied = true;
-        }
+        effectApplied |= PokemonFeeding.healPokemon(pokemon, 20, this);
 
         if (effectApplied) {
             // FIX: Add save marker for all persistent changes (1.7 requirement)
