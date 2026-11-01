@@ -1,0 +1,32 @@
+{
+  "parent": "cobblemon:recipes/campfire_pot",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cobblecuisine:spicy_potato_curry"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_cobblemon_babiri_berry": {
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblemon:babiri_berry"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cobblemon_babiri_berry"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cobblecuisine:spicy_potato_curry"
+    ]
+  }
+}

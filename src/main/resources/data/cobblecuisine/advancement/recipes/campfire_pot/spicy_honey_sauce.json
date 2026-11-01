@@ -1,0 +1,32 @@
+{
+  "parent": "cobblemon:recipes/campfire_pot",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cobblecuisine:spicy_honey_sauce"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_minecraft_honey_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:honey_bottle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft_honey_bottle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cobblecuisine:spicy_honey_sauce"
+    ]
+  }
+}

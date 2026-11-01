@@ -6,6 +6,9 @@
     "VillagerEntityMixin",
     "PokemonSpawnActionMixin"
   ],
+  "client": [
+    "ClientRecipeBookMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

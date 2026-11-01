@@ -1,0 +1,32 @@
+{
+  "parent": "cobblemon:recipes/campfire_pot",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cobblecuisine:drought_katsu_curry"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_cobblecuisine_red_bean": {
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblecuisine:red_bean"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cobblecuisine_red_bean"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cobblecuisine:drought_katsu_curry"
+    ]
+  }
+}

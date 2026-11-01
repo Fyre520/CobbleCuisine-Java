@@ -1,0 +1,32 @@
+{
+  "parent": "cobblemon:recipes/campfire_pot",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cobblecuisine:beanburger_curry"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_cobblecuisine_orange_bean": {
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblecuisine:orange_bean"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cobblecuisine_orange_bean"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cobblecuisine:beanburger_curry"
+    ]
+  }
+}

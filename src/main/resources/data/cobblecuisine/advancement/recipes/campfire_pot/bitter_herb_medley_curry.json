@@ -1,0 +1,32 @@
+{
+  "parent": "cobblemon:recipes/campfire_pot",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cobblecuisine:bitter_herb_medley_curry"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_cobblecuisine_violet_bean": {
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblecuisine:violet_bean"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cobblecuisine_violet_bean"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cobblecuisine:bitter_herb_medley_curry"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "cobblemon:recipes/campfire_pot",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "cobblecuisine:calm_mind_fruit_salad"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_cobblecuisine_bitter_mushroom_sauce": {
+      "conditions": {
+        "items": [
+          {
+            "items": "cobblecuisine:bitter_mushroom_sauce"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cobblecuisine_bitter_mushroom_sauce"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "cobblecuisine:calm_mind_fruit_salad"
+    ]
+  }
+}

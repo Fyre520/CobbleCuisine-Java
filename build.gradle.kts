@@ -29,6 +29,9 @@ repositories {
     maven("https://maven.impactdev.net/repository/development/")
     maven("https://oss.sonatype.org/content/repositories/snapshots")
     maven("https://maven.terraformersmc.com/")
+    maven("https://maven.blamejared.com/") {
+        content { includeGroup("mezz.jei") }
+    }
 }
 
 dependencies {
@@ -46,6 +49,7 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
 
     modCompileOnly("com.terraformersmc:modmenu:11.0.3")
+    modCompileOnly("mezz.jei:jei-1.21.1-fabric-api:19.22.1.316")
 }
 
 tasks.getByName<Test>("test") {

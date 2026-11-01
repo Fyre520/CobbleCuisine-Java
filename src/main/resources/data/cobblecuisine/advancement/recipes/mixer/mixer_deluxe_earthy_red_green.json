@@ -1,0 +1,19 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mixer": {
+      "conditions": {
+        "items": [
+          { "items": [ "cobblecuisine:mixer_red", "cobblecuisine:mixer_blue", "cobblecuisine:mixer_green", "cobblecuisine:mixer_yellow", "cobblecuisine:mixer_pink", "cobblecuisine:mixer_white", "cobblecuisine:mixer_black" ] }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": { "recipe": "cobblecuisine:mixer_deluxe_earthy_red_green" },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [ [ "has_mixer", "has_the_recipe" ] ],
+  "rewards": { "recipes": [ "cobblecuisine:mixer_deluxe_earthy_red_green" ] }
+}

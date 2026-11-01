@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mixer": {
+      "conditions": {
+        "items": [
+          { "items": [ "cobblecuisine:mixer_red", "cobblecuisine:mixer_blue", "cobblecuisine:mixer_green", "cobblecuisine:mixer_yellow", "cobblecuisine:mixer_pink", "cobblecuisine:mixer_white", "cobblecuisine:mixer_black" ] }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_key_item": {
+      "conditions": {
+        "items": [
+          { "items": "cobblemon:calcium" }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": { "recipe": "cobblecuisine:fruit_punch" },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [ [ "has_mixer", "has_key_item", "has_the_recipe" ] ],
+  "rewards": { "recipes": [ "cobblecuisine:fruit_punch" ] }
+}
