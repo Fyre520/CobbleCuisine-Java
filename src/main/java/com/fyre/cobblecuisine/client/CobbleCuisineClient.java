@@ -3,8 +3,10 @@ package com.fyre.cobblecuisine.client;
 import com.cobblemon.mod.common.client.tooltips.TooltipManager;
 import com.fyre.cobblecuisine.block.CobbleCuisineBlocks;
 import com.fyre.cobblecuisine.client.gui.MixerScreen;
+import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.config.TooltipSettings;
 import com.fyre.cobblecuisine.inventory.CobbleCuisineScreenHandlers;
+import com.fyre.cobblecuisine.network.CatchBoostPayload;
 import com.fyre.cobblecuisine.network.TooltipSettingsPayload;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -25,6 +27,8 @@ public class CobbleCuisineClient implements ClientModInitializer {
 			TooltipSettings.beginConnection(handler);
 			ClientPlayNetworking.registerReceiver(TooltipSettingsPayload.ID, (payload, context) ->
 					TooltipSettings.receive(handler, payload.snapshot()));
+			ClientPlayNetworking.registerReceiver(CatchBoostPayload.ID, (payload, context) ->
+					CobbleCuisineConfig.writeCatchRateMultiplier(payload.multiplier()));
 		});
 		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> TooltipSettings.endConnection(handler));
 		BlockRenderLayerMap.INSTANCE.putBlock(CobbleCuisineBlocks.BEAN_CROP_BLOCK, RenderLayer.getCutout());

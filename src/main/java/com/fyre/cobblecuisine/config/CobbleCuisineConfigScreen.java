@@ -57,7 +57,7 @@ public class CobbleCuisineConfigScreen extends Screen {
 							else if (Number.class.isAssignableFrom(type)) f.set(ctr, type.getConstructor(String.class).newInstance(txt));
 						} catch (Exception ignored) {}
 					}
-					CobbleCuisineConfig.save();
+					CobbleCuisineConfig.save(CobbleCuisineConfig.data);
 					if (client != null) client.setScreen(parent);
 				})
 				.dimensions(this.width/2 - 50, this.height - 40, 100, 20)
