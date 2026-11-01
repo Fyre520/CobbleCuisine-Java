@@ -4,7 +4,9 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "VillagerEntityMixin",
-    "PokemonSpawnActionMixin"
+    "PokemonSpawnActionMixin",
+    "UnchainedShinyInfluenceMixin",
+    "UnchainedIvInfluenceMixin"
   ],
   "client": [
     "ClientRecipeBookMixin"
