@@ -1,11 +1,11 @@
 package com.fyre.cobblecuisine.influence;
 
 import com.cobblemon.mod.common.api.spawning.SpawnBucket;
+import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
+import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction;
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail;
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence;
-import com.cobblemon.mod.common.api.spawning.position.SpawnablePosition;
-import com.cobblemon.mod.common.api.spawning.position.calculators.SpawnablePositionCalculator;
 import com.cobblemon.mod.common.api.types.tera.TeraType;
 import com.cobblemon.mod.common.api.types.tera.TeraTypes;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
@@ -22,8 +22,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Map;
 
 import static com.fyre.cobblecuisine.CobbleCuisine.LOGGER;
 import static com.fyre.cobblecuisine.CobbleCuisine.DEBUG;
@@ -82,29 +80,28 @@ public class TeraInfluence implements SpawningInfluence {
 	private final ServerPlayerEntity player;
 	public TeraInfluence(ServerPlayerEntity player) { this.player = player; }
 
-	@Override
-	public void affectSpawn(@NotNull SpawnAction<?> action, @NotNull Entity entity) {
-		if (!player.hasStatusEffect(CobbleCuisineEffects.TERA_BUFF_MARKER.entry)) return;
-		if (!(entity instanceof PokemonEntity pokemonEntity) || pokemonEntity.getPokemon().isPlayerOwned()) return;
+    @Override
+    public void affectSpawn(@NotNull SpawnAction<?> action, @NotNull Entity entity) {
+        if (!player.hasStatusEffect(CobbleCuisineEffects.TERA_BUFF_MARKER.entry)) return;
+        if (!(entity instanceof PokemonEntity pokemonEntity) || pokemonEntity.getPokemon().isPlayerOwned()) return;
 
-		if (player.getBlockPos().getSquaredDistance(entity.getBlockPos()) > EFFECT_DISTANCE) return;
+        if (player.getBlockPos().getSquaredDistance(entity.getBlockPos()) > EFFECT_DISTANCE) return;
 
-		if (PRNG.nextDouble() >= TERA_CHANCE) return;
-		for (int i = 0; i < STATUS_EFFECTS.length; i++) {
-			if (player.hasStatusEffect(STATUS_EFFECTS[i])) {
-				pokemonEntity.getPokemon().setTeraType(TERA_TYPES[i]);
+        if (PRNG.nextDouble() >= TERA_CHANCE) return;
+        for (int i = 0; i < STATUS_EFFECTS.length; i++) {
+            if (player.hasStatusEffect(STATUS_EFFECTS[i])) {
+                pokemonEntity.getPokemon().setTeraType(TERA_TYPES[i]);
 
-				if (DEBUG) LOGGER.info("CobbleCuisine >> TERA INFLUENCE >> PLAYER: {} PKM: {} SET TERA TYPE: {}", player.getName(), pokemonEntity.getName(), TERA_TYPES[i].toString());
+                if (DEBUG) LOGGER.info("CobbleCuisine >> TERA INFLUENCE >> PLAYER: {} PKM: {} SET TERA TYPE: {}", player.getName(), pokemonEntity.getName(), TERA_TYPES[i].toString());
 
-				break;
-			}
-		}
-	}
+                break;
+            }
+        }
+    }
 
-    @Override public boolean isExpired() { return false; }
-    @Override public void affectAction(@NotNull SpawnAction<?> action) { }
-    @Override public void affectBucketWeights(@NotNull Map<SpawnBucket, Float> bucketWeights) { }
-    @Override public boolean isAllowedPosition(@NotNull ServerWorld world, @NotNull BlockPos pos, @NotNull SpawnablePositionCalculator<?, ?> spawnablePositionCalculator) { return true; }
-    @Override public boolean affectSpawnable(@NotNull SpawnDetail detail, @NotNull SpawnablePosition spawnablePosition) { return true; }
-    @Override public float affectWeight(@NotNull SpawnDetail detail, @NotNull SpawnablePosition spawnablePosition, float weight) { return weight; }
+	@Override public boolean isExpired() { return false; }
+	@Override public void affectAction(@NotNull SpawnAction<?> action) { }
+	@Override public boolean isAllowedPosition(@NotNull ServerWorld world, @NotNull BlockPos pos, @NotNull SpawnablePositionCalculator<?, ?> contextCalculator) { return true; }
+	@Override public boolean affectSpawnable(@NotNull SpawnDetail detail, @NotNull SpawnablePosition ctx) { return true; }
+	@Override public float affectWeight(@NotNull SpawnDetail detail, @NotNull SpawnablePosition ctx, float weight) { return weight; }
 }

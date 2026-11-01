@@ -28,62 +28,61 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class BeanItem extends CobblemonItem implements PokemonSelectingItem {
-	private final int friendshipAmount;
-	private final List<Text> tooltips;
+    private final int friendshipAmount;
+    private final List<Text> tooltips;
 
-	public BeanItem(String name, FoodComponent foodComponent) {
-		super(new Settings().food(foodComponent));
-		this.friendshipAmount = CobbleCuisineConfig.data.itemSettings.beanFriendship;
-		this.tooltips = CobbleCuisineUtils.getItemTooltip(name, foodComponent, null, 1, new Object[] { friendshipAmount }, null, null);
-	}
+    public BeanItem(String name, FoodComponent foodComponent) {
+        super(new Settings().food(foodComponent));
+        this.friendshipAmount = CobbleCuisineConfig.data.itemSettings.beanFriendship;
+        this.tooltips = CobbleCuisineUtils.getItemTooltip(name, foodComponent, null, 1, new Object[] { friendshipAmount }, null, null);
+    }
 
-	@Override
-	public BagItem getBagItem() { return null; }
+    @Override
+    public BagItem getBagItem() { return null; }
 
-	@Override
-	public boolean canUseOnPokemon(@NotNull ItemStack stack, Pokemon pokemon) {
-		return pokemon.getCurrentHealth() > 0 && pokemon.getFriendship() < 255;
-	}
+    @Override
+    public boolean canUseOnPokemon(@NotNull ItemStack stack, Pokemon pokemon) {
+        return pokemon.getCurrentHealth() > 0 && pokemon.getFriendship() < 255;
+    }
 
-	@Override
-	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		ItemStack stack = user.getStackInHand(hand);
-		if (user.isSneaking()) {
-			return super.use(world, user, hand);
-		} else if (user instanceof ServerPlayerEntity serverPlayer) {
-			return use(serverPlayer, stack);
-		}
-		return TypedActionResult.success(stack);
-	}
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack stack = user.getStackInHand(hand);
+        if (user.isSneaking()) {
+            return super.use(world, user, hand);
+        } else if (user instanceof ServerPlayerEntity serverPlayer) {
+            return use(serverPlayer, stack);
+        }
+        return TypedActionResult.success(stack);
+    }
 
-	@Override
-	public TypedActionResult<ItemStack> applyToPokemon(@NotNull ServerPlayerEntity player, @NotNull ItemStack stack, Pokemon pokemon) {
-		if (pokemon.incrementFriendship(friendshipAmount, true)) {
-			if (pokemon.getEntity() == null) return TypedActionResult.pass(stack);
+    @Override
+    public TypedActionResult<ItemStack> applyToPokemon(@NotNull ServerPlayerEntity player, @NotNull ItemStack stack, Pokemon pokemon) {
+        // Modifies Friendship
+        if (pokemon.incrementFriendship(friendshipAmount, true)) {
+            // FIX: Add save marker for Friendship change (1.7 requirement)
+            pokemon.onChange(null);
 
-			pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
-			player.sendMessage(Text.translatable("item.cobblecuisine.bean.use", pokemon.getDisplayName(false)), false);
+            if (pokemon.getEntity() == null) return TypedActionResult.pass(stack);
 
-			if (pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
-				serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight(), pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
-			}
+            pokemon.getEntity().playSound(CobblemonSounds.BERRY_EAT, 0.7f, 1.3f);
+            player.sendMessage(Text.translatable("item.cobblecuisine.bean.use", pokemon.getDisplayName(true)), false);
 
-			if (!player.isCreative()) stack.decrement(1);
-			return TypedActionResult.success(stack);
-		}
-		return TypedActionResult.pass(stack);
-	}
+            if (pokemon.getEntity().getWorld() instanceof ServerWorld serverWorld) {
+                serverWorld.spawnParticles(ParticleTypes.HEART, pokemon.getEntity().getX(), pokemon.getEntity().getY() + pokemon.getEntity().getHeight(), pokemon.getEntity().getZ(), 5, 0.5, 0.5, 0.5, 0.1);
+            }
 
-	@Override
-	public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-		tooltip.addAll(tooltips);
-		super.appendTooltip(stack, context, tooltip, type);
-	}
+            if (!player.isCreative()) stack.decrement(1);
+            return TypedActionResult.success(stack);
+        }
+        return TypedActionResult.pass(stack);
+    }
 
-	@Override public void applyToBattlePokemon(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattlePokemon battlePokemon) { DefaultImpls.applyToBattlePokemon(this, serverPlayerEntity, itemStack, battlePokemon); }
-	@Override public boolean canUseOnBattlePokemon(@NotNull ItemStack stack, @NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.canUseOnBattlePokemon(this, stack, battlePokemon); }
-	@NotNull @Override public TypedActionResult<ItemStack> interactWithSpecificBattle(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattlePokemon battlePokemon) { return PokemonSelectingItem.DefaultImpls.interactWithSpecificBattle(this, serverPlayerEntity, itemStack, battlePokemon); }
-	@NotNull @Override public TypedActionResult<ItemStack> interactGeneral(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack) { return PokemonSelectingItem.DefaultImpls.interactGeneral(this, serverPlayerEntity, itemStack); }
-	@NotNull @Override public TypedActionResult<ItemStack> interactGeneralBattle(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack, @NotNull BattleActor battleActor) { return PokemonSelectingItem.DefaultImpls.interactGeneralBattle(this, serverPlayerEntity, itemStack, battleActor); }
-	@NotNull @Override public TypedActionResult<ItemStack> use(@NotNull ServerPlayerEntity serverPlayerEntity, @NotNull ItemStack itemStack) { return PokemonSelectingItem.DefaultImpls.use(this, serverPlayerEntity, itemStack); }
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.addAll(tooltips);
+        super.appendTooltip(stack, context, tooltip, type);
+    }
+
+    // Removed six deprecated DefaultImpls overrides
 }
