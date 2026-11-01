@@ -58,10 +58,11 @@ public enum ShakeType {
 	}
 
 	private static int deriveEv(int tier) {
+		int power = Math.max(0, Math.min(2, CobbleCuisineConfig.data.boostSettings.shakeEvPower));
 		return switch (tier) {
-			case 1 -> CobbleCuisineConfig.data.itemSettings.lowShakeEv;
-			case 2 -> CobbleCuisineConfig.data.itemSettings.mediumShakeEv;
-			case 3 -> CobbleCuisineConfig.data.itemSettings.highShakeEv;
+			case 1 -> 4 + 2 * power;
+			case 2 -> 6 + 2 * power;
+			case 3 -> 8 + 2 * power;
 			default -> 1;
 		};
 	}

@@ -1,27 +1,13 @@
 package com.fyre.cobblecuisine.event;
 
-import com.cobblemon.mod.common.api.Priority;
-import com.cobblemon.mod.common.api.events.CobblemonEvents;
-import com.cobblemon.mod.common.api.events.pokemon.ShinyChanceCalculationEvent;
-
-import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
-import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
-
-import kotlin.Unit;
-
-public class ShinySpawnEvent {
-
-	public static void register() {
-		CobblemonEvents.SHINY_CHANCE_CALCULATION.subscribe(Priority.NORMAL, event -> {
-			handle(event);
-			return Unit.INSTANCE;
-		});
+public final class ShinySpawnEvent {
+	private ShinySpawnEvent() {
 	}
 
-	private static void handle(ShinyChanceCalculationEvent event) {
-		event.addModificationFunction((currentRate, player, pokemon) -> {
-			if (player == null || !player.hasStatusEffect(CobbleCuisineEffects.SHINY.entry)) return currentRate;
-			return currentRate / CobbleCuisineConfig.data.boostSettings.shinyBoostMultiplier;
-		});
+	public static float additionalRollChance(float baseRate, float multiplier) {
+		if (baseRate <= 1.0f || multiplier <= 1.0f) return 0.0f;
+		float baseChance = 1.0f / baseRate;
+		float boostedChance = Math.min(1.0f, baseChance * multiplier);
+		return Math.max(0.0f, Math.min(1.0f, (boostedChance - baseChance) / (1.0f - baseChance)));
 	}
 }

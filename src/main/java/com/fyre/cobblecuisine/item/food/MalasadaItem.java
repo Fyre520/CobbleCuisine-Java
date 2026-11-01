@@ -41,7 +41,7 @@ public class MalasadaItem extends CobblemonItem implements PokemonSelectingItem,
 
     public MalasadaItem(String name, Flavour flavour, FoodComponent foodComponent) {
         super(new Settings().food(foodComponent));
-        this.friendshipAmount = CobbleCuisineConfig.data.itemSettings.malasadaFriendship;
+        this.friendshipAmount = (int) CobbleCuisineConfig.data.itemSettings.malasadaFriendship.amount;
         this.flavour = flavour; // Assignment is now correct
         this.tooltips = CobbleCuisineUtils.getItemTooltip(name, foodComponent, null, 3, new Object[]{friendshipAmount}, null, null);
     }

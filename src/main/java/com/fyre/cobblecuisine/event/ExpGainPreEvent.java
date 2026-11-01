@@ -4,8 +4,12 @@ import com.cobblemon.mod.common.api.Priority;
 import com.cobblemon.mod.common.api.events.CobblemonEvents;
 import com.cobblemon.mod.common.api.events.pokemon.ExperienceGainedEvent;
 
-import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
+import com.fyre.cobblecuisine.meal.ActiveMealResolver;
+import com.fyre.cobblecuisine.meal.MealEffectType;
+import com.fyre.cobblecuisine.meal.MealLoadout;
+import com.fyre.cobblecuisine.meal.MealPotency;
+import com.fyre.cobblecuisine.meal.ProgressiveMealPotency;
 
 import kotlin.Unit;
 
@@ -22,10 +26,17 @@ public class ExpGainPreEvent {
 
 	private static void handle(ExperienceGainedEvent.Pre event) {
 		ServerPlayerEntity player = event.getPokemon().getOwnerPlayer();
-		if (player == null || !player.hasStatusEffect(CobbleCuisineEffects.EXP_BOOST.entry)) return;
+		if (player == null) return;
+		MealLoadout loadout = ActiveMealResolver.currentWith(player, MealEffectType.EXP.axis());
+		float strength = loadout.strength("exp", "");
+		if (strength <= 0.0f) return;
 
 		int originalExp = event.getExperience();
-		int exp = originalExp * (int) CobbleCuisineConfig.data.boostSettings.expBoostMultiplier;
+		float multiplier = ProgressiveMealPotency.expMultiplier(
+				MealLoadout.Scale.of(CobbleCuisineConfig.data, MealEffectType.EXP),
+				loadout.potency().count(MealPotency.GOLD_NUGGETS)
+		);
+		int exp = ActiveMealResolver.multiplyAndRound(originalExp, multiplier);
 		event.setExperience(exp);
 		player.sendMessage(Text.translatable("message.cobblecuisine.expboost", event.getPokemon().getDisplayName(true), exp - originalExp));
 	}

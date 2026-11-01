@@ -39,7 +39,7 @@ public class PokePuffItem extends CobblemonItem implements PokemonSelectingItem,
 
     public PokePuffItem(String name, FoodComponent foodComponent) {
         super(new Settings().food(foodComponent));
-        this.friendshipAmount = CobbleCuisineConfig.data.itemSettings.pokepuffFriendship;
+        this.friendshipAmount = (int) CobbleCuisineConfig.data.itemSettings.pokePuffFriendship.amount;
         this.tooltips = CobbleCuisineUtils.getItemTooltip(name, foodComponent, null, 1, new Object[] { friendshipAmount }, null, null);
     }
 

@@ -3,14 +3,19 @@ package com.fyre.cobblecuisine;
 import com.cobblemon.mod.common.api.spawning.spawner.PlayerSpawnerFactory;
 
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
+import com.fyre.cobblecuisine.network.CatchBoostSync;
+import com.fyre.cobblecuisine.component.CobbleCuisineDataComponents;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
+import com.fyre.cobblecuisine.event.AlphaSuppressEvent;
 import com.fyre.cobblecuisine.event.ExpGainPreEvent;
 import com.fyre.cobblecuisine.event.PkmCatchRateEvent;
-import com.fyre.cobblecuisine.event.ShinySpawnEvent;
 import com.fyre.cobblecuisine.influence.*;
 import com.fyre.cobblecuisine.item.food.BeanType;
 import com.fyre.cobblecuisine.item.CobbleCuisineItems;
 import com.fyre.cobblecuisine.loot.CobbleCuisineLootInjector;
+import com.fyre.cobblecuisine.meal.CobbleCuisineMealAttachments;
+import com.fyre.cobblecuisine.meal.ActiveMealState;
+import com.fyre.cobblecuisine.meal.MealSeasoningProcessor;
 import com.fyre.cobblecuisine.random.PRNG;
 
 import net.fabricmc.api.ModInitializer;
@@ -36,16 +41,21 @@ public class CobbleCuisine implements ModInitializer {
 		CobbleCuisineConfig.load();
 
 		// REGISTER ITEMS
+		CobbleCuisineDataComponents.register();
+		CobbleCuisineMealAttachments.register();
+		ActiveMealState.register();
+		MealSeasoningProcessor.register();
 		CobbleCuisineEffects.register();
 		CobbleCuisineItems.register();
+		CatchBoostSync.register();
 
 		// INJECT LOOT
 		CobbleCuisineLootInjector.register();
 
 		// REGISTER CALLBACKS
-		ShinySpawnEvent.register();
 		ExpGainPreEvent.register();
 		PkmCatchRateEvent.register();
+		AlphaSuppressEvent.register();
 
 		// REGISTER INFLUENCES
 		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(TypeInfluence::new);
@@ -56,6 +66,8 @@ public class CobbleCuisine implements ModInitializer {
 		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(YieldInfluence::new);
 		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(StatInfluence::new);
 		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(DubiousInfluence::new);
+		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(ShinyInfluence::new);
+		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(HerdInfluence::new);
 		PlayerSpawnerFactory.INSTANCE.getInfluenceBuilders().add(HiddenAbilityInfluence::new);
 
 		// COMPOSTING (?)
@@ -67,7 +79,7 @@ public class CobbleCuisine implements ModInitializer {
 		CompostingChanceRegistry.INSTANCE.add(CobbleCuisineItems.BEAN_SEEDS, 0.25f);
 
 		// INIT PRNG
-		ServerLifecycleEvents.SERVER_STARTED.register(server -> PRNG.server = server);
+		ServerLifecycleEvents.SERVER_STARTED.register(server -> PRNG.reset());
 
 		LOGGER.info("CobbleCuisine >> Up and running! Time spent: {}ms", String.format("%.2f", (System.nanoTime() - timer) / 1_000_000.0));
 	}

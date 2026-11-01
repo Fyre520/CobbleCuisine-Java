@@ -36,6 +36,7 @@ public enum CobbleCuisineEffects {
 	TERA_STELLAR("tera_stellar_spawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 
 	// —— Boosts ——
+	SATIATED("satiated", SatiatedStatusEffect::new),
 	EXP_BOOST("exp_boost", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 	CATCH_BOOST("catch_boost", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 
@@ -63,6 +64,15 @@ public enum CobbleCuisineEffects {
 	GIANT("giant_spawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 	SHINY("shinyspawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 	HIDDEN_ABILITY("hidden_ability", () -> new BasicStatusEffect(StatusEffectCategory.NEUTRAL, 0x000000)),
+	HERD_FREQUENCY_INCREASE("herd_frequency_increase", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0x78B159)),
+	HERD_FREQUENCY_DECREASE("herd_frequency_decrease", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0x8D6E63)),
+	DURATION("duration_extend", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFA726)),
+	HERD_LEVEL_INCREASE("herd_level_increase", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xEF5350)),
+	HERD_LEVEL_DECREASE("herd_level_decrease", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xB39DDB)),
+	HERD_VARIATION_INCREASE("herd_variation_increase", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0x795548)),
+	HERD_VARIATION_DECREASE("herd_variation_decrease", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0x81D4FA)),
+	ALPHA_FREQUENCY_INCREASE("alpha_frequency_increase", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xF9A825)),
+	ALPHA_FREQUENCY_DECREASE("alpha_frequency_decrease", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0x8BC34A)),
 	ATK_YIELD("atkyieldspawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 	DEF_YIELD("defyieldspawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 	SPA_YIELD("spayieldspawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
@@ -91,7 +101,6 @@ public enum CobbleCuisineEffects {
 	STEEL("steel_spawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0x708090)),
 	FAIRY("fairy_spawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFB6C1)),
 
-	// —— Nature Spawns ——
 	SERIOUS("nature_serious_spawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xA9A9A9)),
 	HARDY("nature_hardy_spawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFFD700)),
 	LONELY("nature_lonely_spawn", () -> new BasicStatusEffect(StatusEffectCategory.BENEFICIAL, 0xFF4500)),

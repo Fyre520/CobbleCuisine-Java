@@ -1,6 +1,5 @@
 package com.fyre.cobblecuisine.loot;
 
-import com.cobblemon.mod.common.CobblemonItems;
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.item.food.BeanType;
 import com.fyre.cobblecuisine.item.CobbleCuisineItems;
@@ -9,7 +8,6 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.loot.v3.LootTableSource;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.loot.*;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
@@ -48,10 +46,6 @@ public class CobbleCuisineLootInjector {
 		//noinspection ForLoopReplaceableByForEach
 		for (int i = 0; i < LOOT_TABLES.length; i++) {
 			if (LOOT_TABLES[i] != key) continue;
-
-			addDrop(table, CobblemonItems.GALARICA_NUTS, CobbleCuisineConfig.data.dropRates.galaricaNutDropRate, 1, 3);
-			addDrop(table, Items.TORCHFLOWER, CobbleCuisineConfig.data.dropRates.torchflowerDropRate, 1, 3);
-			addDrop(table, Items.TORCHFLOWER_SEEDS, CobbleCuisineConfig.data.dropRates.torchflowerSeedsDropRate, 1, 3);
 
 			if (LOOT_TABLES[i] == LootTables.VILLAGE_DESERT_HOUSE_CHEST) {
 				addDrop(table, BeanType.RED.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
