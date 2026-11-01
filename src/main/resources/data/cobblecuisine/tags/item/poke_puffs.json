@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "cobblecuisine:citrus_pokepuff",
+    "cobblecuisine:mint_pokepuff",
+    "cobblecuisine:mocha_pokepuff",
+    "cobblecuisine:spice_pokepuff",
+    "cobblecuisine:sweet_pokepuff"
+  ]
+}

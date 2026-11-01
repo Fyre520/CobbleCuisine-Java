@@ -1,29 +1,33 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "minecraft:milk_bucket"
-        },
-        {
-            "item": "minecraft:egg"
-        },
-        {
-            "item": "minecraft:wheat"
-        },
-        {
-            "item": "cobblemon:galarica_nuts"
-        },
-        {
-            "item": "cobblemon:whipped_dream"
-        },
-        {
-            "tag": "cobblemon:spicy_20"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:spice_pokepuff"
+  "category": "foods",
+  "ingredients": [
+    {
+      "tag": "cobblecuisine:ingredients/milk"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "cobblecuisine:spicy_honey_sauce"
+    },
+    {
+      "item": "cobblemon:whipped_dream"
+    },
+    {
+      "tag": "cobblemon:spicy_20"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:spice_pokepuff"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/pokepuff_seasoning",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

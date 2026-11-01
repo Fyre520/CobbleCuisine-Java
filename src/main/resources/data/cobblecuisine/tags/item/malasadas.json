@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "cobblecuisine:bitter_malasada",
+    "cobblecuisine:dry_malasada",
+    "cobblecuisine:sour_malasada",
+    "cobblecuisine:spicy_malasada",
+    "cobblecuisine:sweet_malasada"
+  ]
+}

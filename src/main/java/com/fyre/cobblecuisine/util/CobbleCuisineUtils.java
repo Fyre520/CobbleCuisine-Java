@@ -1,29 +1,76 @@
 package com.fyre.cobblecuisine.util;
 
+import com.cobblemon.mod.common.Cobblemon;
+import com.cobblemon.mod.common.api.events.CobblemonEvents;
+import com.cobblemon.mod.common.api.events.pokemon.healing.PokemonHealedEvent;
+import com.cobblemon.mod.common.api.item.HealingSource;
 import com.cobblemon.mod.common.api.pokemon.PokemonSpecies;
 import com.cobblemon.mod.common.api.pokemon.PokemonProperties;
 import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail;
 import com.cobblemon.mod.common.pokemon.FormData;
+import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.cobblemon.mod.common.pokemon.Species;
 
 import com.fyre.cobblecuisine.CobbleCuisine;
+import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
+
+import com.google.gson.JsonElement;
 
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.StringHelper;
 
+import java.util.List;
+
 import org.jetbrains.annotations.Nullable;
+import kotlin.Unit;
 
 import java.util.*;
 
 public class CobbleCuisineUtils {
+	public static int calculateHealedHealth(int currentHealth, int maxHealth, int healAmount) {
+		if (healAmount == -1) return maxHealth;
+		return (int) Math.min(maxHealth, (long) currentHealth + Math.max(0, healAmount));
+	}
+
+	public static boolean increaseFriendship(Pokemon pokemon, int amount) {
+		int before = pokemon.getFriendship();
+		if (amount <= 0 || before >= Cobblemon.INSTANCE.getConfig().getMaxPokemonFriendship()) return false;
+		pokemon.incrementFriendship(amount, true);
+		return pokemon.getFriendship() > before;
+	}
+
+	public static boolean healPokemon(Pokemon pokemon, int amount, HealingSource source) {
+		if (pokemon.isFullHealth() || amount <= 0) return false;
+		boolean[] healed = {false};
+		int requested = Math.min(amount, pokemon.getMaxHealth() - pokemon.getCurrentHealth());
+		CobblemonEvents.POKEMON_HEALED.postThen(
+				new PokemonHealedEvent(pokemon, requested, source),
+				event -> Unit.INSTANCE,
+				event -> {
+					int before = pokemon.getCurrentHealth();
+					int after = calculateHealedHealth(before, pokemon.getMaxHealth(), event.getAmount());
+					if (after > before) {
+						pokemon.setCurrentHealth(after);
+						healed[0] = pokemon.getCurrentHealth() > before;
+					}
+					return Unit.INSTANCE;
+				}
+		);
+		return healed[0];
+	}
+
 	/**
 	 * Resolves the form represented by a {@link PokemonSpawnDetail}.
 	 *
@@ -40,6 +87,52 @@ public class CobbleCuisineUtils {
 
 		Species resolved = PokemonSpecies.INSTANCE.getByIdentifier(species.indexOf(':') >= 0 ? Identifier.of(species) : Identifier.of("cobblemon", species));
 		return resolved == null ? null : resolved.getForm(properties.getAspects());
+	}
+
+	public static final int FOOD_FULLNESS = 4;
+
+	public static boolean fillsWhenFed(ItemStack stack) {
+		if (stack == null) return false;
+		List<JsonElement> entries = CobbleCuisineConfig.data.itemSettings.fullnessItems;
+		if (entries == null || entries.isEmpty()) return false;
+
+		for (JsonElement entry : entries) {
+			if (entry == null || !entry.isJsonObject()) continue;
+			JsonElement excluded = entry.getAsJsonObject().get("exclude");
+			if (excluded == null || !excluded.isJsonArray()) continue;
+			for (JsonElement item : excluded.getAsJsonArray()) {
+				if (item != null && item.isJsonPrimitive() && matchesItem(stack, item.getAsString())) {
+					return false;
+				}
+			}
+		}
+
+		for (JsonElement entry : entries) {
+			if (entry == null || !entry.isJsonPrimitive()) continue;
+			if (matchesItem(stack, entry.getAsString())) return true;
+		}
+		return false;
+	}
+
+	private static boolean matchesItem(ItemStack stack, String entry) {
+		if (entry == null || entry.isBlank()) return false;
+		String trimmed = entry.trim();
+		if (trimmed.charAt(0) == '#') {
+			Identifier tagId = Identifier.tryParse(trimmed.substring(1));
+			return tagId != null && stack.isIn(TagKey.of(RegistryKeys.ITEM, tagId));
+		}
+		return Registries.ITEM.getId(stack.getItem()).toString().equals(trimmed);
+	}
+
+	public static boolean canFeed(Pokemon pokemon, ItemStack stack) {
+		if (pokemon == null) return false;
+		return !fillsWhenFed(stack) || !pokemon.isFull();
+	}
+
+	public static void feedAndFill(Pokemon pokemon, ItemStack stack) {
+		if (pokemon == null || pokemon.isFull()) return;
+		if (!fillsWhenFed(stack)) return;
+		pokemon.feedPokemon(FOOD_FULLNESS, true);
 	}
 
 	/**

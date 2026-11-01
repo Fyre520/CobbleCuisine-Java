@@ -1,26 +1,30 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "minecraft:bread"
-        },
-        {
-            "tag": "cobblemon:bitter_30"
-        },
-        {
-            "item": "minecraft:cocoa_beans"
-        },
-        {
-            "item": "cobblemon:heal_powder"
-        },
-        {
-            "item": "cobblecuisine:yellow_bean"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:bitter_malasada"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "cobblemon:bitter_30"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "cobblecuisine:yellow_bean"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:bitter_malasada"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/malasada_seasoning",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

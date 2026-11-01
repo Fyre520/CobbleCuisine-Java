@@ -1,26 +1,30 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "minecraft:bread"
-        },
-        {
-            "tag": "cobblemon:sour_30"
-        },
-        {
-            "item": "minecraft:dried_kelp"
-        },
-        {
-            "item": "minecraft:glow_berries"
-        },
-        {
-            "item": "cobblecuisine:green_bean"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:sour_malasada"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "cobblemon:sour_30"
+    },
+    {
+      "item": "minecraft:glow_berries"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "cobblecuisine:green_bean"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:sour_malasada"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/malasada_seasoning",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

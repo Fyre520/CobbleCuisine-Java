@@ -1,8 +1,10 @@
 package com.fyre.cobblecuisine.config;
 
+import com.fyre.cobblecuisine.item.food.BeanItem;
 import com.fyre.cobblecuisine.meal.MealEffectMappings;
 import com.fyre.cobblecuisine.meal.MealEffectType;
 import com.fyre.cobblecuisine.meal.MealLoadout;
+import net.minecraft.registry.Registries;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -139,6 +141,9 @@ public final class TooltipSettings {
 			if (scale.base() != 0F || scale.perSeasoning() != 0F) scales.put(type, scale);
 		}
 		Map<String, Integer> amounts = new HashMap<>();
+		Registries.ITEM.forEach(item -> {
+			if (item instanceof BeanItem bean) amounts.put(Registries.ITEM.getId(item).toString(), bean.friendshipAmount());
+		});
 		return new Snapshot(config.globalSettings.classicMealPowers,
 				Feeding.pokePuffFriendship(config), Feeding.malasadaFriendship(config),
 				Feeding.pokePuffHealing(config), Feeding.malasadaHealing(config),
