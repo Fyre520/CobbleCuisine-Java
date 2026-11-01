@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "cobblecuisine:high_blue_shake",
+    "cobblecuisine:high_green_shake",
+    "cobblecuisine:high_pink_shake",
+    "cobblecuisine:high_purple_shake",
+    "cobblecuisine:high_red_shake",
+    "cobblecuisine:high_yellow_shake",
+    "cobblecuisine:low_blue_shake",
+    "cobblecuisine:low_green_shake",
+    "cobblecuisine:low_pink_shake",
+    "cobblecuisine:low_purple_shake",
+    "cobblecuisine:low_red_shake",
+    "cobblecuisine:low_yellow_shake",
+    "cobblecuisine:medium_blue_shake",
+    "cobblecuisine:medium_green_shake",
+    "cobblecuisine:medium_pink_shake",
+    "cobblecuisine:medium_purple_shake",
+    "cobblecuisine:medium_red_shake",
+    "cobblecuisine:medium_yellow_shake"
+  ]
+}

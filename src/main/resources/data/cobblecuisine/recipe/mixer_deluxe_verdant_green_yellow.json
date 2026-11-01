@@ -1,0 +1,18 @@
+{
+  "type": "cobblecuisine:mixer_shapeless",
+  "category": "foods",
+  "group": "deluxe_shakes",
+  "ingredients": [
+    { "tag": "cobblecuisine:green_berry" },
+    { "tag": "cobblecuisine:yellow_berry" },
+    { "tag": "cobblecuisine:ingredients/milk" },
+    { "item": "minecraft:glass_bottle" },
+    { "item": "cobblemon:vivichoke" },
+    { "tag": "minecraft:flowers" }
+  ],
+  "result": {
+    "id": "cobblecuisine:deluxe_verdant_shake",
+    "count": 1
+  },
+  "seasoningProcessors": []
+}

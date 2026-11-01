@@ -16,6 +16,15 @@ public final class CobbleCuisineDataComponents {
 					.build()
 	);
 
+	public static final ComponentType<ShakeEvComponent> SHAKE_EV = Registry.register(
+			Registries.DATA_COMPONENT_TYPE,
+			Identifier.of(CobbleCuisine.MOD_ID, "shake_ev"),
+			ComponentType.<ShakeEvComponent>builder()
+					.codec(ShakeEvComponent.CODEC)
+					.packetCodec(ShakeEvComponent.PACKET_CODEC)
+					.build()
+	);
+
 	private CobbleCuisineDataComponents() {
 	}
 

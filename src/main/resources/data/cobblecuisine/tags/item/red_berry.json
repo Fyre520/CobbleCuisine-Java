@@ -1,0 +1,18 @@
+{
+    "replace":  false,
+    "values":  [
+                   "cobblemon:cheri_berry",
+                   "cobblemon:chople_berry",
+                   "cobblemon:custap_berry",
+                   "cobblemon:figy_berry",
+                   "cobblemon:haban_berry",
+                   "cobblemon:lansat_berry",
+                   "cobblemon:leppa_berry",
+                   "cobblemon:liechi_berry",
+                   "cobblemon:occa_berry",
+                   "cobblemon:pomeg_berry",
+                   "cobblemon:razz_berry",
+                   "cobblemon:spelon_berry",
+                   "cobblemon:tamato_berry"
+               ]
+}

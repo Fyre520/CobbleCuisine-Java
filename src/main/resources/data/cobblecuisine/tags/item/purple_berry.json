@@ -1,0 +1,16 @@
+{
+    "replace":  false,
+    "values":  [
+                   "cobblemon:belue_berry",
+                   "cobblemon:bluk_berry",
+                   "cobblemon:chesto_berry",
+                   "cobblemon:colbur_berry",
+                   "cobblemon:cornn_berry",
+                   "cobblemon:enigma_berry",
+                   "cobblemon:ganlon_berry",
+                   "cobblemon:kasib_berry",
+                   "cobblemon:pamtre_berry",
+                   "cobblemon:payapa_berry",
+                   "cobblemon:wiki_berry"
+               ]
+}

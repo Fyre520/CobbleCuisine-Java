@@ -1,0 +1,21 @@
+{
+  "type": "cobblecuisine:mixer_shapeless",
+  "category": "foods",
+  "group": "shakes",
+  "ingredients": [
+    { "tag": "cobblecuisine:yellow_berry" },
+    { "tag": "cobblecuisine:yellow_berry" },
+    { "tag": "cobblecuisine:yellow_berry" },
+    { "tag": "cobblecuisine:ingredients/milk" },
+    { "item": "minecraft:glass_bottle" }
+  ],
+  "result": {
+    "id": "cobblecuisine:medium_yellow_shake",
+    "count": 1
+  },
+  "seasoningTag": "cobblecuisine:recipe_filters/shake_seasoning",
+  "seasoningProcessors": [
+    "flavour",
+    "cobblecuisine:shake_effects"
+  ]
+}

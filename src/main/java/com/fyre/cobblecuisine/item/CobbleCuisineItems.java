@@ -7,10 +7,12 @@ import com.fyre.cobblecuisine.item.food.*;
 import com.fyre.cobblecuisine.item.food.FancyShakeType;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 
+import net.minecraft.block.Block;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.AliasedBlockItem;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -49,12 +51,27 @@ public class CobbleCuisineItems {
 	public static Item SPICE_MIX;
 	public static Item SALAD_MIX;
 
+	public static Item MIXER_RED;
+	public static Item MIXER_BLUE;
+	public static Item MIXER_GREEN;
+	public static Item MIXER_YELLOW;
+	public static Item MIXER_PINK;
+	public static Item MIXER_WHITE;
+	public static Item MIXER_BLACK;
+
 	public static void register() {
 		LOGGER.info("CobbleCuisine >> Registering Items...");
 		List<Item> items = new ArrayList<>();
 		BEAN_SEEDS = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "bean_seeds"), new AliasedBlockItem(CobbleCuisineBlocks.BEAN_CROP_BLOCK, new Item.Settings()));
 		SPICE_MIX = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "spice_mix"), new Item(new Item.Settings()));
 		SALAD_MIX = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "salad_mix"), new Item(new Item.Settings()));
+		MIXER_RED = registerBlockItem("mixer_red", CobbleCuisineBlocks.MIXER_RED);
+		MIXER_BLUE = registerBlockItem("mixer_blue", CobbleCuisineBlocks.MIXER_BLUE);
+		MIXER_GREEN = registerBlockItem("mixer_green", CobbleCuisineBlocks.MIXER_GREEN);
+		MIXER_YELLOW = registerBlockItem("mixer_yellow", CobbleCuisineBlocks.MIXER_YELLOW);
+		MIXER_PINK = registerBlockItem("mixer_pink", CobbleCuisineBlocks.MIXER_PINK);
+		MIXER_WHITE = registerBlockItem("mixer_white", CobbleCuisineBlocks.MIXER_WHITE);
+		MIXER_BLACK = registerBlockItem("mixer_black", CobbleCuisineBlocks.MIXER_BLACK);
 
 		BeanType.registerAll();
 		DrinkType.registerAll();
@@ -90,6 +107,14 @@ public class CobbleCuisineItems {
 		for (var type : FancyShakeType.values()) items.add(type.item);
 		for (var type : RoastedBerryType.values()) items.add(type.item);
 
+		items.add(MIXER_RED);
+		items.add(MIXER_BLUE);
+		items.add(MIXER_GREEN);
+		items.add(MIXER_YELLOW);
+		items.add(MIXER_PINK);
+		items.add(MIXER_WHITE);
+		items.add(MIXER_BLACK);
+
 		Registry.register(Registries.ITEM_GROUP, COBBLECUISINE_FOODS.getValue(), FabricItemGroup.builder()
 						.displayName(Text.translatable("itemgroup.cobblecuisine"))
 						.icon(() -> new ItemStack(CurryType.BEAN_MEDLEY.item))
@@ -114,5 +139,9 @@ public class CobbleCuisineItems {
 		items.add(SaladType.SNOOZY_TOMATO.item);
 		items.add(SaladType.SUPERPOWER_EXTREME.item);
 		items.add(SaladType.CALM_MIND_FRUIT.item);
+	}
+
+	private static Item registerBlockItem(String name, Block block) {
+		return Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, name), new BlockItem(block, new Item.Settings()));
 	}
 }

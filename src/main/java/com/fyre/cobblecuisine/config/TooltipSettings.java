@@ -1,6 +1,7 @@
 package com.fyre.cobblecuisine.config;
 
 import com.fyre.cobblecuisine.item.food.BeanItem;
+import com.fyre.cobblecuisine.item.food.ShakeItem;
 import com.fyre.cobblecuisine.meal.MealEffectMappings;
 import com.fyre.cobblecuisine.meal.MealEffectType;
 import com.fyre.cobblecuisine.meal.MealLoadout;
@@ -143,6 +144,7 @@ public final class TooltipSettings {
 		Map<String, Integer> amounts = new HashMap<>();
 		Registries.ITEM.forEach(item -> {
 			if (item instanceof BeanItem bean) amounts.put(Registries.ITEM.getId(item).toString(), bean.friendshipAmount());
+			if (item instanceof ShakeItem shake) amounts.put(Registries.ITEM.getId(item).toString(), shake.evIncreaseAmount());
 		});
 		return new Snapshot(config.globalSettings.classicMealPowers,
 				Feeding.pokePuffFriendship(config), Feeding.malasadaFriendship(config),

@@ -293,12 +293,12 @@
   "item.cobblecuisine.malasada.dislike": "%s はこのマラサダがあまりすきじゃない…",
   "item.cobblecuisine.malasada.use": "%s はマラサダをたべた。",
 
-  "item.cobblecuisine.coffee": "テディアン iced コーヒー",
-  "item.cobblecuisine.lemon_soda": "ポーションソーダ",
-  "item.cobblecuisine.fruit_punch": "フルーツパンチ",
-  "item.cobblecuisine.lilligant_floral_tea": "キレイハナフローラルティー",
-  "item.cobblecuisine.miltank_mix_au_lait": "ミルタンクミルク",
-  "item.cobblecuisine.protein_smoothie": "プロテインスムージー",
+  "item.cobblecuisine.coffee": "§bテディアン iced コーヒー§r",
+  "item.cobblecuisine.lemon_soda": "§9ポーションソーダ§r",
+  "item.cobblecuisine.fruit_punch": "§dフルーツパンチ§r",
+  "item.cobblecuisine.lilligant_floral_tea": "§5キレイハナフローラルティー§r",
+  "item.cobblecuisine.miltank_mix_au_lait": "§aミルタンクミルク§r",
+  "item.cobblecuisine.protein_smoothie": "§cプロテインスムージー§r",
   "item.cobblecuisine.spiced_cola": "スパイスコーラ",
 
   "tooltip.cobblecuisine.item.coffee": "HPが高いポケモンをひきつける。",

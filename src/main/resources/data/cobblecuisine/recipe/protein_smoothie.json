@@ -1,23 +1,27 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblemon:protein"
-        },
-        {
-            "item": "minecraft:milk_bucket"
-        },
-        {
-            "tag": "cobblecuisine:yellow_group3"
-        },
-        {
-            "tag": "cobblecuisine:beans"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:protein_smoothie"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblemon:protein"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "cobblecuisine:ingredients/milk"
+    },
+    {
+      "tag": "cobblecuisine:yellow_group3"
+    },
+    {
+      "tag": "cobblecuisine:beans"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:protein_smoothie"
+  },
+  "type": "cobblecuisine:mixer_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

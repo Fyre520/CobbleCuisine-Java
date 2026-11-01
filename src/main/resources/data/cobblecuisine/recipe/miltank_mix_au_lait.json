@@ -1,23 +1,27 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "tag": "cobblemon:sweets"
-        },
-        {
-            "item": "minecraft:milk_bucket"
-        },
-        {
-            "item": "cobblemon:hp_up"
-        },
-        {
-            "tag": "cobblecuisine:pink_group3"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:miltank_mix_au_lait"
+  "category": "foods",
+  "ingredients": [
+    {
+      "tag": "cobblemon:sweets"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "cobblecuisine:ingredients/milk"
+    },
+    {
+      "item": "cobblemon:hp_up"
+    },
+    {
+      "tag": "cobblecuisine:pink_group3"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:miltank_mix_au_lait"
+  },
+  "type": "cobblecuisine:mixer_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

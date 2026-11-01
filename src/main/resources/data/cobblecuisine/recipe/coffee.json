@@ -1,23 +1,27 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblemon:iron"
-        },
-        {
-            "item": "minecraft:milk_bucket"
-        },
-        {
-            "item": "minecraft:cocoa_beans"
-        },
-        {
-            "tag": "cobblecuisine:purple_group3"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:coffee"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblemon:iron"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "cobblecuisine:ingredients/milk"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "tag": "cobblecuisine:purple_group3"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:coffee"
+  },
+  "type": "cobblecuisine:mixer_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

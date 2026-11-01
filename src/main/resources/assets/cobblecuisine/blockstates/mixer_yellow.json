@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north,cooking=false,has_result=false": { "model": "cobblecuisine:block/mixer_yellow_empty" },
+    "facing=north,cooking=true,has_result=false": { "model": "cobblecuisine:block/mixer_yellow_cooking" },
+    "facing=north,cooking=false,has_result=true": { "model": "cobblecuisine:block/mixer_yellow_filled" },
+    "facing=north,cooking=true,has_result=true": { "model": "cobblecuisine:block/mixer_yellow_filled" },
+    "facing=east,cooking=false,has_result=false": { "model": "cobblecuisine:block/mixer_yellow_empty", "y": 90 },
+    "facing=east,cooking=true,has_result=false": { "model": "cobblecuisine:block/mixer_yellow_cooking", "y": 90 },
+    "facing=east,cooking=false,has_result=true": { "model": "cobblecuisine:block/mixer_yellow_filled", "y": 90 },
+    "facing=east,cooking=true,has_result=true": { "model": "cobblecuisine:block/mixer_yellow_filled", "y": 90 },
+    "facing=south,cooking=false,has_result=false": { "model": "cobblecuisine:block/mixer_yellow_empty", "y": 180 },
+    "facing=south,cooking=true,has_result=false": { "model": "cobblecuisine:block/mixer_yellow_cooking", "y": 180 },
+    "facing=south,cooking=false,has_result=true": { "model": "cobblecuisine:block/mixer_yellow_filled", "y": 180 },
+    "facing=south,cooking=true,has_result=true": { "model": "cobblecuisine:block/mixer_yellow_filled", "y": 180 },
+    "facing=west,cooking=false,has_result=false": { "model": "cobblecuisine:block/mixer_yellow_empty", "y": 270 },
+    "facing=west,cooking=true,has_result=false": { "model": "cobblecuisine:block/mixer_yellow_cooking", "y": 270 },
+    "facing=west,cooking=false,has_result=true": { "model": "cobblecuisine:block/mixer_yellow_filled", "y": 270 },
+    "facing=west,cooking=true,has_result=true": { "model": "cobblecuisine:block/mixer_yellow_filled", "y": 270 }
+  }
+}

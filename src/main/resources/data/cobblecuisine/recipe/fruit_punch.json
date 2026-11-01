@@ -1,23 +1,27 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblemon:calcium"
-        },
-        {
-            "tag": "minecraft:fruits"
-        },
-        {
-            "tag": "cobblecuisine:green_group3"
-        },
-        {
-            "tag": "cobblecuisine:beans"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:fruit_punch"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblemon:calcium"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "minecraft:fruits"
+    },
+    {
+      "tag": "cobblecuisine:green_group3"
+    },
+    {
+      "tag": "cobblecuisine:beans"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:fruit_punch"
+  },
+  "type": "cobblecuisine:mixer_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

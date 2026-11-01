@@ -1,0 +1,18 @@
+{
+    "replace":  false,
+    "values":  [
+                   "cobblemon:aspear_berry",
+                   "cobblemon:charti_berry",
+                   "cobblemon:chilan_berry",
+                   "cobblemon:grepa_berry",
+                   "cobblemon:iapapa_berry",
+                   "cobblemon:jaboca_berry",
+                   "cobblemon:kee_berry",
+                   "cobblemon:nomel_berry",
+                   "cobblemon:pinap_berry",
+                   "cobblemon:qualot_berry",
+                   "cobblemon:shuca_berry",
+                   "cobblemon:sitrus_berry",
+                   "cobblemon:wacan_berry"
+               ]
+}

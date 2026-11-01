@@ -294,12 +294,12 @@
   "item.cobblecuisine.malasada.dislike": "%s 並不太喜歡這款麻糬…",
   "item.cobblecuisine.malasada.use": "%s 吃了麻糬。",
 
-  "item.cobblecuisine.coffee": "泰迪熊冰咖啡",
-  "item.cobblecuisine.lemon_soda": "泡泡啾璃汽水",
-  "item.cobblecuisine.fruit_punch": "綜合果汁",
-  "item.cobblecuisine.lilligant_floral_tea": "麗力花茶",
-  "item.cobblecuisine.miltank_mix_au_lait": "大奶鍋鮮奶",
-  "item.cobblecuisine.protein_smoothie": "蛋白質思慕昔",
+  "item.cobblecuisine.coffee": "§b泰迪熊冰咖啡§r",
+  "item.cobblecuisine.lemon_soda": "§9泡泡啾璃汽水§r",
+  "item.cobblecuisine.fruit_punch": "§d綜合果汁§r",
+  "item.cobblecuisine.lilligant_floral_tea": "§5麗力花茶§r",
+  "item.cobblecuisine.miltank_mix_au_lait": "§a大奶鍋鮮奶§r",
+  "item.cobblecuisine.protein_smoothie": "§c蛋白質思慕昔§r",
   "item.cobblecuisine.spiced_cola": "香料可樂",
 
   "tooltip.cobblecuisine.item.coffee": "吸引高HP的寶可夢。",

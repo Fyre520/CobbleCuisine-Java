@@ -1,0 +1,13 @@
+{
+    "replace":  false,
+    "values":  [
+                   "cobblemon:mago_berry",
+                   "cobblemon:magost_berry",
+                   "cobblemon:nanab_berry",
+                   "cobblemon:pecha_berry",
+                   "cobblemon:persim_berry",
+                   "cobblemon:petaya_berry",
+                   "cobblemon:roseli_berry",
+                   "cobblemon:watmel_berry"
+               ]
+}

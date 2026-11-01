@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "cobblecuisine:mixer_red",
+    "cobblecuisine:mixer_blue",
+    "cobblecuisine:mixer_green",
+    "cobblecuisine:mixer_yellow",
+    "cobblecuisine:mixer_pink",
+    "cobblecuisine:mixer_white",
+    "cobblecuisine:mixer_black"
+  ]
+}

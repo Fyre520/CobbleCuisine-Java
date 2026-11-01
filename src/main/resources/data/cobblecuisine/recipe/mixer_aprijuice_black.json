@@ -1,0 +1,13 @@
+{
+  "type": "cobblecuisine:mixer_shapeless",
+  "group": "aprijuice",
+  "category": "complex_dishes",
+  "ingredients": [
+    { "item": "cobblemon:black_apricorn" },
+    { "item": "cobblemon:pep_up_flower" },
+    { "item": "cobblemon:energy_root" }
+  ],
+  "result": { "id": "cobblemon:aprijuice_black" },
+  "seasoningTag": "cobblemon:recipe_filters/flavour_seasoning",
+  "seasoningProcessors": [ "ride_boosts" ]
+}

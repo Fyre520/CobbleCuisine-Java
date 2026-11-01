@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "cobblecuisine:coffee",
+    "cobblecuisine:fruit_punch",
+    "cobblecuisine:lemon_soda",
+    "cobblecuisine:lilligant_floral_tea",
+    "cobblecuisine:miltank_mix_au_lait",
+    "cobblecuisine:protein_smoothie"
+  ]
+}

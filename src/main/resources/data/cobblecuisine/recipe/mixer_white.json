@@ -1,0 +1,26 @@
+{
+  "category": "misc",
+  "group": "mixer",
+  "key": {
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "A": {
+      "item": "cobblemon:white_apricorn"
+    }
+  },
+  "pattern": [
+    "III",
+    "GAG",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:mixer_white"
+  },
+  "show_notification": true,
+  "type": "minecraft:crafting_shaped"
+}

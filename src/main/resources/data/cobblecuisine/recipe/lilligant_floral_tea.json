@@ -1,23 +1,27 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblemon:zinc"
-        },
-        {
-            "tag": "cobblecuisine:red_group3"
-        },
-        {
-            "tag": "cobblemon:spicy_10"
-        },
-        {
-            "tag": "minecraft:flowers"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:lilligant_floral_tea"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblemon:zinc"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "cobblecuisine:red_group3"
+    },
+    {
+      "tag": "cobblemon:spicy_10"
+    },
+    {
+      "tag": "minecraft:flowers"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:lilligant_floral_tea"
+  },
+  "type": "cobblecuisine:mixer_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

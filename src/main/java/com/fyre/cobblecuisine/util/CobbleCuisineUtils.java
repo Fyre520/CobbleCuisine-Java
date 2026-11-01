@@ -71,6 +71,12 @@ public class CobbleCuisineUtils {
 		return healed[0];
 	}
 
+	public static <T> List<T> shuffledCopy(List<T> source) {
+		List<T> copy = new ArrayList<>(source);
+		Collections.shuffle(copy);
+		return copy;
+	}
+
 	/**
 	 * Resolves the form represented by a {@link PokemonSpawnDetail}.
 	 *

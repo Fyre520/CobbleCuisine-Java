@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#cobblemon:berries",
+    "#cobblecuisine:recipe_filters/yield_seasoning"
+  ]
+}

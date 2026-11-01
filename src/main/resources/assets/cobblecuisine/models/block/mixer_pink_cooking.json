@@ -1,0 +1,8 @@
+{
+  "parent": "cobblecuisine:block/mixer_base_cooking",
+  "textures": {
+    "frame": "cobblecuisine:block/mixer_pink_frame",
+    "glass": "cobblecuisine:block/mixer_pink_glass",
+    "liquid_animated": "cobblecuisine:block/mixer_liquid_white_animated"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "cobblecuisine:mixer_shapeless",
+  "category": "foods",
+  "group": "deluxe_shakes",
+  "ingredients": [
+    { "tag": "cobblecuisine:red_berry" },
+    { "tag": "cobblecuisine:green_berry" },
+    { "tag": "cobblecuisine:ingredients/milk" },
+    { "item": "minecraft:glass_bottle" },
+    { "item": "cobblemon:big_root" },
+    { "tag": "minecraft:chicken_food" }
+  ],
+  "result": {
+    "id": "cobblecuisine:deluxe_earthy_shake",
+    "count": 1
+  },
+  "seasoningProcessors": []
+}

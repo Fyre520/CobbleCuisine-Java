@@ -38,9 +38,13 @@ public enum ShakeType {
 
 	public final String id;
 	public final Item item;
+	public final int tier;
+	public final Stat stat;
 
 	ShakeType(String id, int tier, Stat stat) {
 		this.id = id;
+		this.tier = tier;
+		this.stat = stat;
 		this.item = new ShakeItem(id, stat, deriveEv(tier), CobbleCuisineItems.buildFoodComponent(deriveNutrition(tier), 0.5f, false));
 	}
 
@@ -58,13 +62,7 @@ public enum ShakeType {
 	}
 
 	private static int deriveEv(int tier) {
-		int power = Math.max(0, Math.min(2, CobbleCuisineConfig.data.boostSettings.shakeEvPower));
-		return switch (tier) {
-			case 1 -> 4 + 2 * power;
-			case 2 -> 6 + 2 * power;
-			case 3 -> 8 + 2 * power;
-			default -> 1;
-		};
+		return ShakeBlendMath.baseEv(tier, CobbleCuisineConfig.data.boostSettings.shakeEvPower);
 	}
 
 	public void register() {

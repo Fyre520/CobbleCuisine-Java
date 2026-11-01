@@ -1,23 +1,27 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblemon:carbos"
-        },
-        {
-            "tag": "cobblecuisine:blue_group3"
-        },
-        {
-            "tag": "cobblemon:sour_10"
-        },
-        {
-            "item": "minecraft:sugar"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:lemon_soda"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblemon:carbos"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "cobblecuisine:blue_group3"
+    },
+    {
+      "tag": "cobblemon:sour_10"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:lemon_soda"
+  },
+  "type": "cobblecuisine:mixer_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

@@ -293,12 +293,12 @@
   "item.cobblecuisine.malasada.dislike": "A %s no le gustó mucho el sabor de esta malasada...",
   "item.cobblecuisine.malasada.use": "%s se comió la malasada.",
 
-  "item.cobblecuisine.coffee": "Café Helado Teddiursa",
-  "item.cobblecuisine.lemon_soda": "Refresco Brionne Saltarino",
-  "item.cobblecuisine.fruit_punch": "Ponche de Frutas",
-  "item.cobblecuisine.lilligant_floral_tea": "Té Floral Lilligant",
-  "item.cobblecuisine.miltank_mix_au_lait": "Miltank Mix au Lait",
-  "item.cobblecuisine.protein_smoothie": "Batido de Proteína",
+  "item.cobblecuisine.coffee": "§bCafé Helado Teddiursa§r",
+  "item.cobblecuisine.lemon_soda": "§9Refresco Brionne Saltarino§r",
+  "item.cobblecuisine.fruit_punch": "§dPonche de Frutas§r",
+  "item.cobblecuisine.lilligant_floral_tea": "§5Té Floral Lilligant§r",
+  "item.cobblecuisine.miltank_mix_au_lait": "§aMiltank Mix au Lait§r",
+  "item.cobblecuisine.protein_smoothie": "§cBatido de Proteína§r",
   "item.cobblecuisine.spiced_cola": "Cola Especiada",
 
   "tooltip.cobblecuisine.item.miltank_mix_au_lait": "Atrae Pokémon con más PS.",

@@ -1,0 +1,13 @@
+{
+    "replace":  false,
+    "values":  [
+                   "cobblemon:apicot_berry",
+                   "cobblemon:coba_berry",
+                   "cobblemon:kelpsy_berry",
+                   "cobblemon:maranga_berry",
+                   "cobblemon:oran_berry",
+                   "cobblemon:passho_berry",
+                   "cobblemon:rowap_berry",
+                   "cobblemon:yache_berry"
+               ]
+}

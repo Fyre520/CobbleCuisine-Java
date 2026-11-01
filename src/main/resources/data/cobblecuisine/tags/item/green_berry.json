@@ -1,0 +1,19 @@
+{
+    "replace":  false,
+    "values":  [
+                   "cobblemon:aguav_berry",
+                   "cobblemon:babiri_berry",
+                   "cobblemon:durin_berry",
+                   "cobblemon:hondew_berry",
+                   "cobblemon:kebia_berry",
+                   "cobblemon:lum_berry",
+                   "cobblemon:micle_berry",
+                   "cobblemon:rabuta_berry",
+                   "cobblemon:rawst_berry",
+                   "cobblemon:rindo_berry",
+                   "cobblemon:salac_berry",
+                   "cobblemon:starf_berry",
+                   "cobblemon:tanga_berry",
+                   "cobblemon:wepear_berry"
+               ]
+}
