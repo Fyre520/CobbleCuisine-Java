@@ -1,8 +1,13 @@
 package com.fyre.cobblecuisine.client;
 
+import com.cobblemon.mod.common.client.tooltips.TooltipManager;
 import com.fyre.cobblecuisine.block.CobbleCuisineBlocks;
 import com.fyre.cobblecuisine.client.gui.MixerScreen;
+import com.fyre.cobblecuisine.config.TooltipSettings;
 import com.fyre.cobblecuisine.inventory.CobbleCuisineScreenHandlers;
+import com.fyre.cobblecuisine.network.TooltipSettingsPayload;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -15,6 +20,13 @@ public class CobbleCuisineClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		TooltipManager.INSTANCE.registerTooltipGenerator(new MealPowerTooltipGenerator());
+		ClientPlayConnectionEvents.INIT.register((handler, client) -> {
+			TooltipSettings.beginConnection(handler);
+			ClientPlayNetworking.registerReceiver(TooltipSettingsPayload.ID, (payload, context) ->
+					TooltipSettings.receive(handler, payload.snapshot()));
+		});
+		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> TooltipSettings.endConnection(handler));
 		BlockRenderLayerMap.INSTANCE.putBlock(CobbleCuisineBlocks.BEAN_CROP_BLOCK, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(CobbleCuisineBlocks.MIXER_RED, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(CobbleCuisineBlocks.MIXER_BLUE, RenderLayer.getCutout());

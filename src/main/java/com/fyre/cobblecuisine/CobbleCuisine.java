@@ -8,6 +8,7 @@ import com.fyre.cobblecuisine.crafting.CobbleCuisineRecipeSerializers;
 import com.fyre.cobblecuisine.crafting.CobbleCuisineRecipeTypes;
 import com.fyre.cobblecuisine.inventory.CobbleCuisineScreenHandlers;
 import com.fyre.cobblecuisine.network.CatchBoostSync;
+import com.fyre.cobblecuisine.network.TooltipSettingsSync;
 import com.fyre.cobblecuisine.component.CobbleCuisineDataComponents;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 import com.fyre.cobblecuisine.event.AlphaSuppressEvent;
@@ -53,6 +54,7 @@ public class CobbleCuisine implements ModInitializer {
 		ShakeSeasoningProcessor.register();
 		CobbleCuisineEffects.register();
 		CobbleCuisineItems.register();
+		TooltipSettingsSync.register();
 		CatchBoostSync.register();
 
 		CobbleCuisineBlockEntities.register();
