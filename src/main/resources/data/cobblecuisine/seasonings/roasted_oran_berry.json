@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_oran_berry",
+  "colour": "purple",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:poison_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "ingredient": "cobblecuisine:blue_bean",
+  "colour": "blue",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:water23_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    },
+    {
+      "effect": "cobblecuisine:dragon_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

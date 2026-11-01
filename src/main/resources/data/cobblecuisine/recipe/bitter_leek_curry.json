@@ -1,26 +1,30 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblecuisine:blue_bean"
-        },
-        {
-            "item": "cobblemon:passho_berry"
-        },
-        {
-            "tag": "cobblemon:bitter_20"
-        },
-        {
-            "item": "cobblecuisine:salad_mix"
-        },
-        {
-            "item": "cobblemon:medicinal_leek"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:bitter_leek_curry"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblecuisine:blue_bean"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblemon:passho_berry"
+    },
+    {
+      "item": "cobblecuisine:bitter_mushroom_sauce"
+    },
+    {
+      "item": "cobblemon:medicinal_leek"
+    },
+    {
+      "item": "cobblemon:medicinal_leek"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:bitter_leek_curry"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

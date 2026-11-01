@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_colbur_berry",
+  "colour": "black",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_dark_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

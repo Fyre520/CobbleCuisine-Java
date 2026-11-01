@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_aguav_berry",
+  "colour": "blue",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:dragon_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

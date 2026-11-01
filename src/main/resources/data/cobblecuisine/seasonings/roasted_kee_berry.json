@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_kee_berry",
+  "colour": "pink",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:fairy_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

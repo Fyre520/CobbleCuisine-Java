@@ -1,29 +1,33 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "minecraft:honey_bottle"
-        },
-        {
-            "tag": "cobblecuisine:red_group1"
-        },
-        {
-            "tag": "cobblecuisine:blue_group1"
-        },
-        {
-            "tag": "minecraft:fruits"
-        },
-        {
-            "item": "minecraft:pink_dye"
-        },
-        {
-            "item": "minecraft:milk_bucket"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:fruity_flan"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblecuisine:sweet_fruit_sauce"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "cobblecuisine:red_group1"
+    },
+    {
+      "tag": "cobblecuisine:blue_group1"
+    },
+    {
+      "tag": "minecraft:fruits"
+    },
+    {
+      "item": "minecraft:pink_dye"
+    },
+    {
+      "tag": "cobblecuisine:ingredients/milk"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:fruity_flan"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_tiny",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_iapapa_berry",
+  "colour": "black",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:dark_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

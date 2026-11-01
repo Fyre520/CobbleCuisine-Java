@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_haban_berry",
+  "colour": "blue",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_dragon_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

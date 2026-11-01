@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_charti_berry",
+  "colour": "gray",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_rock_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

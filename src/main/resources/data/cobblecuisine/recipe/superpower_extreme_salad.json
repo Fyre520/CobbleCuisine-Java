@@ -1,23 +1,27 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblecuisine:salad_mix"
-        },
-        {
-            "item": "cobblemon:brave_mint"
-        },
-        {
-            "item": "cobblecuisine:red_bean"
-        },
-        {
-            "item": "cobblecuisine:spice_mix"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:superpower_extreme_salad"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblecuisine:spicy_honey_sauce"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblemon:brave_mint"
+    },
+    {
+      "item": "cobblecuisine:red_bean"
+    },
+    {
+      "item": "cobblemon:pep_up_flower"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:superpower_extreme_salad"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_alpha_increase",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

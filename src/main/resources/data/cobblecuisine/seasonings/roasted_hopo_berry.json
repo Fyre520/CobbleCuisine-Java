@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_hopo_berry",
+  "colour": "white",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:normal_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

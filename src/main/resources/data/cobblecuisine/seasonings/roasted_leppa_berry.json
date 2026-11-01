@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_leppa_berry",
+  "colour": "brown",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:fighting_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_rindo_berry",
+  "colour": "green",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_grass_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

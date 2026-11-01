@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:bitter_mushroom_sauce",
+  "colour": "brown",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:alpha_frequency_decrease",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

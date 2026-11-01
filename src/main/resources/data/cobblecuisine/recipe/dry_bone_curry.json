@@ -1,26 +1,30 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblecuisine:yellow_bean"
-        },
-        {
-            "item": "cobblemon:shuca_berry"
-        },
-        {
-            "tag": "cobblemon:dry_20"
-        },
-        {
-            "item": "minecraft:bone"
-        },
-        {
-            "item": "minecraft:calcite"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:dry_bone_curry"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblecuisine:orange_bean"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblemon:shuca_berry"
+    },
+    {
+      "tag": "cobblecuisine:ingredients/salty"
+    },
+    {
+      "item": "minecraft:bone"
+    },
+    {
+      "item": "minecraft:baked_potato"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:dry_bone_curry"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

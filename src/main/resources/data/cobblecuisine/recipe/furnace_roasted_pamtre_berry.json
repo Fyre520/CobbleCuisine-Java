@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "group": "cobblecuisine",
+  "ingredient": {
+    "item": "cobblemon:pamtre_berry"
+  },
+  "result": {
+    "id": "cobblecuisine:roasted_pamtre_berry"
+  },
+  "experience": 20.0,
+  "cookingtime": 100
+}

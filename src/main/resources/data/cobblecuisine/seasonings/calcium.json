@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblemon:calcium",
+  "colour": "white",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:spayieldspawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

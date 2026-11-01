@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_chople_berry",
+  "colour": "brown",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_fighting_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

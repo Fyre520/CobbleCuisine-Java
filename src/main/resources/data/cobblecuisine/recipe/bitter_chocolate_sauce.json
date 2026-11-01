@@ -1,0 +1,20 @@
+{
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "tag": "cobblecuisine:recipe_filters/sauce_bitter_berry"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:bitter_chocolate_sauce"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningProcessors": []
+}

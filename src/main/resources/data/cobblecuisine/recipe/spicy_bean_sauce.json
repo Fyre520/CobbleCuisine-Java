@@ -1,0 +1,23 @@
+{
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "tag": "cobblecuisine:beans"
+    },
+    {
+      "tag": "cobblecuisine:recipe_filters/sauce_spicy_berry"
+    },
+    {
+      "item": "cobblemon:pep_up_flower"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:spicy_bean_sauce"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningProcessors": []
+}

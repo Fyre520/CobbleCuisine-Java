@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblemon:lax_mint",
+  "colour": "green",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:nature_lax_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

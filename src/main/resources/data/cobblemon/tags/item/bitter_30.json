@@ -2,10 +2,8 @@
   "replace": false,
   "values": [
     "cobblemon:durin_berry",
-    "cobblemon:liechi_berry",
     "cobblemon:ganlon_berry",
-    "cobblemon:lansat_berry",
-    "cobblemon:starf_berry",
-    "cobblemon:maranga_berry"
+    "cobblemon:maranga_berry",
+    "cobblemon:petaya_berry"
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_wacan_berry",
+  "colour": "yellow",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_electric_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

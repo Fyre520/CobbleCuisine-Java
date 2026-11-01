@@ -1,26 +1,35 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblecuisine:blue_bean"
-        },
-        {
-            "item": "cobblemon:yache_berry"
-        },
-        {
-            "tag": "cobblemon:dry_20"
-        },
-        {
-            "item": "minecraft:snowball"
-        },
-        {
-            "item": "minecraft:wheat"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:dry_frozen_curry"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblecuisine:blue_bean"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblemon:yache_berry"
+    },
+    {
+      "tag": "cobblecuisine:ingredients/dry"
+    },
+    {
+      "item": "minecraft:snowball"
+    },
+    [
+      {
+        "item": "minecraft:cod"
+      },
+      {
+        "item": "minecraft:salmon"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:dry_frozen_curry"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

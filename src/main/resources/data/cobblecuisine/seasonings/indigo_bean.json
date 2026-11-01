@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:indigo_bean",
+  "colour": "purple",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:mineral_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

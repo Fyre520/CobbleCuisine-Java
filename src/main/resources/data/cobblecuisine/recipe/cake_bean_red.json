@@ -1,23 +1,24 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "minecraft:wheat"
-        },
-        {
-            "tag": "cobblecuisine:beans"
-        },
-        {
-            "item": "cobblecuisine:red_bean"
-        },
-        {
-            "item": "cobblemon:medicinal_leek"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:red_bean_cake"
+  "category": "foods",
+  "ingredients": [
+    {
+      "tag": "cobblecuisine:ingredients/dry"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblecuisine:red_bean"
+    },
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:red_bean_cake"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

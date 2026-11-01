@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_cheri_berry",
+  "colour": "red",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:fire_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

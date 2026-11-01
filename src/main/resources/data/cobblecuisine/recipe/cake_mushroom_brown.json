@@ -1,23 +1,24 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "minecraft:wheat"
-        },
-        {
-            "tag": "cobblecuisine:beans"
-        },
-        {
-            "item": "minecraft:brown_mushroom"
-        },
-        {
-            "item": "minecraft:brown_mushroom"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:brown_mushroom_cake"
+  "category": "foods",
+  "ingredients": [
+    {
+      "tag": "cobblecuisine:ingredients/dry"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblecuisine:orange_bean"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:brown_mushroom_cake"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

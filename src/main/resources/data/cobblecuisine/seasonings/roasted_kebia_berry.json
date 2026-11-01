@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_kebia_berry",
+  "colour": "purple",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_poison_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_babiri_berry",
+  "colour": "light_gray",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_steel_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

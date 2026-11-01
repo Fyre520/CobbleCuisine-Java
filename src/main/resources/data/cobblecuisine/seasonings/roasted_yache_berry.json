@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_yache_berry",
+  "colour": "light_blue",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_ice_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

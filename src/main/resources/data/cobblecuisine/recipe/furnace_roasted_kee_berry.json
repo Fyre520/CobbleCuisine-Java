@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "group": "cobblecuisine",
+  "ingredient": {
+    "item": "cobblemon:kee_berry"
+  },
+  "result": {
+    "id": "cobblecuisine:roasted_kee_berry"
+  },
+  "experience": 20.0,
+  "cookingtime": 100
+}

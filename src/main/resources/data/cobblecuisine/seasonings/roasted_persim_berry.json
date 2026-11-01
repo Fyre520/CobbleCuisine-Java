@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_persim_berry",
+  "colour": "brown",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:ground_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

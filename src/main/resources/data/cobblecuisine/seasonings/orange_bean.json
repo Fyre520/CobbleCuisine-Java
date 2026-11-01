@@ -1,0 +1,16 @@
+{
+  "ingredient": "cobblecuisine:orange_bean",
+  "colour": "orange",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:undiscovered_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    },
+    {
+      "effect": "cobblecuisine:humanlike_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

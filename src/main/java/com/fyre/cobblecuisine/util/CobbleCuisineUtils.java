@@ -12,12 +12,12 @@ import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffectUtil;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.StringHelper;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -57,7 +57,15 @@ public class CobbleCuisineUtils {
 	 * @return An immutable list of {@link Text} representing the full tooltip.
 	 * */
 	// TODO: Make this DSL it begs for it
+	public static List<Text> getItemTooltip(String name, @Nullable FoodComponent foodComponent, @Nullable Text effectValue, int bonusTicks) {
+		return getItemTooltip(name, foodComponent, effectValue, bonusTicks, null, 0, null, null, null);
+	}
+
 	public static List<Text> getItemTooltip(String name, @Nullable FoodComponent foodComponent, @Nullable Object[] args, int extraLines, @Nullable Object[] args1, @Nullable Object[] args2, @Nullable Object[] args3) {
+		return getItemTooltip(name, foodComponent, null, 0, args, extraLines, args1, args2, args3);
+	}
+
+	private static List<Text> getItemTooltip(String name, @Nullable FoodComponent foodComponent, @Nullable Text effectValue, int bonusTicks, @Nullable Object[] args, int extraLines, @Nullable Object[] args1, @Nullable Object[] args2, @Nullable Object[] args3) {
 		String base = "tooltip." + CobbleCuisine.MOD_ID + ".item." + name;
 
 		List<Text> list = new ArrayList<>();
@@ -88,7 +96,9 @@ public class CobbleCuisineUtils {
 			MutableText text = Text.translatable(effect.getTranslationKey());
 
 			if (effect.getAmplifier() > 0) text = Text.translatable("potion.withAmplifier", text, Text.translatable("potion.potency." + effect.getAmplifier()));
-			if (effect.getDuration() > 20) text = Text.translatable("potion.withDuration", text, StatusEffectUtil.getDurationText(effect, 1.0f, 20));
+			if (effectValue != null) text = Text.empty().append(text).append(effectValue);
+			int duration = effect.getDuration() + bonusTicks;
+			if (duration > 20) text = Text.translatable("potion.withDuration", text, StringHelper.formatTicks(duration, 20F));
 
 			list.add(text.formatted(Formatting.BLUE));
 		}

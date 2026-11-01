@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "cobblecuisine:roasted_rawst_berry",
+    "cobblecuisine:roasted_cheri_berry",
+    "cobblecuisine:roasted_chesto_berry",
+    "cobblecuisine:roasted_pecha_berry",
+    "cobblecuisine:roasted_oran_berry",
+    "cobblecuisine:roasted_aspear_berry",
+    "cobblecuisine:roasted_sitrus_berry",
+    "cobblecuisine:roasted_persim_berry",
+    "cobblecuisine:roasted_leppa_berry",
+    "cobblecuisine:roasted_lum_berry",
+    "cobblecuisine:roasted_figy_berry",
+    "cobblecuisine:roasted_aguav_berry",
+    "cobblecuisine:roasted_iapapa_berry",
+    "cobblecuisine:roasted_wiki_berry",
+    "cobblecuisine:roasted_custap_berry",
+    "cobblecuisine:roasted_kee_berry",
+    "cobblecuisine:roasted_pamtre_berry",
+    "cobblecuisine:roasted_hopo_berry"
+  ]
+}

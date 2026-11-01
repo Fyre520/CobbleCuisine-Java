@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:sweet_honey_sauce",
+  "colour": "orange",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:herd_frequency_increase",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

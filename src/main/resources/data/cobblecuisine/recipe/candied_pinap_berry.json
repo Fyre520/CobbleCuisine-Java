@@ -1,26 +1,30 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblemon:pinap_berry"
-        },
-        {
-            "item": "minecraft:honey_bottle"
-        },
-        {
-            "item": "cobblemon:exp_candy_m"
-        },
-        {
-            "item": "cobblemon:blue_mint_leaf"
-        },
-        {
-            "item": "cobblemon:ribbon_sweet"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:candied_pinap_berry"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblemon:pinap_berry"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblecuisine:sweet_honey_sauce"
+    },
+    {
+      "item": "cobblemon:exp_candy_l"
+    },
+    {
+      "item": "cobblemon:blue_mint_leaf"
+    },
+    {
+      "item": "cobblemon:ribbon_sweet"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:candied_pinap_berry"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/golden_candy_seasoning",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

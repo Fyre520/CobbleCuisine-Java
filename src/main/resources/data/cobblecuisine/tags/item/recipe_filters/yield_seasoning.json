@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "cobblemon:hp_up",
+    "cobblemon:protein",
+    "cobblemon:iron",
+    "cobblemon:calcium",
+    "cobblemon:zinc",
+    "cobblemon:carbos"
+  ]
+}

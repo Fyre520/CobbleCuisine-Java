@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblemon:impish_mint",
+  "colour": "green",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:nature_impish_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

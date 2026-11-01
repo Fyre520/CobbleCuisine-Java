@@ -1,18 +1,27 @@
 {
   "replace": false,
   "values": [
+    "cobblemon:babiri_berry",
+    "cobblemon:bluk_berry",
     "cobblemon:chesto_berry",
-    "cobblemon:leppa_berry",
+    "cobblemon:coba_berry",
+    "cobblemon:enigma_berry",
+    "cobblemon:grepa_berry",
+    "cobblemon:hondew_berry",
+    "cobblemon:hopo_berry",
+    "cobblemon:kasib_berry",
+    "cobblemon:kelpsy_berry",
+    "cobblemon:lansat_berry",
+    "cobblemon:liechi_berry",
+    "cobblemon:lum_berry",
+    "cobblemon:maranga_berry",
     "cobblemon:oran_berry",
     "cobblemon:persim_berry",
-    "cobblemon:lum_berry",
     "cobblemon:sitrus_berry",
-    "cobblemon:bluk_berry",
-    "cobblemon:kelpsy_berry",
-    "cobblemon:hondew_berry",
-    "cobblemon:grepa_berry",
-    "cobblemon:yache_berry",
-    "cobblemon:coba_berry",
-    "cobblemon:roseli_berry"
+    "cobblemon:spelon_berry",
+    "cobblemon:starf_berry",
+    "cobblemon:tamato_berry",
+    "cobblemon:touga_berry",
+    "cobblemon:yache_berry"
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "ingredient": "cobblecuisine:yellow_bean",
+  "colour": "yellow",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:flying_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    },
+    {
+      "effect": "cobblecuisine:bug_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

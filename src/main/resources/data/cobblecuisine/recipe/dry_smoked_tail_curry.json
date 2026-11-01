@@ -1,26 +1,30 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblecuisine:red_bean"
-        },
-        {
-            "item": "cobblemon:payapa_berry"
-        },
-        {
-            "tag": "cobblemon:dry_20"
-        },
-        {
-            "item": "cobblemon:galarica_nuts"
-        },
-        {
-            "item": "cobblecuisine:salad_mix"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:dry_smoked_tail_curry"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblecuisine:violet_bean"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblemon:payapa_berry"
+    },
+    {
+      "tag": "cobblecuisine:ingredients/dry"
+    },
+    {
+      "item": "minecraft:charcoal"
+    },
+    {
+      "item": "cobblemon:tasty_tail"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:dry_smoked_tail_curry"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

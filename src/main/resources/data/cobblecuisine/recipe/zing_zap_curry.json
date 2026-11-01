@@ -1,26 +1,30 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblecuisine:yellow_bean"
-        },
-        {
-            "item": "cobblemon:wacan_berry"
-        },
-        {
-            "tag": "cobblemon:sour_10"
-        },
-        {
-            "item": "cobblemon:sitrus_berry"
-        },
-        {
-            "item": "minecraft:glow_berries"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:zing_zap_curry"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblecuisine:yellow_bean"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblemon:wacan_berry"
+    },
+    {
+      "item": "cobblecuisine:sour_milk_sauce"
+    },
+    {
+      "tag": "cobblemon:sour_20"
+    },
+    {
+      "item": "minecraft:glow_berries"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:zing_zap_curry"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

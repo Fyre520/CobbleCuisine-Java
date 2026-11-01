@@ -1,23 +1,24 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "minecraft:wheat"
-        },
-        {
-            "item": "minecraft:wheat"
-        },
-        {
-            "tag": "cobblecuisine:group1"
-        },
-        {
-            "tag": "cobblecuisine:group1"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:berry_grain_cake"
+  "category": "foods",
+  "ingredients": [
+    {
+      "tag": "cobblecuisine:ingredients/dry"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "cobblecuisine:ingredients/dry"
+    },
+    {
+      "tag": "cobblecuisine:group1"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:berry_grain_cake"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

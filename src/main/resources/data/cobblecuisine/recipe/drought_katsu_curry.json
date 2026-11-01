@@ -1,26 +1,35 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblecuisine:red_bean"
-        },
-        {
-            "item": "cobblemon:occa_berry"
-        },
-        {
-            "tag": "cobblemon:bitter_20"
-        },
-        {
-            "item": "cobblecuisine:spice_mix"
-        },
-        {
-            "item": "minecraft:potato"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:drought_katsu_curry"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblecuisine:red_bean"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblemon:occa_berry"
+    },
+    {
+      "tag": "cobblecuisine:regular_sauces"
+    },
+    [
+      {
+        "item": "minecraft:cooked_porkchop"
+      },
+      {
+        "item": "minecraft:cooked_chicken"
+      }
+    ],
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:drought_katsu_curry"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

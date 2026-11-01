@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#cobblecuisine:recipe_filters/meal_seasoning",
+    "#cobblecuisine:seasoning_groups/gold_nuggets"
+  ]
+}

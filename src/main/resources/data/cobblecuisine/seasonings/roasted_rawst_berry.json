@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_rawst_berry",
+  "colour": "green",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:grass_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

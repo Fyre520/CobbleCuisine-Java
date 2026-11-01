@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "cobblecuisine:bean_medley_curry",
+    "cobblecuisine:beanburger_curry",
+    "cobblecuisine:bitter_herb_medley_curry",
+    "cobblecuisine:bitter_leek_curry",
+    "cobblecuisine:dream_eater_butter_curry",
+    "cobblecuisine:drought_katsu_curry",
+    "cobblecuisine:dry_bone_curry",
+    "cobblecuisine:dry_curry",
+    "cobblecuisine:dry_frozen_curry",
+    "cobblecuisine:dry_smoked_tail_curry",
+    "cobblecuisine:mild_honey_curry",
+    "cobblecuisine:ninja_curry",
+    "cobblecuisine:salty_boiled_egg_curry",
+    "cobblecuisine:spicy_mushroom_medley_curry",
+    "cobblecuisine:spicy_potato_curry",
+    "cobblecuisine:sweet_apple_curry",
+    "cobblecuisine:sweet_whipped_cream_curry",
+    "cobblecuisine:zing_zap_curry"
+  ]
+}

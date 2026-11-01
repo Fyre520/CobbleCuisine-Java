@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:sour_bean_sauce",
+  "colour": "green",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:hidden_ability",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

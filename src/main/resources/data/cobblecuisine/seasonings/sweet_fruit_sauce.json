@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:sweet_fruit_sauce",
+  "colour": "pink",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tiny_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

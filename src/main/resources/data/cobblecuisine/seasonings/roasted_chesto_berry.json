@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_chesto_berry",
+  "colour": "blue",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:water_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

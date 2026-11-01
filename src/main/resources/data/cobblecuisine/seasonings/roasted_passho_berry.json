@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_passho_berry",
+  "colour": "blue",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_water_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

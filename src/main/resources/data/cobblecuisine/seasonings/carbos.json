@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblemon:carbos",
+  "colour": "yellow",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:speyieldspawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

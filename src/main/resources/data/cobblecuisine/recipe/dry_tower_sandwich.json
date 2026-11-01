@@ -1,29 +1,33 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "key": {
-        "b": {
-            "item": "minecraft:bread"
-        },
-        "x": {
-            "tag": "cobblecuisine:beans"
-        },
-        "y": {
-            "item": "cobblecuisine:roasted_babiri_berry"
-        },
-        "z": {
-            "tag": "minecraft:vegetables"
-        }
+  "category": "foods",
+  "key": {
+    "b": {
+      "item": "minecraft:bread"
     },
-    "pattern": [
-        " b ",
-        "xyz",
-        " b "
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:dry_tower_sandwich"
+    "x": {
+      "tag": "cobblecuisine:ingredients/dry"
     },
-    "show_notification": true,
-    "type": "minecraft:crafting_shaped"
+    "y": {
+      "item": "cobblecuisine:roasted_babiri_berry"
+    },
+    "z": {
+      "item": "minecraft:bread"
+    }
+  },
+  "pattern": [
+    " b ",
+    "xyz",
+    " b "
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:dry_tower_sandwich"
+  },
+  "show_notification": true,
+  "type": "cobblemon:cooking_pot",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

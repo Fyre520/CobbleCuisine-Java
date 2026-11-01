@@ -1,0 +1,20 @@
+{
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "tag": "cobblecuisine:ingredients/milk"
+    },
+    {
+      "tag": "cobblecuisine:recipe_filters/sauce_sour_berry"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:sour_milk_sauce"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningProcessors": []
+}

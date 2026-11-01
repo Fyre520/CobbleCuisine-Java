@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblemon:relaxed_mint",
+  "colour": "green",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:nature_relaxed_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

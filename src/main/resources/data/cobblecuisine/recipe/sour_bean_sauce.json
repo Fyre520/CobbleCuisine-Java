@@ -1,0 +1,23 @@
+{
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "tag": "cobblecuisine:beans"
+    },
+    {
+      "tag": "cobblecuisine:recipe_filters/sauce_sour_berry"
+    },
+    {
+      "item": "cobblemon:medicinal_brew"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:sour_bean_sauce"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningProcessors": []
+}

@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_custap_berry",
+  "colour": "purple",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:ghost_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

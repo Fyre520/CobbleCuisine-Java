@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_wiki_berry",
+  "colour": "gray",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:rock_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

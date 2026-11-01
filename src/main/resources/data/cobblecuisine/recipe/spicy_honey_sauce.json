@@ -1,0 +1,20 @@
+{
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "cobblemon:galarica_nuts"
+    },
+    {
+      "tag": "cobblecuisine:recipe_filters/sauce_spicy_berry"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:spicy_honey_sauce"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningProcessors": []
+}

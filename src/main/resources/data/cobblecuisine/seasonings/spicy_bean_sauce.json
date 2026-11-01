@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:spicy_bean_sauce",
+  "colour": "purple",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:duration_extend",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

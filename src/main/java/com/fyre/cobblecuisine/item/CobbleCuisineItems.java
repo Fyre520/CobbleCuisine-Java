@@ -45,13 +45,16 @@ public class CobbleCuisineItems {
 	}
 
 	// THOSE ARE ONE-OFFS THAT I DON'T WANT TO PUT IN A SPECIFIC ENUM
-	public static Item BEAN_SEEDS = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "bean_seeds"), new AliasedBlockItem(CobbleCuisineBlocks.BEAN_CROP_BLOCK, new Item.Settings()));
-	public static Item SPICE_MIX = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "spice_mix"), new Item(new Item.Settings()));
-	public static Item SALAD_MIX = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "salad_mix"), new Item(new Item.Settings()));
+	public static Item BEAN_SEEDS;
+	public static Item SPICE_MIX;
+	public static Item SALAD_MIX;
 
 	public static void register() {
 		LOGGER.info("CobbleCuisine >> Registering Items...");
 		List<Item> items = new ArrayList<>();
+		BEAN_SEEDS = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "bean_seeds"), new AliasedBlockItem(CobbleCuisineBlocks.BEAN_CROP_BLOCK, new Item.Settings()));
+		SPICE_MIX = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "spice_mix"), new Item(new Item.Settings()));
+		SALAD_MIX = Registry.register(Registries.ITEM, Identifier.of(CobbleCuisine.MOD_ID, "salad_mix"), new Item(new Item.Settings()));
 
 		BeanType.registerAll();
 		DrinkType.registerAll();
@@ -63,6 +66,7 @@ public class CobbleCuisineItems {
 		PokePuffType.registerAll();
 		SandwichType.registerAll();
 		SaladType.registerAll();
+		SauceType.registerAll();
 		RoastedBerryType.registerAll();
 		FoodType.registerAll();
 		LegacyItemType.registerAll();
@@ -72,17 +76,16 @@ public class CobbleCuisineItems {
 
 		for (var type : BeanType.values()) items.add(type.item);
 
-		items.add(SPICE_MIX);
-		items.add(SALAD_MIX);
+		addSauces(items);
+		addSalads(items);
 
-		for (var type : FoodType.values()) items.add(type.item);
+		for (var type : FoodType.activeValues()) items.add(type.item);
 		for (var type : DrinkType.values()) items.add(type.item);
 		for (var type : CurryType.values()) items.add(type.item);
 		for (var type : CakeType.values()) items.add(type.item);
 		for (var type : MalasadaType.values()) items.add(type.item);
 		for (var type : PokePuffType.values()) items.add(type.item);
 		for (var type : SandwichType.values()) items.add(type.item);
-		for (var type : SaladType.values()) items.add(type.item);
 		for (var type : ShakeType.values()) items.add(type.item);
 		for (var type : FancyShakeType.values()) items.add(type.item);
 		for (var type : RoastedBerryType.values()) items.add(type.item);
@@ -93,5 +96,23 @@ public class CobbleCuisineItems {
 						.entries((context, entries) -> items.forEach(entries::add))
 						.build()
 		);
+	}
+
+	private static void addSauces(List<Item> items) {
+		items.add(SauceType.SWEET_HONEY.item);
+		items.add(SauceType.SWEET_FRUIT.item);
+		items.add(SauceType.BITTER_MUSHROOM.item);
+		items.add(SauceType.BITTER_CHOCOLATE.item);
+		items.add(SauceType.SOUR_MILK.item);
+		items.add(SauceType.SPICY_HONEY.item);
+		items.add(SauceType.SOUR_BEAN.item);
+		items.add(SauceType.SPICY_BEAN.item);
+	}
+
+	private static void addSalads(List<Item> items) {
+		items.add(SaladType.MOOMOO_CAPRESE.item);
+		items.add(SaladType.SNOOZY_TOMATO.item);
+		items.add(SaladType.SUPERPOWER_EXTREME.item);
+		items.add(SaladType.CALM_MIND_FRUIT.item);
 	}
 }

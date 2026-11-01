@@ -1,0 +1,16 @@
+{
+  "ingredient": "cobblecuisine:violet_bean",
+  "colour": "magenta",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:fairy_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    },
+    {
+      "effect": "cobblecuisine:amorphous_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

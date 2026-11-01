@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_aspear_berry",
+  "colour": "light_blue",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:ice_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

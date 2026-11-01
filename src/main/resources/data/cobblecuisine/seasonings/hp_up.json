@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblemon:hp_up",
+  "colour": "red",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:hpyieldspawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

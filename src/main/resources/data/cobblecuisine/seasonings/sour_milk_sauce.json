@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:sour_milk_sauce",
+  "colour": "white",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:herd_frequency_decrease",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

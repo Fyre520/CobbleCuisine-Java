@@ -1,10 +1,11 @@
 {
   "replace": false,
   "values": [
-    "cobblemon:watmel_berry",
-    "cobblemon:salac_berry",
     "cobblemon:lansat_berry",
+    "cobblemon:liechi_berry",
+    "cobblemon:maranga_berry",
+    "cobblemon:salac_berry",
     "cobblemon:starf_berry",
-    "cobblemon:kee_berry"
+    "cobblemon:watmel_berry"
   ]
 }

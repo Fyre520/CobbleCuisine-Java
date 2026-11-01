@@ -1,29 +1,33 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "key": {
-        "b": {
-            "item": "minecraft:bread"
-        },
-        "x": {
-            "item": "minecraft:sea_pickle"
-        },
-        "y": {
-            "item": "cobblecuisine:roasted_payapa_berry"
-        },
-        "z": {
-            "tag": "cobblecuisine:green_group2"
-        }
+  "category": "foods",
+  "key": {
+    "b": {
+      "item": "minecraft:bread"
     },
-    "pattern": [
-        " b ",
-        "xyz",
-        " b "
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:sour_pickle_sandwich"
+    "x": {
+      "item": "cobblecuisine:sour_milk_sauce"
     },
-    "show_notification": true,
-    "type": "minecraft:crafting_shaped"
+    "y": {
+      "item": "cobblecuisine:roasted_payapa_berry"
+    },
+    "z": {
+      "item": "minecraft:sea_pickle"
+    }
+  },
+  "pattern": [
+    " b ",
+    "xyz",
+    " b "
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:sour_pickle_sandwich"
+  },
+  "show_notification": true,
+  "type": "cobblemon:cooking_pot",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

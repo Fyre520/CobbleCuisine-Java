@@ -1,16 +1,24 @@
 {
   "replace": false,
   "values": [
-    "cobblemon:pecha_berry",
+    "cobblemon:chilan_berry",
+    "cobblemon:cornn_berry",
+    "cobblemon:ganlon_berry",
+    "cobblemon:grepa_berry",
+    "cobblemon:haban_berry",
+    "cobblemon:hopo_berry",
+    "cobblemon:kee_berry",
     "cobblemon:leppa_berry",
-    "cobblemon:persim_berry",
     "cobblemon:lum_berry",
-    "cobblemon:sitrus_berry",
-    "cobblemon:bluk_berry",
+    "cobblemon:micle_berry",
     "cobblemon:nanab_berry",
+    "cobblemon:occa_berry",
+    "cobblemon:pamtre_berry",
+    "cobblemon:payapa_berry",
+    "cobblemon:pecha_berry",
+    "cobblemon:persim_berry",
     "cobblemon:pomeg_berry",
     "cobblemon:qualot_berry",
-    "cobblemon:grepa_berry",
-    "cobblemon:payapa_berry"
+    "cobblemon:sitrus_berry"
   ]
 }

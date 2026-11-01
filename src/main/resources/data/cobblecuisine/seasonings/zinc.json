@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblemon:zinc",
+  "colour": "gray",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:spdyieldspawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

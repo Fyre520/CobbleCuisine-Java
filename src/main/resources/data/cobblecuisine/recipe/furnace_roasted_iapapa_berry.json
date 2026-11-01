@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "group": "cobblecuisine",
+  "ingredient": {
+    "item": "cobblemon:iapapa_berry"
+  },
+  "result": {
+    "id": "cobblecuisine:roasted_iapapa_berry"
+  },
+  "experience": 20.0,
+  "cookingtime": 100
+}

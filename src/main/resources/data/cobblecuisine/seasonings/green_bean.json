@@ -1,0 +1,16 @@
+{
+  "ingredient": "cobblecuisine:green_bean",
+  "colour": "green",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:grass_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    },
+    {
+      "effect": "cobblecuisine:field_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

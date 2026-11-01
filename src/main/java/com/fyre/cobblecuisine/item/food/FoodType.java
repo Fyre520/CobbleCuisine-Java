@@ -20,17 +20,31 @@ public enum FoodType {
 	CANDIED_NANAB_BERRY("candied_nanab_berry", 6, 0.5f, effect(CobbleCuisineEffects.SHINY.entry, CobbleCuisineConfig.data.effectDuration.shinyBoostEffectDuration)),
 	CANDIED_PINAP_BERRY("candied_pinap_berry", 6, 0.5f, effect(CobbleCuisineEffects.EXP_BOOST.entry, CobbleCuisineConfig.data.effectDuration.expBoostEffectDuration)),
 	CANDIED_BLUK_BERRY("candied_bluk_berry", 6, 0.5f, effect(CobbleCuisineEffects.IV_MODIFY.entry, CobbleCuisineConfig.data.effectDuration.statBoostEffectDuration)),
-	CEVICHE("ceviche", 6, 0.5f, effect(CobbleCuisineEffects.HIDDEN_ABILITY.entry, CobbleCuisineConfig.data.effectDuration.statBoostEffectDuration));
+	CEVICHE("ceviche", 6, 0.5f, false);
 
 
 
 
 	public final String id;
 	public final Item item;
+	private final boolean active;
 
 	FoodType(String id, int nutrition, float saturation, CobbleCuisineItems.FoodEffect ...effect) {
+		this(id, nutrition, saturation, true, effect);
+	}
+
+	FoodType(String id, int nutrition, float saturation, boolean active, CobbleCuisineItems.FoodEffect ...effect) {
 		this.id = id;
-		this.item = new FoodItem(id, CobbleCuisineItems.buildFoodComponent(nutrition, saturation, false, effect));
+		this.active = active;
+		this.item = new FoodItem(id, CobbleCuisineItems.buildFoodComponent(nutrition, saturation, false, effect), active);
+	}
+
+	public boolean active() {
+		return active;
+	}
+
+	public static java.util.List<FoodType> activeValues() {
+		return java.util.Arrays.stream(values()).filter(FoodType::active).toList();
 	}
 
 	private static CobbleCuisineItems.FoodEffect effect(RegistryEntry<StatusEffect> effect, int duration) {

@@ -1,23 +1,27 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "cobblecuisine:salad_mix"
-        },
-        {
-            "item": "cobblemon:mild_mint"
-        },
-        {
-            "item": "cobblecuisine:orange_bean"
-        },
-        {
-            "item": "cobblemon:tamato_berry"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:snoozy_tomato_salad"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblecuisine:sour_milk_sauce"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "item": "cobblemon:relaxed_mint"
+    },
+    {
+      "item": "cobblecuisine:orange_bean"
+    },
+    {
+      "item": "cobblemon:tamato_berry"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:snoozy_tomato_salad"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblemon:naive_mint",
+  "colour": "green",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:nature_naive_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

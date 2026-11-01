@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#cobblecuisine:recipe_filters/type_seasoning",
+    "#cobblecuisine:recipe_filters/tera_seasoning",
+    "#cobblecuisine:recipe_filters/nature_seasoning",
+    "#cobblecuisine:recipe_filters/egg_group_seasoning",
+    "#cobblecuisine:recipe_filters/yield_seasoning",
+    "#cobblecuisine:recipe_filters/herd_seasoning_alpha_decrease"
+  ]
+}

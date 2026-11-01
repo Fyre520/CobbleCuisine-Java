@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:spicy_honey_sauce",
+  "colour": "red",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:alpha_frequency_increase",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

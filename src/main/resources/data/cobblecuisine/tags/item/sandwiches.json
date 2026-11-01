@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "cobblecuisine:bitter_jambon_beurre",
+    "cobblecuisine:bitter_potato_sandwich",
+    "cobblecuisine:dry_hefty_sandwich",
+    "cobblecuisine:dry_smoky_sandwich",
+    "cobblecuisine:dry_tower_sandwich",
+    "cobblecuisine:salty_egg_sandwich",
+    "cobblecuisine:salty_tofu_sandwich",
+    "cobblecuisine:salty_vegetable_sandwich",
+    "cobblecuisine:sour_cheese_sandwich",
+    "cobblecuisine:sour_pickle_sandwich",
+    "cobblecuisine:sour_zesty_sandwich",
+    "cobblecuisine:spicy_claw_sandwich",
+    "cobblecuisine:spicy_fillet_sandwich",
+    "cobblecuisine:spicy_five_alarm_sandwich",
+    "cobblecuisine:spicy_ham_sandwich",
+    "cobblecuisine:spicy_noodle_sandwich",
+    "cobblecuisine:sweet_dessert_sandwich",
+    "cobblecuisine:sweet_fruit_sandwich",
+    "cobblecuisine:sweet_jam_sandwich"
+  ]
+}

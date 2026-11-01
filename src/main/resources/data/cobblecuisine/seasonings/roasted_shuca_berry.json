@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_shuca_berry",
+  "colour": "brown",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_ground_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

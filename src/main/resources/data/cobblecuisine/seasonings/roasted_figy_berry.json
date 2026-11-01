@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_figy_berry",
+  "colour": "lime",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:bug_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

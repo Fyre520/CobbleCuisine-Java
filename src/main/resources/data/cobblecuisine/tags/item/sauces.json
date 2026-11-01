@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "cobblecuisine:bitter_mushroom_sauce",
+    "cobblecuisine:bitter_chocolate_sauce",
+    "cobblecuisine:sour_milk_sauce",
+    "cobblecuisine:sour_bean_sauce",
+    "cobblecuisine:spicy_bean_sauce",
+    "cobblecuisine:spicy_honey_sauce",
+    "cobblecuisine:sweet_fruit_sauce",
+    "cobblecuisine:sweet_honey_sauce"
+  ]
+}

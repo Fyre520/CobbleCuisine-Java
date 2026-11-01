@@ -1,29 +1,33 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "ingredients": [
-        {
-            "item": "minecraft:honey_bottle"
-        },
-        {
-            "tag": "cobblecuisine:beans"
-        },
-        {
-            "tag": "cobblemon:sweet_30"
-        },
-        {
-            "item": "minecraft:cocoa_beans"
-        },
-        {
-            "item": "minecraft:brown_dye"
-        },
-        {
-            "item": "minecraft:milk_bucket"
-        }
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:eclair"
+  "category": "foods",
+  "ingredients": [
+    {
+      "item": "cobblecuisine:bitter_chocolate_sauce"
     },
-    "type": "minecraft:crafting_shapeless"
+    {
+      "tag": "cobblecuisine:beans"
+    },
+    {
+      "tag": "cobblemon:sweet_30"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "minecraft:brown_dye"
+    },
+    {
+      "tag": "cobblecuisine:ingredients/milk"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:eclair"
+  },
+  "type": "cobblemon:cooking_pot_shapeless",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_giant",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

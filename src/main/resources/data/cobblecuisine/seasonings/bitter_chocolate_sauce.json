@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:bitter_chocolate_sauce",
+  "colour": "brown",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:giant_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

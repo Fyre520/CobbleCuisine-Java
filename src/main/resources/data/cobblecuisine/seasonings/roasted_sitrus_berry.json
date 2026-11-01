@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_sitrus_berry",
+  "colour": "pink",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:psychic_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

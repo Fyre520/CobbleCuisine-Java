@@ -39,7 +39,15 @@ public enum RoastedBerryType {
 	LEPPA("roasted_leppa_berry"),
 	SITRUS("roasted_sitrus_berry"),
 	LUM("roasted_lum_berry"),
-	ENIGMA("roasted_enigma_berry");
+	ENIGMA("roasted_enigma_berry"),
+	FIGY("roasted_figy_berry"),
+	AGUAV("roasted_aguav_berry"),
+	IAPAPA("roasted_iapapa_berry"),
+	WIKI("roasted_wiki_berry"),
+	CUSTAP("roasted_custap_berry"),
+	KEE("roasted_kee_berry"),
+	PAMTRE("roasted_pamtre_berry"),
+	HOPO("roasted_hopo_berry");
 
 	public final String id;
 	public final Item item;

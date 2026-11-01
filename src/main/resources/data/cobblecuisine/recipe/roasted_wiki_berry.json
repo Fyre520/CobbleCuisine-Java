@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "group": "cobblecuisine",
+  "ingredient": {
+    "item": "cobblemon:wiki_berry"
+  },
+  "result": {
+    "id": "cobblecuisine:roasted_wiki_berry"
+  },
+  "experience": 20.0,
+  "cookingtime": 100
+}

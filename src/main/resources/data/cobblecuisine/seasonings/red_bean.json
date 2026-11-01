@@ -1,0 +1,16 @@
+{
+  "ingredient": "cobblecuisine:red_bean",
+  "colour": "red",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:water1_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    },
+    {
+      "effect": "cobblecuisine:monster_eg_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

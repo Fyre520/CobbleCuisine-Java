@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_pamtre_berry",
+  "colour": "light_gray",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:steel_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

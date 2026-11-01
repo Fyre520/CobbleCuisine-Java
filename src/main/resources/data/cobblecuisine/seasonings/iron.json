@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblemon:iron",
+  "colour": "light_gray",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:defyieldspawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

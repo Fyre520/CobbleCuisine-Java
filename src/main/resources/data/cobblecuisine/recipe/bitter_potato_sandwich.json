@@ -1,29 +1,33 @@
 {
-    "category": "misc",
-    "group": "cobblecuisine",
-    "key": {
-        "b": {
-            "item": "minecraft:bread"
-        },
-        "x": {
-            "tag": "cobblemon:bitter_20"
-        },
-        "y": {
-            "item": "cobblecuisine:roasted_shuca_berry"
-        },
-        "z": {
-            "item": "minecraft:potato"
-        }
+  "category": "foods",
+  "key": {
+    "b": {
+      "item": "minecraft:bread"
     },
-    "pattern": [
-        " b ",
-        "xyz",
-        " b "
-    ],
-    "result": {
-        "count": 1,
-        "id": "cobblecuisine:bitter_potato_sandwich"
+    "x": {
+      "tag": "cobblecuisine:bitter_sauces"
     },
-    "show_notification": true,
-    "type": "minecraft:crafting_shaped"
+    "y": {
+      "item": "cobblecuisine:roasted_shuca_berry"
+    },
+    "z": {
+      "item": "minecraft:baked_potato"
+    }
+  },
+  "pattern": [
+    " b ",
+    "xyz",
+    " b "
+  ],
+  "result": {
+    "count": 1,
+    "id": "cobblecuisine:bitter_potato_sandwich"
+  },
+  "show_notification": true,
+  "type": "cobblemon:cooking_pot",
+  "seasoningTag": "cobblecuisine:recipe_filters/meal_seasoning_without_type_gems",
+  "seasoningProcessors": [
+    "cobblecuisine:meal_effects",
+    "ingredient"
+  ]
 }

@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_pecha_berry",
+  "colour": "yellow",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:electric_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

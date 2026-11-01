@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblecuisine:roasted_roseli_berry",
+  "colour": "pink",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:tera_fairy_spawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}

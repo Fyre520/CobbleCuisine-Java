@@ -1,0 +1,11 @@
+{
+  "ingredient": "cobblemon:protein",
+  "colour": "orange",
+  "mobEffects": [
+    {
+      "effect": "cobblecuisine:atkyieldspawn",
+      "duration": 12000,
+      "amplifier": 0
+    }
+  ]
+}
