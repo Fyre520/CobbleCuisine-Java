@@ -1,5 +1,6 @@
 package com.fyre.cobblecuisine.config;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -72,7 +73,42 @@ final class CobbleCuisineConfigMigration {
 			replaceValue(boosts, "giantSeasoningChance", 0.15F, 0.10F);
 		}
 		if (loadedVersion < 13 && targetVersion >= 13) moveShakeEvPower(json);
+		if (loadedVersion < 14 && targetVersion >= 14) moveFullnessItems(json);
+		if (loadedVersion < 15 && targetVersion >= 15) moveDropRates(json);
 		json.addProperty("CONFIG_VERSION_INTERNAL", targetVersion);
+	}
+
+	private static void moveDropRates(JsonObject json) {
+		JsonElement rates = json.remove("dropRates");
+		if (rates == null || !rates.isJsonObject()) return;
+		if (!json.has("globalSettings") || !json.get("globalSettings").isJsonObject()) json.add("globalSettings", new JsonObject());
+		json.getAsJsonObject("globalSettings").add("dropRates", rates);
+	}
+
+	private static void moveFullnessItems(JsonObject json) {
+		if (!json.has("itemSettings") || !json.get("itemSettings").isJsonObject()) return;
+		JsonElement entries = json.getAsJsonObject("itemSettings").remove("fullnessItems");
+		if (entries == null || !entries.isJsonArray()) return;
+		JsonArray included = new JsonArray();
+		JsonArray excluded = new JsonArray();
+		for (JsonElement entry : entries.getAsJsonArray()) {
+			if (entry == null) continue;
+			if (entry.isJsonPrimitive()) {
+				included.add(entry.getAsString());
+				continue;
+			}
+			if (!entry.isJsonObject()) continue;
+			JsonElement exclude = entry.getAsJsonObject().get("exclude");
+			if (exclude == null || !exclude.isJsonArray()) continue;
+			for (JsonElement item : exclude.getAsJsonArray()) {
+				if (item != null && item.isJsonPrimitive()) excluded.add(item.getAsString());
+			}
+		}
+		JsonObject fullness = new JsonObject();
+		fullness.add("included", included);
+		fullness.add("excluded", excluded);
+		if (!json.has("globalSettings") || !json.get("globalSettings").isJsonObject()) json.add("globalSettings", new JsonObject());
+		json.getAsJsonObject("globalSettings").add("fullnessItems", fullness);
 	}
 
 	private static void moveShakeEvPower(JsonObject json) {

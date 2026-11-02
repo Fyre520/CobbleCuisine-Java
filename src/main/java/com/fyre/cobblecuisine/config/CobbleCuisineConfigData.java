@@ -2,11 +2,6 @@ package com.fyre.cobblecuisine.config;
 
 import com.fyre.cobblecuisine.meal.MealEffectType;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -58,22 +53,37 @@ public class CobbleCuisineConfigData {
 	public @interface ClassicToggle {
 	}
 
+	@Retention(RetentionPolicy.RUNTIME)
+	@Target(ElementType.FIELD)
+	public @interface EditorTab {
+		String value();
+	}
+
+	@Retention(RetentionPolicy.RUNTIME)
+	@Target(ElementType.FIELD)
+	public @interface EditorPrefix {
+		String value();
+	}
+
 	public final GlobalSettings globalSettings = new GlobalSettings();
 	@ClassicOnly
+	@EditorTab("globalSettings")
 	public final ClassicSettings classicSettings = new ClassicSettings();
 	public final BoostSettings boostSettings = new BoostSettings();
+	@StandardOnly
+	public final HerdSettings herdSettings = new HerdSettings();
 	public final ItemSettings itemSettings = new ItemSettings();
 	public final EffectDuration effectDuration  = new EffectDuration();
 	@HiddenFromEditor
 	public final MealStrengths mealStrengths = new MealStrengths();
 	@StandardOnly
-	public final HerdSettings herdSettings = new HerdSettings();
-	public final DropRates dropRates = new DropRates();
-	@StandardOnly
+	@EditorTab("multipliers")
 	public final TypeMultipliers typeMultipliers = new TypeMultipliers();
 	@StandardOnly
+	@EditorTab("multipliers")
 	public final EggGroupMultipliers eggGroupMultipliers = new EggGroupMultipliers();
 	@StandardOnly
+	@EditorTab("multipliers")
 	public final YieldMultipliers yieldMultipliers = new YieldMultipliers();
 
 	public static class GlobalSettings {
@@ -83,6 +93,9 @@ public class CobbleCuisineConfigData {
 		@EditorRange(min = 1, max = 4)
 		public int maxActiveMeals = 3;
 		public boolean mixerRequiresRedstone = true;
+		public final FullnessItems fullnessItems = new FullnessItems();
+		@EditorInline
+		public final DropRates dropRates = new DropRates();
 	}
 
 	public static class ClassicSettings {
@@ -95,9 +108,12 @@ public class CobbleCuisineConfigData {
 		@EditorRange(min = 0, max = 1)
 		public float teraChance = 0.75f;
 		@EditorRange(min = 0, max = 1)
+		@EditorPrefix("+")
 		public float natureChancePerMint = 0.375f;
 		@EditorRange(min = 0, max = 1)
+		@EditorPrefix("+")
 		public float hiddenAbilityChancePerSauce = 0.333f;
+		@EditorPrefix("+")
 		public int durationSeasoningSeconds = 150;
 		public float catchMultiplier = 2.0f;
 		public float expMultiplier = 2.0f;
@@ -124,52 +140,62 @@ public class CobbleCuisineConfigData {
 		@StandardOnly
 		public float expBaseMultiplier = 1.5f;
 		@StandardOnly
+		@EditorPrefix("+×")
 		public float expSeasoningMultiplier = 0.25f;
 		@HiddenFromEditor
 		public float catchRateMultiplier = 2.0f;
 		@StandardOnly
 		public float catchBaseMultiplier = 1.5f;
 		@StandardOnly
+		@EditorPrefix("+×")
 		public float catchSeasoningMultiplier = 0.25f;
 		@StandardOnly
 		public float shinyBaseMultiplier = 1.5f;
 		@StandardOnly
+		@EditorPrefix("+×")
 		public float shinySeasoningMultiplier = 0.25f;
 		@StandardOnly
 		@EditorRange(min = 0, max = 1)
 		public float teraBaseChance = 0.55f;
 		@StandardOnly
 		@EditorRange(min = 0, max = 1)
+		@EditorPrefix("+")
 		public float teraSeasoningChance = 0.10f;
 		@StandardOnly
 		@EditorRange(min = 0, max = 1)
+		@EditorPrefix("+")
 		public float natureSeasoningChance = 0.375f;
 		@StandardOnly
 		@EditorRange(min = 0, max = 1)
+		@EditorPrefix("+")
 		public float hiddenAbilitySeasoningChance = 0.333f;
 		@StandardOnly
 		@EditorRange(min = 0, max = 1)
 		public float tinyBaseChance = 0.5f;
 		@StandardOnly
 		@EditorRange(min = 0, max = 1)
+		@EditorPrefix("+")
 		public float tinySeasoningChance = 0.10f;
 		@StandardOnly
 		@EditorRange(min = 0, max = 1)
 		public float giantBaseChance = 0.5f;
 		@StandardOnly
 		@EditorRange(min = 0, max = 1)
+		@EditorPrefix("+")
 		public float giantSeasoningChance = 0.10f;
 		@StandardOnly
 		@EditorRange(min = 0, max = 31)
 		public int ivBaseMinimum = 10;
 		@StandardOnly
 		@EditorRange(min = 0, max = 31)
+		@EditorPrefix("+")
 		public int ivSeasoningMinimum = 5;
 		@StandardOnly
 		@EditorRange(min = 0, max = 31)
 		public int ivBaseMaximum = 20;
 		@StandardOnly
 		@EditorRange(min = 0, max = 31)
+		@EditorPrefix("+")
 		public int ivSeasoningMaximum = 4;
 		@StandardOnly
 		@EditorRange(min = 0, max = 31)
@@ -188,22 +214,17 @@ public class CobbleCuisineConfigData {
 		public final FeedingAmount pokePuffHealing = new FeedingAmount(20);
 		@StandardOnly
 		public final FeedingAmount malasadaHealing = new FeedingAmount(20);
+	}
 
-		@HiddenFromEditor
-		public List<JsonElement> fullnessItems = new ArrayList<>(List.of(
-				new JsonPrimitive("#cobblecuisine:beans"),
-				new JsonPrimitive("#cobblecuisine:poke_puffs"),
-				new JsonPrimitive("#cobblecuisine:malasadas"),
-				new JsonPrimitive("#cobblecuisine:regular_shakes"),
-				new JsonPrimitive("#cobblecuisine:deluxe_shakes"),
-				emptyExclude()
+	public static class FullnessItems {
+		public List<String> included = new ArrayList<>(List.of(
+				"#cobblecuisine:beans",
+				"#cobblecuisine:poke_puffs",
+				"#cobblecuisine:malasadas",
+				"#cobblecuisine:regular_shakes",
+				"#cobblecuisine:deluxe_shakes"
 		));
-
-		private static JsonElement emptyExclude() {
-			JsonObject holder = new JsonObject();
-			holder.add("exclude", new JsonArray());
-			return holder;
-		}
+		public List<String> excluded = new ArrayList<>();
 	}
 
 	public static class EffectDuration {
@@ -232,6 +253,7 @@ public class CobbleCuisineConfigData {
 		@EditorTicksAsSeconds
 		public int dubiousFoodEffectDuration = 6000;
 		@StandardOnly
+		@EditorPrefix("+")
 		public int durationSeasoningSeconds = 150;
 	}
 
@@ -287,6 +309,7 @@ public class CobbleCuisineConfigData {
 	public static class FeedingAmount {
 		public float amount;
 		public float baseMultiplier = 0.5f;
+		@EditorPrefix("+×")
 		public float perSeasoningMultiplier = 0.25f;
 
 		public FeedingAmount(float amount) {
@@ -295,16 +318,19 @@ public class CobbleCuisineConfigData {
 	}
 
 	public static class HerdSettings {
+		@EditorInline
 		public final WeightPair herdFrequency = new WeightPair();
 
 		@EditorRange(min = 0, max = 1)
 		public float alphaIncreaseBaseChance = 0.10f;
 
 		@EditorRange(min = 0, max = 1)
+		@EditorPrefix("+")
 		public float alphaIncreaseSeasoningChance = 0.05f;
 		@EditorRange(min = 0, max = 1)
 		public float alphaDecreaseBaseChance = 0.50f;
 		@EditorRange(min = 0, max = 1)
+		@EditorPrefix("+")
 		public float alphaDecreaseSeasoningChance = 0.15f;
 	}
 
@@ -317,11 +343,13 @@ public class CobbleCuisineConfigData {
 
 	public static class WeightPair {
 		public float spawnWeightMultiplier = 2.5f;
+		@EditorPrefix("+×")
 		public float seasoningWeightMultiplier = 0.5f;
 		public float nonWeightMultiplier = 0.25f;
 	}
 
 	public static class YieldMultiplier {
+		@EditorPrefix("+×")
 		public float seasoningWeightMultiplier = 0.5f;
 	}
 

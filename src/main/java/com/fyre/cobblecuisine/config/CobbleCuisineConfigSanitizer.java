@@ -22,7 +22,7 @@ final class CobbleCuisineConfigSanitizer {
 		sanitizeIntegerFields(data.effectDuration, 1);
 		sanitizeStrengths(data.mealStrengths, defaults.mealStrengths);
 		sanitizeHerd(data.herdSettings, defaults.herdSettings);
-		sanitizeProbabilityFields(data.dropRates, defaults.dropRates);
+		sanitizeProbabilityFields(data.globalSettings.dropRates, defaults.globalSettings.dropRates);
 		sanitizeWeightPairs(data.typeMultipliers, defaults.typeMultipliers);
 		sanitizeWeightPairs(data.eggGroupMultipliers, defaults.eggGroupMultipliers);
 		sanitizeYieldMultipliers(data.yieldMultipliers, defaults.yieldMultipliers);

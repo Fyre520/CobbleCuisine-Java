@@ -26,6 +26,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class CobbleCuisineConfigScreen extends Screen {
@@ -35,12 +36,33 @@ public class CobbleCuisineConfigScreen extends Screen {
 	private static final double PERCENT_STEP = 0.0025;
 	private static final int ROW_HEIGHT = 24;
 	private static final int TICKS_PER_SECOND = 20;
+	private static final int SUGGESTION_HEIGHT = 20;
+	private static final int MAX_SUGGESTIONS = 8;
 	private static final Map<String, String> ACRONYMS = Map.of("iv", "IV", "ivs", "IVs", "exp", "EXP", "ev", "EV");
 
 	private final Screen parent;
 	private final List<Row> rows = new ArrayList<>();
 	private ConfigList configList;
 	private Text saveError;
+	private CobbleCuisineConfigData candidate;
+	private boolean classicShown;
+	private ItemListRow expandedRow;
+	private boolean expandedIncluded;
+	private SearchRow searchRow;
+	private ItemCatalog catalog;
+	private List<ItemCatalog.Candidate> suggestions = List.of();
+	private int highlighted;
+	private final List<Tab> tabs = new ArrayList<>();
+	private int currentTab;
+	private int buildingTab;
+	private final List<ButtonWidget> tabButtons = new ArrayList<>();
+	private final List<Integer> tabButtonTargets = new ArrayList<>();
+	private final List<String> tabButtonLabels = new ArrayList<>();
+	private List<Integer> shownTabs = List.of();
+	private boolean tabBarDirty = true;
+
+	private record Tab(String id, Text title, Text shortTitle, Mode mode) {
+	}
 
 	public CobbleCuisineConfigScreen(Screen parent) {
 		super(Text.literal("CobbleCuisine Config"));
@@ -51,18 +73,23 @@ public class CobbleCuisineConfigScreen extends Screen {
 	protected void init() {
 		saveError = null;
 		int listWidth = Math.min(this.width - 20, 480);
-		configList = new ConfigList(this.client, listWidth, this.height - 90, 32, ROW_HEIGHT);
+		configList = new ConfigList(this.client, listWidth, this.height - 104, 46, ROW_HEIGHT);
 		configList.setX((this.width - listWidth) / 2);
 
-		rows.clear();
-		CobbleCuisineConfigData candidate = CobbleCuisineConfig.copyData();
-		try {
-			populate(candidate, new CobbleCuisineConfigData(), "", 0, Mode.ALWAYS);
-		} catch (ReflectiveOperationException e) {
-			throw new RuntimeException("CobbleCuisine >> Failed to build config screen!", e);
+		if (candidate == null) {
+			candidate = CobbleCuisineConfig.copyData();
+			try {
+				populate(candidate, new CobbleCuisineConfigData(), "", 0, Mode.ALWAYS);
+			} catch (ReflectiveOperationException e) {
+				throw new RuntimeException("CobbleCuisine >> Failed to build config screen!", e);
+			}
+			classicShown = candidate.globalSettings.classicMealPowers;
 		}
-		refreshVisibility(candidate.globalSettings.classicMealPowers);
+		tabButtons.clear();
+		tabBarDirty = true;
+		refreshVisibility(classicShown);
 		this.addDrawableChild(configList);
+		rebuildTabBar();
 
 		this.addDrawableChild(ButtonWidget.builder(Text.literal("Save & Exit"), button -> save(candidate))
 				.dimensions(this.width / 2 - 104, this.height - 32, 100, 20)
@@ -110,24 +137,192 @@ public class CobbleCuisineConfigScreen extends Screen {
 				ValueRow valueRow = valueRow(field, container, defaultValue, label(key, field.getName()));
 				valueRow.describe(description(key, valueRow.label));
 				valueRow.mode = mode;
-				rows.add(valueRow);
+				addRow(valueRow);
 				continue;
 			}
-			if (!field.isAnnotationPresent(CobbleCuisineConfigData.EditorInline.class)) {
-				HeaderRow header = new HeaderRow(sectionTitle(key, field.getName()), depth == 0, textRenderer);
+			if (value instanceof CobbleCuisineConfigData.FullnessItems) {
+				Text label = label(key, field.getName());
+				ItemListRow listRow = new ItemListRow(label, field, container, defaultValue, textRenderer, this::toggleList, this::listChanged);
+				listRow.describe(description(key, label));
+				listRow.mode = mode;
+				addRow(listRow);
+				continue;
+			}
+			if (depth == 0) {
+				CobbleCuisineConfigData.EditorTab grouped = field.getAnnotation(CobbleCuisineConfigData.EditorTab.class);
+				String tabId = grouped != null ? grouped.value() : field.getName();
+				buildingTab = tabIndex(tabId);
+				if (buildingTab < 0) {
+					Text title = tabId.equals(field.getName()) ? sectionTitle(key, field.getName())
+							: Text.translatableWithFallback("config.cobblecuisine.tab." + tabId.toLowerCase(), humanize(tabId));
+					Text shortTitle = Text.translatableWithFallback("config.cobblecuisine.tab.short." + tabId.toLowerCase(), title.getString());
+					tabs.add(new Tab(tabId, title, shortTitle, mode));
+					buildingTab = tabs.size() - 1;
+				}
+				if (grouped != null) {
+					HeaderRow header = new HeaderRow(sectionTitle(key, field.getName()), true, textRenderer);
+					header.mode = mode;
+					addRow(header);
+				}
+			} else if (!field.isAnnotationPresent(CobbleCuisineConfigData.EditorInline.class)) {
+				HeaderRow header = new HeaderRow(sectionTitle(key, field.getName()), false, textRenderer);
 				header.mode = mode;
-				rows.add(header);
+				addRow(header);
 			}
 			populate(value, defaultValue, key, depth + 1, mode);
 		}
 	}
 
+	private void toggleList(ItemListRow row, boolean included) {
+		boolean closing = expandedRow == row && expandedIncluded == included;
+		if (expandedRow != null) expandedRow.setExpanded(null);
+		expandedRow = closing ? null : row;
+		expandedIncluded = included;
+		suggestions = List.of();
+		if (expandedRow != null) {
+			if (catalog == null) catalog = ItemCatalog.build();
+			searchRow = new SearchRow();
+			expandedRow.setExpanded(included);
+		} else {
+			searchRow = null;
+		}
+		refreshVisibility(classicShown);
+	}
+
+	private void addRow(Row row) {
+		row.tab = buildingTab;
+		rows.add(row);
+	}
+
+	private int tabIndex(String id) {
+		for (int index = 0; index < tabs.size(); index++) {
+			if (tabs.get(index).id().equals(id)) return index;
+		}
+		return -1;
+	}
+
+	private boolean tabVisible(int tab) {
+		Mode mode = tabs.get(tab).mode();
+		return mode == Mode.ALWAYS || (mode == Mode.CLASSIC) == classicShown;
+	}
+
+	private List<Integer> visibleTabs() {
+		List<Integer> visible = new ArrayList<>();
+		for (int tab = 0; tab < tabs.size(); tab++) {
+			if (tabVisible(tab)) visible.add(tab);
+		}
+		return visible;
+	}
+
+	private void selectTab(int tab) {
+		currentTab = tab;
+		refreshVisibility(classicShown);
+		configList.setScrollAmount(0);
+	}
+
+	private void rebuildTabBar() {
+		tabButtons.forEach(this::remove);
+		tabButtons.clear();
+		tabButtonTargets.clear();
+		tabButtonLabels.clear();
+		shownTabs = visibleTabs();
+		int count = shownTabs.size();
+		if (count == 0) return;
+		int gap = 2;
+		int available = this.width - 20 - gap * (count - 1);
+		int[] widths = new int[count];
+		int natural = 0;
+		for (int index = 0; index < count; index++) {
+			widths[index] = textRenderer.getWidth(tabs.get(shownTabs.get(index)).shortTitle()) + 12;
+			natural += widths[index];
+		}
+		if (natural > available) {
+			for (int index = 0; index < count; index++) widths[index] = Math.max(24, widths[index] * available / natural);
+		}
+		int total = gap * (count - 1);
+		for (int width : widths) total += width;
+		int x = (this.width - total) / 2;
+		for (int index = 0; index < count; index++) {
+			int tab = shownTabs.get(index);
+			String label = tabs.get(tab).shortTitle().getString();
+			if (textRenderer.getWidth(label) > widths[index] - 8) {
+				label = textRenderer.trimToWidth(label, widths[index] - 8 - textRenderer.getWidth("…")) + "…";
+			}
+			ButtonWidget button = ButtonWidget.builder(Text.literal(label), widget -> selectTab(tab))
+					.dimensions(x, 6, widths[index], 20)
+					.build();
+			tabButtons.add(this.addDrawableChild(button));
+			tabButtonTargets.add(tab);
+			tabButtonLabels.add(label);
+			x += widths[index] + gap;
+		}
+		updateTabLabels();
+		tabBarDirty = false;
+	}
+
+	private void updateTabLabels() {
+		for (int index = 0; index < tabButtons.size(); index++) {
+			boolean selected = tabButtonTargets.get(index) == currentTab;
+			tabButtons.get(index).setMessage(Text.literal(tabButtonLabels.get(index)).formatted(selected ? Formatting.GOLD : Formatting.WHITE));
+		}
+	}
+
 	private void refreshVisibility(boolean classic) {
+		classicShown = classic;
+		if (!tabs.isEmpty() && !tabVisible(currentTab)) {
+			List<Integer> visible = visibleTabs();
+			int replacement = visible.isEmpty() ? 0 : visible.getFirst();
+			for (int tab : visible) {
+				if (tab < currentTab) replacement = tab;
+			}
+			currentTab = replacement;
+		}
+		if (!visibleTabs().equals(shownTabs)) tabBarDirty = true;
+		updateTabLabels();
 		List<Row> visible = new ArrayList<>();
 		for (Row row : rows) {
-			if (row.mode == Mode.ALWAYS || (row.mode == Mode.CLASSIC) == classic) visible.add(row);
+			if (row.tab != currentTab) continue;
+			if (row.mode != Mode.ALWAYS && (row.mode == Mode.CLASSIC) != classic) continue;
+			visible.add(row);
+			if (row == expandedRow) {
+				visible.add(searchRow);
+				List<ListEntry> entries = expandedList();
+				for (ListEntry entry : entries) visible.add(new EntryRow(entry, entries));
+			}
 		}
 		configList.show(visible);
+	}
+
+	private List<ListEntry> expandedList() {
+		return expandedIncluded ? expandedRow.included : expandedRow.excluded;
+	}
+
+	private void listChanged() {
+		if (expandedRow != null) expandedRow.updateMessage();
+		refreshVisibility(classicShown);
+	}
+
+	private void updateSuggestions() {
+		String query = searchRow == null ? "" : searchRow.field.getText();
+		suggestions = query.isBlank() || catalog == null ? List.of() : catalog.search(query, MAX_SUGGESTIONS);
+		highlighted = 0;
+	}
+
+	private boolean suggestionsVisible() {
+		return searchRow != null && searchRow.shown && searchRow.field.isFocused() && !suggestions.isEmpty();
+	}
+
+	private void addEntry(String value) {
+		String trimmed = value.trim();
+		if (trimmed.isEmpty() || expandedRow == null) return;
+		List<ListEntry> target = expandedList();
+		if (target.stream().noneMatch(entry -> entry.value.trim().equalsIgnoreCase(trimmed))) target.add(new ListEntry(trimmed));
+		searchRow.field.setText("");
+		suggestions = List.of();
+		listChanged();
+		configList.setFocused(searchRow);
+		searchRow.setFocused(searchRow.field);
+		searchRow.field.setFocused(true);
 	}
 
 	private ValueRow valueRow(Field field, Object container, Object defaultValue, Text label) throws IllegalAccessException {
@@ -194,16 +389,78 @@ public class CobbleCuisineConfigScreen extends Screen {
 
 	@Override
 	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+		if (tabBarDirty) rebuildTabBar();
+		if (searchRow != null) searchRow.shown = false;
 		super.render(context, mouseX, mouseY, delta);
-		context.drawCenteredTextWithShadow(textRenderer, this.title, this.width / 2, 12, 0xFFFFFF);
+		if (!tabs.isEmpty()) {
+			context.drawCenteredTextWithShadow(textRenderer, tabs.get(currentTab).title().copy().formatted(Formatting.GOLD, Formatting.BOLD),
+					this.width / 2, 32, 0xFFFFFF);
+		}
 		if (saveError != null) {
 			context.drawCenteredTextWithShadow(textRenderer, saveError, this.width / 2, this.height - 48, 0xFF5555);
 		}
+		if (suggestionsVisible()) renderSuggestions(context, mouseX, mouseY);
+	}
+
+	private void renderSuggestions(DrawContext context, int mouseX, int mouseY) {
+		int left = searchRow.fieldX;
+		int top = searchRow.fieldY + 22;
+		int width = searchRow.fieldWidth;
+		int height = suggestions.size() * SUGGESTION_HEIGHT;
+		context.getMatrices().push();
+		context.getMatrices().translate(0, 0, 400);
+		context.fill(left, top, left + width, top + height, 0xF0101010);
+		context.drawBorder(left, top, width, height, 0xFF808080);
+		for (int index = 0; index < suggestions.size(); index++) {
+			ItemCatalog.Candidate candidate = suggestions.get(index);
+			int y = top + index * SUGGESTION_HEIGHT;
+			boolean hovered = mouseX >= left && mouseX < left + width && mouseY >= y && mouseY < y + SUGGESTION_HEIGHT;
+			if (hovered || index == highlighted) context.fill(left + 1, y, left + width - 1, y + SUGGESTION_HEIGHT, 0xFF303050);
+			context.drawItem(ItemCatalog.icon(candidate.icons()), left + 2, y + 2);
+			String detail = candidate.tag()
+					? (candidate.icons().isEmpty() ? "#" : Text.translatable("config.cobblecuisine.fullness.items", candidate.icons().size()).getString())
+					: candidate.value();
+			int detailWidth = textRenderer.getWidth(detail);
+			String name = textRenderer.trimToWidth(candidate.name(), Math.max(10, width - 26 - detailWidth - 8));
+			context.drawTextWithShadow(textRenderer, Text.literal(name).formatted(candidate.tag() ? Formatting.AQUA : Formatting.WHITE),
+					left + 22, y + 6, 0xFFFFFF);
+			context.drawTextWithShadow(textRenderer, Text.literal(detail).formatted(Formatting.GRAY),
+					left + width - detailWidth - 4, y + 6, 0xFFFFFF);
+		}
+		context.getMatrices().pop();
 	}
 
 	@Override
-	public boolean shouldPause() {
-		return false;
+	public boolean mouseClicked(double mouseX, double mouseY, int button) {
+		if (suggestionsVisible()) {
+			int left = searchRow.fieldX;
+			int top = searchRow.fieldY + 22;
+			if (mouseX >= left && mouseX < left + searchRow.fieldWidth
+					&& mouseY >= top && mouseY < top + suggestions.size() * SUGGESTION_HEIGHT) {
+				addEntry(suggestions.get((int) ((mouseY - top) / SUGGESTION_HEIGHT)).value());
+				return true;
+			}
+		}
+		return super.mouseClicked(mouseX, mouseY, button);
+	}
+
+	@Override
+	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+		if (searchRow != null && searchRow.field.isFocused()) {
+			if (keyCode == GLFW.GLFW_KEY_ENTER || keyCode == GLFW.GLFW_KEY_KP_ENTER) {
+				addEntry(suggestions.isEmpty() ? searchRow.field.getText() : suggestions.get(highlighted).value());
+				return true;
+			}
+			if (!suggestions.isEmpty() && keyCode == GLFW.GLFW_KEY_DOWN) {
+				highlighted = (highlighted + 1) % suggestions.size();
+				return true;
+			}
+			if (!suggestions.isEmpty() && keyCode == GLFW.GLFW_KEY_UP) {
+				highlighted = (highlighted + suggestions.size() - 1) % suggestions.size();
+				return true;
+			}
+		}
+		return super.keyPressed(keyCode, scanCode, modifiers);
 	}
 
 	private static class ConfigList extends ElementListWidget<Row> {
@@ -235,6 +492,7 @@ public class CobbleCuisineConfigScreen extends Screen {
 
 	private abstract static class Row extends ElementListWidget.Entry<Row> {
 		Mode mode = Mode.ALWAYS;
+		int tab;
 	}
 
 	private static class HeaderRow extends Row {
@@ -276,6 +534,7 @@ public class CobbleCuisineConfigScreen extends Screen {
 		ClickableWidget control;
 		final ButtonWidget help;
 		final ButtonWidget reset;
+		final String prefix;
 
 		ValueRow(Text label, Field field, Object container, Object defaultValue, TextRenderer textRenderer) {
 			this.label = label;
@@ -283,6 +542,8 @@ public class CobbleCuisineConfigScreen extends Screen {
 			this.container = container;
 			this.defaultValue = defaultValue;
 			this.textRenderer = textRenderer;
+			CobbleCuisineConfigData.EditorPrefix shownPrefix = field.getAnnotation(CobbleCuisineConfigData.EditorPrefix.class);
+			this.prefix = shownPrefix == null ? "" : shownPrefix.value();
 			this.help = ButtonWidget.builder(Text.literal("?"), button -> { })
 					.size(HELP_WIDTH, 20)
 					.build();
@@ -298,7 +559,7 @@ public class CobbleCuisineConfigScreen extends Screen {
 		void describe(Text description) {
 			help.setTooltip(Tooltip.of(Text.empty()
 					.append(description)
-					.append(Text.literal("\nDefault: " + defaultText()).formatted(Formatting.GRAY))));
+					.append(Text.literal("\nDefault: " + prefix + defaultText()).formatted(Formatting.GRAY))));
 		}
 
 		String defaultText() {
@@ -317,17 +578,26 @@ public class CobbleCuisineConfigScreen extends Screen {
 			int resetX = x + entryWidth - RESET_WIDTH;
 			int helpX = resetX - 4 - HELP_WIDTH;
 			int controlX = helpX - 4 - CONTROL_WIDTH;
-			int labelWidth = controlX - x - 4;
+			int labelWidth = controlX - x - 4 - prefixWidth();
 			Text shown = textRenderer.getWidth(label) > labelWidth
 					? Text.literal(textRenderer.trimToWidth(label.getString(), labelWidth - textRenderer.getWidth("…")) + "…")
 					: label;
 			context.drawTextWithShadow(textRenderer, shown, x, y + (entryHeight - 9) / 2, 0xFFFFFF);
 			help.setPosition(helpX, y + (entryHeight - 20) / 2);
 			help.render(context, mouseX, mouseY, tickDelta);
-			control.setPosition(controlX, y + (entryHeight - 20) / 2);
-			control.render(context, mouseX, mouseY, tickDelta);
+			if (!prefix.isEmpty()) context.drawTextWithShadow(textRenderer, prefix, controlX - prefixWidth(), y + (entryHeight - 9) / 2, 0xFFFFFF);
+			renderControl(context, controlX, y + (entryHeight - 20) / 2, mouseX, mouseY, tickDelta);
 			reset.setPosition(resetX, y + (entryHeight - 20) / 2);
 			reset.render(context, mouseX, mouseY, tickDelta);
+		}
+
+		int prefixWidth() {
+			return prefix.isEmpty() ? 0 : textRenderer.getWidth(prefix) + 4;
+		}
+
+		void renderControl(DrawContext context, int x, int y, int mouseX, int mouseY, float tickDelta) {
+			control.setPosition(x, y);
+			control.render(context, mouseX, mouseY, tickDelta);
 		}
 
 		@Override
@@ -569,6 +839,201 @@ public class CobbleCuisineConfigScreen extends Screen {
 		void resetToDefault() {
 			input.setText(shown(((Number) defaultValue).doubleValue()));
 			input.setEditableColor(0xFFFFFF);
+		}
+	}
+
+	private static final class ListEntry {
+		String value;
+
+		ListEntry(String value) {
+			this.value = value;
+		}
+	}
+
+	private static class ItemListRow extends ValueRow {
+		private final ButtonWidget includedButton;
+		private final ButtonWidget excludedButton;
+		private final Runnable onChanged;
+		private Boolean expanded;
+		final List<ListEntry> included = new ArrayList<>();
+		final List<ListEntry> excluded = new ArrayList<>();
+
+		ItemListRow(Text label, Field field, Object container, Object defaultValue, TextRenderer textRenderer,
+				BiConsumer<ItemListRow, Boolean> toggle, Runnable onChanged) throws IllegalAccessException {
+			super(label, field, container, defaultValue, textRenderer);
+			this.onChanged = onChanged;
+			CobbleCuisineConfigData.FullnessItems current = (CobbleCuisineConfigData.FullnessItems) field.get(container);
+			fill(included, current.included);
+			fill(excluded, current.excluded);
+			int half = (CONTROL_WIDTH - 2) / 2;
+			this.includedButton = ButtonWidget.builder(Text.empty(), widget -> toggle.accept(this, true))
+					.size(half, 20)
+					.build();
+			this.excludedButton = ButtonWidget.builder(Text.empty(), widget -> toggle.accept(this, false))
+					.size(CONTROL_WIDTH - 2 - half, 20)
+					.build();
+			updateMessage();
+			finish(includedButton);
+		}
+
+		private static void fill(List<ListEntry> target, List<String> values) {
+			target.clear();
+			for (String value : ItemCatalog.clean(values)) target.add(new ListEntry(value));
+		}
+
+		private static List<String> values(List<ListEntry> entries) {
+			return ItemCatalog.clean(entries.stream().map(entry -> entry.value).toList());
+		}
+
+		void setExpanded(Boolean included) {
+			expanded = included;
+			updateMessage();
+		}
+
+		void updateMessage() {
+			includedButton.setMessage(Text.translatable("config.cobblecuisine.fullness.included_count", included.size())
+					.append(Boolean.TRUE.equals(expanded) ? " ▴" : " ▾"));
+			excludedButton.setMessage(Text.translatable("config.cobblecuisine.fullness.excluded_count", excluded.size())
+					.append(Boolean.FALSE.equals(expanded) ? " ▴" : " ▾"));
+		}
+
+		@Override
+		void renderControl(DrawContext context, int x, int y, int mouseX, int mouseY, float tickDelta) {
+			includedButton.setPosition(x, y);
+			includedButton.render(context, mouseX, mouseY, tickDelta);
+			excludedButton.setPosition(x + includedButton.getWidth() + 2, y);
+			excludedButton.render(context, mouseX, mouseY, tickDelta);
+		}
+
+		@Override
+		public List<? extends Element> children() {
+			return List.of(includedButton, excludedButton, help, reset);
+		}
+
+		@Override
+		public List<? extends Selectable> selectableChildren() {
+			return List.of(includedButton, excludedButton, help, reset);
+		}
+
+		@Override
+		String defaultText() {
+			CobbleCuisineConfigData.FullnessItems defaults = (CobbleCuisineConfigData.FullnessItems) defaultValue;
+			return Text.translatable("config.cobblecuisine.fullness.count",
+					ItemCatalog.clean(defaults.included).size(), ItemCatalog.clean(defaults.excluded).size()).getString();
+		}
+
+		@Override
+		boolean apply() {
+			try {
+				CobbleCuisineConfigData.FullnessItems target = (CobbleCuisineConfigData.FullnessItems) field.get(container);
+				target.included = values(included);
+				target.excluded = values(excluded);
+				return true;
+			} catch (IllegalAccessException e) {
+				return false;
+			}
+		}
+
+		@Override
+		void resetToDefault() {
+			CobbleCuisineConfigData.FullnessItems defaults = (CobbleCuisineConfigData.FullnessItems) defaultValue;
+			fill(included, defaults.included);
+			fill(excluded, defaults.excluded);
+			updateMessage();
+			onChanged.run();
+		}
+	}
+
+	private class SearchRow extends Row {
+		final TextFieldWidget field;
+		boolean shown;
+		int fieldX;
+		int fieldY;
+		int fieldWidth;
+
+		SearchRow() {
+			this.field = new TextFieldWidget(textRenderer, 0, 0, 100, 20, Text.translatable("config.cobblecuisine.fullness.search"));
+			this.field.setMaxLength(256);
+			this.field.setPlaceholder(Text.translatable("config.cobblecuisine.fullness.search").formatted(Formatting.DARK_GRAY));
+			this.field.setChangedListener(text -> updateSuggestions());
+		}
+
+		@Override
+		public void render(DrawContext context, int index, int y, int x, int entryWidth, int entryHeight,
+				int mouseX, int mouseY, boolean hovered, float tickDelta) {
+			fieldX = x;
+			fieldY = y + (entryHeight - 20) / 2;
+			fieldWidth = entryWidth;
+			field.setPosition(fieldX, fieldY);
+			field.setWidth(fieldWidth);
+			field.render(context, mouseX, mouseY, tickDelta);
+			shown = true;
+		}
+
+		@Override
+		public List<? extends Element> children() {
+			return List.of(field);
+		}
+
+		@Override
+		public List<? extends Selectable> selectableChildren() {
+			return List.of(field);
+		}
+	}
+
+	private class EntryRow extends Row {
+		private final ListEntry entry;
+		private final TextFieldWidget input;
+		private final ButtonWidget remove;
+
+		EntryRow(ListEntry entry, List<ListEntry> owner) {
+			this.entry = entry;
+			this.input = new TextFieldWidget(textRenderer, 0, 0, 100, 20, Text.literal(entry.value));
+			this.input.setMaxLength(256);
+			this.input.setText(entry.value);
+			this.input.setCursorToStart(false);
+			this.input.setChangedListener(text -> entry.value = text);
+			this.remove = ButtonWidget.builder(Text.literal("✕"), button -> {
+						owner.remove(entry);
+						listChanged();
+					})
+					.size(20, 20)
+					.tooltip(Tooltip.of(Text.translatable("config.cobblecuisine.fullness.remove")))
+					.build();
+		}
+
+		@Override
+		public void render(DrawContext context, int index, int y, int x, int entryWidth, int entryHeight,
+				int mouseX, int mouseY, boolean hovered, float tickDelta) {
+			int top = y + (entryHeight - 20) / 2;
+			int left = x;
+			boolean known = catalog != null && catalog.known(entry.value);
+			context.drawItem(ItemCatalog.icon(catalog == null ? List.of() : catalog.icons(entry.value)), left + 2, top + 2);
+			int inputWidth = entryWidth - 22 - 14 - 24;
+			input.setPosition(left + 22, top);
+			input.setWidth(inputWidth);
+			input.setEditableColor(known ? 0xFFFFFF : 0xFF5555);
+			input.render(context, mouseX, mouseY, tickDelta);
+			Text mark = Text.literal(known ? "✔" : "✖").formatted(known ? Formatting.GREEN : Formatting.RED);
+			int gapLeft = left + 22 + inputWidth;
+			int gapWidth = (x + entryWidth - 20) - gapLeft;
+			int markX = gapLeft + (gapWidth - textRenderer.getWidth(mark)) / 2;
+			context.drawTextWithShadow(textRenderer, mark, markX, top + 6, 0xFFFFFF);
+			if (!known && mouseX >= gapLeft && mouseX < gapLeft + gapWidth && mouseY >= top && mouseY < top + 20) {
+				context.drawTooltip(textRenderer, Text.translatable("config.cobblecuisine.fullness.unknown"), mouseX, mouseY);
+			}
+			remove.setPosition(x + entryWidth - 20, top);
+			remove.render(context, mouseX, mouseY, tickDelta);
+		}
+
+		@Override
+		public List<? extends Element> children() {
+			return List.of(input, remove);
+		}
+
+		@Override
+		public List<? extends Selectable> selectableChildren() {
+			return List.of(input, remove);
 		}
 	}
 }

@@ -39,7 +39,7 @@ public class CobbleCuisineLootInjector {
 
 	private static void onLootTableModify(RegistryKey<LootTable> key, LootTable.Builder table, LootTableSource source, WrapperLookup registries) {
 		if (key.getValue().equals(GRASS_BLOCK)) {
-			addDrop(table, CobbleCuisineItems.BEAN_SEEDS, CobbleCuisineConfig.data.dropRates.beanSeedsDropRate, 1, 1);
+			addDrop(table, CobbleCuisineItems.BEAN_SEEDS, CobbleCuisineConfig.data.globalSettings.dropRates.beanSeedsDropRate, 1, 1);
 			return;
 		}
 
@@ -48,24 +48,24 @@ public class CobbleCuisineLootInjector {
 			if (LOOT_TABLES[i] != key) continue;
 
 			if (LOOT_TABLES[i] == LootTables.VILLAGE_DESERT_HOUSE_CHEST) {
-				addDrop(table, BeanType.RED.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
-				addDrop(table, BeanType.ORANGE.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
+				addDrop(table, BeanType.RED.item, CobbleCuisineConfig.data.globalSettings.dropRates.beanDropRate, 2, 5);
+				addDrop(table, BeanType.ORANGE.item, CobbleCuisineConfig.data.globalSettings.dropRates.beanDropRate, 2, 5);
 			}
 			if (LOOT_TABLES[i] == LootTables.VILLAGE_PLAINS_CHEST) {
-				addDrop(table, BeanType.GREEN.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
-				addDrop(table, BeanType.RED.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
+				addDrop(table, BeanType.GREEN.item, CobbleCuisineConfig.data.globalSettings.dropRates.beanDropRate, 2, 5);
+				addDrop(table, BeanType.RED.item, CobbleCuisineConfig.data.globalSettings.dropRates.beanDropRate, 2, 5);
 			}
 			if (LOOT_TABLES[i] == LootTables.VILLAGE_SAVANNA_HOUSE_CHEST) {
-				addDrop(table, BeanType.YELLOW.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
-				addDrop(table, BeanType.ORANGE.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
+				addDrop(table, BeanType.YELLOW.item, CobbleCuisineConfig.data.globalSettings.dropRates.beanDropRate, 2, 5);
+				addDrop(table, BeanType.ORANGE.item, CobbleCuisineConfig.data.globalSettings.dropRates.beanDropRate, 2, 5);
 			}
 			if (LOOT_TABLES[i] == LootTables.VILLAGE_TAIGA_HOUSE_CHEST) {
-				addDrop(table, BeanType.VIOLET.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
-				addDrop(table, BeanType.GREEN.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
+				addDrop(table, BeanType.VIOLET.item, CobbleCuisineConfig.data.globalSettings.dropRates.beanDropRate, 2, 5);
+				addDrop(table, BeanType.GREEN.item, CobbleCuisineConfig.data.globalSettings.dropRates.beanDropRate, 2, 5);
 			}
 			if (LOOT_TABLES[i] == LootTables.VILLAGE_SNOWY_HOUSE_CHEST) {
-				addDrop(table, BeanType.INDIGO.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
-				addDrop(table, BeanType.BLUE.item, CobbleCuisineConfig.data.dropRates.beanDropRate, 2, 5);
+				addDrop(table, BeanType.INDIGO.item, CobbleCuisineConfig.data.globalSettings.dropRates.beanDropRate, 2, 5);
+				addDrop(table, BeanType.BLUE.item, CobbleCuisineConfig.data.globalSettings.dropRates.beanDropRate, 2, 5);
 			}
 		}
 	}

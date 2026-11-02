@@ -637,8 +637,8 @@
   "config.cobblecuisine.effectduration.yieldboosteffectduration": "努力値ブースト効果時間",
   "config.cobblecuisine.effectduration.othereffectduration": "その他効果時間",
 
-  "config.cobblecuisine.droprates.beanseedsdroprate": "豆種ドロップ率",
-  "config.cobblecuisine.droprates.beandroprate": "まめドロップ率",
+  "config.cobblecuisine.globalsettings.droprates.beanseedsdroprate": "豆種ドロップ率",
+  "config.cobblecuisine.globalsettings.droprates.beandroprate": "まめドロップ率",
 
   "config.cobblecuisine.typemultipliers.bug.weightmultiplier": "むしタイプ重さ倍率",
   "config.cobblecuisine.typemultipliers.bug.nonweightmultiplier": "非むしタイプ重さ倍率",

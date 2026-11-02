@@ -636,8 +636,8 @@
   "config.cobblecuisine.effectduration.yieldboosteffectduration": "Duración Efecto Mejora EV",
   "config.cobblecuisine.effectduration.othereffectduration": "Duración Otros Efectos",
 
-  "config.cobblecuisine.droprates.beanseedsdroprate": "Probabilidad de Aparición Semillas de Frijol",
-  "config.cobblecuisine.droprates.beandroprate": "Probabilidad de Aparición Frijol",
+  "config.cobblecuisine.globalsettings.droprates.beanseedsdroprate": "Probabilidad de Aparición Semillas de Frijol",
+  "config.cobblecuisine.globalsettings.droprates.beandroprate": "Probabilidad de Aparición Frijol",
 
   "config.cobblecuisine.typemultipliers.bug.weightmultiplier": "Multiplicador de Peso Tipo Insecto",
   "config.cobblecuisine.typemultipliers.bug.nonweightmultiplier": "Multiplicador de Peso No-Insecto",

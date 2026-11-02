@@ -13,9 +13,8 @@ import com.cobblemon.mod.common.pokemon.Species;
 
 import com.fyre.cobblecuisine.CobbleCuisine;
 import com.fyre.cobblecuisine.config.CobbleCuisineConfig;
+import com.fyre.cobblecuisine.config.CobbleCuisineConfigData;
 import com.fyre.cobblecuisine.effect.CobbleCuisineEffects;
-
-import com.google.gson.JsonElement;
 
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffect;
@@ -99,23 +98,17 @@ public class CobbleCuisineUtils {
 
 	public static boolean fillsWhenFed(ItemStack stack) {
 		if (stack == null) return false;
-		List<JsonElement> entries = CobbleCuisineConfig.data.itemSettings.fullnessItems;
-		if (entries == null || entries.isEmpty()) return false;
+		CobbleCuisineConfigData.FullnessItems fullness = CobbleCuisineConfig.data.globalSettings.fullnessItems;
+		if (fullness == null || fullness.included == null || fullness.included.isEmpty()) return false;
 
-		for (JsonElement entry : entries) {
-			if (entry == null || !entry.isJsonObject()) continue;
-			JsonElement excluded = entry.getAsJsonObject().get("exclude");
-			if (excluded == null || !excluded.isJsonArray()) continue;
-			for (JsonElement item : excluded.getAsJsonArray()) {
-				if (item != null && item.isJsonPrimitive() && matchesItem(stack, item.getAsString())) {
-					return false;
-				}
+		if (fullness.excluded != null) {
+			for (String entry : fullness.excluded) {
+				if (matchesItem(stack, entry)) return false;
 			}
 		}
 
-		for (JsonElement entry : entries) {
-			if (entry == null || !entry.isJsonPrimitive()) continue;
-			if (matchesItem(stack, entry.getAsString())) return true;
+		for (String entry : fullness.included) {
+			if (matchesItem(stack, entry)) return true;
 		}
 		return false;
 	}

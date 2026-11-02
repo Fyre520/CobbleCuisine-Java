@@ -17,7 +17,7 @@ import java.util.Map;
 import static com.fyre.cobblecuisine.CobbleCuisine.LOGGER;
 
 public class CobbleCuisineConfig {
-	public final static int CONFIG_VERSION_INTERNAL = 13;
+	public final static int CONFIG_VERSION_INTERNAL = 15;
 	private static final String CATCH_RATE_MULTIPLIER = "catchRateMultiplier";
 
 	private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("cobblecuisine.json");
