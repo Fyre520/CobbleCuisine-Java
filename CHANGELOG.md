@@ -43,3 +43,8 @@
   seasoning.
 - On servers, tooltips show the server's settings.
 
+### Config
+- New tabbed config screen with sliders, toggles and a help tip on every setting.
+- Includes settings for Base/Seasoning values, Herds/Alphas, Multipliers, modifying Fullness increase for specific
+  foods, Poké Puffs and Malasadas, meal Durations and Drop Rates.
+
